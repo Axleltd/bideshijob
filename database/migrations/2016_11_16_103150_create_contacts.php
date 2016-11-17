@@ -13,15 +13,13 @@ class CreateContacts extends Migration
     public function up()
     {
         Schema::create('contacts', function (Blueprint $table) {            
-        $table->increments('id');
-        $table->string('name');
+        $table->increments('id');        
         $table->string('email');
         $table->string('address');
-        $table->string('website_link');
-        $table->string('latitude');
-        $table->string('longitude');
-        $table->integer('social_media_id')->unsigned();
-        $table->morphs('contactable');
+        $table->string('website_link')->nullable();
+        $table->string('latitude')->nullable();
+        $table->string('longitude')->nullable();
+        $table->integer('social_media_id')->unsigned();        
         $table->timestamps();
 
 

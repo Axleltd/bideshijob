@@ -14,8 +14,8 @@ class CreateAllSocialMedias extends Migration
     {
          Schema::create('all_social_medias', function (Blueprint $table) {            
             $table->increments('id');
-            $table->string('facebook');
-            $table->string('twitter');         
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();         
             $table->timestamps();   
          });
     }
