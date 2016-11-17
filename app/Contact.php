@@ -6,8 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Contact extends Model
 {
-
-    protected $morphClass="Contact";
     protected $table = 'contacts';
     protected $fillable = [        
         'name',        
@@ -19,8 +17,10 @@ class Contact extends Model
         'social_media_id',
     ];
 
-    public function contactable()
+     public function socialMedia()
     {
-        return $this->morphTo();
+        return $this->belongsTo('\App\SocialMedia');
     }
+
+ 
 }
