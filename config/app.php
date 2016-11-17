@@ -178,6 +178,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        Caffeinated\Shinobi\ShinobiServiceProvider::class, // For RBAC
+        Collective\Html\HtmlServiceProvider::class, // For Watchtower Forms to function
+        Smarch\Watchtower\WatchtowerServiceProvider::class, // For Watchtower
+
     ],
 
     /*
@@ -225,6 +229,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'Form'     => Collective\Html\FormFacade::class,  // required for Watchtower Forms
+        'HTML'     => Collective\Html\HtmlFacade::class,   // required for Watchtower Forms
+        'Shinobi'  => Caffeinated\Shinobi\Facades\Shinobi::class, // For RBAC functions
+        'Watchtower'=> Smarch\Watchtower\WatchtowerFacade::class, // not required, but available
 
     ],
 

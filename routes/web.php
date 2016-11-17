@@ -11,6 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['middlewareGroups' => ['web']], function () {
+	Auth::routes();
+	Route::resource('/',HomeController::class);
+
+	Route::get('/check_user',function(){
+		if (\Illuminate\Support\Facades\Auth::check()) {
+            if (\Caffeinated\Shinobi\Facades\Shinobi::is('admin')) {
+                return redirect()->to('dashboard');
+            } elseif (\Caffeinated\Shinobi\Facades\Shinobi::is('user')) {
+                return redirect()->to('user');
+            }
+        }
+
+        return redirect('/');
+	});			
+
+	Route::get('/logout','Auth\LoginController@logout');
+
+	Route::get('/company/create','Company\CompanyController@create');
+	Route::post('/company/create','Company\CompanyController@store');
+
+	
+
 });
