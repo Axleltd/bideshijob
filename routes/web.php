@@ -31,7 +31,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 	Route::get('/company/create','Company\CompanyController@create');
 	Route::post('/company/create','Company\CompanyController@store');
-
+	Route::resource('job',JobsController::class);
 	
 
 });
