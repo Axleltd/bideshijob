@@ -25,7 +25,7 @@ class CompanyController extends Controller
         $this->contact = new Contact;
     }
     public function index()
-    {
+    {                
         $company = $this->company->orderBy('created_at','DESC')->paginate(5);        
         return view('company.index',compact('company'));
     }
@@ -54,9 +54,9 @@ class CompanyController extends Controller
             'user_id' => Auth::user()->id,
             'contact_id' => $contact->id]);        
         if(!$company)
-            dd('unsucessful');
+            return redirect('company/create');
         else
-            dd('successful');
+            return redirect('company');
     }
 
     public function show($id)
@@ -67,7 +67,7 @@ class CompanyController extends Controller
 
     public function edit($id)
     {
-        $company = $this->company->where('id',$id)->get()->first();          
+        $company = $this->company->where(['id'=>$id,'user_id'=>Auth::user()->id])->get()->first();                                        
         return view('company.edit',compact('company'));
     }
 
