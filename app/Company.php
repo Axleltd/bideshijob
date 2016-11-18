@@ -15,13 +15,19 @@ class Company extends Model
     				'description',
     				'featured',
     				'contact_id',
+                    'id',
     				];
 
    	/**
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
-    public function contacts()
+    public function user()
     {      	
-        return $this->morphOne(\App\Contact::class, 'contactable');
+        return $this->belongsTo('\App\User');  
+    }
+
+    public function contact()
+    {
+        return $this->belongsTo('\App\Contact');
     }
 }

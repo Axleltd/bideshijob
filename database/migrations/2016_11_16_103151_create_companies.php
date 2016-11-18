@@ -16,9 +16,9 @@ class CreateCompanies extends Migration
         $table->increments('id');
         $table->integer('user_id')->unsigned();
         $table->string('name');
-        $table->string('logo');
+        $table->string('logo')->nullable();
         $table->string('description');        
-        $table->integer('featured')->unsigned();
+        $table->boolean('featured')->unsigned()->default(false);
         $table->integer('contact_id')->unsigned();
         
         $table->timestamps();   
