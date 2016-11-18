@@ -29,7 +29,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 	Route::get('/logout','Auth\LoginController@logout');
 
-	Route::resource('/company',Company\CompanyController::class);
+	Route::resource('company',Company\CompanyController::class);
 		
 	Route::resource('job',JobsController::class);
 	
