@@ -25,6 +25,7 @@ class JobsController extends Controller
     public function create()
     {
         //
+        return view('job.create');
     }
 
     /**
@@ -36,6 +37,12 @@ class JobsController extends Controller
     public function store(Request $request)
     {
         //
+         $job = Job::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'company_id' => $request->company_id,
+            'user_id' => Auth::user()->id,
+            ]);    	
     }
 
     /**
@@ -47,6 +54,9 @@ class JobsController extends Controller
     public function show($id)
     {
         //
+         return view('job.show')->with([
+            'job' => Job::findOrFail($id)
+            ]);
     }
 
     /**
