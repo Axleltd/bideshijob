@@ -7,6 +7,10 @@
 @section('content')
 	
 	@foreach($jobs as $job)
-		<p>Title {{$job->title}}</p>
+		<p>Title 
+			<a href="{{ url('job/'.$job->id)}}">
+				{{$job->title}}
+			</a>
+		</p>
 	@endforeach
 @stop
