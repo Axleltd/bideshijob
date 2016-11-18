@@ -14,19 +14,23 @@
                     
                     <div class="row">
                          <p class="float-left">
-                        <span>Address: </span>
-                        {{ $company->contact->address}}
+                        <span>Address: </span>                        
+                        @if($company->contacts)
+                            {{ $company->contacts->address}} 
+                        @endif                        
                         </p>                        
                     </div>
 
                 </div>
                 {{-- contact --}}
                                 
-                <p>{!! $company->description !!}</p>
+                <p>{{ $company->description }}</p>                                    
                 <p class="social">
-                    <a href="https:\\facebook.com\{{ $company->contact->socialMedia->facebook}}">
-                        <i class="fa fa-facebook"></i>
-                    </a>
+                    @if($company->contacts->socialMedia)
+                        <a href="https:\\facebook.com\{{ $company->contacts->socialMedia->facebook}}">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    @endif                    
                 </p>                  
             </div>
         </div>                

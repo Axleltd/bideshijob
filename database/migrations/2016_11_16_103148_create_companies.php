@@ -14,22 +14,19 @@ class CreateCompanies extends Migration
     {
         Schema::create('companies', function (Blueprint $table) {            
         $table->increments('id');
-        $table->integer('user_id')->unsigned();
+        $table->integer('user_id')->unsigned();        
         $table->string('name');
         $table->string('logo')->nullable();
-        $table->string('description');        
-        $table->boolean('featured')->unsigned()->default(false);
-        $table->integer('contact_id')->unsigned();
+        $table->string('description');     
+        $table->boolean('status')->default(false);     
+        $table->boolean('featured')->default(false);
         
-        $table->timestamps();   
+        $table->timestamps();
 
         $table->foreign('user_id')
                 ->references('id')->on('users')
-                ->onDelete('cascade');    
-        $table->foreign('contact_id')
-                ->references('id')->on('contacts')
                 ->onDelete('cascade'); 
-        });
+            });
     }
 
     /**

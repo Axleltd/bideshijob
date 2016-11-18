@@ -9,7 +9,8 @@ class SocialMedia extends Model
     protected $table = 'all_social_medias';
     protected $fillable = [        
         'facebook',
-        'twitter'
+        'twitter',
+        'contact_id'
     ];
 
 }
