@@ -25,8 +25,13 @@ class CompanyController extends Controller
         $this->contact = new Contact;
     }
     public function index()
+<<<<<<< HEAD
     {
         $company = $this->company->orderBy('created_at','DESC')->paginate(5);        
+=======
+    {                
+        $company = $this->company->where('status',1)->orderBy('created_at','DESC')->paginate(5);        
+>>>>>>> 3b6b3eb18f01f600b25c8477d22910061618cbb6
         return view('company.index',compact('company'));
     }
 
@@ -37,6 +42,7 @@ class CompanyController extends Controller
     public function store(PostCompanyRequest $request)
     {   
         $logo = $this->fileUpload($request);        
+<<<<<<< HEAD
         $media = $this->socialMedia->create([
             'facebook' => $request->facebook_link,
             'twitter' => $request->twitter_link
@@ -48,25 +54,51 @@ class CompanyController extends Controller
         'social_media_id'=>$media->id
         ]);
         $company = $this->company->create([
+=======
+        $company = $this->company->create([
+            'user_id'=>Auth::user()->id,
+>>>>>>> 3b6b3eb18f01f600b25c8477d22910061618cbb6
             'name' => $request->name,
             'description'=>$request->description,
-            'logo'=>$logo,
-            'user_id' => Auth::user()->id,
-            'contact_id' => $contact->id]);        
-        if(!$company)
-            dd('unsucessful');
+            'logo' => $logo]);
+        if($company)
+        {
+            $data=[
+                'email' => $request->email,
+                'address' => $request->address,
+                'website_link' => $request->website_link,
+                ];
+            $contact = $company->contacts()->create($data);            
+            if($contact)
+            {
+                $media = $this->socialMedia->create([
+                    'contact_id' => $contact->id,
+                    'facebook' => $request->facebook_link,
+                    'twitter' => $request->twitter_link]);
+                if($media)
+                    return redirect('company');
+            }
+        }
         else
-            dd('successful');
+            return redirect()->back()->withInput($request->toArray());
     }
 
     public function show($id)
     {
         $company = $this->company->where('id',$id)->get()->first();
+<<<<<<< HEAD
         return view('company.show',compact('company'));
+=======
+        if($company)
+            return view('company.show',compact('company'));
+        else
+            return abort('503');
+>>>>>>> 3b6b3eb18f01f600b25c8477d22910061618cbb6
     }
 
     public function edit($id)
     {
+<<<<<<< HEAD
         $company = $this->company->where('id',$id)->get()->first();          
         return view('company.edit',compact('company'));
     }
@@ -98,6 +130,41 @@ class CompanyController extends Controller
             return redirect('company/'.$id.'/edit/');
         else
             return redirect('company/'.$id);
+=======
+        $company = $this->company->where(['id'=>$id,'user_id'=>Auth::user()->id])->get()->first();  
+        if($company)
+            return view('company.edit',compact('company'));
+        else
+            return abort('503');
+    }
+
+    public function update(PutCompanyRequest $request,$id)
+    {        
+        $company = $this->company->where('id',$id)->update([            
+            'name' => $request->name,
+            'description'=>$request->description
+            ]);                    
+        if($company)
+        {
+            $data=[
+                'email' => $request->email,
+                'address' => $request->address,
+                'website_link' => $request->website_link,
+                ];                
+            $contact = $this->contact->where('contactable_id',$id)->get()->first();            
+            if($contact->update($data))
+            {
+                $media = $this->socialMedia->where('contact_id',$contact->id)->update([                    
+                    'facebook' => $request->facebook_link,
+                    'twitter' => $request->twitter_link]);                
+                if($media)
+                    return redirect('company');
+            }
+            dd('bhayena');
+        }
+        else
+            return redirect()->back()->withInput($request->toArray());
+>>>>>>> 3b6b3eb18f01f600b25c8477d22910061618cbb6
         
     }
 

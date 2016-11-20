@@ -30,4 +30,19 @@ class Company extends Model
     {
         return $this->belongsTo('\App\Contact');
     }
+
+    public function training()
+    {
+        return $this->hasMany('\App\Training');
+    }
+
+    public function trainingWithOrder()
+    {
+        return $this->hasMany('\App\Training')->orderBy('created_at','DESC');
+    }
+
+    public function contacts()
+    {
+        return $this->morphOne('\App\Contact', 'contactable');
+    }
 }
