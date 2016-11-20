@@ -14,10 +14,15 @@ class CreateAllSocialMedias extends Migration
     {
          Schema::create('all_social_medias', function (Blueprint $table) {            
             $table->increments('id');
+            $table->integer('contact_id')->unsigned();
             $table->string('facebook')->nullable();
             $table->string('twitter')->nullable();         
-            $table->timestamps();   
-         });
+            $table->timestamps();
+
+            $table->foreign('contact_id')
+                ->references('id')->on('contacts')
+                ->onDelete('cascade');
+        });   
     }
 
     /**

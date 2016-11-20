@@ -13,14 +13,17 @@ class Contact extends Model
         'email',                
         'website_link',
         'latitude',
-        'longitude',
-        'social_media_id',
+        'longitude',               
     ];
 
-     public function socialMedia()
+    public function contactable()
     {
-        return $this->belongsTo('\App\SocialMedia');
+        return $this->morphTo();
     }
 
+    public function socialMedia()
+    {
+        return $this->hasOne('\App\SocialMedia');
+    }
  
 }

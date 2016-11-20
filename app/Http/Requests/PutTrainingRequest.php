@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PutCompanyRequest extends FormRequest
+class PutTrainingRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,12 @@ class PutCompanyRequest extends FormRequest
      * @return array
      */
     public function rules()
-    {        
-        return [
-        'name' => 'required|max:255|min:2',
-        'description' => 'required|max:255|min:10',          
-        'email' => 'required|email',
-        'address' =>'required',                                
-            ];
+    {
+        return [            
+            'title' => 'required|max:255|min:2',
+            'categories' => 'required|max:255|min:10',          
+            'fees' => 'required',
+            'quantity' =>'required',           
+        ];
     }
 }

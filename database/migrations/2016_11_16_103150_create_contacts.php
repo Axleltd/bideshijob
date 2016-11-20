@@ -19,14 +19,11 @@ class CreateContacts extends Migration
         $table->string('website_link')->nullable();
         $table->string('latitude')->nullable();
         $table->string('longitude')->nullable();
-        $table->integer('social_media_id')->unsigned();        
+        $table->morphs('contactable');            
         $table->timestamps();
+    });
 
-
-        $table->foreign('social_media_id')
-                ->references('id')->on('all_social_medias')
-                ->onDelete('cascade');
-        });
+        
     }
 
     /**

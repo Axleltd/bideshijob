@@ -6,12 +6,12 @@
 		
 	</div>
 
-	<div class="company">
+	<div class="section">
 		<h3>Explore Our Latest Company</h3>
 		<div class="section-content" id="ajax-form">
             <ul class="archive-list">
 
-                @foreach ($company as $com)	
+                @foreach ($company as $com)	                
                     <li>
                         <div class="wrap">
                             <div class="img-wrap">
@@ -23,7 +23,11 @@
                                     <div class="star float-right"></div>
                                 </div>
                                 <div class="row">
-                                    <p class="address">{{ $com->contact->address }}</p>
+                                    <p class="address">
+                                        @if($com->contacts)
+                                            {{ $com->contacts->address }}
+                                        @endif
+                                    </p>
                                 </div>                              
                                 <div class="row">
                                     <p class="mb">{{ $com->description }}</p>                                            
