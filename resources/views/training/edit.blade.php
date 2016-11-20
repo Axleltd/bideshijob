@@ -7,3 +7,4 @@
 	{!! Form::close() !!}
 @stop
 
+git checkout master
