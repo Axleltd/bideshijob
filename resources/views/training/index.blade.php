@@ -29,7 +29,7 @@
                                     Quantity:<p class="mb">{{ $tr->quantity }}</p>                                            
                                 </div>
                                 <hr class="darker">
-                                <a href="{{ url('training/'.$tr->id)}}" class="button">More Info</a>
+                                <a href="{{ url('company/'.$tr->company_id.'/training/'.$tr->id)}}" class="button">More Info</a>
                             </div>
                         </div>
                     </li>
