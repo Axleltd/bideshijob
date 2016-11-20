@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('title')
-Homepage
+Contact-Us
 @stop
 
 @section('content') 
-	<h1>Frontent Page</h1>	
+	<h1>Contact Us</h1>	
 	{{--dd($company->toArray())--}}
 @stop
