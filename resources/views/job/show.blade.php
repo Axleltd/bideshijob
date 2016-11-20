@@ -6,6 +6,12 @@
 
 @section('content')
 		<p>
-			Title : Detail of job
+			Title : {{$job->title}}
+		</p>
+		<p>
+			Description : {{$job->description}}
+		</p>
+		<p>
+			User : {{$job->user_id}}
 		</p>
 @stop
