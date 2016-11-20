@@ -24,9 +24,9 @@ class TrainingController extends Controller
         $this->company = new Company;            
     }
     public function index($companyId)
-    {   $user = User::where('id',Auth::user()->id);
+    {   
         // $user->notify(new NotificationPost($user));
-        Notification::send(User::all(), new NotificationPost($user));        
+        // Notification::send(User::all(), new NotificationPost($user));        
     	$company = Company::where('id',$companyId)->get()->first();      	      		        
         return view('training.index')->with('training',$company->trainingWithOrder()->paginate(5));
     }

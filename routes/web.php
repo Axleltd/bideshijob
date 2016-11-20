@@ -15,6 +15,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Auth::routes();
 	Route::resource('/',HomeController::class);
 
+	Route::get('/aboutus','HomeController@aboutUs');
+	Route::get('/contactus','HomeController@contactUs');
+	Route::get('/faq','FAQController@index');
+
 	Route::get('/check_user',function(){
 		if (\Illuminate\Support\Facades\Auth::check()) {
             if (\Caffeinated\Shinobi\Facades\Shinobi::is('admin')) {
