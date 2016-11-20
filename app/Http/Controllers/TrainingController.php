@@ -18,47 +18,47 @@ class TrainingController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
         $this->training = new Training;              
     }
-    public function index()
+    public function index($id)
     {
-    	$company = Company::where('id',Auth::user()->id)->get()->first();      	      		        
+    	$company = Company::where('id',$id)->get()->first();      	      		        
         return view('training.index')->with('training',$company->trainingWithOrder()->paginate(5));
     }
 
-    public function create()
-    {
-    	return view('training.create');
+    public function create($id)
+    {   $company =Company::where('id',$id)->get()->first();
+    	return view('training.create',compact('company'));
     }
-    public function store(PostTrainingRequest $request)
-    {    	
-    	$company = Company::where('id',Auth::user()->id)->get()->first();    	
+    public function store(PostTrainingRequest $request,$id)
+    {    	        
+    	$company = Company::where('id',$id)->get()->first();    	
         $training = $this->training->create([
             'title' => $request->title,
             'categories'=>$request->categories,
             'fees'=>$request->fees,
             'quantity'=>$request->quantity,
-            'company_id' => $company->id,
+            'company_id' => $id,
             ]);                  
         if(!$training)
-            return redirect('training/create');
+            return redirect('company/'.$id.'/training/create');
         else
-            return redirect('training');
+            return redirect('company/'.$id.'/training');
     }
 
-    public function show($id)
-    {
-        $training = $this->training->where('id',$id)->get()->first();
+    public function show($companyId,$trainingId)
+    {        
+        $training = $this->training->where(['id'=>$trainingId,'company_id'=>$companyId])->get()->first();        
         return view('training.show',compact('training'));
     }
 
-    public function edit($id)
-    {
-        $training = $this->training->where('id',$id)->get()->first();          
+    public function edit($companyId,$trainingId)
+    {        
+        $training = $this->training->where(['id'=>$trainingId,'company_id'=>$companyId])->get()->first();          
         return view('training.edit',compact('training'));
     }
 
-    public function update(PutTrainingRequest $request,$id)
-    {          
-        $training = $this->training->where('id',$id)->update([
+    public function update(PutTrainingRequest $request,$trainingId,$companyId)
+    {                  
+        $training = $this->training->where(['id'=>$trainingId,'company_id'=>$companyId])->update([
             	'title' => $request->title,
 	            'categories'=>$request->categories,
 	            'fees'=>$request->fees,
@@ -66,9 +66,9 @@ class TrainingController extends Controller
             ]);        
 
         if(!$training)
-            return redirect('training/'.$id.'/edit/');
+            return redirect('company/'.$companyId.'/training/'.$trainingId.'/edit/');
         else
-            return redirect('training/'.$id);
+            return redirect('company/'.$companyId.'/training/'.$trainingId);
         
     }
 
