@@ -14,28 +14,16 @@
                     
                     <div class="row">
                          <p class="float-left">
-<<<<<<< HEAD
-                        <span>Address: </span>
-                        {{ $company->contact->address}}
-=======
                         <span>Address: </span>                        
                         @if($company->contacts)
                             {{ $company->contacts->address}} 
                         @endif                        
->>>>>>> 3b6b3eb18f01f600b25c8477d22910061618cbb6
                         </p>                        
                     </div>
 
                 </div>
                 {{-- contact --}}
                                 
-<<<<<<< HEAD
-                <p>{!! $company->description !!}</p>
-                <p class="social">
-                    <a href="https:\\facebook.com\{{ $company->contact->socialMedia->facebook}}">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-=======
                 <p>{{ $company->description }}</p>                                    
                 <p class="social">
                     @if($company->contacts->socialMedia)
@@ -43,7 +31,6 @@
                             <i class="fa fa-facebook"></i>
                         </a>
                     @endif                    
->>>>>>> 3b6b3eb18f01f600b25c8477d22910061618cbb6
                 </p>                  
             </div>
         </div>                
