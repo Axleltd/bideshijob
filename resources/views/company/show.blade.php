@@ -26,11 +26,14 @@
                                 
                 <p>{{ $company->description }}</p>                                    
                 <p class="social">
-                    @if($company->contacts->socialMedia)
+                    @if($company->contacts && $company->contacts->socialMedia)
                         <a href="https:\\facebook.com\{{ $company->contacts->socialMedia->facebook}}">
-                            <i class="fa fa-facebook"></i>
+                            Facebook
                         </a>
                     @endif                    
+                </p>
+                <p class="training">
+                    <a href="{{ url('company/'.$company->id.'/training')}}" class="button">Explore Our Training</a>
                 </p>                  
             </div>
         </div>                

@@ -33,7 +33,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 		
 	Route::resource('job',JobsController::class);
 
-	Route::resource('training',TrainingController::class);
+	Route::resource('company/{id}/training',TrainingController::class);
 	
 
 });
