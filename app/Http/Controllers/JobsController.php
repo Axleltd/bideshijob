@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Auth;
 use App\Job;
+use App\Company;
 use Illuminate\Http\Request;
 
 class JobsController extends Controller
@@ -45,7 +47,7 @@ class JobsController extends Controller
             'categories' => $request->categories,
             'about_job' => $request->about_job,
             'facilities' => $request->facilities,
-            'Duties'  => $request->Duties,
+            'duties'  => $request->duties,
             'salary'  => $request->salary,
             'cost' => $request->cost,
             'overtime'  => $request->overtime,
