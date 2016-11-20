@@ -6,5 +6,3 @@
 		<button type="submit" class="waves-effect waves-light btn">Continue</button>
 	{!! Form::close() !!}
 @stop
-
-git checkout master
