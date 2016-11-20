@@ -42,6 +42,18 @@ class JobsController extends Controller
             'description' => $request->description,
             'company_id' => $request->company_id,
             'user_id' => Auth::user()->id,
+            'categories' => $request->categories,
+            'about_job' => $request->about_job,
+            'facilities' => $request->facilities,
+            'Duties'  => $request->Duties,
+            'salary'  => $request->salary,
+            'cost' => $request->cost,
+            'overtime'  => $request->overtime,
+            'quantity' => $request->quantity,
+            'duty_hours' => $request->duty_hours,
+            'featured' => $request->featured,
+            'requirement' => $request->requirement,
+            'contact_id'  => $request->contact_id,
             ]);    	
     }
 
@@ -54,9 +66,9 @@ class JobsController extends Controller
     public function show($id)
     {
         //
-         return view('job.show')->with([
-            'job' => Job::findOrFail($id)
-            ]);
+        $job = Job::where('id',$id)->get()->first();
+         return view('job.show')->with(['job' => Job::findOrFail($id)
+        ]);
     }
 
     /**
@@ -68,6 +80,8 @@ class JobsController extends Controller
     public function edit($id)
     {
         //
+         $job = Job::where('id',$id)->get()->first();
+         return view('job.edit',compact('job'));
     }
 
     /**
