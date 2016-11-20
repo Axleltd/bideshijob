@@ -14,4 +14,9 @@ class Training extends Model
         'fees',
         'quantity',
     ];
+
+    public function company()
+    {      	
+        return $this->belongsTo('\App\Company');  
+    }
 }

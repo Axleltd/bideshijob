@@ -8,9 +8,12 @@ use App\Http\Requests\PostTrainingRequest;
 use App\Http\Requests\PutTrainingRequest;
 use App\Training;
 use App\Company;
+use App\User;
+use App\Notifications\NotificationPost;
+use Illuminate\Notifications\Notifiable;
 
 class TrainingController extends Controller
-{
+{    
     protected $training;
     protected $company;  
        
@@ -21,7 +24,9 @@ class TrainingController extends Controller
         $this->company = new Company;            
     }
     public function index($companyId)
-    {        
+    {   $user = User::where('id',Auth::user()->id);
+        // $user->notify(new NotificationPost($user));
+        Notification::send(User::all(), new NotificationPost($user));        
     	$company = Company::where('id',$companyId)->get()->first();      	      		        
         return view('training.index')->with('training',$company->trainingWithOrder()->paginate(5));
     }
@@ -46,9 +51,9 @@ class TrainingController extends Controller
             return redirect('company/'.$companyId.'/training');
     }
 
-    public function show($id)
+    public function show($companyId,$trainingId)
     {
-        $training = $this->training->where('id',$id)->get()->first();
+        $training = $this->training->where(['id'=>$trainingId,'company_id'=>$companyId])->get()->first();
         return view('training.show',compact('training'));
     }
 
