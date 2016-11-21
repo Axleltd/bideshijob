@@ -17,6 +17,9 @@ class AppServiceProvider extends ServiceProvider
          view()->composer('job._form',function(View $view){
             $view->with('activeCompanies', Company::get());
         });
+        view()->composer('job._form',function(View $view){
+            $view->with('activeFeatured', Company::get());
+        });
     }
 
     /**

@@ -17,7 +17,7 @@ class JobsController extends Controller
      */
     public function index()
     {
-        $jobs = Job::all();
+        $jobs = Job::with('company','contact')->get();
         return view('job.index',compact('jobs'));
     }
 
@@ -69,8 +69,9 @@ class JobsController extends Controller
     public function show($id)
     {
         //
-        $job = Job::where('id',$id)->get()->first();
-         return view('job.show')->with(['job' => Job::findOrFail($id)
+        $job = Job::with('company','contact')->findOrFail($id);
+         return view('job.show')->with([
+            'job' => $job
         ]);
     }
 
@@ -83,7 +84,7 @@ class JobsController extends Controller
     public function edit($id)
     {
         //
-         $job = Job::where('id',$id)->get()->first();
+         $job = Job::findOrFail($id);
          return view('job.edit',compact('job'));
     }
 

@@ -27,7 +27,7 @@ class Job extends Model
 
 	public function contact()
 	{
-		return $this->morphToMany(Contact::class, 'contactable');
+	return $this->morphOne(Contact::class,'contactable');
 	}
 	public function user()
 	{

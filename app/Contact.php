@@ -23,7 +23,7 @@ class Contact extends Model
 
     public function socialMedia()
     {
-        return $this->hasOne('\App\SocialMedia');
+        return $this->hasOne('\App\SocialMedia','contact_id');
     }
  
 }

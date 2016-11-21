@@ -2,7 +2,8 @@
 	<div class="row">
 		<div class="col s12 m6">
 			{!! Form::label('title','Job Title:') !!}	
-			{!! Form::text('title',old('title')) !!}	
+			{!! Form::text('title',old('title')) !!}
+			@ferr	
 		</div>
 
 		<div class="input-field col s12 m6">
