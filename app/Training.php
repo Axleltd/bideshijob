@@ -13,6 +13,9 @@ class Training extends Model
         'categories',
         'fees',
         'quantity',
+        'description',
+        'from',
+        'to'
     ];
 
     public function company()

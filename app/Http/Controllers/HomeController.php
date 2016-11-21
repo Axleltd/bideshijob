@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $company = Company::all();
+        $company = Company::where('status',1)->orderBy('created_at','DESC')->get();
         return view('frontend.index', compact('company'));
     }
 

@@ -41,8 +41,11 @@ class TrainingController extends Controller
             $training = $this->training->create([
             'title' => $request->title,
             'categories'=>$request->categories,
+            'description'=>$request->training_description,
             'fees'=>$request->fees,
-            'quantity'=>$request->quantity,
+            'from'=>$request->from,
+            'to'=>$request->to,
+            'quantity'=>$request->quantity,            
             'company_id' => $companyId,
             ]);                  
         if(!$training)
@@ -68,8 +71,11 @@ class TrainingController extends Controller
         $training = $this->training->where(['id'=>$trainingId,'company_id'=>$companyId])->update([
             	'title' => $request->title,
 	            'categories'=>$request->categories,
+                'description'=>$request->training_description,
 	            'fees'=>$request->fees,
 	            'quantity'=>$request->quantity,
+                'from'=>$request->from,
+                'to'=>$request->to,
             ]);        
 
         if(!$training)
