@@ -19,7 +19,7 @@
 			Company : <a href="{{ url('company',$job->company->id)}}">{{$job->company->name}}</a>
 		</p>
 		@endif
-
+		<h4>Contact Information</h4>
 		@if($job->contact !==null && $job->contact->count() > 0)
 			<div class="row">
 				<p>Address:  {{$job->contact->address}}</p>
