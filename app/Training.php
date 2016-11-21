@@ -21,5 +21,5 @@ class Training extends Model
     public function company()
     {      	
         return $this->belongsTo('\App\Company');  
-    }
+    }    
 }
