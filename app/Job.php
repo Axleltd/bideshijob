@@ -15,7 +15,7 @@ class Job extends Model
 			'about_job',
 			'description',
 			'facilities',
-			'Duties',
+			'duties',
 			'salary',
 			'cost',
 			'overtime',
@@ -23,12 +23,11 @@ class Job extends Model
 			'duty_hours',
 			'featured',
 			'requirement',
-			'contact_id',
 		];
 
 	public function contact()
 	{
-		return $this->hasOne(Contact::class, "contact_id");
+		return $this->morphToMany(Contact::class, 'contactable');
 	}
 	public function user()
 	{

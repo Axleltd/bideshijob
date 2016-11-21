@@ -12,6 +12,9 @@
 			Description : {{$job->description}}
 		</p>
 		<p>
-			User : {{$job->user_id}}
+			User : {{$job->user->name}}
+		</p>
+		<p>
+			Company : <a href="{{ url('company',$job->company->id)}}">{{$job->company->name}}</a>
 		</p>
 @stop

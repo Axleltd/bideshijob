@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 
 class JobsController extends Controller
 {
+    protected $job;
+    protected $company;  
     /**
      * Display a listing of the resource.
      *
@@ -55,7 +57,6 @@ class JobsController extends Controller
             'duty_hours' => $request->duty_hours,
             'featured' => $request->featured,
             'requirement' => $request->requirement,
-            'contact_id'  => $request->contact_id,
             ]);    	
     }
 
@@ -95,7 +96,29 @@ class JobsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $job= Job::findOrFail($id);
+        $update = $job->update([            
+             'title' => $request->title,
+            'description' => $request->description,
+            'company_id' => $request->company_id,
+            'user_id' => Auth::user()->id,
+            'categories' => $request->categories,
+            'about_job' => $request->about_job,
+            'facilities' => $request->facilities,
+            'duties'  => $request->duties,
+            'salary'  => $request->salary,
+            'cost' => $request->cost,
+            'overtime'  => $request->overtime,
+            'quantity' => $request->quantity,
+            'duty_hours' => $request->duty_hours,
+            'featured' => $request->featured,
+            'requirement' => $request->requirement,
+            
+            ]); 
+        if($update)
+        {
+            return redirect()->to('/job');
+        }
     }
 
     /**
@@ -106,6 +129,11 @@ class JobsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $job = Job::findOrFail($id);
+        if($job->delete())
+        {
+            return redirect()->back();
+        }
+        return redirect()->back();
     }
 }

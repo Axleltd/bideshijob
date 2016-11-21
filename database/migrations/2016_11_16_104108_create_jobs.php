@@ -29,18 +29,9 @@ class CreateJobs extends Migration
         $table->integer('duty_hours')->unsigned();
         $table->boolean('featured')->unsigned();
         $table->text('requirement');
-        $table->integer('contact_id')->unsigned();
         $table->timestamps();        
 
-        $table->foreign('user_id')
-                ->references('id')->on('users')
-                ->onDelete('cascade');
-        $table->foreign('company_id')
-                ->references('id')->on('companies')
-                ->onDelete('cascade');
-        $table->foreign('contact_id')
-                ->references('id')->on('contacts')
-                ->onDelete('cascade');
+          
         });       
     }
 
