@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Company;
 use App\Contact;
+use App\User;
 use App\SocialMedia;
+use App\Notifications\NotificationPost;
 use Auth;
 use App\Http\Requests\PostCompanyRequest;
 use App\Http\Requests\PutCompanyRequest;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Notifications\DatabaseNotification;
 
 class CompanyController extends Controller
 {    
@@ -25,10 +28,16 @@ class CompanyController extends Controller
         $this->contact = new Contact;
     }
     public function index()
-     {   
-     //$company = $this->company->with('contacts')->where('name','LIKE','%%')
+     {  
+     $comp = Company::first();
+     // $company = $this->company->with('contacts')->where('name','LIKE','%%');
     //                 orWhere('description','LIKE','a')->get();        
     //     dd($company->toArray());   
+     //$users = 
+     // Auth::user()->notify(new NotificationPost);
+     // DatabaseNotification::where('id',DatabaseNotification::first()->id)->first()->markAsRead;
+     // $users->notify(new NotificationPost($comp));
+     // dd(Auth::user()->unreadNotifications->first()->data['company']);
         $company = $this->company->where('status',1)->orderBy('created_at','DESC')->paginate(5);        
         return view('company.index',compact('company'));
     }
@@ -123,11 +132,13 @@ class CompanyController extends Controller
     public function fileUpload(PostCompanyRequest $request)
     {
         $files=Input::file('logo');        
-        $destinationPath = 'image'; // upload path
-        $fileName = $files->getClientOriginalName();
-        $fileExtension = '.'.$files->getClientOriginalExtension();
-        $newName = md5($fileName.microtime()).$fileExtension;
-        $files->move($destinationPath, $newName);    
-        return $newName;
+        // $destinationPath = 'image'; // upload path
+        // $fileName = $files->getClientOriginalName();
+        // $fileExtension = '.'.$files->getClientOriginalExtension();
+        // $newName = md5($fileName.microtime()).$fileExtension;
+        // $files->move($destinationPath, $newName);    
+
+        // return $newName;
+        return $files->store('image');
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
+use App\Company;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -11,16 +12,20 @@ class NotificationPost extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    protected $notify;
+    // protected $notify;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($notify)
+    // public function __construct(Company $notify)
+    // {
+    //     $this->notify = $notify;
+    // }
+    public function __construct()
     {
-        $this->notify = $notify;
+        
     }
 
     /**
@@ -31,7 +36,7 @@ class NotificationPost extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return $notifiable->prefers_sms ? ['sms'] : ['mail', 'database'];
+        return ['database'];
     }
 
     /**
@@ -43,24 +48,16 @@ class NotificationPost extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('New Notification')
+                    ->subject('Bideshi Kaam Email')
                     ->line('The introduction to the notification.')
-                    ->action('Notification Action', 'https://laravel.com')
+                    ->action('Notification Action', 'https://www.bideshikaam.com')
                     ->line('Thank you for using our application!');
-    }
+    }   
 
-      public function toNexmo($notifiable)
+    public function toArray()
     {
-        return (new NexmoMessage)
-            ->from(123456789)
-            ->content('New post on Laravel News!');
-    }
+        return [
+        'training'=>'Training created'];
+    } 
 
-        public function toDatabase($notifiable)
-    {
-        return new DatabaseMessage([
-            'message' => 'A new post was published on Laravel News.',
-            'action' => url($this->notify->slug)
-        ]);
-    }
 }
