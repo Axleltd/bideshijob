@@ -6,5 +6,7 @@ Homepage
 
 @section('content') 
 	<h1>Frontent Page</h1>	
-	{{dd($company->toArray())}}
+	@foreach($company as $com)
+		{{dd($com->description)}}
+	@endforeach
 @stop
