@@ -25,7 +25,10 @@ class CompanyController extends Controller
         $this->contact = new Contact;
     }
     public function index()
-    {                
+     {   
+     //$company = $this->company->with('contacts')->where('name','LIKE','%%')
+    //                 orWhere('description','LIKE','a')->get();        
+    //     dd($company->toArray());   
         $company = $this->company->where('status',1)->orderBy('created_at','DESC')->paginate(5);        
         return view('company.index',compact('company'));
     }
@@ -44,12 +47,12 @@ class CompanyController extends Controller
             'logo' => $logo]);
         if($company)
         {
-            $data=[
-                'email' => $request->email,
-                'address' => $request->address,
-                'website_link' => $request->website_link,
-                ];
-            $contact = $company->contacts()->create($data);            
+     
+            $contact = $company->contacts()->create([
+                    'email' => $request->email,
+                    'address' => $request->address,
+                    'website_link' => $request->website_link
+                    ]);            
             if($contact)
             {
                 $media = $this->socialMedia->create([
@@ -102,9 +105,9 @@ class CompanyController extends Controller
                     'facebook' => $request->facebook_link,
                     'twitter' => $request->twitter_link]);                
                 if($media)
-                    return redirect('company');
+                    return redirect('company/'.$id);
             }
-            dd('bhayena');
+            return redirect('company/'.$id);            
         }
         else
             return redirect()->back()->withInput($request->toArray());
