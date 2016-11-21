@@ -6,5 +6,5 @@ Homepage
 
 @section('content') 
 	<h1>Frontent Page</h1>	
-	{{--dd($company->toArray())--}}
+	{{dd($company->toArray())}}
 @stop
