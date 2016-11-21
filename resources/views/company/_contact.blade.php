@@ -2,15 +2,15 @@
 	<div class="row">
 		<div class="col s12 m6">
 			{!! Form::label('email','Company Email:') !!}	
-			{!! Form::text('email',(isset($company->contacts->email)? $company->contacts->email:null)) !!}			
+			{!! Form::text('email',(isset($company->contacts->email)? $company->contacts->email:old('email'))) !!}			
 		</div>	
 		<div class="col s12 m6">
 			{!! Form::label('address','Company Address:') !!}	
-			{!! Form::text('address',(isset($company->contacts->address)? $company->contacts->address:null)) !!}
+			{!! Form::text('address',(isset($company->contacts->address)? $company->contacts->address:old('address'))) !!}
 		</div>
 		<div class="col s12 m6">
 			{!! Form::label('website_link','Company Website:') !!}	
-			{!! Form::text('website_link',(isset($company->contacts->website_link)? $company->contacts->website_link:null)) !!}	
+			{!! Form::text('website_link',(isset($company->contacts->website_link)? $company->contacts->website_link:old('website_link'))) !!}	
 		</div>
 		<div class="col s12 m6">
 			{!! Form::label('facebook_link','Company Facebook:') !!}	

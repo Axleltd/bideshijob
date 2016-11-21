@@ -7,20 +7,12 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-     <title>{{ config('app.name', 'Bideshi') }} | @yield('title') </title>
+    <title>{{ config('app.name', 'Bideshi') }} | @yield('title') </title>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/materialize.css')}}">
-    <script src="{{asset('js/jquery-3.1.0.js')}}"></script>
-    <script src="{{asset('js/materialize.js')}}"></script>
-
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
-    <!-- Scripts -->
-    <script>
-        window.Laravel = <?php echo json_encode([
-            'csrfToken' => csrf_token(),
-        ]); ?>
-    </script>
+    
 </head>
 <body>
     <div id="app">
@@ -86,9 +78,24 @@
             @yield('content')
         </div>
     </div>
+    <script src="{{asset('js/jquery-3.1.0.js')}}"></script>
+    <script src="{{asset('js/materialize.js')}}"></script>
+
 
     <!-- Scripts -->
-    <script src="/js/app.js"></script>
+    <script>
+        window.Laravel = <?php echo json_encode([
+            'csrfToken' => csrf_token(),
+        ]); ?>
+
+    </script>
+    <!-- Scripts -->
+    
+    <script>
+        $(document).ready(function() {
+            $('select').material_select();
+          });
+    </script>
 </body>
 </html>
 

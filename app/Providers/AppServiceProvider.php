@@ -3,7 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-
+use Illuminate\View\View;
+use App\Company;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +14,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+         view()->composer('job._form',function(View $view){
+            $view->with('activeCompanies', Company::get());
+        });
+        view()->composer('job._form',function(View $view){
+            $view->with('activeFeatured', Company::get());
+        });
     }
 
     /**

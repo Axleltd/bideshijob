@@ -2,11 +2,14 @@
 	<div class="row">
 		<div class="col s12 m6">
 			{!! Form::label('title','Job Title:') !!}	
-			{!! Form::text('title',old('title')) !!}	
+			{!! Form::text('title',old('title')) !!}
+			@ferr	
 		</div>
-		<div class="col s12 m6">
-			{!! Form::label('company_id','Company ID :') !!}	
-			{!! Form::number('company_id',old('company_id')) !!}	
+
+		<div class="input-field col s12 m6">
+			{!! Form::select('company_id',$activeCompanies->pluck('name','id'),old('company_id'),['placeholder' =>'Select a company']) !!}	
+			{!! Form::label('company_id','Company :') !!}	
+			
 		</div>
 		<div class="col s12 m6">
 			{!! Form::label('description','Description:') !!}
