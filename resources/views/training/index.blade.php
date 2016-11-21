@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title')
+    Training
+@stop
 @section('content')
 	
 	<div class="search">

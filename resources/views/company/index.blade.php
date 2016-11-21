@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Company
+@stop
 @section('content')
 	
 	<div class="search">

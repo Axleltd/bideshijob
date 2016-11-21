@@ -27,7 +27,7 @@ class TrainingController extends Controller
     {   
         // $user->notify(new NotificationPost($user));
         // Notification::send(User::all(), new NotificationPost($user));        
-    	$company = Company::where('id',$companyId)->get()->first();      	      		        
+    	$company = $this->company->where('id',$companyId)->get()->first();      	      		        
         return view('training.index')->with('training',$company->trainingWithOrder()->paginate(5));
     }
 

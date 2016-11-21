@@ -39,6 +39,8 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{url('/jobs')}}">Jobs</a></li>
+                        <li><a href="{{url('/training')}}">Trainings</a></li>
                         <li><a href="{{url('/contactus')}}">Contact Us</a></li>
                         <li><a href="{{url('/aboutus')}}">About Us</a></li>
                         <li><a href="{{url('/faq')}}">FAQ</a></li>

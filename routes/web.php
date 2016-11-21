@@ -17,7 +17,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 	Route::get('/aboutus','HomeController@aboutUs');
 	Route::get('/contactus','HomeController@contactUs');
-	Route::get('/faq','FAQController@index');
+	Route::get('/faq','FAQController@index');	
 
 	Route::get('/check_user',function(){
 		if (\Illuminate\Support\Facades\Auth::check()) {
