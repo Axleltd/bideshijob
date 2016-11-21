@@ -3,7 +3,7 @@
 		<div class="col s12 m6">
 			{!! Form::label('title','Job Title:') !!}	
 			{!! Form::text('title',old('title')) !!}
-			@ferr	
+				
 		</div>
 
 		<div class="input-field col s12 m6">
@@ -56,15 +56,10 @@
 			{!! Form::number('featured',old('featured')) !!}	
 		</div>
 		<div class="col s12 m6">
-			{!! Form::label('contact_id','contact id :') !!}	
-			{!! Form::number('contact_id',old('contact_id')) !!}	
-		</div> 
-		<div class="col s12 m6">
 			{!! Form::label('requirement','requirements :') !!}	
 			{!! Form::textarea('requirement',old('requirement')) !!}	
 		</div>             
 	</div>
-
 </div>
 
 
