@@ -16,7 +16,10 @@ class CreateTrainings extends Migration
             $table->increments('id');        
             $table->integer('company_id')->unsigned();        
             $table->string('title');
+            $table->text('description');
             $table->string('categories');            
+            $table->date('from');            
+            $table->date('to');
             $table->float('fees');
             $table->integer('quantity')->unsigned()->default(0);
             $table->boolean('featured')->unsigned()->default(false);        
