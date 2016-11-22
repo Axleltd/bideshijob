@@ -10,78 +10,90 @@
     <title>{{ config('app.name', 'Bideshi') }} | @yield('title') </title>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/materialize.css')}}">
-    <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('stylesheets/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('stylesheets/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{asset('stylesheets/slick.css')}}">
+    <link rel="stylesheet" href="{{asset('stylesheets/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('stylesheets/screen.css')}}">
     
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>                        
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Bideshi Kaam') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="{{url('/jobs')}}">Jobs</a></li>
-                        <li><a href="{{url('/training')}}">Trainings</a></li>
-                        <li><a href="{{url('/contactus')}}">Contact Us</a></li>
-                        <li><a href="{{url('/aboutus')}}">About Us</a></li>
-                        <li><a href="{{url('/faq')}}">FAQ</a></li>
-                        <!-- Authentication Links -->               
-                        @if (Auth::guest())                                                        
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
-                        @else
-                            @if(Shinobi::isRole('admin'))
-                                    <li><a href="/dashboard">Dashboard</a></li>
-                            @endif
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
-                    </ul>
-                </div>
+        
+        <header class="header">
+          <div class="logo-div">
+            <a href="/"><img src="{{asset('images/logo.png')}}" alt=""></a>
+            <div class="nav-toggle">
+              <i class="ti-menu"></i>
             </div>
-        </nav>
+          </div>
+          <ul class="top-nav">
+            <li><a href="login">login</a></li>
+            <li><a href="register">register</a></li>
+            {{-- <li><a href="login">login</a></li> --}}
+          </ul>
+          <ul class="nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="jobs">Jobs</a></li>
+            <li><a href="training">Training</a></li>
+            <li><a href="company">Agencies</a></li>
+            <li><a href="faq">FAQ</a></li>
+            <li><a href="contact">Contact Us</a></li>
+          </ul>
+        </header>
         <div class="container">
             
             @yield('content')
         </div>
+        <footer class="footer">
+          <div class="row">
+            <div class="s12 m4 col">
+              <h5>Contact Us</h5>
+              <ul class="contacts">
+                <li>
+                  <i class="ti-map"></i>
+                  <p>city address</p>
+                  <p>Country</p>
+                </li>
+                <li>
+                  <i class="ti-envelope"></i>
+                  <a href="mailto:info@bideshikaam.com">info@bideshikaam.com</a>
+                </li>
+                <li>
+                  <i class="ti-phone"></i>
+                  <a href="tel:984651325">984651325</a>
+                  <a href="tel:984651325">984651325</a>
+                </li>
+              </ul>
+            </div>
+            <div class="s12 m4 col">
+              <h5>Help & support</h5>
+              <li><a href="faq">FAQ</a></li>
+              <li><a href="faq">FAQ</a></li>
+              <li><a href="faq">FAQ</a></li>
+              <li><a href="faq">FAQ</a></li>
+            </div>
+            <div class="s12 m4 col">
+              <h5>Follow Us</h5>
+              <ul>
+                <li><a href="#"><i class="ti-facebook"></i></a></li>
+                <li><a href="#"><i class="ti-facebook"></i></a></li>
+                <li><a href="#"><i class="ti-facebook"></i></a></li>
+                <li><a href="#"><i class="ti-facebook"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <p class="cp">&copy; All rights reserved </p>
+        </footer>
     </div>
     <script src="{{asset('js/jquery-3.1.0.js')}}"></script>
     <script src="{{asset('js/materialize.js')}}"></script>
+    <script src="{{asset('js/pace.js')}}"></script>
+    <script src="{{asset('js/slick.js')}}"></script>
+    <script src="{{asset('js/particles.js')}}"></script>
+    <script src="{{asset('js/wow.min.js')}}"></script>
+    <script src="{{asset('js/custom.js')}}"></script>
 
 
     <!-- Scripts -->

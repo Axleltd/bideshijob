@@ -79,8 +79,9 @@
 ///////////		Utility Classes 	///////////
 
 div.container, section.container {
-	width: $container-width;
-	margin: 25px auto;
+	width: $full-width;
+	max-width: $full-width;
+	margin: 0;
 }
 section.wide {
 	width: $full-width;
