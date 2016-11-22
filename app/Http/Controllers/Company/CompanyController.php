@@ -48,7 +48,7 @@ class CompanyController extends Controller
     }
     public function store(PostCompanyRequest $request)
     {   
-        $logo = $this->fileUpload($request);        
+        $logo = $this->fileUpload($request,null);        
         $company = $this->company->create([
             'user_id'=>Auth::user()->id,
             'name' => $request->name,
@@ -95,11 +95,19 @@ class CompanyController extends Controller
     }
 
     public function update(PutCompanyRequest $request,$id)
-    {        
-        $company = $this->company->where('id',$id)->update([            
+    {
+        $company = $this->company->where('id',$id)->first();
+        $logoName = $company->logo;
+        
+        if($request->logo)
+            $logoName = $this->fileUpload($request,$logoName);            
+                
+        $company = $company->update([            
             'name' => $request->name,
-            'description'=>$request->description
-            ]);                    
+            'description'=>$request->description,
+            'logo' => $logoName
+            ]);                                            
+        
         if($company)
         {
             $data=[
@@ -129,16 +137,17 @@ class CompanyController extends Controller
 
     }
 
-    public function fileUpload(PostCompanyRequest $request)
+    public function fileUpload(Request $request,$logoName)
     {
         $files=Input::file('logo');        
-        // $destinationPath = 'image'; // upload path
-        // $fileName = $files->getClientOriginalName();
-        // $fileExtension = '.'.$files->getClientOriginalExtension();
-        // $newName = md5($fileName.microtime()).$fileExtension;
-        // $files->move($destinationPath, $newName);    
+        $destinationPath = 'image'; // upload path
+        $fileName = $files->getClientOriginalName();
+        $fileExtension = '.'.$files->getClientOriginalExtension();
+        if(!$logoName)        
+            $logoName = md5($fileName.microtime()).$fileExtension;
+        $files->move($destinationPath, $logoName);    
 
-        // return $newName;
-        return $files->store('image');
+        return $logoName;
+        // return $files->store('image');
     }
 }
