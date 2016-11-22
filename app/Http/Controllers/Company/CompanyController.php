@@ -29,15 +29,7 @@ class CompanyController extends Controller
     }
     public function index()
      {  
-     $comp = Company::first();
-     // $company = $this->company->with('contacts')->where('name','LIKE','%%');
-    //                 orWhere('description','LIKE','a')->get();        
-    //     dd($company->toArray());   
-     //$users = 
-     // Auth::user()->notify(new NotificationPost);
-     // DatabaseNotification::where('id',DatabaseNotification::first()->id)->first()->markAsRead;
-     // $users->notify(new NotificationPost($comp));
-     // dd(Auth::user()->unreadNotifications->first()->data['company']);
+          
         $company = $this->company->where('status',1)->orderBy('created_at','DESC')->paginate(5);        
         return view('company.index',compact('company'));
     }
@@ -60,6 +52,9 @@ class CompanyController extends Controller
             $contact = $company->contacts()->create([
                     'email' => $request->email,
                     'address' => $request->address,
+                    'country' => $request->country,
+                    'latitude'=>$request->latitude,
+                    'longitude'=>$request->longitude,
                     'website_link' => $request->website_link
                     ]);            
             if($contact)
@@ -67,10 +62,11 @@ class CompanyController extends Controller
                 $media = $this->socialMedia->create([
                     'contact_id' => $contact->id,
                     'facebook' => $request->facebook_link,
-                    'twitter' => $request->twitter_link]);
-                if($media)
-                    return redirect('company');
+                    'twitter' => $request->twitter_link]);                
+             
             }
+            Auth::user()->notify(new NotificationPost('company '.$company->name.' is created.'));
+            return redirect('company');
         }
         else
             return redirect()->back()->withInput($request->toArray());
@@ -113,17 +109,19 @@ class CompanyController extends Controller
             $data=[
                 'email' => $request->email,
                 'address' => $request->address,
+                'country' => $request->country,
                 'website_link' => $request->website_link,
+                'latitude'=>$request->latitude,
+                'longitude'=>$request->longitude,
                 ];                
             $contact = $this->contact->where('contactable_id',$id)->get()->first();            
             if($contact->update($data))
             {
                 $media = $this->socialMedia->where('contact_id',$contact->id)->update([                    
                     'facebook' => $request->facebook_link,
-                    'twitter' => $request->twitter_link]);                
-                if($media)
-                    return redirect('company/'.$id);
+                    'twitter' => $request->twitter_link]);                                
             }
+            Auth::user()->notify(new NotificationPost('Company '.$request->name.' is updated.'));
             return redirect('company/'.$id);            
         }
         else

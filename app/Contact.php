@@ -13,7 +13,8 @@ class Contact extends Model
         'email',                
         'website_link',
         'latitude',
-        'longitude',               
+        'longitude',  
+        'country'             
     ];
 
     public function contactable()
