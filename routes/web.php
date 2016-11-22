@@ -1,5 +1,5 @@
 <?php
-
+use Smarch\Watchtower\Controllers\RoleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +33,9 @@ Route::group(['middlewareGroups' => ['web']], function () {
         }
 
         return redirect('/');
-	});			
+	});	
+
+
 
 	Route::get('/logout','Auth\LoginController@logout');
 
@@ -55,4 +57,6 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/company/active/{id}','admin\CompanyController@active');
 	Route::get('/company/suspend/{id}','admin\CompanyController@suspend');
 	Route::get('company/delete/{id}','admin\CompanyController@destroy');
+
+	Route::resource('/role',RoleController::class);
 });

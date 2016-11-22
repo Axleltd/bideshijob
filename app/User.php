@@ -33,4 +33,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('\App\Company');
     }
+    // public function routeNotificationForSlack()
+    // {
+    //     return "https://hooks.slack.com/services/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";
+    // }
+    
+    // public function routeNotificationForMail()
+    // {
+    //     return $this->email_address;
+    // }
 }

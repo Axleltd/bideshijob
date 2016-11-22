@@ -93,6 +93,9 @@ $style = [
                                                     Hello!
                                                 @endif
                                             @endif
+                                            @if(!empty($level))
+                                                <img src="{{asset('image/'.$level)}}" alt="" width="300" height="300">
+                                            @endif
                                         </h1>
 
                                         <!-- Intro -->

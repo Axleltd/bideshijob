@@ -31,7 +31,7 @@ class CompanyController extends Controller
     		return redirect()->back();
     	}
     	Session::flash('success', 'Company is successfully activated');
-    	Auth::user()->notify(new BusinessNotification('Congratulation Your Company '.$company->name.' is approved'));
+    	Auth::user()->notify(new BusinessNotification('Congratulation Your Company '.$company->name.' is approved',$company));
     	return redirect('/dashboard/company');
 
     }
@@ -47,7 +47,7 @@ class CompanyController extends Controller
     		
     	}
     	Session::flash('success', 'Company is successfully suspended');
-    	Auth::user()->notify(new BusinessNotification('Sorry Your Company '.$company->name.' is Suspended'));
+    	Auth::user()->notify(new BusinessNotification('Sorry Your Company '.$company->name.' is Suspended',$company));
     	return redirect('/dashboard/company');    		
     }
 
@@ -62,7 +62,7 @@ class CompanyController extends Controller
     		
     	}
     	Session::flash('success', 'Company is successfully deleted');
-    	Auth::user()->notify(new BusinessNotification('Your Company '.$company->name.' is deleted'));
+    	Auth::user()->notify(new BusinessNotification('Your Company '.$company->name.' is deleted',$company));
     	return redirect('dashboard/company');
     }
 }

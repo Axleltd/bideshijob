@@ -18,7 +18,7 @@ class SearchController extends Controller
 	        $query->where('address', 'like', '%'.$request->address.'%');
 	    })
 	    ->orderBy('created_at','DESC')
-	    ->paginate(20);
+	    ->paginate(5);
 
 	    if($company)
 	    {
@@ -33,11 +33,11 @@ class SearchController extends Controller
 	    ->whereHas('company', function ($query) use ($request) {
 	        $query->where('status',1)
 	        		->whereHas('contacts', function ($query) use ($request) {
-			        $query->where('address', 'like', '%'.$request->address.'%');
+			        $query->where('address', 'LIKE', '%'.$request->address.'%');
 			    });
 	    })
 	    ->orderBy('created_at','DESC')
-	    ->paginate(20);
+	    ->paginate(5);
 
 	    if($training)
 	    {
