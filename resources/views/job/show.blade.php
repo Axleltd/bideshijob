@@ -16,7 +16,7 @@
 		</p>
 		@if($job->company !==null && $job->company->count() > 0)
 		<p>
-			Company : <a href="{{ url('company',$job->company->id)}}">{{$job->company->name}}</a>
+			Company : <a href="{{ url('company',$job->company->id)}}">{{$job->company->name}}</a>  
 		</p>
 		@endif
 		<h4>Contact Information</h4>

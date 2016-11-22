@@ -5,7 +5,7 @@
 <h3>Edit Job Details</h3>
 
 	 {!! Form::model($job,[
-        'action' => ['\App\Http\Controllers\JobsController@update',$job->id],
+        'action' => ['\App\Http\Controllers\JobsController@update',$id,$job->id],
         'method'=>'put','files' => true]) !!}
 		@include('job._form')
 		<button type="submit" class="waves-effect waves-light btn">Continue</button>

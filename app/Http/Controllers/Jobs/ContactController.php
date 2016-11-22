@@ -28,24 +28,7 @@ class ContactController extends Controller
         }])->findOrFail($slug);
 
         return view('contact.index',compact('job','slug','id'));
-        #####VIEW MA JANEY#############
-        if($job->contact !==null && $job->contact->count() > 0)
-        {
-            echo "Address: ". $job->contact->address.'<br>';
-            echo "Website: ". $job->contact->website_link.'<br>';
-            echo "Email: ". $job->contact->email.'<br>';
-            if($job->contact->socialMedia !==null && $job->contact->socialMedia->count() > 0)
-            {    
-                echo "Facebook: ". $job->contact->socialMedia->facebook.'<br>';
-                echo "Twitter: ". $job->contact->socialMedia->twitter.'<br>';
-            }
-            echo "<a href='".url('job/'.$job->id.'/contact/'.$job->contact->id.'/edit')."'> Click Here to Edit".'</a>';
-        }else{
 
-        echo "No result found create a new one";
-        echo "<a href='".url('job/'.$job->id.'/contact/create')."'> Click Here to Create".'</a>';
-        }
-        #####VIEW MA JANEY#############
     }
 
     public function store(Request $request, $slug)
