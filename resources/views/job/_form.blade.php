@@ -6,11 +6,6 @@
 				
 		</div>
 
-		<div class="input-field col s12 m6">
-			{!! Form::select('company_id',$activeCompanies->pluck('name','id'),old('company_id'),['placeholder' =>'Select a company']) !!}	
-			{!! Form::label('company_id','Company :') !!}	
-			
-		</div>
 		<div class="col s12 m6">
 			{!! Form::label('description','Description:') !!}
 			{!! Form::textarea('description',old('description')) !!}
@@ -52,8 +47,12 @@
 			{!! Form::number('duty_hours',old('duty_hours')) !!}	
 		</div> 
 		<div class="col s12 m6">
-			{!! Form::label('featured','featured :') !!}	
-			{!! Form::number('featured',old('featured')) !!}	
+			Featured :
+			{!! Form::label('featured','Yes :') !!}	
+			{!! Form::radio('featured', '1') !!}
+			
+			{!! Form::label('featured','No :') !!}	
+			{!! Form::radio('featured', '0') !!}
 		</div>
 		<div class="col s12 m6">
 			{!! Form::label('requirement','requirements :') !!}	

@@ -14,7 +14,7 @@ class Company extends Model
     				'user_id',
     				'description',
     				'featured',    				
-                    'id',
+                    'id',                    
     				];
 
    	/**
@@ -30,6 +30,10 @@ class Company extends Model
     public function training()
     {
         return $this->hasMany('\App\Training');
+    }
+    public function job()
+    {
+        return $this->hasMany('\App\Job');
     }
 
     public function trainingWithOrder()

@@ -15,10 +15,19 @@ class JobsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __construct()
     {
-        $jobs = Job::with('company','contact')->get();
-        return view('job.index',compact('jobs'));
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->job = new Job;  
+        $this->company = new Company;            
+    }
+
+    public function index($companyId)
+    {
+        $company = $this->company->with('job')->findOrFail($companyId);
+        return view('job.index',compact('company'))->with([
+            'jobs' => $company->job
+            ]);
     }
 
     /**
@@ -26,10 +35,13 @@ class JobsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($companyId)
     {
         //
-        return view('job.create');
+        $company = $this->company->findOrFail($companyId);
+        return view('job.create')->with([
+            'id' => $companyId
+            ]);
     }
 
     /**
@@ -38,13 +50,14 @@ class JobsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $companyId)
     {
         //
-         $job = Job::create([
+         $job = $this->company->with('job')->findOrFail($company->id)->job()
+         ->create([
             'title' => $request->title,
             'description' => $request->description,
-            'company_id' => $request->company_id,
+            'company_id' => $companyId,
             'user_id' => Auth::user()->id,
             'categories' => $request->categories,
             'about_job' => $request->about_job,
@@ -57,7 +70,13 @@ class JobsController extends Controller
             'duty_hours' => $request->duty_hours,
             'featured' => $request->featured,
             'requirement' => $request->requirement,
-            ]);    	
+            ]);
+
+            if($job)
+            {
+                return redirect('company/'.$companyId.'/job');
+            }
+            return redirect()->back()->withInput($request->toArray());
     }
 
     /**
@@ -66,10 +85,10 @@ class JobsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($companyId,$id)
     {
         //
-        $job = Job::with('company','contact')->findOrFail($id);
+        $job = $this->job->with('company','contact')->findOrFail($id);
          return view('job.show')->with([
             'job' => $job
         ]);
@@ -81,11 +100,17 @@ class JobsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($companyId,$id)
     {
         //
-         $job = Job::findOrFail($id);
-         return view('job.edit',compact('job'));
+         $company = $this->company->with(['job' => function($query) use ($id){
+                        return $query->findOrFail($id);
+                    }])->findOrFail($companyId);
+
+         return view('job.edit')->with([
+            'job' => $company->job,
+            'id' => $companyId,
+            ]);
     }
 
     /**
@@ -95,13 +120,14 @@ class JobsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$companyId, $id)
     {
-        $job= Job::findOrFail($id);
+        $this->company->findOrFail($companyId);
+        $job= $this->job->findOrFail($id);
         $update = $job->update([            
              'title' => $request->title,
             'description' => $request->description,
-            'company_id' => $request->company_id,
+            'company_id' => $companyId,
             'user_id' => Auth::user()->id,
             'categories' => $request->categories,
             'about_job' => $request->about_job,
@@ -118,8 +144,9 @@ class JobsController extends Controller
             ]); 
         if($update)
         {
-            return redirect()->to('/job');
+            return redirect()->to('company/'.$companyId.'/job/'.$id);
         }
+        return redirect()->back()->withInput($request->toArray());
     }
 
     /**
@@ -128,9 +155,10 @@ class JobsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($companyId,$id)
     {
-        $job = Job::findOrFail($id);
+        $this->company->findOrFail($companyId);
+        $job = $this->job->findOrFail($id);
         if($job->delete())
         {
             return redirect()->back();
