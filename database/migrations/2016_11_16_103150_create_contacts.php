@@ -16,11 +16,16 @@ class CreateContacts extends Migration
             $table->increments('id');        
             $table->string('email');
             $table->string('address');
+            $table->string('country');
             $table->string('website_link')->nullable();
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->morphs('contactable');            
             $table->timestamps();
+
+            $table->foreign('contactable_id')
+                ->references('id')->on('companies')
+                ->onDelete('cascade');
         });
 
         

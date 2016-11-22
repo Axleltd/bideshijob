@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Company;
+use App\Training;
+
 
 class HomeController extends Controller
 {
+    protected $company;
     /**
      * Create a new controller instance.
      *
@@ -14,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-              
+              $this->company = new Company;
     }
 
     /**
@@ -23,9 +26,11 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $company = Company::all();
-        return view('frontend.index', compact('company'));
+    {        
+        $training = Training::orderBy('created_at','DESC')->get();
+           
+        return view('frontend.index')->with([
+            'training'=>$training]);
     }
 
     public function aboutUs()

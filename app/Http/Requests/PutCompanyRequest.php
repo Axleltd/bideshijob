@@ -28,6 +28,7 @@ class PutCompanyRequest extends FormRequest
         'description' => 'required|max:255|min:10',          
         'email' => 'required|email',
         'address' =>'required',                                
+        'logo' =>'mimes:jpg,png,jpeg',                                
             ];
     }
 }

@@ -27,7 +27,10 @@ class PutTrainingRequest extends FormRequest
             'title' => 'required|max:255|min:2',
             'categories' => 'required|max:255|min:10',          
             'fees' => 'required',
-            'quantity' =>'required',           
+            'quantity' =>'required', 
+            'training_description' =>'required|max:255|min:10',            
+            'from' =>'required',            
+            'to' =>'required',                      
         ];
     }
 }

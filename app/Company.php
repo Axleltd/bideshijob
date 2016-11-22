@@ -13,8 +13,7 @@ class Company extends Model
     				'logo', 
     				'user_id',
     				'description',
-    				'featured',
-    				'contact_id',
+    				'featured',    				
                     'id',
     				];
 
@@ -25,6 +24,8 @@ class Company extends Model
     {      	
         return $this->belongsTo('\App\User');  
     }
+
+    
 
     public function training()
     {

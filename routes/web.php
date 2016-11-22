@@ -38,7 +38,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::resource('job/{slug}/contact',Jobs\ContactController::class);
 	Route::resource('company/{id}/training',TrainingController::class);
 
+});
 
-	
+Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::class], 'prefix' => 'dashboard', 'before' => 'auth'], function () {
+
+	Route::get('/','admin\DashBoardController@index');
 
 });
