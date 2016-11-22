@@ -6,6 +6,8 @@ use App\Job;
 use App\Company;
 use Illuminate\Http\Request;
 
+use App\Http\Requests\PostJobRequest;
+
 class JobsController extends Controller
 {
     protected $job;
@@ -50,10 +52,10 @@ class JobsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $companyId)
+    public function store(PostJobRequest $request, $companyId)
     {
         //
-         $job = $this->company->with('job')->findOrFail($company->id)->job()
+         $job = $this->company->with('job')->findOrFail($companyId)->job()
          ->create([
             'title' => $request->title,
             'description' => $request->description,
@@ -120,7 +122,7 @@ class JobsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$companyId, $id)
+    public function update(PostJobRequest $request,$companyId, $id)
     {
         $this->company->findOrFail($companyId);
         $job= $this->job->findOrFail($id);

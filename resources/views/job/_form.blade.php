@@ -3,6 +3,16 @@
 		<div class="col s12 m6">
 			{!! Form::label('title','Job Title:') !!}	
 			{!! Form::text('title',old('title')) !!}
+			@if(count($errors->get('title')) > 0)
+			        <div class="error">
+			            <ul>
+
+			                @foreach($errors->get('title') as $error)
+			                    <li>{{ $error  }}</li>
+			                @endforeach
+			            </ul>
+			        </div>
+			@endif
 				
 		</div>
 
@@ -60,6 +70,3 @@
 		</div>             
 	</div>
 </div>
-
-
-
