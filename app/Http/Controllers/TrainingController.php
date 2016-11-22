@@ -50,7 +50,7 @@ class TrainingController extends Controller
         if(!$training)
             return redirect('company/'.$companyId.'/training/create');
 
-        Auth::user()->notify(new NotificationPost($company->name.' created training '$training->title));
+        Auth::user()->notify(new NotificationPost($company->name.' created training '.$training->title));
         return redirect('company/'.$companyId.'/training');
     }
 
@@ -81,7 +81,7 @@ class TrainingController extends Controller
         if(!$training)
             return redirect('company/'.$companyId.'/training/'.$trainingId.'/edit/');
 
-        Auth::user()->notify(new NotificationPost($company->name.' updated training '$training->title));
+        Auth::user()->notify(new NotificationPost($company->name.' updated training '.$training->title));
         return redirect('company/'.$companyId.'/training/'.$trainingId);
         
     }

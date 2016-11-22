@@ -6,7 +6,11 @@
 @section('content')
 	
 	<div class="search">
-		
+        {!! Form::open([
+                'action' => '\App\Http\Controllers\SearchController@trainingSearch']) !!}
+        @include('frontend._search')
+        <button type="submit"  class="btn">Search</button>
+        {!! Form::close() !!}		
 	</div>
 
 	<div class="section">
@@ -38,7 +42,7 @@
                     </li>
                 @endforeach
             </ul>
-            {{ $training->links() }}
+            {{-- $training->links() --}}
         </div>
 	</div>
 

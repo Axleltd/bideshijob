@@ -5,7 +5,11 @@
 @section('content')
 	
 	<div class="search">
-		
+        {!! Form::open([
+                'action' => '\App\Http\Controllers\SearchController@companySearch']) !!}
+		@include('company._search')
+        <button type="submit"  class="btn">Search</button>
+        {!! Form::close() !!}
 	</div>
 
 	<div class="section">
