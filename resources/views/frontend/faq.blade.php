@@ -7,4 +7,14 @@ FAQ
 @section('content') 
 	<h1>FAQ</h1>	
 	{{--dd($company->toArray())--}}
+	@foreach($faq as $faq)
+			<div class="col s12 m12">	
+				<p>Question:{{$faq->question}}</p>
+				<p>Answer: {{ $faq->answer }}</p>
+				<hr>
+				@if(Shinobi::isRole('admin'))
+				<p> <a href="faq/{{$faq->id}}/edit" class="btn">Edit</a></p>
+				@endif
+			</div>
+		@endforeach
 @stop
