@@ -11,6 +11,10 @@ FAQ
 			<div class="col s12 m12">	
 				<p>Question:{{$faq->question}}</p>
 				<p>Answer: {{ $faq->answer }}</p>
+				<hr>
+				@if(Shinobi::isRole('admin'))
+				<p> <a href="faq/{{$faq->id}}/edit" class="btn">Edit</a></p>
+				@endif
 			</div>
 		@endforeach
 @stop
