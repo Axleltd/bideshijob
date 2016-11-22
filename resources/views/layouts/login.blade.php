@@ -6,13 +6,21 @@
 	<script src="{{asset('js/materialize.js')}}"></script>
 </head>
 <body>
+
+	<div id="app">
+    
+    <header class="header">
+      <div class="logo-div">
+			<nav>
+			  <div class="nav-wrapper container">
+			      <a href="/"class=" center"><img src="{{asset('images/logo.png')}}" alt="" class="brand-logo" style="height:65px"></a>		    
+			  </div>
+			</nav>
+		</div>
+	</header>	
 	<div class="container">
-		<nav>
-		  <div class="nav-wrapper">
-		    <a href="" class="brand-logo">Logo</a>		    
-		  </div>
-		</nav>			
-		@yield('content')
+		@yield('content')	
+	</div>	
 		<div class="footer">
 			
 		</div>

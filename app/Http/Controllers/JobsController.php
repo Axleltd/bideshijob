@@ -5,7 +5,7 @@ use Auth;
 use App\Job;
 use App\Company;
 use Illuminate\Http\Request;
-
+use App\Notifications\JobFound;
 use App\Http\Requests\PostJobRequest;
 
 class JobsController extends Controller
@@ -73,7 +73,7 @@ class JobsController extends Controller
             'featured' => $request->featured,
             'requirement' => $request->requirement,
             ]);
-
+            Auth::user()->notify(new JobFound($this->job->findOrFail($job->id)));
             if($job)
             {
                 return redirect('company/'.$companyId.'/job');
