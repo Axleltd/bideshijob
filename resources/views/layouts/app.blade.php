@@ -50,7 +50,7 @@
             <li><a href="/contact">Contact Us</a></li>
           </ul>
         </header>
-        <div class="row">
+        <div class="page-wrap">
             
             @yield('content')
         </div>

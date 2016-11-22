@@ -11,4 +11,8 @@ class SiteController extends Controller
     	$jobs = Job::all();
     	return view('job.index',compact('jobs'));
     }
+    public function getAbout()
+    {
+    	return view('site.about');
+    }
 }

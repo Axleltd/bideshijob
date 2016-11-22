@@ -5,11 +5,34 @@
 @stop
 
 @section('content')
+@if(Request::url() == url('/jobs'))
+<nav>
+  <div class="nav-wrapper">
+      <div class="col s12">
+        <a href="/" class="breadcrumb">Home</a>
+        <a href="#!" class="breadcrumb">Jobs</a>
+        
+      </div>
+    </div>
+  </nav>
+@else
+
+<nav>
+	<div class="nav-wrapper">
+	      <div class="col s12">
+	        <a href="/" class="breadcrumb">Home</a>
+	        <a href="/company/{{$company->id}}" class="breadcrumb">Company</a>
+	        <a href="/company/{{$company->id}}/job" class="breadcrumb">Job</a>
+	        
+	      </div>
+	    </div>
+	  </nav>
+@endif
 	<div class="row">
 		<div class="col m12 s12">
 
 			@if(Request::url() == url('/jobs'))
-				<h3>All Job Information</h3>
+				<h3>All Job Information</h3>  
 			@else
 			<h3>Job Information of {{ $company->name}}</h3>
 			@endif
