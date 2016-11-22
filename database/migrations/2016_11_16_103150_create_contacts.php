@@ -21,6 +21,10 @@ class CreateContacts extends Migration
             $table->string('longitude')->nullable();
             $table->morphs('contactable');            
             $table->timestamps();
+
+            $table->foreign('contactable_id')
+                ->references('id')->on('companies')
+                ->onDelete('cascade');
         });
 
         
