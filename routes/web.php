@@ -38,6 +38,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('/logout','Auth\LoginController@logout');
 
 	Route::resource('faq',FAQController::class);
+	Route::get('jobs','SiteController@getJobs');
 
 	Route::resource('company',Company\CompanyController::class);
 	Route::resource('company/{id}/job',JobsController::class);
