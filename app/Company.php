@@ -31,6 +31,10 @@ class Company extends Model
     {
         return $this->hasMany('\App\Training');
     }
+    public function job()
+    {
+        return $this->hasMany('\App\Job');
+    }
 
     public function trainingWithOrder()
     {
