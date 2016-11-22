@@ -17,7 +17,11 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 	Route::get('/aboutus','HomeController@aboutUs');
 	Route::get('/contactus','HomeController@contactUs');
-	
+	Route::get('/faq','FAQController@index');	
+	Route::post('/search/company','SearchController@companySearch');	
+	Route::get('training','HomeController@training');
+	Route::post('/search/training','SearchController@trainingSearch');
+
 
 	Route::get('/check_user',function(){
 		if (\Illuminate\Support\Facades\Auth::check()) {
@@ -32,7 +36,9 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	});			
 
 	Route::get('/logout','Auth\LoginController@logout');
+
 	Route::resource('faq',FAQController::class);
+
 	Route::resource('company',Company\CompanyController::class);
 	Route::resource('company/{id}/job',JobsController::class);
 	Route::resource('company/{id}/job/{slug}/contact',Jobs\ContactController::class);

@@ -17,6 +17,12 @@ class Contact extends Model
         'country'             
     ];
 
+    protected $casts = [
+        'latitude' => 'float',
+        'longitude' => 'float'
+    ];
+    
+
     public function contactable()
     {
         return $this->morphTo();
@@ -25,6 +31,11 @@ class Contact extends Model
     public function socialMedia()
     {
         return $this->hasOne('\App\SocialMedia','contact_id');
+    }
+
+    public function company()
+    {
+        return $this->belongsTo('\App\Company');
     }
  
 }

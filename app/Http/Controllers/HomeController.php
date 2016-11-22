@@ -33,6 +33,12 @@ class HomeController extends Controller
             'training'=>$training]);
     }
 
+    public function training()
+    {
+        $training = Training::all();
+        return view('training.index',compact('training'));
+    }
+
     public function aboutUs()
     {
         return view('frontend.about_us');
