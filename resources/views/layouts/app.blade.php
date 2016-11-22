@@ -28,21 +28,29 @@
             </div>
           </div>
           <ul class="top-nav">
-            <li><a href="login">login</a></li>
-            <li><a href="register">register</a></li>
-            {{-- <li><a href="login">login</a></li> --}}
+            @if(Auth::check())
+              @if(Shinobi::isRole('admin'))
+                <li><a href="/dashboard">Dashboard</a></li>
+              @endif
+              <li><a href="/logout">logout</a></li>
+            @else
+              <li><a href="/login">login</a></li>
+              <li><a href="/register">register</a></li>
+
+            @endif
+            {{-- <li><a href="/login">login</a></li> --}}
           </ul>
           <ul class="nav">
             <li><a href="/">Home</a></li>
-            <li><a href="about">About</a></li>
-            <li><a href="jobs">Jobs</a></li>
-            <li><a href="training">Training</a></li>
-            <li><a href="company">Agencies</a></li>
-            <li><a href="faq">FAQ</a></li>
-            <li><a href="contact">Contact Us</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/jobs">Jobs</a></li>
+            <li><a href="/training">Training</a></li>
+            <li><a href="/company">Agencies</a></li>
+            <li><a href="/faq">FAQ</a></li>
+            <li><a href="/contact">Contact Us</a></li>
           </ul>
         </header>
-        <div class="container">
+        <div class="page-wrap">
             
             @yield('content')
         </div>
@@ -69,10 +77,10 @@
             </div>
             <div class="s12 m4 col">
               <h5>Help & support</h5>
-              <li><a href="faq">FAQ</a></li>
-              <li><a href="faq">FAQ</a></li>
-              <li><a href="faq">FAQ</a></li>
-              <li><a href="faq">FAQ</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/faq">FAQ</a></li>
             </div>
             <div class="s12 m4 col">
               <h5>Follow Us</h5>
