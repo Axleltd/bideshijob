@@ -20,6 +20,7 @@
 
                 @foreach ($training as $tr)	                
                     <li>
+                        <img src="{{asset('image/'.$tr->company->logo)}}" alt="" width="300" height="300">
                         <div class="wrap">                            
                             <div class="long-desc">
                                 <div class="row">

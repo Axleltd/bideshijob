@@ -27,7 +27,8 @@ class CreateTrainings extends Migration
             
             $table->foreign('company_id')
                     ->references('id')->on('companies')
-                    ->onDelete('cascade'); 
+                    ->onDelete('cascade');
+             
         });            
     }
 
