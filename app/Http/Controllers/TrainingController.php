@@ -24,9 +24,7 @@ class TrainingController extends Controller
         $this->company = new Company;            
     }
     public function index($companyId)
-    {   
-        // $user->notify(new NotificationPost($user));
-        // Notification::send(User::all(), new NotificationPost($user));        
+    {           
     	$company = $this->company->where('id',$companyId)->get()->first();      	      		        
         return view('training.index')->with('training',$company->trainingWithOrder()->paginate(5));
     }
@@ -38,6 +36,7 @@ class TrainingController extends Controller
     }
     public function store(PostTrainingRequest $request,$companyId)
     {    
+            $company = $this->company->where('id',$companyId)->first();
             $training = $this->training->create([
             'title' => $request->title,
             'categories'=>$request->categories,
@@ -50,8 +49,9 @@ class TrainingController extends Controller
             ]);                  
         if(!$training)
             return redirect('company/'.$companyId.'/training/create');
-        else
-            return redirect('company/'.$companyId.'/training');
+
+        Auth::user()->notify(new NotificationPost($company->name.' created training '$training->title));
+        return redirect('company/'.$companyId.'/training');
     }
 
     public function show($companyId,$trainingId)
@@ -80,8 +80,9 @@ class TrainingController extends Controller
 
         if(!$training)
             return redirect('company/'.$companyId.'/training/'.$trainingId.'/edit/');
-        else
-            return redirect('company/'.$companyId.'/training/'.$trainingId);
+
+        Auth::user()->notify(new NotificationPost($company->name.' updated training '$training->title));
+        return redirect('company/'.$companyId.'/training/'.$trainingId);
         
     }
 

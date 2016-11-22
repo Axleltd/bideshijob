@@ -14,7 +14,7 @@ class Company extends Model
     				'user_id',
     				'description',
     				'featured',    				
-                    'id',
+                    'id',                    
     				];
 
    	/**

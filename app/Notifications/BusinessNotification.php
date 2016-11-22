@@ -7,24 +7,18 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class NotificationPost extends Notification implements ShouldQueue
+class BusinessNotification extends Notification
 {
     use Queueable;
-
-    protected $message;
-
+    protected $msg;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    // public function __construct(Company $notify)
-    // {
-    //     $this->notify = $notify;
-    // }
-    public function __construct($message)
+    public function __construct($msg)
     {
-        $this->message = $message;
+        $this->msg = $msg;
     }
 
     /**
@@ -35,7 +29,7 @@ class NotificationPost extends Notification implements ShouldQueue
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['mail'];
     }
 
     /**
@@ -47,16 +41,22 @@ class NotificationPost extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->subject('Bideshi Kaam Email')
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', 'https://www.bideshikaam.com')
-                    ->line('Thank you for using our application!');
-    }   
+                    ->subject('Notify')
+                    ->line('Your Company Notification')
+                    ->action('Your Company', url('/company'))
+                    ->line($this->msg);
+    }
 
-    public function toArray()
+    /**
+     * Get the array representation of the notification.
+     *
+     * @param  mixed  $notifiable
+     * @return array
+     */
+    public function toArray($notifiable)
     {
         return [
-        'message'=>$this->message];
-    } 
-
+            //
+        ];
+    }
 }

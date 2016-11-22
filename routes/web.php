@@ -43,5 +43,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
 Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::class], 'prefix' => 'dashboard', 'before' => 'auth'], function () {
 
 	Route::get('/','admin\DashBoardController@index');
+	Route::get('/company','admin\CompanyController@index');
+	Route::get('/training','admin\TrainingController@index');
 
+	Route::get('/company/active/{id}','admin\CompanyController@active');
+	Route::get('/company/suspend/{id}','admin\CompanyController@suspend');
+	Route::get('company/delete/{id}','admin\CompanyController@destroy');
 });
