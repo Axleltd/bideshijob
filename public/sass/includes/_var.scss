@@ -3,9 +3,10 @@
 
 $container-width: 86%;
 
+$side-gutter: 7%;
+
 $wrap-width: 70%;
 
-$li-space: 15px;
 
 
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300);
@@ -13,11 +14,11 @@ $li-space: 15px;
 
 	//background//
 
-$primary-color: #194b25;
+$primary-color: #7f8ed1;
 
-$secondary-color: #1b9edc;
+$secondary-color: #4160fc;
 
-$alternate-color: #9eca8f;
+$alternate-color: #44549b;
 
 $header-bg: #f7f7f7;
 
@@ -28,7 +29,7 @@ $bottom-footer-bg: #133c1e;
 
 
 	//Font-colors//
-$title-color: #333333;
+$title-color: #5a5a5a;
 
 $subtitle-color: #666;
 
@@ -58,36 +59,9 @@ $small: 12px;
 
 
 
-	//fonts-family//
-@font-face {
-  font-family: 'NexaLight';
-  src: url('../fonts/NexaLight.eot');
-  src: url('../fonts/NexaLight.woff2') format('woff2'),
-       url('../fonts/NexaLight.woff') format('woff'),
-       url('../fonts/NexaLight.ttf') format('truetype'),
-       url('../fonts/NexaLight.svg#NexaLight') format('svg'),
-       url('../fonts/NexaLight.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'NexaBold';
-  src: url('../fonts/NexaBold.eot');
-  src: url('../fonts/NexaBold.woff2') format('woff2'),
-       url('../fonts/NexaBold.woff') format('woff'),
-       url('../fonts/NexaBold.ttf') format('truetype'),
-       url('../fonts/NexaBold.svg#NexaBold') format('svg'),
-       url('../fonts/NexaBold.eot?#iefix') format('embedded-opentype');
-  font-weight: normal;
-  font-style: normal;
-}
 
 
 $title-font: 'roboto slab', sans-serif;
-
-$subtitle-font: 'NexaLight', sans-serif;
-
-$nav-font: 'Lato', sans-serif;
 
 $p-font: 'Open Sans', sans-serif;
 

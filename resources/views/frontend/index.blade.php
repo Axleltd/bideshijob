@@ -4,16 +4,17 @@
 Homepage
 @stop
 
-@section('content') 
-	<h1>Frontent Page</h1>
-			
-	<div class="training">		
-		@foreach($training as $tr)			
-			<h3>{{$tr->title}}</h3>
-			<h4>Location:{{$tr->company->contacts->address}}</h4>
-			<h4>Duration:{{($tr->to)-($tr->from)}}</h4>
-			<p>{{$tr->description}}</p>
-			
-		@endforeach
-	</div>
+@section('content')
+
+<div class="page-wrap">
+  <section class="banner">
+    <div class="bg-div">
+      <div class="particle-div"></div>
+    </div>
+    <div class="content-div">
+      
+    </div>
+  </section>
+</div>
+
 @stop
