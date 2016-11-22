@@ -27,7 +27,8 @@ class PostCompanyRequest extends FormRequest
             'name' => 'required|max:255|min:2',
             'description' => 'required|max:255|min:10',          
             'email' => 'required|email',
-            'address' =>'required|min:5',  
+            'address' =>'required',  
+            'country' =>'required',  
             'logo' => 'required|mimes:jpg,png,jpeg',                    
         ];
     }

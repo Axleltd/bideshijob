@@ -17,7 +17,7 @@
                     <li>
                         <div class="wrap">
                             <div class="img-wrap">
-                               <img src="{{asset('storage/app/image/abfef141390370c56dbb036a95a5f281.jpeg')}}" alt="" width="300" height="300">
+                               <img src="{{asset('image/'.$com->logo)}}" alt="" width="300" height="300">
                             </div>
                             <div class="long-desc">
                                 <div class="row">
