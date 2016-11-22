@@ -1,0 +1,131 @@
+////////// Theme Vars //////////
+	//Spacing//
+
+$container-width: 86%;
+
+$wrap-width: 70%;
+
+$li-space: 15px;
+
+
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300);
+
+
+	//background//
+
+$primary-color: #194b25;
+
+$secondary-color: #1b9edc;
+
+$alternate-color: #9eca8f;
+
+$header-bg: #f7f7f7;
+
+$footer-bg: #194b25;
+
+$bottom-footer-bg: #133c1e;
+
+
+
+	//Font-colors//
+$title-color: #333333;
+
+$subtitle-color: #666;
+
+$body-color: #999;
+
+$nav-color: #000;
+
+$nav-h-color: #66ccff;
+
+	//Font-size//
+$h1: 72px;
+
+$h2: 26px;
+
+$h3: 24px;
+
+$h4: 18px;
+
+$h5: 16px;
+
+$flow: 20px;
+
+$nav: 14px;
+
+$small: 12px;
+
+
+
+
+	//fonts-family//
+@font-face {
+  font-family: 'NexaLight';
+  src: url('../fonts/NexaLight.eot');
+  src: url('../fonts/NexaLight.woff2') format('woff2'),
+       url('../fonts/NexaLight.woff') format('woff'),
+       url('../fonts/NexaLight.ttf') format('truetype'),
+       url('../fonts/NexaLight.svg#NexaLight') format('svg'),
+       url('../fonts/NexaLight.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NexaBold';
+  src: url('../fonts/NexaBold.eot');
+  src: url('../fonts/NexaBold.woff2') format('woff2'),
+       url('../fonts/NexaBold.woff') format('woff'),
+       url('../fonts/NexaBold.ttf') format('truetype'),
+       url('../fonts/NexaBold.svg#NexaBold') format('svg'),
+       url('../fonts/NexaBold.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+$title-font: 'roboto slab', sans-serif;
+
+$subtitle-font: 'NexaLight', sans-serif;
+
+$nav-font: 'Lato', sans-serif;
+
+$p-font: 'Open Sans', sans-serif;
+
+
+
+
+///////// Default Vars  //////////
+
+	//colors//
+$t: transparent;
+
+$t-b: rgba(47, 47, 47, 0.5);
+
+$t-w: rgba(255, 255, 255, 0.5);
+
+
+	//size//
+$space: 25px;
+
+$full-width: 100vw !important;
+$half-width: 50vw !important;
+$quater-width: 25vw !important;
+
+$full-height: 100vh;
+$half-height: 50vh;
+$header-height: 90px;
+$small-header-height: 75px;
+$banner-height: 70vh;
+$section-header-height: 150px;
+$logo-height: 100px;
+$footer-height: 290px;
+
+
+
+
+// Properties
+// buttons
+$button-height: 25px;
+$button-width: 100px;
+$button-font: 'helvetica';
+$button-bg: #66ccff;
