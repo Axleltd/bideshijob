@@ -39,6 +39,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('/logout','Auth\LoginController@logout');
 
 	Route::resource('faq',FAQController::class);
+
+	Route::resource('message',MessageController::class);
+	Route::get('message/read/{id}','MessageController@markSeen');
+	Route::get('message/unread/{id}','MessageController@markUnSeen');
 	Route::get('jobs','SiteController@getJobs');
 	Route::get('about','SiteController@getAbout');
 
@@ -46,7 +50,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::resource('company/{id}/job',JobsController::class);
 	Route::resource('company/{id}/job/{slug}/contact',Jobs\ContactController::class);
 	Route::resource('company/{id}/training',TrainingController::class);
-
+	Route::get('/contact','MessageController@create');
+	Route::post('/contact','MessageController@store');
 });
 
 Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::class], 'prefix' => 'dashboard', 'before' => 'auth'], function () {

@@ -16,7 +16,9 @@
     </div>
   </nav>
 @else
+
 @if(isset($company) && $company !== 'search')
+
 <nav>
 	<div class="nav-wrapper">
 	      <div class="col s12">
@@ -27,6 +29,14 @@
 	      </div>
 	    </div>
 	  </nav>
+@endif
+	<div class="row">
+		<div class="col m12 s12">
+
+			@if(Request::url() == url('/jobs'))
+				<h3>All Job Information</h3>  
+			@else
+			<h3>Job Information of {{ $company->name}}</h3>
 	  @endif
 @endif
 	<div class="row">
@@ -46,6 +56,7 @@
 				@else
 				<h3>Search Results</h3>
 				@endif
+
 			@endif
 		</div>
 		@foreach($jobs as $job)
