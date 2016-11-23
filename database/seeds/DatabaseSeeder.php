@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(Smarch\Watchtower\Seeds\WatchtowerTableSeeder::class);
+    	$this->call(UserTableSeeder::class);        
+        $this->call(Smarch\Watchtower\Seeds\WatchtowerTableSeeder::class);        
     }
 }

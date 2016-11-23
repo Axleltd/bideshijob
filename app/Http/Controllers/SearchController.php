@@ -66,4 +66,9 @@ class SearchController extends Controller
 	    	return view('job.index',compact('jobs','company'));
 	    }	  	
     }
+
+    public function allSearch(Request $request)
+    {
+    	
+    }
 }
