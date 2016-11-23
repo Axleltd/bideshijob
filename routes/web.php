@@ -22,6 +22,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('training','HomeController@training');
 	Route::get('/search/training','SearchController@trainingSearch');
 	Route::get('/search/job','SearchController@jobSearch');
+	Route::get('/search/all','SearchController@allSearch');
 
 
 	Route::get('/check_user',function(){
