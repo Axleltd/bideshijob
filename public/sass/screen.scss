@@ -8,6 +8,15 @@ body {
 }
 
 
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly])  {
+	box-shadow: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $title-font;
+}
+
+
 .pace {
   	-webkit-pointer-events: none;
   	pointer-events: none;
@@ -52,7 +61,7 @@ header.header {
 	padding: 0 $side-gutter;
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
 	.logo-div {
-		padding: 10px 0;
+		padding: 7px 0;
 		float: left;
 		img {
 			height: 75px;
@@ -97,8 +106,7 @@ header.header {
 				display: block;
 				padding: 15px;
 				color: $title-color;
-				font-size: 15px;
-				font-weight: bold;
+				font-size: 17px;
 
 				&:hover {
 					color: $primary-color;
@@ -135,7 +143,296 @@ section.banner {
 		height: 86vh;
 		background: rgba(0, 0, 0, 0.7);
 		z-index: 99999;
+		overflow-y: scroll;
+
+		.search-box {
+			width: 50%;
+			margin: 0 auto;
+			background-color: #fff;
+			border: 3px solid $primary-color;
+			height: 60px;
+			border-radius: 30px;
+			padding: 10px 20px;
+			margin-top: 40vh;
+
+			input {
+				width: 43%;
+				float: left;
+				background: #fff;
+				height: 35px;
+				border-bottom: none;
+				border-right: 1px solid $primary-color;
+				text-indent: 15px;
+				color: $primary-color;
+				font-size: 18px;
+			}
+			button {
+				width: 10%;
+				float: right;
+				background: #fff;
+				border: none;
+				height: 35px;
+				color: $primary-color;
+				font-size: 22px;
+			}
+		}
+
+		.subscribe-box {
+			width: 50%;
+			margin: 40vh auto 30vh;
+			position: relative;
+			height: 35vh;
+			// margin-top: ;
+
+			h3 {
+				color: #fff;
+				text-transform: capitalize;
+				text-align: center;
+				margin-bottom: 40px;
+			}
+
+			form {
+				input {
+					width: 43%;
+					margin-left: 2%;
+					float: left;
+					background: #fff;
+					height: 35px;
+					border-bottom: none;
+					color: $primary-color;
+					font-size: 18px;
+					border-radius: 15px;
+					border: 2px solid $primary-color;
+					text-align: center;
+				}
+				div.btn {
+					margin-left: 2% !important;
+					position: relative;
+
+					span {
+						display: block;
+						line-height: 2;
+					}
+
+					input {
+						width: 100%;
+					}
+				}
+				.btn {
+					width: 43%;
+					float: left;
+					background: #fff;
+					height: 38px;
+					border: 2px solid $alternate-color;
+					color: $alternate-color;
+					font-size: 18px;
+					border-radius: 15px;
+					text-align: center;
+				}
+				button {
+					float: none !important;
+					margin: 0 auto !important;
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: -15px;
+				}
+			}
+
+
+		}
 	}
+}
+
+section {
+	.section-title {
+		color: $primary-color;
+		padding: 50px 0;
+	}
+
+	.row:last-child {
+		margin-bottom: 0;
+	}
+
+	.btn {
+		background: $primary-color;
+		border-radius: 25px;
+		font-family: $title-font;
+		box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
+
+		&:hover {
+			background: $alternate-color;
+		}
+	}
+
+	a {
+		color: $primary-color;
+
+		&:hover {
+			color: $alternate-color;
+		}
+	}
+
+}
+
+section.jobs {
+	.lists {
+		li {
+			border: 1px solid #ccc;
+			box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
+			margin-bottom: 40px;
+			border-radius: 10px;
+			padding: 20px;
+
+			.wrap {
+				.img-wrap {
+					width: 20%;
+					height: 150px;
+					background: #aaa;
+					float: left;
+				}
+				.text-wrap {
+					width: 60%;
+					float: left;
+					padding-left: 20px;
+					color: #5a5a5a;
+					font-size: 17px;
+
+					h5 {
+						margin-bottom: 20px;
+					}
+
+					i {
+						margin-right: 5px;
+					}
+
+					p.social {
+						text-align: center;
+						margin-bottom: 0;
+					}
+				}
+				.btn-wrap {
+					width: 20%;
+					float: left;
+					position: relative;
+
+					.btn {
+						margin-top: 35px;
+					}
+
+					a {
+						text-align: center;
+						display: block;
+						margin-top: 25px;
+						width: 68%;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+section.training {
+	.lists {
+		margin-bottom: 100px;
+		li {
+			.wrap {
+				border: 1px solid #ccc;
+				border-radius: 25px;
+				box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
+				overflow: hidden;
+				padding: 20px;
+
+				.img-wrap {
+					width: 100%;
+					height: 200px;
+					background: #ccc;
+				}
+
+				.text-wrap {
+					color: #5a5a5a;
+					font-size: 17px;
+					i {
+						margin-right: 5px;
+					}
+					h5 {
+						color: #5a5a5a;
+					}
+				}
+			}
+		}
+	}
+}
+
+section.services {
+	background: $primary-color;
+	min-height: 100vh;
+
+	.section-title {
+		h3 {
+			color: #fff;
+			text-align: center;
+			margin-top: 50px;
+		}
+	}
+
+	.section-content {
+		text-align: center;
+		color: #fff;
+
+		i {
+			font-size: 100px;
+			color: $primary-color;
+			background: #fff;
+			height: 150px;
+			width: 150px;
+			border-radius: 100px;
+			line-height: 150px;
+
+		}
+
+		h4 {
+			margin-top: 40px;
+		}
+	}
+}
+
+section.all-lists {
+	padding: 75px 0;
+	.section-title {
+		padding: 25px 0 5px;
+		h4  {
+			color: #5a5a5a;
+		}
+
+		a {
+			margin-top: 30px;
+			font-size: 17px;
+		}
+	}
+	ul {
+		margin-left: 50px;
+
+		li {
+			display: inline-block;
+			margin-left: 30px;
+		}
+		a {
+			color: #5a5a5a;
+			font-size: 18px;
+
+			&:hover {
+				color: $primary-color;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	hr {
+		border-top: 1px solid #ccc;
+	}
+
 }
 
 

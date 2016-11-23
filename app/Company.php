@@ -16,7 +16,7 @@ class Company extends Model
     				'featured',    				
                     'id',                    
     				];
-    protected $with = ['contacts'];
+    protected $with = ['contacts','job'];
    	/**
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */

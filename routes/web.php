@@ -18,9 +18,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('/aboutus','HomeController@aboutUs');
 	Route::get('/contactus','HomeController@contactUs');
 	Route::get('/faq','FAQController@index');	
-	Route::post('/search/company','SearchController@companySearch');	
+	Route::get('/search/company','SearchController@companySearch');	
 	Route::get('training','HomeController@training');
-	Route::post('/search/training','SearchController@trainingSearch');
+	Route::get('/search/training','SearchController@trainingSearch');
+	Route::get('/search/job','SearchController@jobSearch');
 
 
 	Route::get('/check_user',function(){
@@ -38,6 +39,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('/logout','Auth\LoginController@logout');
 
 	Route::resource('faq',FAQController::class);
+
 	Route::resource('message',MessageController::class);
 	Route::get('message/read/{id}','MessageController@markSeen');
 	Route::get('message/unread/{id}','MessageController@markUnSeen');

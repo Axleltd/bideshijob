@@ -17,6 +17,8 @@
   </nav>
 @else
 
+@if(isset($company) && $company !== 'search')
+
 <nav>
 	<div class="nav-wrapper">
 	      <div class="col s12">
@@ -35,6 +37,26 @@
 				<h3>All Job Information</h3>  
 			@else
 			<h3>Job Information of {{ $company->name}}</h3>
+	  @endif
+@endif
+	<div class="row">
+		<div class="col m12 s12">
+			<div class="search">
+				 {!! Form::open([
+                	'action' => '\App\Http\Controllers\SearchController@jobSearch','method'=>'get']) !!}
+			        @include('frontend._search')
+			        <button type="submit"  class="btn">Search</button>
+			    {!! Form::close() !!}	
+			</div>
+			@if(Request::url() == url('/jobs'))
+				<h3>All Job Information</h3>  
+			@else
+				@if(isset($company) && $company != 'search')
+				<h3>Job Information of {{ $company->name}}</h3>
+				@else
+				<h3>Search Results</h3>
+				@endif
+
 			@endif
 		</div>
 		@foreach($jobs as $job)
