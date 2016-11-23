@@ -18,9 +18,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('/aboutus','HomeController@aboutUs');
 	Route::get('/contactus','HomeController@contactUs');
 	Route::get('/faq','FAQController@index');	
-	Route::post('/search/company','SearchController@companySearch');	
+	Route::get('/search/company','SearchController@companySearch');	
 	Route::get('training','HomeController@training');
-	Route::post('/search/training','SearchController@trainingSearch');
+	Route::get('/search/training','SearchController@trainingSearch');
+	Route::get('/search/job','SearchController@jobSearch');
 
 
 	Route::get('/check_user',function(){

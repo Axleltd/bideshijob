@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Company;
 use App\Contact;
 use App\Training;
+use App\Job;
 class SearchController extends Controller
 {
     public function companySearch(Request $request)
@@ -23,12 +24,13 @@ class SearchController extends Controller
 	    if($company)
 	    {
 	    	return view('company.index',compact('company'));
-	    }	    
+	    }	
+	    return redirect()->back();    
     	
     }
 
     public function trainingSearch(Request $request)
-    {
+    {    	
     	$training = Training::where('title','LIKE','%'.$request->title.'%')
 	    ->whereHas('company', function ($query) use ($request) {
 	        $query->where('status',1)
@@ -38,10 +40,30 @@ class SearchController extends Controller
 	    })
 	    ->orderBy('created_at','DESC')
 	    ->paginate(20);
-
+	    
 	    if($training)
 	    {
 	    	return view('training.index',compact('training'));
-	    }	  
+	    }
+
+	    return redirect()->back();	  
+    }
+
+    public function jobSearch(Request $request)
+    {    
+    	$company = 'search';
+    	$jobs = Job::where('title','LIKE','%'.$request->title.'%')
+	    ->whereHas('company', function ($query) use ($request) {
+	        $query->where('status',1)
+	        		->whereHas('contacts', function ($query) use ($request) {
+			        $query->where('address', 'like', '%'.$request->address.'%');
+			    });
+	    })
+	    ->orderBy('created_at','DESC')
+	    ->paginate(20);	    	    
+	    if($jobs)
+	    {
+	    	return view('job.index',compact('jobs','company'));
+	    }	  	
     }
 }
