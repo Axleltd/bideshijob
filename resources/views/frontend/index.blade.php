@@ -13,10 +13,11 @@ Homepage
     </div>
     <div class="content-div">
       <div class="search-box wow fadeIn">
-        <form action="">
-          <input type="text" class="title" placeholder="Job / Training">
-          <input type="text" class="location" placeholder="country">
-          <button class="search-btn"><i class="fa fa-search"></i></button>
+        {!! Form::open([
+                'action' => '\App\Http\Controllers\SearchController@allSearch','method'=>'get']) !!}
+          <input type="text" class="title" name="title" placeholder="Job / Training">
+          <input type="text" class="location" name="address" placeholder="country">
+          <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
         </form>
       </div>
 
