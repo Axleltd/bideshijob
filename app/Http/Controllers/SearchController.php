@@ -69,6 +69,31 @@ class SearchController extends Controller
 
     public function allSearch(Request $request)
     {
-    	
+
+    	$jobs = Job::where('title','LIKE','%'.$request->title.'%')
+	    ->whereHas('company', function ($query) use ($request) {
+	        $query->where('status',1)
+	        		->whereHas('contacts', function ($query) use ($request) {
+			        $query->where('address', 'like', '%'.$request->address.'%');
+			    });
+	    })
+	    ->orderBy('created_at','DESC')
+	    ->paginate(20);	
+
+	    $training = Training::where('title','LIKE','%'.$request->title.'%')
+	    ->whereHas('company', function ($query) use ($request) {
+	        $query->where('status',1)
+	        		->whereHas('contacts', function ($query) use ($request) {
+			        $query->where('address', 'like', '%'.$request->address.'%');
+			    });
+	    })
+	    ->orderBy('created_at','DESC')
+	    ->paginate(20);
+	    $company = Company::where('status',1)->get();
+	    
+	    return view('frontend.index')->with([
+            'training'=>$training,
+            'company'=>$company,
+            'job'=>$jobs]);    	    
     }
 }
