@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Company;
 use App\Training;
+use App\Job;
 
 
 class HomeController extends Controller
 {
     protected $company;
     protected $training;
+    protected $job;
     /**
      * Create a new controller instance.
      *
@@ -20,6 +22,7 @@ class HomeController extends Controller
     {
               $this->company = new Company;
               $this->training = new Training;
+              $this->job = new Job;
      }
 
     /**
@@ -29,10 +32,19 @@ class HomeController extends Controller
      */
     public function index()
     {        
-        $training = Training::orderBy('created_at','DESC')->get();
-           
+        $training = $this->training->with(['company'=> function ($query) {
+            $query->where('status',1);
+        }])->orderBy('created_at','DESC')->get();  
+
+        $job = $this->job->with(['company'=> function ($query) {
+            $query->where('status',1);
+        }])->orderBy('created_at','DESC')->get();        
+        $company = $this->company->where('status',1)->get();   
+        
         return view('frontend.index')->with([
-            'training'=>$training]);
+            'training'=>$training,
+            'company'=>$company,
+            'job'=>$job]);
     }
 
     public function training()
