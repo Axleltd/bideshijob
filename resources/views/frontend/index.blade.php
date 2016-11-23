@@ -71,7 +71,7 @@ Homepage
                 </div>
                 <div class="btn-wrap">
                   <button class="btn weaves-effect">Apply Now</button><br>
-                  <a href="#">More info</a>
+                  <a href="{{ url('company/'.$jo->company_id.'/job/'.$jo->id)}}">More info</a>
                 </div>
               </div>
             </li>
@@ -102,7 +102,7 @@ Homepage
                   <p><i class="fa fa-globe"></i>{{$tr->company->contacts->address}}</p>
                   <p><i class="fa fa-time"></i>Duration</p>
                   <p>{{$tr->description}}</p>
-                  <a href="#" class="right">More info</a>
+                  <a href="{{ url('company/'.$tr->company_id.'/training/'.$tr->id)}}" class="right">More info</a>
                 </div>
               </div>
             </li>
@@ -144,12 +144,12 @@ Homepage
       <div class="row">
         <div class="section-title row">
           <h4 class="left">Jobs</h4>
-          <a class="right" href="#">view all</a>
+          <a class="right" href="/jobs">view all</a>
         </div>
         <ul>
           @foreach($job as $jo)
             @if($jo->company)
-              <li><a href="#">{{$jo->title}}</a></li>          
+              <li><a href="{{ url('company/'.$jo->company_id.'/job/'.$jo->id)}}">{{$jo->title}}</a></li>          
             @endif
           @endforeach
         </ul>
@@ -158,7 +158,7 @@ Homepage
       <div class="row">
         <div class="section-title row">
           <h4 class="left">Trainings</h4>
-          <a class="right" href="#">view all</a>
+          <a class="right" href="/training">view all</a>
         </div>
         <ul>
           @foreach($training as $tr)
@@ -172,7 +172,7 @@ Homepage
       <div class="row">
         <div class="section-title row">
           <h4 class="left">Agencies</h4>
-          <a class="right" href="#">view all</a>
+          <a class="right" href="/company">view all</a>
         </div>
         <ul>
           @foreach($company as $com)

@@ -14,38 +14,38 @@
 	</div>
 
 	<div class="section">
-		<h3>Explore Our Latest Training</h3>
-		<div class="section-content" id="ajax-form">                
-            <ul class="archive-list">
-                @foreach ($training as $tr)	
-
-                    @if($tr->company)
-                    <li>
-                        <img src="{{asset('image/'.$tr->company->logo)}}" alt="" width="300" height="300">
-                        <div class="wrap">                            
-                            <div class="long-desc">
-                                <div class="row">
-                                    <h4 class="float-left">{{ $tr->title }}</h4>
-                                    <div class="star float-right"></div>
-                                </div>
-                                <div class="row">
-                                   Categories: <p class="address">{{ $tr->categories }}</p>
-                                </div>                              
-                                <div class="row">
-                                    Fees:<p class="mb">{{ $tr->fees }}</p>                                            
-                                </div>
-                                <div class="row">
-                                    Quantity:<p class="mb">{{ $tr->quantity }}</p>                                            
-                                </div>
-                                <hr class="darker">
-                                <a href="{{ url('company/'.$tr->company_id.'/training/'.$tr->id)}}" class="button">More Info</a>
-                            </div>
-                        </div>
-                    </li>
-                    @endif
-                @endforeach
-            </ul>            
-            {{-- $training->links() --}}
+		<section class="row training">
+    <div class="wrap">
+      <div class="section-title">
+        <h3 class="wow fadeIn">All Trainings</h3>
+      </div>
+      
+      <div class="section-content">
+        <ul class="lists row">
+          <?php $d=0;?>
+          @foreach($training as $tr)            
+            @if($tr->company)           
+            <li class="s12 m6 l4 col wow fadeInUp" data-wow-delay='{{$d}}s'>
+              <div class="wrap">
+                <div class="img-wrap">
+                  <img src="{{asset('image/'.$tr->company->logo)}}" alt="">
+                </div>
+                <div class="text-wrap">
+                  <h5>{{$tr->title}}</h5>
+                  <p><i class="fa fa-globe"></i>{{$tr->company->contacts->address}}</p>
+                  <p><i class="fa fa-time"></i>Duration</p>
+                  <p>{{$tr->description}}</p>
+                  <a href="{{ url('company/'.$tr->company_id.'/training/'.$tr->id)}}" class="right">More info</a>
+                </div>
+              </div>
+            </li>
+            @endif
+            <?php $d =$d+0.3;?>
+          @endforeach
+        </ul>
+      </div>
+    </div>
+  </section>
         </div>
 	</div>
 
