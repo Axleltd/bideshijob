@@ -105,13 +105,10 @@ class JobsController extends Controller
     public function edit($companyId,$id)
     {
         //
-         $company = $this->company->with(['job' => function($query) use ($id){
-                        return $query->findOrFail($id);
-                    }])->findOrFail($companyId);
+         $job = $this->job->where(['id'=>$id,'company_id'=>$companyId])->get()->first();          
 
          return view('job.edit')->with([
-            'job' => $company->job,
-            'id' => $companyId,
+            'job' => $job,            
             ]);
     }
 

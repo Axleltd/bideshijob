@@ -10,6 +10,7 @@ use App\Training;
 class HomeController extends Controller
 {
     protected $company;
+    protected $training;
     /**
      * Create a new controller instance.
      *
@@ -18,7 +19,8 @@ class HomeController extends Controller
     public function __construct()
     {
               $this->company = new Company;
-    }
+              $this->training = new Training;
+     }
 
     /**
      * Show the application dashboard.
@@ -35,8 +37,10 @@ class HomeController extends Controller
 
     public function training()
     {
-        $training = Training::all();
-        return view('training.index',compact('training'));
+        $training = $this->training->with(['company'=> function ($query) {
+            $query->where('status',1);
+        }])->get();        
+        return view('training.index')->with('training',$training);
     }
 
     public function aboutUs()

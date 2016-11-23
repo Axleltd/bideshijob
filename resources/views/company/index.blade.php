@@ -6,7 +6,7 @@
 	
 	<div class="search">
         {!! Form::open([
-                'action' => '\App\Http\Controllers\SearchController@companySearch']) !!}
+                'action' => '\App\Http\Controllers\SearchController@companySearch','method'=>'get']) !!}
 		@include('company._search')
         <button type="submit"  class="btn">Search</button>
         {!! Form::close() !!}

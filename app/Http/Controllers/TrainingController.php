@@ -25,7 +25,7 @@ class TrainingController extends Controller
     }
     public function index($companyId)
     {           
-    	$company = $this->company->where('id',$companyId)->get()->first();      	      		        
+    	$company = $this->company->where(['id'=>$companyId,'status'=>1])->get()->first();      	      		                
         return view('training.index')->with('training',$company->trainingWithOrder()->paginate(5));
     }
 

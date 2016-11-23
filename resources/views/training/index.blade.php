@@ -7,7 +7,7 @@
 	
 	<div class="search">
         {!! Form::open([
-                'action' => '\App\Http\Controllers\SearchController@trainingSearch']) !!}
+                'action' => '\App\Http\Controllers\SearchController@trainingSearch','method'=>'get']) !!}
         @include('frontend._search')
         <button type="submit"  class="btn">Search</button>
         {!! Form::close() !!}		
@@ -15,10 +15,11 @@
 
 	<div class="section">
 		<h3>Explore Our Latest Training</h3>
-		<div class="section-content" id="ajax-form">
+		<div class="section-content" id="ajax-form">                
             <ul class="archive-list">
+                @foreach ($training as $tr)	
 
-                @foreach ($training as $tr)	                
+                    @if($tr->company)
                     <li>
                         <img src="{{asset('image/'.$tr->company->logo)}}" alt="" width="300" height="300">
                         <div class="wrap">                            
@@ -41,8 +42,9 @@
                             </div>
                         </div>
                     </li>
+                    @endif
                 @endforeach
-            </ul>
+            </ul>            
             {{-- $training->links() --}}
         </div>
 	</div>
