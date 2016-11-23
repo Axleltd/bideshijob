@@ -11,12 +11,16 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        App\User::create(array(
-          'name'=>'admin',
-          'username'=>'admin',
-          'email' => 'admin@admin.com',
-          'password' => 'password',            
-          'email_activated' => true,      
-    ));
+            DB::table('users')
+                ->insert([
+                    'name'     => 'admin',
+                    'username' => 'administrator',
+                    'email'    => 'admin@admin.com',
+                    'password' => bcrypt('password'),
+                    'email_activated' => true,                    
+                ]
+            );
+
+           
     }
 }
