@@ -46,6 +46,7 @@ class TrainingController extends Controller
             'to'=>$request->to,
             'quantity'=>$request->quantity,            
             'company_id' => $companyId,
+            'country' => $request->country,
             ]);                  
         if(!$training)
             return redirect('company/'.$companyId.'/training/create');
@@ -76,6 +77,7 @@ class TrainingController extends Controller
 	            'quantity'=>$request->quantity,
                 'from'=>$request->from,
                 'to'=>$request->to,
+                'country' => $request->country,
             ]);        
 
         if(!$training)

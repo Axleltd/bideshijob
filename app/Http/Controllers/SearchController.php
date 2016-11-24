@@ -30,13 +30,11 @@ class SearchController extends Controller
     }
 
     public function trainingSearch(Request $request)
-    {    	
+    {    	    	
     	$training = Training::where('title','LIKE','%'.$request->title.'%')
+    	->where('country','LIKE','%'.$request->country.'%')
 	    ->whereHas('company', function ($query) use ($request) {
-	        $query->where('status',1)
-	        		->whereHas('contacts', function ($query) use ($request) {
-			        $query->where('country', 'like', '%'.$request->country.'%');
-			    });
+	        $query->where('status',1);	        		
 	    })
 	    ->orderBy('created_at','DESC')
 	    ->paginate(20);

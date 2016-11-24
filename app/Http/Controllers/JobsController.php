@@ -69,9 +69,9 @@ class JobsController extends Controller
             'cost' => $request->cost,
             'overtime'  => $request->overtime,
             'quantity' => $request->quantity,
-            'duty_hours' => $request->duty_hours,
-            'featured' => $request->featured,
+            'duty_hours' => $request->duty_hours,            
             'requirement' => $request->requirement,
+            'country' => $request->country,
             ]);
             Auth::user()->notify(new JobFound($this->job->findOrFail($job->id)));
             if($job)
@@ -136,9 +136,9 @@ class JobsController extends Controller
             'cost' => $request->cost,
             'overtime'  => $request->overtime,
             'quantity' => $request->quantity,
-            'duty_hours' => $request->duty_hours,
-            'featured' => $request->featured,
+            'duty_hours' => $request->duty_hours,            
             'requirement' => $request->requirement,
+            'country' => $request->country,
             
             ]); 
         if($update)

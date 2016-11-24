@@ -25,18 +25,18 @@ class PostJobRequest extends FormRequest
     {
         return [
                 'title' =>'required|string',
-                'description' =>'string',
-                'categories' =>'string',
-                'about_job' =>'string',
-                'facilities' =>'string',
-                'duties' =>'string',
-                'salary' =>'integer',
-                'cost' =>'integer',
-                'overtime' =>'string',
-                'quantity' =>'integer',
-                'duty_hours' =>'string',
-                'featured' =>'boolean',
-                'requirement' =>'string',
+                'description' =>'required|string',
+                'categories' =>'required|string',
+                'about_job' =>'required|string',
+                'facilities' =>'required|string',
+                'duties' =>'required|string',
+                'salary' =>'required|integer',
+                'cost' =>'required|integer',
+                'overtime' =>'required|string',
+                'quantity' =>'required|integer',
+                'duty_hours' =>'required|string',                
+                'requirement' =>'required|string',
+                'country' =>'required|string'
         ];
     }
 }

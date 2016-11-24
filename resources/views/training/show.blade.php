@@ -13,14 +13,12 @@
                 </div>            
                 <div class="section-content">
                     <div class="row">
-                        <div class="s12 m8 col">
-                            <p>Salary: 3215132</p>                
-                            <p>Country: Nepal</p>                
-                            <p>Quantity: 32M 24F</p>                
-                            <p>Facalities: Some new, NEw facilities</p>
-                            <p>Cost: 3215132</p>
-                            <p>Duty Hours: 8hrs</p>
-                            <p>Requirements: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae eos officia voluptatum omnis sunt repellat.</p>
+                        <div class="s12 m8 col">                            
+                            <p>Country: {{$training->country}}</p>                
+                            <p>Quantity: {{$training->quantity}}</p>                                                                        
+                            <p>Training Time: {{$training->from}}-{{$training->to}}</p>
+                            <p>Fees: {{$training->fees}}</p>    
+                            <p>Categories: {{$training->categories}}</p>                            
 
                         </div>
                         <div class="s12 m4 col">
@@ -29,16 +27,16 @@
                                     <img src="" alt="">
                                 </div>
                                 <div class="text-wrap">
-                                    <h5><a href="#">Company Name</a></h5>
-                                    <p>Address: city new</p>
-                                    <a href="#" class="right">View more</a>
+                                    <h5><a href="#">{{$training->company->name}}</a></h5>
+                                    <p>Address: {{$training->company->contacts->address}}</p>
+                                    <a href="{{ url('/company/'.$training->company_id)}}" class="right">View more</a>
                                 </div>  
                             </div>
                         </div>
                     </div>
                     <hr>
                     <div class="row">
-                        <p>Description: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore asperiores, vitae autem magnam delectus molestias distinctio, cumque laborum temporibus cupiditate sapiente quae aliquam obcaecati ab eos, modi. Ab nam quidem neque, placeat doloremque asperiores laudantium?</p>
+                        <p>Description: {{$training->description}}</p>
 
 
                     </div>

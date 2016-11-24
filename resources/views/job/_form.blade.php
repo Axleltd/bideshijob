@@ -13,60 +13,175 @@
 			            </ul>
 			        </div>
 			@endif
-				
 		</div>
 
 		<div class="col s12 m6">
 			{!! Form::label('description','Description:') !!}
 			{!! Form::textarea('description',old('description')) !!}
+			@if(count($errors->get('description')) > 0)
+			        <div class="error">
+			            <ul>
+
+			                @foreach($errors->get('description') as $error)
+			                    <li>{{ $error  }}</li>
+			                @endforeach
+			            </ul>
+			        </div>
+			@endif
 		</div>
 		<div class="col s12 m6">
 			{!! Form::label('categories','categories:') !!}
 			{!! Form::text('categories',old('categories')) !!}
+			@if(count($errors->get('categories')) > 0)
+			        <div class="error">
+			            <ul>
+
+			                @foreach($errors->get('categories') as $error)
+			                    <li>{{ $error  }}</li>
+			                @endforeach
+			            </ul>
+			        </div>
+			@endif
 		</div>
 		<div class="col s12 m6">
 			{!! Form::label('about_job','about job:') !!}
 			{!! Form::textarea('about_job',old('about_job')) !!}
+			@if(count($errors->get('about_job')) > 0)
+			        <div class="error">
+			            <ul>
+
+			                @foreach($errors->get('about_job') as $error)
+			                    <li>{{ $error  }}</li>
+			                @endforeach
+			            </ul>
+			        </div>
+			@endif
 		</div> 
 		<div class="col s12 m6">
 			{!! Form::label('facilities','Facilities:') !!}
 			{!! Form::textarea('facilities',old('facilities')) !!}
+			@if(count($errors->get('facilities')) > 0)
+			        <div class="error">
+			            <ul>
+
+			                @foreach($errors->get('facilities') as $error)
+			                    <li>{{ $error  }}</li>
+			                @endforeach
+			            </ul>
+			        </div>
+			@endif
 		</div>
 		<div class="col s12 m6">
 			{!! Form::label('duties','duties:') !!}
 			{!! Form::textarea('duties',old('duties')) !!}
+			@if(count($errors->get('duties')) > 0)
+			        <div class="error">
+			            <ul>
+
+			                @foreach($errors->get('duties') as $error)
+			                    <li>{{ $error  }}</li>
+			                @endforeach
+			            </ul>
+			        </div>
+			@endif
 		</div>     
 		<div class="col s12 m6">
 			{!! Form::label('salary','Salary :') !!}	
-			{!! Form::number('salary',old('salary')) !!}	
+			{!! Form::number('salary',old('salary')) !!}
+			@if(count($errors->get('salary')) > 0)
+			        <div class="error">
+			            <ul>
+
+			                @foreach($errors->get('salary') as $error)
+			                    <li>{{ $error  }}</li>
+			                @endforeach
+			            </ul>
+			        </div>
+			@endif	
 		</div>
 		<div class="col s12 m6">
 			{!! Form::label('cost','cost :') !!}	
-			{!! Form::number('cost',old('cost')) !!}	
+			{!! Form::number('cost',old('cost')) !!}
+			@if(count($errors->get('cost')) > 0)
+			        <div class="error">
+			            <ul>
+
+			                @foreach($errors->get('cost') as $error)
+			                    <li>{{ $error  }}</li>
+			                @endforeach
+			            </ul>
+			        </div>
+			@endif	
 		</div>
 		<div class="col s12 m6">
 			{!! Form::label('overtime','overtime :') !!}	
-			{!! Form::number('overtime',old('overtime')) !!}	
+			{!! Form::number('overtime',old('overtime')) !!}
+			@if(count($errors->get('overtime')) > 0)
+			        <div class="error">
+			            <ul>
+
+			                @foreach($errors->get('overtime') as $error)
+			                    <li>{{ $error  }}</li>
+			                @endforeach
+			            </ul>
+			        </div>
+			@endif	
 		</div>   
 		<div class="col s12 m6">
 			{!! Form::label('quantity','quantity :') !!}	
-			{!! Form::number('quantity',old('quantity')) !!}	
+			{!! Form::number('quantity',old('quantity')) !!}
+			@if(count($errors->get('quantity')) > 0)
+			        <div class="error">
+			            <ul>
+
+			                @foreach($errors->get('quantity') as $error)
+			                    <li>{{ $error  }}</li>
+			                @endforeach
+			            </ul>
+			        </div>
+			@endif	
 		</div>  
 		<div class="col s12 m6">
 			{!! Form::label('duty_hours','duty_hours :') !!}	
 			{!! Form::number('duty_hours',old('duty_hours')) !!}	
-		</div> 
-		<div class="col s12 m6">
-			Featured :
-			{!! Form::label('featured','Yes :') !!}	
-			{!! Form::radio('featured', '1') !!}
-			
-			{!! Form::label('featured','No :') !!}	
-			{!! Form::radio('featured', '0') !!}
-		</div>
+			@if(count($errors->get('duty_hours')) > 0)
+			        <div class="error">
+			            <ul>
+
+			                @foreach($errors->get('duty_hours') as $error)
+			                    <li>{{ $error  }}</li>
+			                @endforeach
+			            </ul>
+			        </div>
+			@endif
+		</div> 		
 		<div class="col s12 m6">
 			{!! Form::label('requirement','requirements :') !!}	
 			{!! Form::textarea('requirement',old('requirement')) !!}	
+			@if(count($errors->get('requirement')) > 0)
+			        <div class="error">
+			            <ul>
+
+			                @foreach($errors->get('requirement') as $error)
+			                    <li>{{ $error  }}</li>
+			                @endforeach
+			            </ul>
+			        </div>
+			@endif
+		</div> 
+		<div class="col s12 m6">
+			{!! Form::label('country','Country :') !!}	
+			{!! Form::textarea('country',old('country')) !!}
+			@if(count($errors->get('country')) > 0)
+			        <div class="error">
+			            <ul>
+
+			                @foreach($errors->get('country') as $error)
+			                    <li>{{ $error  }}</li>
+			                @endforeach
+			            </ul>
+			        </div>
+			@endif	
 		</div>             
 	</div>
 </div>
