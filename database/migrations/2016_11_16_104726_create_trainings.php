@@ -18,6 +18,7 @@ class CreateTrainings extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('categories');            
+            $table->string('country');            
             $table->date('from');            
             $table->date('to');
             $table->float('fees');

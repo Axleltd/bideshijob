@@ -26,11 +26,12 @@ class PostTrainingRequest extends FormRequest
         return [
             'title' => 'required|max:255|min:2',
             'categories' => 'required|max:255|min:2',          
-            'fees' => 'required',
-            'quantity' =>'required',            
+            'fees' => 'required|integer',
+            'quantity' =>'required|integer',            
             'training_description' =>'required|max:255|min:10',            
             'from' =>'required',            
-            'to' =>'required',            
+            'to' =>'required',  
+            'country' =>'required|string'          
         ];
     }
 }

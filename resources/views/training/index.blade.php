@@ -84,7 +84,7 @@
                 </div>
                 <div class="text-wrap">
                   <h5>{{$tr->title}}</h5>
-                  <p><i class="fa fa-globe"></i>{{$tr->company->contacts->address}}</p>
+                  <p><i class="fa fa-globe"></i>{{$tr->country}}</p>
                   <p><i class="fa fa-time"></i>Duration</p>
                   <p>{{$tr->description}}</p>
                   <a href="{{ url('company/'.$tr->company_id.'/training/'.$tr->id)}}" class="right">More info</a>

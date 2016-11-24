@@ -86,7 +86,7 @@
 		                <div class="text-wrap">
 		                  <h5>{{$job->title}}</h5>
 		                  <div class="row">
-		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>{{$job->company->contacts->country}}</div>
+		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>{{$job->country}}</div>
 		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Salary:{{$job->salary}}</div>
 		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Required Number:{{$job->quantity}}</div>
 		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>{{$job->facilities}}</div>

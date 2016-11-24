@@ -21,6 +21,7 @@ class CreateJobs extends Migration
         $table->string('about_job');
         $table->string('description');        
         $table->string('facilities');        
+        $table->string('country');        
         $table->string('duties');        
         $table->float('salary');
         $table->float('cost');

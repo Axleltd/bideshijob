@@ -15,4 +15,4 @@
  --}}
 
 <input type="text" class="title" name="title" placeholder="Job / Training">
- <input type="text" class="location" name="address" placeholder="country">
+ <input type="text" class="location" name="country" placeholder="country">

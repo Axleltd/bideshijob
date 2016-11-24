@@ -23,6 +23,7 @@ class Job extends Model
 			'duty_hours',
 			'featured',
 			'requirement',
+			'country',
 		];
 
 	public function contact()
