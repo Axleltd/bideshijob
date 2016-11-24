@@ -14,4 +14,9 @@ return [
 	'register' => 'Register',
 	'english' => 'English',
 	'nepali' => 'Nepali',
+
+	//footer
+	'city_address' => 'City Address',
+	'country' =>'Country'
+
 ];
