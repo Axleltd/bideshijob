@@ -16,7 +16,7 @@ class SearchController extends Controller
     	$company = Company::where('status',1)	    
     	->where('name','LIKE','%'.$request->company.'%')
 	    ->whereHas('contacts', function ($query) use ($request) {
-	        $query->where('address', 'like', '%'.$request->address.'%');
+	        $query->where('country', 'like', '%'.$request->country.'%');
 	    })
 	    ->orderBy('created_at','DESC')
 	    ->paginate(20);

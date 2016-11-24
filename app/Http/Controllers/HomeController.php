@@ -54,14 +54,4 @@ class HomeController extends Controller
         }])->get();        
         return view('training.index')->with('training',$training);
     }
-
-    public function aboutUs()
-    {
-        return view('frontend.about_us');
-    }
-
-    public function contactUs()
-    {
-        return view('frontend.contact_us');
-    }
 }
