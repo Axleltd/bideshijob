@@ -1,5 +1,6 @@
 /node_modules
 /public/storage
+/public/.sass-cache/*
 /vendor
 /.idea
 Homestead.json
