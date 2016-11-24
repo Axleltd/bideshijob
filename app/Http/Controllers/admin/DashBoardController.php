@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Company;
 use App\Training;
-use App\User;
+use Illuminate\Notifications\DatabaseNotification;
 
 class DashBoardController extends Controller
 {
@@ -26,10 +26,13 @@ class DashBoardController extends Controller
 
     	$training_count = $this->training->all()->count();
     	$training_status = $this->training->where('featured',1)->count();
+        
 
+        $notifications = DatabaseNotification::orderBy('created_at','DESC')->get();        
     	
     	return view('admin.index')->with([
     		'company'=>$company_count,
-    		'training'=>$training_count]);
+    		'training'=>$training_count,
+            'notifications'=>$notifications]);
     }
 }
