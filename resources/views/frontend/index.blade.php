@@ -71,7 +71,7 @@ Homepage
                   </div>
                 </div>
                 <div class="btn-wrap">
-                  <button class="btn weaves-effect">Apply Now</button><br>
+                  <button class="btn waves-effect">Apply Now</button><br>
                   <a href="{{ url('company/'.$jo->company_id.'/job/'.$jo->id)}}">More info</a>
                 </div>
               </div>
