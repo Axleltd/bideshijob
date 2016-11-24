@@ -699,21 +699,50 @@ section.all-lists hr {
   width: 70%;
 }
 
-/* line 534, ../sass/screen.scss */
+/* line 529, ../sass/screen.scss */
+.page-single {
+  padding-bottom: 50px;
+}
+/* line 532, ../sass/screen.scss */
+.page-single .section-title {
+  padding: 15px 0 0;
+}
+/* line 535, ../sass/screen.scss */
+.page-single .section-title .social {
+  margin-top: 30px;
+  font-size: 22px;
+}
+/* line 542, ../sass/screen.scss */
+.page-single .section-content .company-wrap {
+  width: 70%;
+  border: 1px solid #aaa;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 15px;
+}
+/* line 549, ../sass/screen.scss */
+.page-single .section-content .company-wrap .img-wrap {
+  height: 120px;
+  width: 100%;
+  background: #aaa;
+}
+
+/* line 563, ../sass/screen.scss */
 footer.footer {
   background: #7f8ed1;
   color: #fff;
   padding-top: 50px;
+  margin-top: 50px;
 }
-/* line 539, ../sass/screen.scss */
+/* line 569, ../sass/screen.scss */
 footer.footer a {
   color: #fff;
 }
-/* line 543, ../sass/screen.scss */
+/* line 573, ../sass/screen.scss */
 footer.footer h5 {
   font-family: "roboto slab", sans-serif;
 }
-/* line 547, ../sass/screen.scss */
+/* line 577, ../sass/screen.scss */
 footer.footer p.cp {
   width: 100%;
   text-align: center;

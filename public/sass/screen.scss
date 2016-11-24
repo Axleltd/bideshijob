@@ -526,6 +526,35 @@ section.all-lists {
 	}
 }
 
+.page-single {
+	padding-bottom: 50px;
+
+	.section-title {
+		padding: 15px 0 0;
+
+		.social {
+			margin-top: 30px;
+			font-size: 22px;
+		}
+	}
+
+	.section-content {
+		.company-wrap {
+			width: 70%;
+			border: 1px solid #aaa;
+			box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
+			padding: 10px;
+			border-radius: 15px;
+
+			.img-wrap {
+				height: 120px;
+				width: 100%;
+				background: #aaa;
+			}
+		}
+	}
+}
+
 
 
 
@@ -535,6 +564,7 @@ footer.footer {
 	background: $primary-color;
 	color: #fff;
 	padding-top: 50px;
+	margin-top: 50px;
 
 	a {
 		color: #fff;
