@@ -304,6 +304,9 @@ section.jobs {
 
 					img {
 						max-height: 150px;
+						min-height: 150px;
+						min-width: 100%;
+						max-width: 100%;
 					}
 				}
 				.text-wrap {
@@ -457,6 +460,17 @@ section.all-lists {
 }
 
 .page-inside {
+
+	nav {
+		background-color: $t !important;
+		position: absolute;
+		// top: 40???vh;
+
+		a {
+			font-size: 14px;
+		}
+
+	}
 	.banner {
 		height: 40vh;
 		background: url('../images/banner.png');
@@ -497,6 +511,18 @@ section.all-lists {
 				font-size: 22px;
 			}
 		}
+	}
+
+	p {
+		font-size: 17px;
+	}
+}
+
+
+.page-about {
+	padding-bottom: 50px;
+	p {
+		width: 70%;
 	}
 }
 

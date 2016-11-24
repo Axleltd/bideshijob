@@ -1,4 +1,4 @@
-<div class="search">
+{{-- <div class="search">
 	<div class="row">
 		<div class="col m6 s12">
 			{!! Form::label('address','Address:') !!}
@@ -12,3 +12,7 @@
 	</div>
 	
 </div>
+ --}}
+
+<input type="text" class="title" name="title" placeholder="Job / Training">
+ <input type="text" class="location" name="address" placeholder="country">
