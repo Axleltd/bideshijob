@@ -14,7 +14,7 @@ class SearchController extends Controller
 
 
     	$company = Company::where('status',1)	    
-    	->where('name','LIKE','%'.$request->title.'%')
+    	->where('name','LIKE','%'.$request->company.'%')
 	    ->whereHas('contacts', function ($query) use ($request) {
 	        $query->where('address', 'like', '%'.$request->address.'%');
 	    })
@@ -91,7 +91,7 @@ class SearchController extends Controller
 	    ->paginate(20);
 	    $company = Company::where('status',1)->get();
 	    
-	    return view('frontend.index')->with([
+	    return view('frontend.search')->with([
             'training'=>$training,
             'company'=>$company,
             'job'=>$jobs]);    	    

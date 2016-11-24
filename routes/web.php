@@ -53,6 +53,17 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::resource('company/{id}/training',TrainingController::class);
 	Route::get('/contact','MessageController@create');
 	Route::post('/contact','MessageController@store');
+
+	Route::get('locale/{name}',function($name){
+		$lang = ['en','np'];
+		if(in_array($name,$lang)){
+			session([
+				'locale' => $name
+				]);
+			return redirect()->back();
+		}
+		return redirect()->back();
+	});
 });
 
 Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::class], 'prefix' => 'dashboard', 'before' => 'auth'], function () {

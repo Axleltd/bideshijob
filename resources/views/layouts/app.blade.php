@@ -30,24 +30,26 @@
           <ul class="top-nav">
             @if(Auth::check())
               @if(Shinobi::isRole('admin'))
-                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/dashboard">@lang('site.dashboard')</a></li>
               @endif
-              <li><a href="/logout">logout</a></li>
+              <li><a href="/logout">@lang('site.logout')</a></li>
             @else
-              <li><a href="/login">login</a></li>
-              <li><a href="/register">register</a></li>
+              <li><a href="/login">@lang('site.login')</a></li>
+              <li><a href="/register">@lang('site.register')</a></li>
 
             @endif
+              <li><a href="locale/en">@lang('site.english')</a></li>
+              <li><a href="locale/np">@lang('site.nepali')</a></li>
             {{-- <li><a href="/login">login</a></li> --}}
           </ul>
           <ul class="nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/jobs">Jobs</a></li>
-            <li><a href="/training">Training</a></li>
-            <li><a href="/company">Agencies</a></li>
-            <li><a href="/faq">FAQ</a></li>
-            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/">@lang('site.home')</a></li>
+            <li><a href="/about">@lang('site.about')</a></li>
+            <li><a href="/jobs">@lang('site.jobs')</a></li>
+            <li><a href="/training">@lang('site.training')</a></li>
+            <li><a href="/company">@lang('site.agencies')</a></li>
+            <li><a href="/faq">@lang('site.faq')</a></li>
+            <li><a href="/contact">@lang('site.contact')</a></li>
           </ul>
         </header>
         <div class="page-wrap">
@@ -57,7 +59,7 @@
         <footer class="footer">
           <div class="row">
             <div class="s12 m4 col">
-              <h5>Contact Us</h5>
+              <h5>@lang('site.contact')</h5>
               <ul class="contacts">
                 <li>
                   <i class="ti-map"></i>
