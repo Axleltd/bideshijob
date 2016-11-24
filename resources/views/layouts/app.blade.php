@@ -63,8 +63,8 @@
               <ul class="contacts">
                 <li>
                   <i class="ti-map"></i>
-                  <p>city address</p>
-                  <p>Country</p>
+                  <p>@lang('site.city_address')</p>
+                  <p>@lang('site.country')</p>
                 </li>
                 <li>
                   <i class="ti-envelope"></i>

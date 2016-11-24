@@ -16,7 +16,7 @@ class SearchController extends Controller
     	$company = Company::where('status',1)	    
     	->where('name','LIKE','%'.$request->company.'%')
 	    ->whereHas('contacts', function ($query) use ($request) {
-	        $query->where('address', 'like', '%'.$request->address.'%');
+	        $query->where('country', 'like', '%'.$request->country.'%');
 	    })
 	    ->orderBy('created_at','DESC')
 	    ->paginate(20);
@@ -35,7 +35,7 @@ class SearchController extends Controller
 	    ->whereHas('company', function ($query) use ($request) {
 	        $query->where('status',1)
 	        		->whereHas('contacts', function ($query) use ($request) {
-			        $query->where('address', 'like', '%'.$request->address.'%');
+			        $query->where('country', 'like', '%'.$request->country.'%');
 			    });
 	    })
 	    ->orderBy('created_at','DESC')
@@ -56,7 +56,7 @@ class SearchController extends Controller
 	    ->whereHas('company', function ($query) use ($request) {
 	        $query->where('status',1)
 	        		->whereHas('contacts', function ($query) use ($request) {
-			        $query->where('address', 'like', '%'.$request->address.'%');
+			        $query->where('country', 'like', '%'.$request->country.'%');
 			    });
 	    })
 	    ->orderBy('created_at','DESC')
@@ -74,7 +74,7 @@ class SearchController extends Controller
 	    ->whereHas('company', function ($query) use ($request) {
 	        $query->where('status',1)
 	        		->whereHas('contacts', function ($query) use ($request) {
-			        $query->where('address', 'like', '%'.$request->address.'%');
+			        $query->where('country', 'like', '%'.$request->country.'%');
 			    });
 	    })
 	    ->orderBy('created_at','DESC')
@@ -84,16 +84,14 @@ class SearchController extends Controller
 	    ->whereHas('company', function ($query) use ($request) {
 	        $query->where('status',1)
 	        		->whereHas('contacts', function ($query) use ($request) {
-			        $query->where('address', 'like', '%'.$request->address.'%');
+			        $query->where('country', 'like', '%'.$request->country.'%');
 			    });
 	    })
 	    ->orderBy('created_at','DESC')
-	    ->paginate(20);
-	    $company = Company::where('status',1)->get();
+	    ->paginate(20);	  
 	    
 	    return view('frontend.search')->with([
-            'training'=>$training,
-            'company'=>$company,
+            'training'=>$training,            
             'job'=>$jobs]);    	    
     }
 }

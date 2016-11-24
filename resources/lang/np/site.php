@@ -16,5 +16,8 @@ return [
 	'english' => 'अङ्ग्रेजि',
 	'nepali' => 'नेपाली',
 	
+	//footer
+	'city_address' =>'',
+	'country' => 'राष्ट्र',
 
 ];
