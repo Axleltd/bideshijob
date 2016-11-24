@@ -4,21 +4,73 @@
     Training
 @stop
 @section('content')
-	
-	<div class="search">
-        {!! Form::open([
-                'action' => '\App\Http\Controllers\SearchController@trainingSearch','method'=>'get']) !!}
-        @include('frontend._search')
-        <button type="submit"  class="btn">Search</button>
-        {!! Form::close() !!}		
-	</div>
 
-	<div class="section">
+
+<div class="page-inside">
+
+  @if(Request::url() == url('/training'))
+    <nav>
+        <div class="nav-wrapper row">
+            <div class="col s12">
+              <a href="/" class="breadcrumb">Home</a>
+              <a href="#!" class="breadcrumb">Training</a>
+          
+           </div>
+        </div>
+      </nav>
+    @else
+
+    @if(isset($company) && $company !== 'search')
+
+      <nav>
+        <div class="nav-wrapper row">
+            <div class="col s12">
+              <a href="/" class="breadcrumb">Home</a>
+              <a href="/company/{{$company->id}}" class="breadcrumb">Company</a>
+              <a href="/company/{{$company->id}}/training" class="breadcrumb">Training</a>
+              
+            </div>
+          </div>
+       </nav>
+    @endif
+      
+
+  @endif
+
+  <div class="banner">
+      <div class="wrap">
+	
+      	<div class="search">
+              {!! Form::open([
+                      'action' => '\App\Http\Controllers\SearchController@trainingSearch','method'=>'get']) !!}
+              @include('frontend._search')
+              <button type="submit"  class="search-btn"><i class="fa fa-search"></i></button>
+              {!! Form::close() !!}		
+      	</div>
+      </div>
+    </div>
+
 		<section class="row training">
     <div class="wrap">
-      <div class="section-title">
-        <h3 class="wow fadeIn">All Trainings</h3>
-      </div>
+      @if(Request::url() == url('/training'))
+        <div class="section-title">
+          
+        <h3>All Training</h3>  
+        </div>
+      @else
+        @if(isset($company) && $company != 'search')
+        <div class="section-title">
+          
+        <h3>Training of {{ $company->name}}</h3>
+        </div>
+      @else
+        <div class="section-title">
+          
+        <h3>Search Results</h3>
+        </div>
+      @endif
+
+      @endif
       
       <div class="section-content">
         <ul class="lists row">

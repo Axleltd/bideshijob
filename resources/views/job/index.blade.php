@@ -5,76 +5,114 @@
 @stop
 
 @section('content')
-@if(Request::url() == url('/jobs'))
-<nav>
-  <div class="nav-wrapper">
-      <div class="col s12">
-        <a href="/" class="breadcrumb">Home</a>
-        <a href="#!" class="breadcrumb">Jobs</a>
-        
-      </div>
-    </div>
-  </nav>
-@else
 
-@if(isset($company) && $company !== 'search')
+<div class="page-inside">
 
-<nav>
-	<div class="nav-wrapper">
-	      <div class="col s12">
-	        <a href="/" class="breadcrumb">Home</a>
-	        <a href="/company/{{$company->id}}" class="breadcrumb">Company</a>
-	        <a href="/company/{{$company->id}}/job" class="breadcrumb">Job</a>
+	@if(Request::url() == url('/jobs'))
+		<nav>
+	  		<div class="nav-wrapper row">
+	      		<div class="col s12">
+	        		<a href="/" class="breadcrumb">Home</a>
+	        		<a href="#!" class="breadcrumb">Jobs</a>
 	        
-	      </div>
-	    </div>
-	  </nav>
-@endif
-	<div class="row">
-		<div class="col m12 s12">
+	     		 </div>
+	    	</div>
+	  	</nav>
+		@else
 
-			@if(Request::url() == url('/jobs'))
-				<h3>All Job Information</h3>  
-			@else
-			<h3>Job Information of {{ $company->name}}</h3>
-	  @endif
-@endif
-	<div class="row">
-		<div class="col m12 s12">
+		@if(isset($company) && $company !== 'search')
+
+			<nav>
+				<div class="nav-wrapper row">
+			      <div class="col s12">
+			        <a href="/" class="breadcrumb">Home</a>
+			        <a href="/company/{{$company->id}}" class="breadcrumb">Company</a>
+			        <a href="/company/{{$company->id}}/job" class="breadcrumb">Job</a>
+			        
+			      </div>
+			    </div>
+			 </nav>
+		@endif
+			
+
+	@endif
+	<div class="banner">
+    	<div class="wrap">
+        
 			<div class="search">
 				 {!! Form::open([
                 	'action' => '\App\Http\Controllers\SearchController@jobSearch','method'=>'get']) !!}
 			        @include('frontend._search')
-			        <button type="submit"  class="btn">Search</button>
+			        <button type="submit"  class="search-btn"><i class="fa fa-search"></i></button>
 			    {!! Form::close() !!}	
 			</div>
+
+		</div>
+
+	</div>
+	<section class="page-content jobs">
+
+		<div class="wrap row">
 			@if(Request::url() == url('/jobs'))
-				<h3>All Job Information</h3>  
+				<div class="section-title">
+					
+				<h3>All Jobs</h3>  
+				</div>
 			@else
 				@if(isset($company) && $company != 'search')
-				<h3>Job Information of {{ $company->name}}</h3>
-				@else
+				<div class="section-title">
+					
+				<h3>Jobs of {{ $company->name}}</h3>
+				</div>
+			@else
+				<div class="section-title">
+					
 				<h3>Search Results</h3>
-				@endif
+				</div>
+			@endif
 
 			@endif
-		</div>
-		@foreach($jobs as $job)
-		<div class="col s12 m4">
-          <div class="card blue-grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">{{ $job->title }}</span>
-              <p>{{ $job->description }}</p>
-            </div>
-            <div class="card-action">
-              <a href="{{ url('company/'.$job->company->id.'/job/'.$job->id)}}">View More</a>
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
 
-		@endforeach
+
+		    <div class="section-content">
+		        <ul class="lists row">
+
+					@foreach($jobs as $job)
+					<li class="wow fadeInUp">
+		              <div class="wrap row">
+		                <div class="img-wrap">
+		                  <img src="{{asset('image/'.$job->company->logo)}}" alt="">
+		                </div>
+		                <div class="text-wrap">
+		                  <h5>{{$job->title}}</h5>
+		                  <div class="row">
+		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>{{$job->company->contacts->country}}</div>
+		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Salary:{{$job->salary}}</div>
+		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Required Number:{{$job->quantity}}</div>
+		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>{{$job->facilities}}</div>
+		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Cost:{{$job->cost}}</div>
+		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Duty Hour:{{$job->duty_hours}}</div>
+		                  </div>
+		                  <div class="row">
+		                    <p class="social">
+		                      Share on <a href="#"><i class="ti-facebook"></i></a> <a href="#"><i class="ti-twitter"></i></a> <a href="#"><i class="ti-googleplus"></i></a>
+		                    </p>
+		                  </div>
+		                </div>
+		                <div class="btn-wrap">
+		                  <button class="btn weaves-effect">Apply Now</button><br>
+		                  <a href="{{ url('company/'.$job->company_id.'/job/'.$job->id)}}">More info</a>
+		                </div>
+		              </div>
+		            </li>
+
+					@endforeach
+				</ul>
+			</div>
+		</div>
+	</section>
 	</div>
+</div>
 @stop
 
 		
