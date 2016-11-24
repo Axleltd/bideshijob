@@ -44,6 +44,17 @@ h1, h2, h3, h4, h5, h6 {
 p, a, body {
 	font-family: $p-font;
 }
+
+a.h5 {
+	color: #5a5a5a;
+	font-family: $title-font;
+	font-size: 1.64rem;
+	line-height: 110%;
+	margin-top: 15px;
+	display: block;
+    cursor: pointer;
+
+}
 .row {
 	width: 86%;
 
@@ -290,6 +301,10 @@ section.jobs {
 					height: 150px;
 					background: #aaa;
 					float: left;
+
+					img {
+						max-height: 150px;
+					}
 				}
 				.text-wrap {
 					width: 60%;
@@ -348,6 +363,12 @@ section.training {
 					width: 100%;
 					height: 200px;
 					background: #ccc;
+
+					img {
+						max-height: 200px;
+						min-width: 100%;
+						max-width: 100%;
+					}
 				}
 
 				.text-wrap {
@@ -434,6 +455,52 @@ section.all-lists {
 	}
 
 }
+
+.page-inside {
+	.banner {
+		height: 40vh;
+		background: url('../images/banner.png');
+
+		.wrap {
+			padding-top: 15vh;
+			background: rgba(0, 0, 0, 0.8);
+			height: 100%;
+		}
+
+		.search {
+			width: 50%;
+			margin: 0 auto;
+			background-color: #fff;
+			border: 3px solid $primary-color;
+			height: 60px;
+			border-radius: 30px;
+			padding: 10px 20px;
+
+			input {
+				width: 43%;
+				float: left;
+				background: #fff;
+				height: 35px;
+				border-bottom: none;
+				border-right: 1px solid $primary-color;
+				text-indent: 15px;
+				color: $primary-color;
+				font-size: 18px;
+			}
+			button {
+				width: 10%;
+				float: right;
+				background: #fff;
+				border: none;
+				height: 35px;
+				color: $primary-color;
+				font-size: 22px;
+			}
+		}
+	}
+}
+
+
 
 
 
