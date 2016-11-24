@@ -13,7 +13,6 @@ use Auth;
 use App\Http\Requests\PostCompanyRequest;
 use App\Http\Requests\PutCompanyRequest;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Notifications\DatabaseNotification;
 
 class CompanyController extends Controller
 {    
