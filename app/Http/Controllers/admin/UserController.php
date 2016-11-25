@@ -24,4 +24,26 @@ class UserController extends Controller
 
     }
 
+    public function destroy($id)
+    {
+    	
+    	if($user->destroy(['id'=>$id]))
+    	{
+    		return redirect('/dashboard/all-users');
+    	}
+    	return redirect()->back();
+    }
+
+    public function suspend($id)
+    {
+    	$user = $this->user->where('id',$id)->first();
+
+    	if($user->update(['status',0]))
+    	{
+    		return redirect('/dashboard/all-users');
+    	}
+    	return redirect()->back();
+
+    }
+
 }
