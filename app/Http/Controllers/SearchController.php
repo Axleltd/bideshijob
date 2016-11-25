@@ -7,6 +7,7 @@ use App\Company;
 use App\Contact;
 use App\Training;
 use App\Job;
+use App\Post;
 class SearchController extends Controller
 {
     public function companySearch(Request $request)
@@ -91,5 +92,16 @@ class SearchController extends Controller
 	    return view('frontend.search')->with([
             'training'=>$training,            
             'job'=>$jobs]);    	    
+    }
+
+    public function postSearch(Request $request)
+    {
+
+    	$posts = Post::where('title','LIKE','%'.$request->title.'%')
+	    ->orderBy('created_at','DESC')
+	    ->paginate(20);	
+
+	    return view('post.search')->with([
+            'posts'=>$posts]);    	    
     }
 }

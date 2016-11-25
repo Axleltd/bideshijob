@@ -13,8 +13,33 @@
 
 Route::group(['middlewareGroups' => ['web']], function () {
 	Auth::routes();
-	Route::resource('/',HomeController::class);
+	Route::get('/','HomeController@index');
+	//----------------Blog-----------------------
+	Route::get('blog/{post}','PostsController@show');
+	//----create and store
+	Route::get('blog/create','PostsController@create');
+	Route::post('blog','PostsController@store');
+	//edit--and--update
+	Route::get('blog/{post}/edit','PostsController@edit');
+	Route::put('blog/{post}','PostsController@update');
+	
+	Route::get('blog','PostsController@index');
 
+	Route::delete('blog/{post}','PostsController@destroy');
+	//------------------------Category----------------------------
+	Route::get('blog/category/{category}','CategoriesController@show');
+	//----create and store
+	Route::get('blog/category/create','CategoriesController@create');
+	Route::post('blog/category','CategoriesController@store');
+	//edit--and--update
+	Route::get('blog/category/{category}/edit','CategoriesController@edit');
+	Route::put('blog/category/{category}','CategoriesController@update');
+	
+	Route::get('blog/categories','CategoriesController@index');
+
+	Route::delete('blog/category/{category}','CategoriesController@destroy');
+
+	//----------------End Blog-------------------
 	Route::get('/aboutus','HomeController@aboutUs');
 	Route::get('/contactus','HomeController@contactUs');
 	Route::get('/faq','FAQController@index');	
@@ -22,6 +47,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('training','HomeController@training');
 	Route::get('/search/training','SearchController@trainingSearch');
 	Route::get('/search/job','SearchController@jobSearch');
+	Route::get('/search/post','SearchController@postSearch');
 	Route::get('/search/all','SearchController@allSearch');
 
 
@@ -38,6 +64,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	});			
 
 	Route::get('/logout','Auth\LoginController@logout');
+	
 
 	Route::resource('faq',FAQController::class);
 
