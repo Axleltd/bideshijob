@@ -16,7 +16,7 @@ class DashBoardController extends Controller
 	protected $training;
 
 	public function __construct()
-	{
+	{    
 		$this->company = new Company;
 		$this->training = new Training;
 	}
