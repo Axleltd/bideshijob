@@ -54,6 +54,12 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('/contact','MessageController@create');
 	Route::post('/contact','MessageController@store');
 
+	//user dashboard
+	Route::get('profile/','admin\UserController@index');
+	Route::resource('profile/user',ProfileController::class);
+
+	
+
 	Route::get('locale/{name}',function($name){
 		$lang = ['en','np'];
 		if(in_array($name,$lang)){
@@ -84,3 +90,7 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/training/unfeatured/{id}','admin\TrainingController@unFeatured');
 	Route::get('training/delete/{id}','admin\TrainingController@destroy');
 });
+
+
+
+
