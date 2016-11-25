@@ -1,0 +1,277 @@
+@import "includes/var";
+@import "includes/mixins";
+@import "includes/ring";
+
+body {
+	overflow-x: hidden;
+	font-family: $title-font;
+}
+
+
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly])  {
+	box-shadow: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $title-font;
+}
+
+
+.pace {
+  	-webkit-pointer-events: none;
+  	pointer-events: none;
+
+  	-webkit-user-select: none;
+  	-moz-user-select: none;
+  	user-select: none;
+
+  	left: 50%;
+}
+
+.pace-inactive {
+  	display: none;
+}
+
+.pace .pace-progress {
+  	background: $primary-color;
+  	position: fixed;
+  	z-index: 999999;
+  	top: 0;
+  	width: 100%;
+  	right: 100%;
+  	height: 2px;
+}
+
+.Dashboard {
+
+    $main-color: #fff;
+    $title-c: #5a5a5a;
+    $text-c: #5a5a5a;
+
+    header {
+        height: 40px;
+        box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+
+        .right-nav {
+            float: right;
+            margin-top: 0;
+            margin-right: 7%;
+
+            .user-div {
+
+                i {
+                    padding: 12px;
+                    font-size: 18px;
+                    color: $title-c;
+                }
+
+            }
+
+            ul.user-info {
+                border: 1px solid #ccc;
+                position: absolute;
+                margin: 0;
+                padding: 10px;
+                right: 3%;
+                width: 14%;
+                background: $main-color;
+                box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
+
+
+
+
+                li {
+
+                    a {
+                        display: block;
+                        color: $title-c;
+                        padding: 5px 10px;
+                        text-align: center;
+                        @include vendor(transition, all 0.5s linear);
+
+                        &:hover {
+                            color: $main-color;
+                            background: $title-c;
+                        }
+                    }
+                }
+
+                li.img {
+                    height: 100px;
+                    overflow: hidden;
+                    width: 100px;
+                    border-radius: 100px;
+                    margin: 0 auto 15px;
+
+                    img {
+                        height: 100px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .left-nav {
+            float: left;
+            margin-left: 20%;
+            padding-left: 60px;
+            margin-top: 0;
+            // mt0
+
+            li {
+                display: inline-block;
+
+                i {
+                    padding: 12px;
+                    font-size: 18px;
+                    color: #5a5a5a;
+                }
+
+                ul.submenu {
+                    border: 1px solid #ccc;
+                    position: absolute;
+                    margin: 0;
+                    padding: 10px 0;
+                    background: $main-color;
+                    box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
+
+
+                }
+
+                li {
+                    display: block;
+
+                    p {
+                        margin: 0;
+                        font-size: 18px;
+                        font-family: $title-font;
+                    }
+
+                    a {
+                        color: $title-c;
+                        display: block;
+                        padding: 10px 15px;
+
+                        @include vendor(transition, all 0.5s linear);
+
+                        &:hover {
+                            color: $main-color;
+                            background: $title-c;
+                        }
+                    }
+                }
+                li.title {
+                    margin-bottom: 10px;
+                    padding: 0 15px;
+
+                    a {
+                        color: $primary-color;
+                        padding: 0;
+                        padding-top: 5px;
+
+                        &:hover {
+                            color: $alternate-color;
+                            background: $t;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .sidenav {
+        width: 20%;
+        // overflow: hidden;
+        float: left;
+        position: absolute;
+        min-height: 100vh;
+        top: 0;
+        background: $main-color;
+        border-right: 1px solid #eee;
+        box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
+
+        .logo-div {
+            padding: 20px;
+            padding-left: 40px;
+            position: relative;
+
+            a {
+                overflow: hidden;
+
+                img {
+                    width: 200px;
+                }
+            }
+
+            .nav-toggle {
+                position: absolute;
+                right: -40px;
+                top: 8px;
+
+                i {
+                    font-size: 22px;
+                    padding-top: 10px;
+                    color: #5a5a5a;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        ul.navs {
+            padding: 5px;
+            li {
+                overflow: hidden;
+                a {
+                    display: block;
+                    padding: 5px 30px;
+                    color: $title-c;
+                    font-size: 17px;
+                    font-family: $p-font;
+                    @include vendor (transition, all 0.5s linear);
+
+                    &:hover {
+                        background: $title-c;
+                        color: $main-color;
+                    }
+
+                    i {
+                        margin-right: 10px;
+                    }
+                }
+
+                ul.submenu {
+                    margin-left: 40px;
+                    border-left: 1px solid #ccc;
+
+                    a {padding: 5px 10px;}
+                    height: 0;
+
+                    @include vendor (transition, height 0.5s linear);
+                }
+
+                &:hover {
+                    ul.submenu {
+                        height: 70px;
+                    }
+                }
+                &.sites {
+                    &:hover {
+                        ul.submenu {
+                            height: 175px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .page-wrap {
+        width: 80%;
+        float: right;
+        padding: 30px 5%;
+        overflow: hidden;
+
+        img {
+            max-width: 250px;
+        }
+    }
+}
