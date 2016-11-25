@@ -7,43 +7,33 @@ use App\Http\Controllers\Controller;
 use App\Company;
 use Auth;
 use App\User;
+use App\Job;
+use App\Training;
+use Illuminate\Notifications\DatabaseNotification;
+
 class UserController extends Controller
-{
-	protected $user;
+{	
+	protected $company;
+	protected $training;
 
 	public function __construct()
 	{	
-		$this->user = new User;
+		$this->middleware('auth');		
+		$this->company = new Company;
+		$this->training = new Training;
 	}
 
     public function index()
     {    	
-    	$users = $this->user->all();
-    	
-    	return view('admin.user.index',compact('users'));
-
-    }
-
-    public function destroy($id)
-    {
-    	
-    	if($user->destroy(['id'=>$id]))
-    	{
-    		return redirect('/dashboard/all-users');
-    	}
-    	return redirect()->back();
-    }
-
-    public function suspend($id)
-    {
-    	$user = $this->user->where('id',$id)->first();
-
-    	if($user->update(['status',0]))
-    	{
-    		return redirect('/dashboard/all-users');
-    	}
-    	return redirect()->back();
-
+    	$companies = $this->company->where(['user_id'=>Auth::user()->id])->get();    	                    	    	
+        $job = Job::where('user_id',Auth::user()->id)->get();        
+        $training = $this->training->where('user_id',Auth::user()->id)->get();
+        $notifications = DatabaseNotification::orderBy('created_at','DESC')->get();            	
+    	return view('admin.index')->with([
+    		'companies'=>$companies,
+            'job_count'=>count($job),
+            'training_count'=>count($training),
+            'notifications'=>$notifications]);
     }
 
 }

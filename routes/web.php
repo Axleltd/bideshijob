@@ -85,6 +85,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('/contact','MessageController@create');
 	Route::post('/contact','MessageController@store');
 
+	//profile
+	Route::get('/profile','admin\UserController@index');
 	//user dashboard	
 	Route::resource('profile/user',ProfileController::class);
 
@@ -122,8 +124,5 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	//training featured unfeatured
 	Route::get('/training/featured/{id}','admin\TrainingController@featured');
 	Route::get('/training/unfeatured/{id}','admin\TrainingController@unFeatured');
-	Route::get('training/delete/{id}','admin\TrainingController@destroy');
-	Route::get('/all-users','admin\UserController@index');
-	Route::put('/all-users/suspend{id}','admin\UserController@suspend');
-	Route::delete('/all-users/delete{id}','admin\UserController@destroy');
+	Route::get('training/delete/{id}','admin\TrainingController@destroy');	
 });

@@ -94,36 +94,44 @@
               <li class="accordian">
                 <a href="/all-agencies"><i class="fa fa-dashboard"></i>All Agencies</a>
                 <ul class="submenu">
-                  <li><a href="{{url('/company/create')}}">Add NEW Agency</a></li>
-                  <li><a href="{{url('/profile/company')}}">View all agency</a></li>
+                  <li><a href="{{url('/company/create')}}">Add new Agency</a></li>
+                  <li><a href="{{url('/profile/company')}}">View my agency</a></li>
+                  @if(Shinobi::isRole('admin'))
+                                        
+                    <li><a href="{{url('/dashboard/company')}}">View all agency</a></l
+                      >                    
+                  @endif                  
+
                 </ul>
               </li>
               <li class="accordian">
                 <a href="/all-jobs"><i class="fa fa-dashboard"></i> All jobs</a>
                 <ul class="submenu">
                   <li><a href="#">Add NEW Jobs</a></li>
-                  <li><a href="#">View all agency</a></li>
+                  <li><a href="{{url('/profile/job')}}">View all jobs</a></li>
                 </ul>
               </li>
               <li class="accordian">
                 <a href="/all-training"><i class="fa fa-dashboard"></i> All Trainings</a>
                 <ul class="submenu">
                   <li><a href="#">Add NEW Agency</a></li>
-                  <li><a href="#">View all agency</a></li>
+                  <li><a href="{{url('/profile/training')}}">View all training</a></li>
                 </ul>
               </li>
-              <li><a href="/subscriptions"><i class="fa fa-dashboard"></i> Subscriptions</a></li>
-              <li><a href="/dashboard/all-users"><i class="fa fa-dashboard"></i> All users</a></li>
-              <li class="accordian sites">
-                <a href="#">Edit site</a>
-                <ul class="submenu">
-                  <li><a href="edit-about-us"><i class="fa fa-home"></i> About Us</a></li>
-                  <li><a href="edit-about-us"><i class="fa fa-home"></i> FAQ</a></li>
-                  <li><a href="edit-medical"><i class="fa fa-home"></i> Medical</a></li>
-                  <li><a href="edit-insurance"><i class="fa fa-home"></i> Insurance</a></li>
-                  <li><a href="edit-immigration"><i class="fa fa-home"></i> Immigration</a></li>
-                </ul>
-              </li>
+              @if(Shinobi::isRole('admin'))
+                <li><a href="/subscriptions"><i class="fa fa-dashboard"></i> Subscriptions</a></li>
+                <li><a href="/watchtower/users"><i class="fa fa-dashboard"></i> All users</a></li>              
+                <li class="accordian sites">
+                  <a href="#">Edit site</a>
+                  <ul class="submenu">
+                    <li><a href="edit-about-us"><i class="fa fa-home"></i> About Us</a></li>
+                    <li><a href="edit-about-us"><i class="fa fa-home"></i> FAQ</a></li>
+                    <li><a href="edit-medical"><i class="fa fa-home"></i> Medical</a></li>
+                    <li><a href="edit-insurance"><i class="fa fa-home"></i> Insurance</a></li>
+                    <li><a href="edit-immigration"><i class="fa fa-home"></i> Immigration</a></li>
+                  </ul>
+                </li>
+              @endif
             </ul>
           </div>
         </div>
