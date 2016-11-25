@@ -18,7 +18,7 @@ return [
     | The name of your site (or whatever) you want displayed on the header.
     |
     */
-	'site_title' => 'Watchtower',
+	'site_title' => 'User Management',
 
 
     /*
@@ -55,7 +55,7 @@ return [
     | and use that one if one is found, othewise it uses the default.
     |
     */
-   'default_theme' => 'spacelab',
+   'default_theme' => 'paper',
 
 
     /*
@@ -270,6 +270,6 @@ return [
     'route' => [
         'prefix'    => '',
         'as'        => 'watchtower.',
-        'middleware'=> ( str_contains( app()->version(), '5.2') ? ['web'] : ['auth'] )
+        'middleware'=> ( str_contains( app()->version(), '5.3') ? ['web'] : ['auth'] )
     ]
 ];
