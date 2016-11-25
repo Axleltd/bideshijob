@@ -17,27 +17,27 @@
 				<div class="s12 m6 l4 col">
 					<div class="card">
 						<div class="card-title">Agencies</div>
-						<p>3 Agencies</p>
+						<p>{{count($companies)}} Agencies</p>
 						<div class="card-action">
-							<a href="">View All</a>
+							<a href="{{url('/profile/company')}}">View All</a>
 						</div>
 					</div> 
 				</div>
 				<div class="s12 m6 l4 col">
 					<div class="card">
 						<div class="card-title">Jobs</div>
-						<p>3 Jobs</p>
+						<p>{{$job_count}} Jobs</p>
 						<div class="card-action">
-							<a href="">View All</a>
+							<a href="{{url('/profile/job')}}">View All</a>
 						</div>
 					</div> 
 				</div>
 				<div class="s12 m6 l4 col">
 					<div class="card">
 						<div class="card-title">Trainings</div>
-						<p>3 Trainings</p>
+						<p>{{$training_count}} Trainings</p>
 						<div class="card-action">
-							<a href="">View All</a>
+							<a href="{{url('/profile/training')}}">View All</a>
 						</div>
 					</div> 
 				</div>

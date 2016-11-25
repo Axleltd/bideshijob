@@ -16,7 +16,8 @@ class Training extends Model
         'description',
         'from',
         'to',
-        'country'
+        'country',
+        'user_id',
     ];
 
     public function company()

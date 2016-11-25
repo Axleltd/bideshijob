@@ -20,6 +20,7 @@ class CompanyController extends Controller
 		$company = $this->company->orderBy('created_at','DESC')->get();
 		return view('admin.company.index')->with('company',$company);
 	}
+   
     public function active($companyId)
     {
     	$company = $this->company->where('id',$companyId)->first();

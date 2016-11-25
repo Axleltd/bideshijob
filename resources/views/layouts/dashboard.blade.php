@@ -94,14 +94,14 @@
               <li class="accordian">
                 <a href="/all-agencies"><i class="fa fa-dashboard"></i>All Agencies</a>
                 <ul class="submenu">
-                  <li><a href="#">Add NEW Agency</a></li>
-                  <li><a href="#">View all agency</a></li>
+                  <li><a href="{{url('/company/create')}}">Add NEW Agency</a></li>
+                  <li><a href="{{url('/profile/company')}}">View all agency</a></li>
                 </ul>
               </li>
               <li class="accordian">
                 <a href="/all-jobs"><i class="fa fa-dashboard"></i> All jobs</a>
                 <ul class="submenu">
-                  <li><a href="#">Add NEW Agency</a></li>
+                  <li><a href="#">Add NEW Jobs</a></li>
                   <li><a href="#">View all agency</a></li>
                 </ul>
               </li>
@@ -113,7 +113,7 @@
                 </ul>
               </li>
               <li><a href="/subscriptions"><i class="fa fa-dashboard"></i> Subscriptions</a></li>
-              <li><a href="/all-users"><i class="fa fa-dashboard"></i> All users</a></li>
+              <li><a href="/dashboard/all-users"><i class="fa fa-dashboard"></i> All users</a></li>
               <li class="accordian sites">
                 <a href="#">Edit site</a>
                 <ul class="submenu">
@@ -138,7 +138,7 @@
     <script src="{{asset('js/particles.js')}}"></script>
     <script src="{{asset('js/wow.min.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>
-
+    @stack('script')
 
     <!-- Scripts -->
     <script>

@@ -29,6 +29,12 @@ class TrainingController extends Controller
         return view('training.index')->with('training',$company->trainingWithOrder()->paginate(5));
     }
 
+    public function showMyTraining()
+    {
+        $trainings = $this->training->where('user_id',Auth::user()->id)->get();
+        return view('admin.training.viewall',compact('trainings'));
+    }
+
     public function create($companyId)
     {    
         $company = $this->company->where('id',$companyId)->get()->first();    
@@ -47,6 +53,7 @@ class TrainingController extends Controller
             'quantity'=>$request->quantity,            
             'company_id' => $companyId,
             'country' => $request->country,
+            'user_id'=>Auth::user()->id,
             ]);                  
         if(!$training)
             return redirect('company/'.$companyId.'/training/create');

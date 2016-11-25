@@ -33,6 +33,12 @@ class CompanyController extends Controller
         return view('company.index',compact('company'));
     }
 
+    public function showMyCompany()
+    {
+        $companies = $this->company->where('user_id',Auth::user()->id)->get();
+        return view('admin.company.viewall',compact('companies'));
+    }
+
     public function create()
     {
     	return view('company.create');

@@ -28,7 +28,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 	Route::delete('blog/category/{category}','CategoriesController@destroy');
 	//----------------End Category
-	
+
 	//----------------Blog-----------------------
 	Route::get('blog/create','PostsController@create');
 	Route::get('blog/{post}','PostsController@show');
@@ -78,16 +78,20 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('about','SiteController@getAbout');
 
 	Route::resource('company',Company\CompanyController::class);
+	Route::get('profile/company','CompanyController@showMyCompany');
 	Route::resource('company/{id}/job',JobsController::class);
 	Route::resource('company/{id}/job/{slug}/contact',Jobs\ContactController::class);
 	Route::resource('company/{id}/training',TrainingController::class);
 	Route::get('/contact','MessageController@create');
 	Route::post('/contact','MessageController@store');
 
-	//user dashboard
-	Route::get('profile/','admin\UserController@index');
+	//user dashboard	
 	Route::resource('profile/user',ProfileController::class);
 
+	//training
+	Route::get('profile/training','TrainingController@showMyTraining');
+	//job
+	Route::get('profile/job','JobsController@showMyJob');
 	
 
 	Route::get('locale/{name}',function($name){
@@ -103,7 +107,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 });
 
 Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::class], 'prefix' => 'dashboard', 'before' => 'auth'], function () {
-
+	//admin dashboard and user
 	Route::get('/','admin\DashBoardController@index');
 	Route::get('/company','admin\CompanyController@index');
 	Route::get('/training','admin\TrainingController@index');
@@ -119,6 +123,7 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/training/featured/{id}','admin\TrainingController@featured');
 	Route::get('/training/unfeatured/{id}','admin\TrainingController@unFeatured');
 	Route::get('training/delete/{id}','admin\TrainingController@destroy');
+	Route::get('/all-users','admin\UserController@index');
 });
 
 

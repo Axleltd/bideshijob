@@ -32,6 +32,12 @@ class JobsController extends Controller
             ]);
     }
 
+    public function showMyJob()
+    {
+         $jobs = $this->job->where('user_id',Auth::user()->id)->get();
+        return view('admin.job.viewall',compact('jobs'));   
+    }
+
     /**
      * Show the form for creating a new resource.
      *
