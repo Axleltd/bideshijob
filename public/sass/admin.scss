@@ -252,7 +252,7 @@ h1, h2, h3, h4, h5, h6 {
 
                 &:hover {
                     ul.submenu {
-                        height: 70px;
+                        height: 105px;
                     }
                 }
                 &.sites {
@@ -369,6 +369,18 @@ h1, h2, h3, h4, h5, h6 {
 
                 .alert {
                     color: red;
+                }
+
+                .controls {
+                    width: 275px;
+                    height: 150px;
+                    overflow: hidden;
+                    margin-bottom: 15px;
+
+                    img {
+                        width: 275px;
+                        min-height: 150px;
+                    }
                 }
             }
         }

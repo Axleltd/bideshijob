@@ -421,7 +421,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* line 254, ../sass/admin.scss */
 .Dashboard .sidenav ul.navs li:hover ul.submenu {
-  height: 70px;
+  height: 105px;
 }
 /* line 260, ../sass/admin.scss */
 .Dashboard .sidenav ul.navs li.sites:hover ul.submenu {
@@ -532,7 +532,19 @@ h1, h2, h3, h4, h5, h6 {
 .Dashboard .page-wrap .section-content form .alert {
   color: red;
 }
-/* line 376, ../sass/admin.scss */
+/* line 374, ../sass/admin.scss */
+.Dashboard .page-wrap .section-content form .controls {
+  width: 275px;
+  height: 150px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+/* line 380, ../sass/admin.scss */
+.Dashboard .page-wrap .section-content form .controls img {
+  width: 275px;
+  min-height: 150px;
+}
+/* line 388, ../sass/admin.scss */
 .Dashboard .page-wrap img {
   max-width: 250px;
 }
