@@ -30,31 +30,29 @@
                   <p class="left">Notification</p>
                   <a href="#" class="right">View all</a>
                 </li>
-                @foreach($notifications as $notification)
-        
-                  <li>
-                    <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
-                  </li>
+                @if(count($notifications)>0 && isset($notifications))
+                  @foreach($notifications as $notification)
+          
+                    <li>
+                      <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                    </li>
 
-                @endforeach
+                  @endforeach
+                @endif
+              @if(Shinobi::isRole('admin'))
+                @if(count($allNotifications)>0 && isset($notifications))
+                  @foreach($allNotifications as $notification)
+          
+                    <li>
+                      <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                    </li>
+
+                  @endforeach
+                @endif
+              @endif
               </ul>
             </li>
-            <li>
-              <i class="fa fa-facebook"></i>
-              <ul class="submenu">
-                <li class="title row">
-                  <p class="left">Notification</p>
-                  <a href="#" class="right">View all</a>
-                </li>
-                @foreach($notifications as $notification)
         
-                  <li>
-                    <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
-                  </li>
-
-                @endforeach
-              </ul>
-            </li>
           </ul>
 
           <div class="right-nav">

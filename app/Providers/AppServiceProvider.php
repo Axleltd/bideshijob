@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
 use App\Company;
+use Auth;
+use Shinobi;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -19,6 +21,13 @@ class AppServiceProvider extends ServiceProvider
         });
         view()->composer('job._form',function(View $view){
             $view->with('activeFeatured', Company::get());
+        });
+        view()->composer('layouts.dashboard',function(View $view){
+            if(Shinobi::isRole('admin')){     
+                $view->with('allNotifications', \Illuminate\Notifications\DatabaseNotification::all());
+                return $view->with('notifications', Auth::user()->notifications);
+            }
+            return $view->with('notifications', Auth::user()->notifications);
         });
     }
 
