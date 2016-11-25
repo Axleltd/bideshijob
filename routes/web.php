@@ -16,7 +16,6 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('/','HomeController@index');
 	
 		//------------------------Category----------------------------
-	Route::get('blog/category/{category}','CategoriesController@show');
 	//----create and store
 	Route::get('blog/category/create','CategoriesController@create');
 	Route::post('blog/category','CategoriesController@store');
@@ -27,6 +26,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('blog/categories','CategoriesController@index');
 
 	Route::delete('blog/category/{category}','CategoriesController@destroy');
+	Route::get('blog/category/{category}','CategoriesController@show');
 	//----------------End Category
 
 	//----------------Blog-----------------------

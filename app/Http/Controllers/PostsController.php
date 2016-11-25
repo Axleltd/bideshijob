@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Post;
 class PostsController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware('isAdmin')->except('index','show');
+	}
 	public function show(Post $post)
 	{
 		return view('post.show')->with([
