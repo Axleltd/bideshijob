@@ -72,6 +72,7 @@ h1, h2, h3, h4, h5, h6 {
                 position: absolute;
                 margin: 0;
                 padding: 10px;
+                display: none;
                 right: 3%;
                 width: 14%;
                 background: $main-color;
@@ -129,6 +130,7 @@ h1, h2, h3, h4, h5, h6 {
                 ul.submenu {
                     border: 1px solid #ccc;
                     position: absolute;
+                    display: none;
                     margin: 0;
                     padding: 10px 0;
                     background: $main-color;
@@ -183,7 +185,7 @@ h1, h2, h3, h4, h5, h6 {
         // overflow: hidden;
         float: left;
         position: absolute;
-        min-height: 100vh;
+        min-height: 100%;
         top: 0;
         background: $main-color;
         border-right: 1px solid #eee;
@@ -267,8 +269,54 @@ h1, h2, h3, h4, h5, h6 {
     .page-wrap {
         width: 80%;
         float: right;
-        padding: 30px 5%;
+        padding: 0 3%;
         overflow: hidden;
+
+        .section-title {
+            h3 {
+                font-size: 32px;
+                font-family: $title-font;
+                color: $title-c;
+            }
+            p {
+                margin-bottom: 0;
+            }
+        }
+
+        .section-content {
+            border-top: 1px solid #ddd;
+            margin-top: 35px;
+            padding-top: 35px;
+            h5 {
+                font-size: 22px;
+                font-family: $title-font;
+                color: $title-c;
+                margin-top: 0;
+            }
+
+            .card {
+                border: 1px solid #ccc;
+                .card-title {
+                    padding: 15px;
+                }
+                p {
+                    margin: 0;
+                    padding: 0 15px;
+                }
+                .card-action {
+                    margin-top: 20px;
+
+                    a {
+                        color: $primary-color;
+                        margin-left: 20px;
+
+                        &:hover {
+                            color: $alternate-color !important;
+                        }
+                    }
+                }
+            }
+        }
 
         img {
             max-width: 250px;
