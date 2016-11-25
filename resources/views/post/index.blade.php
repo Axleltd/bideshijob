@@ -51,6 +51,7 @@
             <?php $d =$d+0.3;?>
           @endforeach
         </ul>
+        {!! $posts->links() !!}
       </div>
     </div>
   </section>
