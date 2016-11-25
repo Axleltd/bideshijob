@@ -445,45 +445,94 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0;
 }
 /* line 286, ../sass/admin.scss */
+.Dashboard .page-wrap .section-title ul.bread-crumb li {
+  display: inline-block;
+}
+/* line 289, ../sass/admin.scss */
+.Dashboard .page-wrap .section-title ul.bread-crumb li a {
+  display: block;
+  margin-right: 10px;
+  padding-left: 10px;
+  color: #5a5a5a;
+}
+/* line 295, ../sass/admin.scss */
+.Dashboard .page-wrap .section-title ul.bread-crumb li a:hover {
+  color: #7f8ed1;
+}
+/* line 302, ../sass/admin.scss */
+.Dashboard .page-wrap .section-title ul.bread-crumb li:last-child a {
+  color: #aaa;
+}
+/* line 310, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content {
   border-top: 1px solid #ddd;
   margin-top: 35px;
   padding-top: 35px;
 }
-/* line 290, ../sass/admin.scss */
+/* line 314, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content h5 {
   font-size: 22px;
   font-family: "roboto slab", sans-serif;
   color: #5a5a5a;
   margin-top: 0;
 }
-/* line 297, ../sass/admin.scss */
+/* line 321, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card {
   border: 1px solid #ccc;
 }
-/* line 299, ../sass/admin.scss */
+/* line 323, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-title {
   padding: 15px;
 }
-/* line 302, ../sass/admin.scss */
+/* line 326, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card p {
   margin: 0;
   padding: 0 15px;
 }
-/* line 306, ../sass/admin.scss */
+/* line 330, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-action {
   margin-top: 20px;
 }
-/* line 309, ../sass/admin.scss */
+/* line 333, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-action a {
   color: #7f8ed1;
   margin-left: 20px;
 }
-/* line 313, ../sass/admin.scss */
+/* line 337, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-action a:hover {
   color: #44549b !important;
 }
-/* line 321, ../sass/admin.scss */
+/* line 343, ../sass/admin.scss */
+.Dashboard .page-wrap .section-content .card .card-reveal {
+  padding: 0;
+  overflow: hidden;
+}
+/* line 351, ../sass/admin.scss */
+.Dashboard .page-wrap .section-content form input {
+  border: 1px solid #ccc;
+  font-size: 18px;
+  text-indent: 10px;
+  height: 35px;
+}
+/* line 357, ../sass/admin.scss */
+.Dashboard .page-wrap .section-content form textarea {
+  font-size: 18px;
+  height: 135px;
+}
+/* line 361, ../sass/admin.scss */
+.Dashboard .page-wrap .section-content form button {
+  float: right;
+  background-color: #7f8ed1;
+}
+/* line 365, ../sass/admin.scss */
+.Dashboard .page-wrap .section-content form button:hover {
+  background-color: #44549b;
+}
+/* line 370, ../sass/admin.scss */
+.Dashboard .page-wrap .section-content form .alert {
+  color: red;
+}
+/* line 376, ../sass/admin.scss */
 .Dashboard .page-wrap img {
   max-width: 250px;
 }
