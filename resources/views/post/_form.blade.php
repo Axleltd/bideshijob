@@ -1,6 +1,6 @@
 <div class="form">
 	<div class="row">
-		<div class="col s12 m6">
+		<div class="col s12 m6 input-field">
 			{!! Form::label('title','Post Title:') !!}	
 			{!! Form::text('title',old('title')) !!}	
 			@if(count($errors->get('title')) > 0)
@@ -13,9 +13,24 @@
 		        </div>
 		    @endif		
 		</div>
-		<div class="col s12 m6">
-			{!! Form::label('slug','Slug:') !!}
-			{!! Form::textarea('slug',old('slug')) !!}
+		@if(Shinobi::isRole('admin'))
+			<div class="col s12 m6 input-field">
+				 <div class="input-field col s12">
+				    <select>
+	      				<option value="" disabled @if(!isset($post)) selected @endif>Choose your option</option>
+				      @foreach($categories as $category)
+							<option value="{{ $category->id }}" 
+							@if(isset($post) && $post->category_id !== null && $post->category_id == $category->id) 	selected 
+							@endif
+							>{{ $category->name }}</option>
+				      @endforeach
+				    </select>
+				    <label>Category</label>
+				  </div>
+			</div>
+		@else
+			{!! Form::hidden('categoy_id', $categories->id) !!}
+		@endif
 			@if(count($errors->get('slug')) > 0)
 		        <div class="alert alert-danger">
 		            <ul>
@@ -26,9 +41,9 @@
 		        </div>
 		    @endif		
 		</div>
-		<div class="form-group">
+		<div class="input-field">
 		    {!! Form::label('image', 'Image:', ['class' => 'control-label']) !!}
-		    @if(isset($psot->image))
+		    @if(isset($post->image))
 		        <div class="col-xs-2 thumb">
 		            <a class="image" href="#">
 		                <img class="img-responsive" src="{{asset('image/'.$post->image)}}"
@@ -53,7 +68,7 @@
 		    @endif		
 
 		</div>
-		<div class="col s12 m6">
+		<div class="col s12 m6 input-field">
 			{!! Form::label('content','Content:') !!}	
 			{!! Form::text('content',old('content')) !!}	
 			@if(count($errors->get('content')) > 0)
@@ -66,9 +81,9 @@
 		        </div>
 		    @endif		
 		</div>
-		<div class="col s12 m6">
+		<div class="col s12 m6 input-field">
 			{!! Form::label('short_description','Description:') !!}	
-			{!! Form::text('short_description',old('short_description')) !!}	
+			{!! Form::textarea('short_description',old('short_description')) !!}	
 			@if(count($errors->get('short_description')) > 0)
 		        <div class="alert alert-danger">
 		            <ul>
@@ -81,7 +96,7 @@
 		</div>
 		<div class="col s12 m6">
 			{!! Form::label('published','Published On:') !!}	
-			{!! Form::text('published',old('published')) !!}	
+			{!! Form::date('published',old('published'),['class'=>'datepicker']) !!}	
 			@if(count($errors->get('published')) > 0)
 		        <div class="alert alert-danger">
 		            <ul>
@@ -94,7 +109,14 @@
 		</div>
 	</div>
 </div>
-
+@push('script')
+	<script type="text/javascript">
+	  $('.datepicker').pickadate({
+	    selectMonths: true, // Creates a dropdown to control month
+	    selectYears: 15 // Creates a dropdown of 15 years to control year
+	  });
+	</script>
+@endpush
 <script>	
   	var loadFile = function(event) {
     var reader = new FileReader();

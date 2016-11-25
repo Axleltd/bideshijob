@@ -138,7 +138,7 @@
     <script src="{{asset('js/particles.js')}}"></script>
     <script src="{{asset('js/wow.min.js')}}"></script>
     <script src="{{asset('js/custom.js')}}"></script>
-
+  @stack('script')
 
     <!-- Scripts -->
     <script>

@@ -182,6 +182,8 @@ return [
         Collective\Html\HtmlServiceProvider::class, // For Watchtower Forms to function
         Smarch\Watchtower\WatchtowerServiceProvider::class, // For Watchtower
         Cornford\Googlmapper\MapperServiceProvider::class,//map
+//Debugbar
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
