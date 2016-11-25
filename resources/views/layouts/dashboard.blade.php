@@ -14,20 +14,62 @@
     <link rel="stylesheet" href="{{asset('stylesheets/font-awesome.css')}}">
     <link rel="stylesheet" href="{{asset('stylesheets/slick.css')}}">
     <link rel="stylesheet" href="{{asset('stylesheets/themify-icons.css')}}">
-    <link rel="stylesheet" href="{{asset('stylesheets/screen.css')}}">
+    <link rel="stylesheet" href="{{asset('stylesheets/admin.css')}}">
     
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="Dashboard row">
         
         <header class="header">
-          <div class="logo-div">
-            <a href="/"><img src="{{asset('images/logo.png')}}" alt=""></a>
-            <div class="nav-toggle">
-              <i class="ti-menu"></i>
+
+          <ul class="left-nav">
+            <li>
+              <i class="fa fa-facebook"></i>
+              <ul class="submenu">
+                <li class="title row">
+                  <p class="left">Notification</p>
+                  <a href="#" class="right">View all</a>
+                </li>
+                @foreach($notifications as $notification)
+        
+                  <li>
+                    <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                  </li>
+
+                @endforeach
+              </ul>
+            </li>
+            <li>
+              <i class="fa fa-facebook"></i>
+              <ul class="submenu">
+                <li class="title row">
+                  <p class="left">Notification</p>
+                  <a href="#" class="right">View all</a>
+                </li>
+                @foreach($notifications as $notification)
+        
+                  <li>
+                    <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                  </li>
+
+                @endforeach
+              </ul>
+            </li>
+          </ul>
+
+          <div class="right-nav">
+            <div class="user-div">
+              <i class="fa fa-user"></i>
             </div>
+            <ul class="user-info">
+              <li class="img"><img src="#" alt=""></li>
+              <li><a href="#" class="name">Jimmy Page</a></li>
+              <li><a href="#"><i class="fa fa-settings"></i>Settings</a></li>
+              <li><a href="#"><i class="fa fa-exit"></i>Logout</a></li>
+            </ul>
           </div>
-          <ul class="top-nav">
+          
+         {{--  <ul class="right-nav">
             @if(Auth::check())
               @if(Shinobi::isRole('admin'))
                 <li><a href="/dashboard">@lang('site.dashboard')</a></li>
@@ -37,13 +79,57 @@
               <li><a href="/profile">profile</a></li>              
 
             @endif
-              <li><a href="locale/en">@lang('site.english')</a></li>
-              <li><a href="locale/np">@lang('site.nepali')</a></li>
-            {{-- <li><a href="/login">login</a></li> --}}
-          </ul>          
+              <li><a href="/locale/en">@lang('site.english')</a></li>
+              <li><a href="/locale/np">@lang('site.nepali')</a></li>
+          </ul>     --}}      
         </header>
-        <div class="page-wrap">
-            
+        <div class="sidenav">
+          <div class="wrap">
+            <div class="logo-div">
+              <a href="/"><img src="{{asset('images/logo.png')}}" alt=""></a>
+              <div class="nav-toggle">
+                <i class="ti-menu"></i>
+              </div>
+            </div>
+            <ul class="navs">
+              <li><a href="/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+              <li class="accordian">
+                <a href="/all-agencies"><i class="fa fa-dashboard"></i>All Agencies</a>
+                <ul class="submenu">
+                  <li><a href="#">Add NEW Agency</a></li>
+                  <li><a href="#">View all agency</a></li>
+                </ul>
+              </li>
+              <li class="accordian">
+                <a href="/all-jobs"><i class="fa fa-dashboard"></i> All jobs</a>
+                <ul class="submenu">
+                  <li><a href="#">Add NEW Agency</a></li>
+                  <li><a href="#">View all agency</a></li>
+                </ul>
+              </li>
+              <li class="accordian">
+                <a href="/all-training"><i class="fa fa-dashboard"></i> All Trainings</a>
+                <ul class="submenu">
+                  <li><a href="#">Add NEW Agency</a></li>
+                  <li><a href="#">View all agency</a></li>
+                </ul>
+              </li>
+              <li><a href="/subscriptions"><i class="fa fa-dashboard"></i> Subscriptions</a></li>
+              <li><a href="/all-users"><i class="fa fa-dashboard"></i> All users</a></li>
+              <li class="accordian sites">
+                <a href="#">Edit site</a>
+                <ul class="submenu">
+                  <li><a href="edit-about-us"><i class="fa fa-home"></i> About Us</a></li>
+                  <li><a href="edit-about-us"><i class="fa fa-home"></i> FAQ</a></li>
+                  <li><a href="edit-medical"><i class="fa fa-home"></i> Medical</a></li>
+                  <li><a href="edit-insurance"><i class="fa fa-home"></i> Insurance</a></li>
+                  <li><a href="edit-immigration"><i class="fa fa-home"></i> Immigration</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="page-wrap">            
             @yield('content')
         </div>
     </div>
