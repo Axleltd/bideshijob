@@ -63,6 +63,86 @@ a.h5 {
 	}
 }
 
+.login-page {
+	position: relative;
+	min-height: 86vh;
+
+	.logo-div {
+		position: absolute;
+		left: 0;
+		right: 0;
+		width: 150px;
+		margin: auto;
+	}
+
+	.login {
+		position: absolute;
+		left: 0;
+		right: 0;
+		width: 30%;
+		margin: 50px auto 0;
+
+		.card {
+			border: 1px solid #ddd;
+
+			.card-title {
+				margin-bottom: 15px;
+				display: block;
+				font-family: $title-font;
+				color: $title-color;
+			}
+
+			.card-action {
+				margin-top: 15px;
+				a {
+					color: $primary-color !important;
+
+					&:hover {
+						color: $alternate-color !important;
+					}
+				}
+			}
+
+			form {
+				input {
+					background: #fff;
+					height: 35px;
+					border-bottom: none;
+					color: $primary-color;
+					font-size: 18px;
+					border-radius: 15px;
+					border: 1px solid $primary-color;
+					text-align: center;
+				}
+				[type="checkbox"].filled-in:checked + label:after {
+					border-color: $primary-color;
+					background-color: $primary-color;
+				}
+				label {
+				}
+
+				button {
+
+					background: #fff;
+					height: 38px;
+					font-size: 18px;
+					border: 2px solid $primary-color;
+					color: $primary-color;
+					border-radius: 15px;
+					text-align: center;
+					font-family: $title-font;
+
+					&:hover {						
+						border: 2px solid $alternate-color;
+						color: $alternate-color;
+					}
+				}
+
+			}
+		}
+	}
+}
+
 
 header.header {
 	background: #fff;
@@ -537,7 +617,14 @@ section.all-lists {
 			font-size: 22px;
 		}
 	}
+	.img-wrap {
+		
+		overflow: hidden;
 
+		img {
+			max-width: 100%;
+		}
+	}
 	.section-content {
 		.company-wrap {
 			width: 70%;
@@ -550,6 +637,23 @@ section.all-lists {
 				height: 120px;
 				width: 100%;
 				background: #aaa;
+
+			}
+		}
+	}
+
+	section {
+		.wrap {
+			position: relative;
+			min-height: 70vh;padding-top: 50px;
+
+			.left, .right {
+				width: 50%;
+				position: absolute;
+				padding: 25px;
+			}
+			.right {
+				right: 0;
 			}
 		}
 	}
