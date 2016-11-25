@@ -183,7 +183,7 @@ return [
         Smarch\Watchtower\WatchtowerServiceProvider::class, // For Watchtower
         Cornford\Googlmapper\MapperServiceProvider::class,//map
 //Debugbar
-//        Barryvdh\Debugbar\ServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 

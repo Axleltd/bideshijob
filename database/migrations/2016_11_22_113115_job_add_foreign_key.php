@@ -13,7 +13,8 @@ class JobAddForeignKey extends Migration
      */
     public function up()
     {
-        Schema::table('jobs',function(Blueprint $table){
+        Schema::table('jobs',function($table){
+            $table->integer('company_id')->unsigned();
             $table->foreign('company_id')
                 ->references('id')->on('companies')
                 ->onDelete('cascade');
@@ -28,8 +29,13 @@ class JobAddForeignKey extends Migration
      */
     public function down()
     {
-         Schema::table('jobs', function(Blueprint $table) {
+         Schema::table('jobs', function($table) {
+            if($table->hasColumn('company_id')){
                $table->dropForeign('company_id');
+               $table->dropColumn('company_id');
+                
+            }
+
 
             });
     }
