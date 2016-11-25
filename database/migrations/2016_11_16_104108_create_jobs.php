@@ -28,7 +28,7 @@ class CreateJobs extends Migration
         $table->float('overtime');
         $table->integer('quantity')->unsigned();
         $table->integer('duty_hours')->unsigned();
-        $table->boolean('featured')->unsigned();
+        $table->boolean('featured')->unsigned()->default(false);
         $table->text('requirement');
         $table->timestamps();                        
         });       

@@ -14,7 +14,8 @@ class CreateTrainings extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {            
             $table->increments('id');        
-            $table->integer('company_id')->unsigned();        
+            $table->integer('company_id')->unsigned(); 
+            $table->integer('user_id')->unsigned();       
             $table->string('title');
             $table->text('description');
             $table->string('categories');            

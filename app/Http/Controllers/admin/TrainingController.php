@@ -51,6 +51,7 @@ class TrainingController extends Controller
     	Auth::user()->notify(new BusinessNotification('Sorry Your training '.$training->name.' is not featured'));
     	return redirect('/dashboard/training');    		
     }
+    
 
     public function destroy($trainingId)
     {
