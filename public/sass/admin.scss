@@ -281,6 +281,30 @@ h1, h2, h3, h4, h5, h6 {
             p {
                 margin-bottom: 0;
             }
+
+            ul.bread-crumb {
+                li {
+                    display: inline-block;
+
+                    a {
+                        display: block;
+                        margin-right: 10px;
+                        padding-left: 10px;
+                        color: $title-c;
+
+                        &:hover {
+                            color: $primary-color;
+                        }
+
+                    }
+
+                    &:last-child {
+                        a {
+                            color: #aaa;
+                        }
+                    }
+                }
+            }
         }
 
         .section-content {
@@ -314,6 +338,37 @@ h1, h2, h3, h4, h5, h6 {
                             color: $alternate-color !important;
                         }
                     }
+                }
+
+                .card-reveal {
+                    padding: 0;
+                    overflow: hidden;
+                }
+            }
+            //cards end
+
+            form {
+                input {
+                   border: 1px solid #ccc;
+                   font-size: 18px;
+                   text-indent: 10px;
+                   height: 35px; 
+                }
+                textarea {
+                    font-size: 18px;
+                    height: 135px;
+                }
+                button {
+                    float: right;
+                    background-color: $primary-color;
+
+                    &:hover {
+                        background-color: $alternate-color;
+                    }
+                }
+
+                .alert {
+                    color: red;
                 }
             }
         }
