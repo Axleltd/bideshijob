@@ -78,7 +78,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('about','SiteController@getAbout');
 
 	Route::resource('company',Company\CompanyController::class);
-	Route::get('profile/company','CompanyController@showMyCompany');
+	Route::get('profile/company','Company\CompanyController@showMyCompany');
 	Route::resource('company/{id}/job',JobsController::class);
 	Route::resource('company/{id}/job/{slug}/contact',Jobs\ContactController::class);
 	Route::resource('company/{id}/training',TrainingController::class);
