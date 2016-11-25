@@ -72,7 +72,15 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/company','admin\CompanyController@index');
 	Route::get('/training','admin\TrainingController@index');
 
+
+	//company active deactive
 	Route::get('/company/active/{id}','admin\CompanyController@active');
 	Route::get('/company/suspend/{id}','admin\CompanyController@suspend');
 	Route::get('company/delete/{id}','admin\CompanyController@destroy');
+
+
+	//training featured unfeatured
+	Route::get('/training/featured/{id}','admin\TrainingController@featured');
+	Route::get('/training/unfeatured/{id}','admin\TrainingController@unFeatured');
+	Route::get('training/delete/{id}','admin\TrainingController@destroy');
 });
