@@ -18,7 +18,7 @@ class AuthenticateAdmin
         if (!Shinobi::isRole('admin')) {
             // session()->flash('errMsg', 'Unauthorised');
 
-            return redirect('/')->with('errMsg');
+            return redirect('/login')->with('errMsg');
         }
 
         return $next($request);

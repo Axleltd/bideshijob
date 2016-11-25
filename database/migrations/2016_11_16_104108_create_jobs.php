@@ -30,9 +30,7 @@ class CreateJobs extends Migration
         $table->integer('duty_hours')->unsigned();
         $table->boolean('featured')->unsigned();
         $table->text('requirement');
-        $table->timestamps();        
-
-          
+        $table->timestamps();                        
         });       
     }
 
