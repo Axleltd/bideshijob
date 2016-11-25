@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Training
+    @lang('site.about')
 @stop
 @section('content')
 
@@ -12,8 +12,8 @@
     <nav>
         <div class="nav-wrapper row">
             <div class="col s12">
-              <a href="/" class="breadcrumb">Home</a>
-              <a href="#!" class="breadcrumb">Training</a>
+              <a href="/" class="breadcrumb">@lang('site.home')</a>
+              <a href="#!" class="breadcrumb">@lang('site.training')</a>
           
            </div>
         </div>
@@ -25,9 +25,9 @@
       <nav>
         <div class="nav-wrapper row">
             <div class="col s12">
-              <a href="/" class="breadcrumb">Home</a>
-              <a href="/company/{{$company->id}}" class="breadcrumb">Company</a>
-              <a href="/company/{{$company->id}}/training" class="breadcrumb">Training</a>
+              <a href="/" class="breadcrumb">@lang('site.home')</a>
+              <a href="/company/{{$company->id}}" class="breadcrumb">@lang('site.agencies')</a>
+              <a href="/company/{{$company->id}}/training" class="breadcrumb">@lang('site.agencies')</a>
               
             </div>
           </div>

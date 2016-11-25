@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
 	 {!! Form::model($training, ['action'=>['\App\Http\Controllers\TrainingController@update',$training->company_id,$training->id],'method'=>'PUT']) !!}

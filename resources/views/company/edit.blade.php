@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
 	 {!! Form::model($company, ['action'=>['\App\Http\Controllers\Company\CompanyController@update',$company->id],'method'=>'PUT','files' => true]) !!}
