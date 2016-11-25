@@ -17,7 +17,6 @@ class CategoriesTableSeeder extends Seeder
                     'slug' => 'immigration',
                     'order'    => 1,
                     'featured' => 1,
-                    
                 ],
                 [
                     'name'     => 'Insurance',
@@ -41,9 +40,7 @@ class CategoriesTableSeeder extends Seeder
                     
                 ]
         ];
-            DB::table('categories')
-                ->insert($data);
-             
-           
+        DB::table('categories')->insert($data);
+                    
     }
 }
