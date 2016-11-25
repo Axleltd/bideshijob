@@ -20,5 +20,12 @@ class Post extends Model
     ];
 
     protected $casts = ['published'=>'boolean'];
+
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
+    }
     
 }

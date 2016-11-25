@@ -45,7 +45,7 @@ class PostsController extends Controller
 
 	public function edit(Post $post)
 	{
-		return view('post.edit',$post);
+		return view('post.edit',compact('post'));
 	}
 
 	public function destroy(Post $post)

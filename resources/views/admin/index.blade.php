@@ -8,7 +8,7 @@
 
 		<div class="section-title">
 			<h3>Dashboard</h3>
-			<p>Hello ADMIN Welcome to Dashboard of Bideshikaam.</p>
+			<p>Hello {{Auth::user()->name}} Welcome to Dashboard of Bideshikaam.</p>
 		</div>
 
 		<div class="section-content">

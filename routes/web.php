@@ -14,19 +14,8 @@
 Route::group(['middlewareGroups' => ['web']], function () {
 	Auth::routes();
 	Route::get('/','HomeController@index');
-	//----------------Blog-----------------------
-	Route::get('blog/{post}','PostsController@show');
-	//----create and store
-	Route::get('blog/create','PostsController@create');
-	Route::post('blog','PostsController@store');
-	//edit--and--update
-	Route::get('blog/{post}/edit','PostsController@edit');
-	Route::put('blog/{post}','PostsController@update');
 	
-	Route::get('blog','PostsController@index');
-
-	Route::delete('blog/{post}','PostsController@destroy');
-	//------------------------Category----------------------------
+		//------------------------Category----------------------------
 	Route::get('blog/category/{category}','CategoriesController@show');
 	//----create and store
 	Route::get('blog/category/create','CategoriesController@create');
@@ -38,6 +27,20 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('blog/categories','CategoriesController@index');
 
 	Route::delete('blog/category/{category}','CategoriesController@destroy');
+	//----------------End Category
+	
+	//----------------Blog-----------------------
+	Route::get('blog/create','PostsController@create');
+	Route::get('blog/{post}','PostsController@show');
+	//----create and store
+	Route::post('blog','PostsController@store');
+	//edit--and--update
+	Route::get('blog/{post}/edit','PostsController@edit');
+	Route::put('blog/{post}','PostsController@update');
+	
+	Route::get('blog','PostsController@index');
+
+	Route::delete('blog/{post}','PostsController@destroy');
 
 	//----------------End Blog-------------------
 	Route::get('/aboutus','HomeController@aboutUs');
