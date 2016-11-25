@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\View;
 use App\Company;
+use App\Category;
 use Auth;
 use Shinobi;
 class AppServiceProvider extends ServiceProvider
@@ -18,9 +19,14 @@ class AppServiceProvider extends ServiceProvider
     {
          view()->composer('job._form',function(View $view){
             $view->with('activeCompanies', Company::get());
-        });
-        view()->composer('job._form',function(View $view){
             $view->with('activeFeatured', Company::get());
+        });
+        view()->composer('post._form',function(View $view){
+            $view->with('categories', Category::all());
+            if(Shinobi::isRole('admin')){     
+                return $view->with('categories', Category::all());
+            }
+            return $view->with('categories', Category::where('slug','=','blog')->first());
         });
         view()->composer('layouts.dashboard',function(View $view){
             if(Shinobi::isRole('admin')){     

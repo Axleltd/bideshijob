@@ -126,7 +126,6 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/all-users','admin\UserController@index');
 	Route::put('/all-users/suspend{id}','admin\UserController@suspend');
 	Route::delete('/all-users/delete{id}','admin\UserController@destroy');
-});
 
 
 

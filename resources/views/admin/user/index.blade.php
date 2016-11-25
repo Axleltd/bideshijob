@@ -21,6 +21,8 @@
 					{!! Form::close() !!}
 
 				</li>
+				<li>{{$user->name}}</li>
+
 
 			@endforeach
 		</ul>

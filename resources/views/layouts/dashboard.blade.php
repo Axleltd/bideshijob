@@ -140,6 +140,7 @@
     <script src="{{asset('js/custom.js')}}"></script>
     @stack('script')
 
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([

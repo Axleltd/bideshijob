@@ -23,6 +23,8 @@ class CreatePostsTable extends Migration
             $table->text('short_description');
             $table->boolean('published')->default(false);
             $table->date('published_on')->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
