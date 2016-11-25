@@ -25,6 +25,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'title' => $faker->name,
         'slug' => $faker->slug,
         'content' => $faker->text,
+        'short_description' => $faker->text,
         'published' => 1,
         'published_on' => \Carbon\Carbon::now()
     ];
