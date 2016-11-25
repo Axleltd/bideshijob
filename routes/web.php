@@ -124,6 +124,8 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/training/unfeatured/{id}','admin\TrainingController@unFeatured');
 	Route::get('training/delete/{id}','admin\TrainingController@destroy');
 	Route::get('/all-users','admin\UserController@index');
+	Route::put('/all-users/suspend{id}','admin\UserController@suspend');
+	Route::delete('/all-users/delete{id}','admin\UserController@destroy');
 });
 
 
