@@ -23,8 +23,8 @@
         <header class="header">
 
           <ul class="left-nav">
-            <li>
-              <i class="fa fa-facebook"></i>
+            <li class="hover-div">
+                <i class="fa fa-facebook"></i>
               <ul class="submenu">
                 <li class="title row">
                   <p class="left">Notification</p>
@@ -56,19 +56,19 @@
           </ul>
 
           <div class="right-nav">
-            <div class="user-div">
+            <div class="hover-div">
               <i class="fa fa-user"></i>
+              <ul class="user-info submenu">
+                <li class="img"><img src="#" alt=""></li>
+                <li><a href="/profile/user" class="name">{{Auth::user()->name}}</a></li>
+                @if(isset($profile))
+                  <li><a href="{{url('/profile/user'.$profile->id.'/edit')}}"><i class="fa fa-settings"></i>Settings</a></li>
+                  @else
+                    <li><a href="{{url('/profile/user/create')}}"><i class="fa fa-settings"></i>Settings</a></li>
+                @endif
+                <li><a href="/logout"><i class="fa fa-exit"></i>Logout</a></li>
+              </ul>
             </div>
-            <ul class="user-info">
-              <li class="img"><img src="#" alt=""></li>
-              <li><a href="/profile/user" class="name">{{Auth::user()->name}}</a></li>
-              @if(isset($profile))
-                <li><a href="{{url('/profile/user'.$profile->id.'/edit')}}"><i class="fa fa-settings"></i>Settings</a></li>
-                @else
-                  <li><a href="{{url('/profile/user/create')}}"><i class="fa fa-settings"></i>Settings</a></li>
-              @endif
-              <li><a href="/logout"><i class="fa fa-exit"></i>Logout</a></li>
-            </ul>
           </div>
           
          {{--  <ul class="right-nav">
@@ -160,7 +160,7 @@
     <script src="{{asset('js/slick.js')}}"></script>
     <script src="{{asset('js/particles.js')}}"></script>
     <script src="{{asset('js/wow.min.js')}}"></script>
-    <script src="{{asset('js/custom.js')}}"></script>
+    <script src="{{asset('js/admin.js')}}"></script>
     @stack('script')
 
 

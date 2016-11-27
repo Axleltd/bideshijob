@@ -57,7 +57,8 @@ h1, h2, h3, h4, h5, h6 {
             margin-top: 0;
             margin-right: 7%;
 
-            .user-div {
+
+            .hover-div {
 
                 i {
                     padding: 12px;
@@ -70,15 +71,18 @@ h1, h2, h3, h4, h5, h6 {
             ul.user-info {
                 border: 1px solid #ccc;
                 position: absolute;
+                z-index: 99999;
                 margin: 0;
-                padding: 10px;
                 display: none;
+                padding: 10px;
                 right: 3%;
                 width: 14%;
                 background: $main-color;
                 box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
-
-
+                 @include vendor(transition, all 0.5 linear);
+                    &.show {
+                        display: block;
+                    }
 
 
                 li {
@@ -130,14 +134,18 @@ h1, h2, h3, h4, h5, h6 {
                 ul.submenu {
                     border: 1px solid #ccc;
                     position: absolute;
-                    display: none;
                     margin: 0;
+                    display: none;
                     padding: 10px 0;
                     background: $main-color;
                     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
-
+                    @include vendor(transition, all 0.5 linear);
+                    &.show {
+                        display: block;
+                    }
 
                 }
+
 
                 li {
                     display: block;
@@ -272,6 +280,21 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0 3%;
         overflow: hidden;
 
+        .btn {
+                background-color: $primary-color;
+
+                &:hover {
+                    background-color: $alternate-color;
+                }
+            }
+            a.btn {
+                background-color: $primary-color;
+
+                &:hover {
+                    background-color: $alternate-color;
+                }
+            }
+
         .section-title {
             h3 {
                 font-size: 32px;
@@ -317,6 +340,8 @@ h1, h2, h3, h4, h5, h6 {
                 color: $title-c;
                 margin-top: 0;
             }
+
+
 
             .card {
                 border: 1px solid #ccc;
@@ -366,6 +391,15 @@ h1, h2, h3, h4, h5, h6 {
                         background-color: $alternate-color;
                     }
                 }
+                .btn {
+                    float: left;
+                    background-color: $primary-color;
+
+                    &:hover {
+                        background-color: $alternate-color;
+                    }
+                }
+
 
                 .alert {
                     color: red;
@@ -381,6 +415,34 @@ h1, h2, h3, h4, h5, h6 {
                         width: 275px;
                         min-height: 150px;
                     }
+                }
+            }
+
+            .info, .user {
+                p {
+                    font-size: 18px;
+                    font-family: $p-font;
+                    color: $title-c;
+
+                    a {
+                        color: $title-c + 50 !important;
+
+                        &:hover {
+                            color: $title-c !important;
+
+                        }
+
+                    }
+                }
+                a {
+                    font-size: 18px;
+                    color: $title-c + 50 !important;
+
+                    &:hover {
+                        color: $title-c !important;
+
+                    }
+
                 }
             }
         }
