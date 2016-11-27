@@ -1,6 +1,6 @@
 
-	<div class="user">
-		<div class="form-group">
+	<div class="user col s12 m5">
+		<div class="form-group row">
 		    {!! Form::label('logo', 'Logo:', ['class' => 'control-label']) !!}
 		    @if(isset($profile->logo))
 		        <div class="col-xs-2 thumb">
@@ -14,7 +14,13 @@
 		        	<img src="{{asset('image/no-image.png')}}" alt="" id="output" width="300" height="300">
 		        </div>
 		    @endif
+		    <div class="file-field input-field">
+		      <div class="btn">
+		        <span>Logo</span>
 		        {!! Form::file('logo', array('onchange'=>'loadFile(event)','id'=>'image')) !!}
+		      </div>
+		     </div>
+		        
 		        @if(count($errors->get('logo')) > 0)
 		        <div class="alert alert-danger">
 		            <ul>
@@ -26,15 +32,15 @@
 		    @endif			
 		</div>
 
-		<div class="user_email">
+		<div class="row">
 			@if(isset($profile))
-				<h3>{{$profile->user->email}}</h3>
+				<p>Name: {{$profile->user->name}}</p>
+				<p>Email: <a href="mailto:{{$profile->user->email}}">{{$profile->user->email}}</a></p>
 			@endif
 		</div>
 	</div>
 
-	<div class="info">
-		<h3>Create Your Profile</h3>
+	<div class="info col s12 m7">
 		<div class="row">
 			<div class="col s12 m6">
 				{!! Form::label('first_name','First name:') !!}	
