@@ -61,7 +61,7 @@
             </div>
             <ul class="user-info">
               <li class="img"><img src="#" alt=""></li>
-              <li><a href="#" class="name">Jimmy Page</a></li>
+              <li><a href="#" class="name">{{Auth::user()->name}}</a></li>
               <li><a href="#"><i class="fa fa-settings"></i>Settings</a></li>
               <li><a href="#"><i class="fa fa-exit"></i>Logout</a></li>
             </ul>
@@ -108,14 +108,24 @@
                 <a href="/all-jobs"><i class="fa fa-dashboard"></i> All jobs</a>
                 <ul class="submenu">
                   <li><a href="#">Add NEW Jobs</a></li>
-                  <li><a href="{{url('/profile/job')}}">View all jobs</a></li>
+                  <li><a href="{{url('/profile/job')}}">View my jobs</a></li>
+                  @if(Shinobi::isRole('admin'))
+                                        
+                    <li><a href="{{url('/dashboard/job')}}">View all jobs</a></l
+                      >                    
+                  @endif                  
                 </ul>
               </li>
               <li class="accordian">
                 <a href="/all-training"><i class="fa fa-dashboard"></i> All Trainings</a>
                 <ul class="submenu">
                   <li><a href="#">Add NEW Agency</a></li>
-                  <li><a href="{{url('/profile/training')}}">View all training</a></li>
+                  <li><a href="{{url('/profile/training')}}">View my trainings</a></li>
+                  @if(Shinobi::isRole('admin'))
+                                        
+                    <li><a href="{{url('/dashboard/training')}}">View all trainings</a></l
+                      >                    
+                  @endif                  
                 </ul>
               </li>
               @if(Shinobi::isRole('admin'))

@@ -56,11 +56,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 	Route::get('/check_user',function(){
 		if (\Illuminate\Support\Facades\Auth::check()) {
-            if (\Caffeinated\Shinobi\Facades\Shinobi::is('admin')) {
+            if (\Caffeinated\Shinobi\Facades\Shinobi::isRole('admin')) {
                 return redirect()->to('dashboard');
-            } elseif (\Caffeinated\Shinobi\Facades\Shinobi::is('user')) {
-                return redirect()->to('user');
-            }
+            } else
+                return redirect()->to('profile');            
         }
 
         return redirect('/');
@@ -92,6 +91,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 	//training
 	Route::get('profile/training','TrainingController@showMyTraining');
+	Route::get('profile/training/{id}','TrainingController@showMyTraining');
 	//job
 	Route::get('profile/job','JobsController@showMyJob');
 	
@@ -118,11 +118,11 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	//company active deactive
 	Route::get('/company/active/{id}','admin\CompanyController@active');
 	Route::get('/company/suspend/{id}','admin\CompanyController@suspend');
-	Route::get('company/delete/{id}','admin\CompanyController@destroy');
+	Route::delete('company/delete/{id}','admin\CompanyController@destroy');
 
 
 	//training featured unfeatured
 	Route::get('/training/featured/{id}','admin\TrainingController@featured');
 	Route::get('/training/unfeatured/{id}','admin\TrainingController@unFeatured');
-	Route::get('training/delete/{id}','admin\TrainingController@destroy');	
+	Route::delete('training/delete/{id}','admin\TrainingController@destroy');	
 });

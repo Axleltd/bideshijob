@@ -37,8 +37,10 @@ class TrainingController extends Controller
 
     public function create($companyId)
     {    
-        $company = $this->company->where('id',$companyId)->get()->first();    
-    	return view('training.create',compact('company'));
+        $company = $this->company->where(['id'=>$companyId,'user_id'=>Auth::user()->id])->get()->first();    
+        if($company)
+    	   return view('training.create',compact('company'));
+        return abort('503');
     }
     public function store(PostTrainingRequest $request,$companyId)
     {    
@@ -70,7 +72,7 @@ class TrainingController extends Controller
 
     public function edit($companyId,$trainingId)
     {
-        $training = $this->training->where(['id'=>$trainingId,'company_id'=>$companyId])->get()->first();          
+        $training = $this->training->where(['id'=>$trainingId,'company_id'=>$companyId,'user_id'=>Auth::user()->id])->get()->first();          
         return view('training.edit',compact('training'));
     }
 
@@ -97,7 +99,7 @@ class TrainingController extends Controller
 
     public function destroy($id)
     {
-        $training = $this->training->where('id',$id);
+        $training = $this->training->destroy(['id'=>$id,'user_id'=>Auth::user()->id]);
 
     }
    
