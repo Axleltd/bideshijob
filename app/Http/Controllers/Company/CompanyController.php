@@ -71,7 +71,7 @@ class CompanyController extends Controller
              
             }
             Auth::user()->notify(new NotificationPost('company '.$company->name.' is created.'));
-            return redirect('company');
+            return redirect('/profile');
         }
         else
             return redirect()->back()->withInput($request->toArray());
@@ -127,7 +127,7 @@ class CompanyController extends Controller
                     'twitter' => $request->twitter_link]);                                
             }
             Auth::user()->notify(new NotificationPost('Company '.$request->name.' is updated.'));
-            return redirect('company/'.$id);            
+            return redirect('/profile');         
         }
         else
             return redirect()->back()->withInput($request->toArray());

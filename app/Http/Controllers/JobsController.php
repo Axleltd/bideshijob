@@ -82,7 +82,7 @@ class JobsController extends Controller
             Auth::user()->notify(new JobFound($this->job->findOrFail($job->id)));
             if($job)
             {
-                return redirect('company/'.$companyId.'/job');
+                return redirect('/profile/job');
             }
             return redirect()->back()->withInput($request->toArray());
     }
@@ -149,7 +149,7 @@ class JobsController extends Controller
             ]); 
         if($update)
         {
-            return redirect()->to('company/'.$companyId.'/job/'.$id);
+            return redirect()->to('/profile/job');
         }
         return redirect()->back()->withInput($request->toArray());
     }
