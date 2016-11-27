@@ -8,29 +8,35 @@ use App\Company;
 use App\Training;
 use Auth;
 use App\Job;
+use App\Profile;
 use Illuminate\Notifications\DatabaseNotification;
 
 class DashBoardController extends Controller
 {
 	protected $company;
-	protected $training;
+    protected $training;
+	protected $profile;
 
 	public function __construct()
 	{    
 		$this->company = new Company;
-		$this->training = new Training;
+        $this->training = new Training;
+		$this->profile = new Profile;
 	}
 
     public function index()
     {
-    	$companies = $this->company->where(['user_id'=>Auth::user()->id])->get();    	                    	    	
-        $job = Job::where('user_id',Auth::user()->id)->get();        
-        $training = $this->training->where('user_id',Auth::user()->id)->get();
+        $id = Auth::user()->id;
+    	$companies = $this->company->where(['user_id'=>$id])->get();    	                    	    	
+        $job = Job::where('user_id',$id)->get();        
+        $training = $this->training->where('user_id',$id)->get();
+        $profile = $this->profile->where('user_id',$id)->first();
         $notifications = DatabaseNotification::orderBy('created_at','DESC')->get();            	
     	return view('admin.index')->with([
     		'companies'=>$companies,
             'job_count'=>count($job),
             'training_count'=>count($training),
-            'notifications'=>$notifications]);
+            'notifications'=>$notifications,
+            'profile'=>$profile]);
     }
 }

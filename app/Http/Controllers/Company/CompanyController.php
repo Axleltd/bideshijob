@@ -136,7 +136,7 @@ class CompanyController extends Controller
 
     public function destroy($id)
     {
-        $company = $this->company->where('id',$id);
+        $company = $this->company->where(['id'=>$id,'user_id'=>Auth::user()->id]);
 
     }
 

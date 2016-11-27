@@ -31,6 +31,8 @@
             @if(Auth::check())
               @if(Shinobi::isRole('admin'))
                 <li><a href="/dashboard">@lang('site.dashboard')</a></li>
+              @else
+                <li><a href="/profile">@lang('site.dashboard')</a></li>
               @endif
               <li><a href="/logout">@lang('site.logout')</a></li>
             @else
