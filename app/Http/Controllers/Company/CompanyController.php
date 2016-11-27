@@ -70,7 +70,7 @@ class CompanyController extends Controller
                     'twitter' => $request->twitter_link]);                
              
             }
-            Auth::user()->notify(new NotificationPost('company '.$company->name.' is created.'));
+            Auth::user()->notify(new NotificationPost('company '.$company->name.' is created.','/company/'.$company->id));
             return redirect('/profile');
         }
         else
@@ -79,7 +79,7 @@ class CompanyController extends Controller
 
     public function show($id)
     {
-        $company = $this->company->where('id',$id)->get()->first();
+        $company = $this->company->where(['id'=>$id,'status'=>1])->get()->first();
         if($company)
             return view('company.show',compact('company'));
         else
@@ -126,7 +126,7 @@ class CompanyController extends Controller
                     'facebook' => $request->facebook_link,
                     'twitter' => $request->twitter_link]);                                
             }
-            Auth::user()->notify(new NotificationPost('Company '.$request->name.' is updated.'));
+            Auth::user()->notify(new NotificationPost('Company '.$request->name.' is updated.','/company/'.$company->id));
             return redirect('/profile');         
         }
         else

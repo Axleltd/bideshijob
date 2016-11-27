@@ -113,6 +113,7 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/','admin\DashBoardController@index');
 	Route::get('/company','admin\CompanyController@index');
 	Route::get('/training','admin\TrainingController@index');
+	Route::get('/job','admin\JobsController@index');
 
 
 	//company active deactive
@@ -125,4 +126,9 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/training/featured/{id}','admin\TrainingController@featured');
 	Route::get('/training/unfeatured/{id}','admin\TrainingController@unFeatured');
 	Route::delete('training/delete/{id}','admin\TrainingController@destroy');	
+
+	//jobs featured unfeatured
+	Route::get('/job/featured/{id}','admin\JobsController@featured');
+	Route::get('/job/unfeatured/{id}','admin\JobsController@unFeatured');
+	Route::delete('job/delete/{id}','admin\JobsController@destroy');	
 });

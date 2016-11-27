@@ -11,7 +11,7 @@ class NotificationPost extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    protected $message;
+    protected $message,$url;
 
     /**
      * Create a new notification instance.
@@ -22,9 +22,10 @@ class NotificationPost extends Notification implements ShouldQueue
     // {
     //     $this->notify = $notify;
     // }
-    public function __construct($message)
+    public function __construct($message,$url)
     {
         $this->message = $message;
+        $this->url = $url;
     }
 
     /**
@@ -56,7 +57,8 @@ class NotificationPost extends Notification implements ShouldQueue
     public function toArray()
     {
         return [
-        'message'=>$this->message];
+        'message'=>$this->message,
+        'url'=>$this->url];
     } 
 
 }
