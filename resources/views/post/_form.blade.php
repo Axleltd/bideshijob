@@ -102,14 +102,11 @@
 		</div>
 		 <!-- Switch -->
 		 <div class="input-field col s12 m6 ">
-		 	<div class="switch">
-		    <label>
-		      Publish
-		      <input type="checkbox" name="publish">
-		      <span class="lever"></span>
-		      Save Only
-		    </label>
-		  </div>	
+		 	
+
+		      {!! Form::checkbox('published',old('published'),['id'=>'published']) !!}
+		 		<label for="published">Published</label>
+		    
 		 </div>
 		  
 		<div class="input-field col s12 m6">
@@ -135,6 +132,7 @@
 	    format: 'yyyy-mm-dd'
 	    
 	  });
+
 	</script>
 @endpush
 <script>	

@@ -27,6 +27,7 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'content' => $faker->text,
         'short_description' => $faker->text,
         'published' => 1,
-        'published_on' => \Carbon\Carbon::now()
+        'published_on' => \Carbon\Carbon::now(),
+        'user_id' => 1
     ];
 });
