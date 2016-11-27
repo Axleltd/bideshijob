@@ -5,6 +5,7 @@ return [
 	'home' => 'घर',
 	'about' => 'हाम्रो बारेमा',
 	'jobs' => 'काम',
+	'profile' => 'Profile',
 	'training' => 'तलिम',
 	'agencies' => 'कार्यालय',
 	'contact' => 'सम्पर्क',

@@ -4,6 +4,7 @@ return [
 	'home' => 'Home',
 	'about' => 'About',
 	'jobs' => 'Jobs',
+	'profile' => 'Profile',
 	'training' => 'Training',
 	'agencies' => 'Agencies',
 	'contact' => 'Contact',

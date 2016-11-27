@@ -61,9 +61,13 @@
             </div>
             <ul class="user-info">
               <li class="img"><img src="#" alt=""></li>
-              <li><a href="#" class="name">{{Auth::user()->name}}</a></li>
-              <li><a href="#"><i class="fa fa-settings"></i>Settings</a></li>
-              <li><a href="#"><i class="fa fa-exit"></i>Logout</a></li>
+              <li><a href="/profile/user" class="name">{{Auth::user()->name}}</a></li>
+              @if(isset($profile))
+                <li><a href="{{url('/profile/user'.$profile->id.'/edit')}}"><i class="fa fa-settings"></i>Settings</a></li>
+                @else
+                  <li><a href="{{url('/profile/user/create')}}"><i class="fa fa-settings"></i>Settings</a></li>
+              @endif
+              <li><a href="/logout"><i class="fa fa-exit"></i>Logout</a></li>
             </ul>
           </div>
           
@@ -89,10 +93,11 @@
                 <i class="ti-menu"></i>
               </div>
             </div>
-            <ul class="navs">
-              <li><a href="/dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <ul class="navs">                                                        
+                    <li><a href="{{url('/dashboard')}}">Dashboard</a></l
+                      >                                                                         
               <li class="accordian">
-                <a href="/all-agencies"><i class="fa fa-dashboard"></i>All Agencies</a>
+                <a href="/profile/company"><i class="fa fa-dashboard"></i>All Agencies</a>
                 <ul class="submenu">
                   <li><a href="{{url('/company/create')}}">Add new Agency</a></li>
                   <li><a href="{{url('/profile/company')}}">View my agency</a></li>
@@ -105,7 +110,7 @@
                 </ul>
               </li>
               <li class="accordian">
-                <a href="/all-jobs"><i class="fa fa-dashboard"></i> All jobs</a>
+                <a href="/profile/job"><i class="fa fa-dashboard"></i> All jobs</a>
                 <ul class="submenu">
                   <li><a href="#">Add NEW Jobs</a></li>
                   <li><a href="{{url('/profile/job')}}">View my jobs</a></li>
@@ -117,7 +122,7 @@
                 </ul>
               </li>
               <li class="accordian">
-                <a href="/all-training"><i class="fa fa-dashboard"></i> All Trainings</a>
+                <a href="/profile/training"><i class="fa fa-dashboard"></i> All Trainings</a>
                 <ul class="submenu">
                   <li><a href="#">Add NEW Agency</a></li>
                   <li><a href="{{url('/profile/training')}}">View my trainings</a></li>
