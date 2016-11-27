@@ -21,7 +21,7 @@ class PostsController extends Controller
 	public function index()
 	{
 		return view('post.index')->with([
-			'posts' => Post::where('published',1)->orderBy('published_at','DESC')->paginate(5)
+			'posts' => Post::where('published',1)->orderBy('published_on','DESC')->paginate(5)
 			]);
 	}
 
@@ -33,11 +33,11 @@ class PostsController extends Controller
 	public function store(Request $request)
 	{
 		
-		
+		dd($request->toArray());
 		if(Post::create([
 			'title' => $request->title,
 			'content' => $request->content,
-			'published' => $request->publish,
+			'published' => $request->published,
 			'published_on' => $request->published_on,
 			'short_description' => $request->short_description,
 			'user_id' => Auth::user()->id,
@@ -57,13 +57,13 @@ class PostsController extends Controller
 		$update = $post->update([
 			'title' => $request->title,
 			'content' => $request->content,
-			'published' => $request->publish,
+			'published' => $request->published,
 			'published_on' => $request->published_on,
 			'short_description' => $request->short_description
 			]);
 		if($update)
 		{
-			return redirect()->back();
+			return redirect('blog/post/'.$update->id);
 		}
 		return redirect()->back();
 	}
