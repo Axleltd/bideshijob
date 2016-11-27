@@ -26,11 +26,7 @@
 
 				@endforeach
 			</div>
-		</div>
-		<div class="row">
-			<h5>You have not created a training yet!</h5>
-			<a class="btn" href="#">Create A Training</a>
-		</div>	
+		</div>		
 	</div>
 
 @stop
