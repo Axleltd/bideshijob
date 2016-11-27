@@ -123,11 +123,11 @@ a.h5 {
 
 				button {
 
-					background: #fff;
+					background: $primary-color;
 					height: 38px;
 					font-size: 18px;
 					border: 2px solid $primary-color;
-					color: $primary-color;
+					color: #fff;
 					border-radius: 15px;
 					text-align: center;
 					font-family: $title-font;
@@ -135,6 +135,7 @@ a.h5 {
 					&:hover {						
 						border: 2px solid $alternate-color;
 						color: $alternate-color;
+						background: #fff;
 					}
 				}
 
@@ -684,6 +685,14 @@ footer.footer {
 		background: #44549b;
 		padding: 5px;
 		margin-bottom: 0;
+	}
+
+	.socail {
+		display: inline-block;
+		a {
+			font-size: 18px;
+			padding: 5px;
+		}
 	}
 
 
