@@ -61,7 +61,7 @@ class TrainingController extends Controller
             return redirect('company/'.$companyId.'/training/create');
 
         Auth::user()->notify(new NotificationPost($company->name.' created training '.$training->title));
-        return redirect('company/'.$companyId.'/training');
+        return redirect('/profile/training');
     }
 
     public function show($companyId,$trainingId)
@@ -93,13 +93,13 @@ class TrainingController extends Controller
             return redirect('company/'.$companyId.'/training/'.$trainingId.'/edit/');
 
         Auth::user()->notify(new NotificationPost($company->name.' updated training '.$training->title));
-        return redirect('company/'.$companyId.'/training/'.$trainingId);
+        return redirect('/profile/training');
         
     }
 
     public function destroy($id)
     {
-        $training = $this->training->destroy(['id'=>$id,'user_id'=>Auth::user()->id]);
+        // $training = $this->training->destroy(['id'=>$id,'user_id'=>Auth::user()->id]);
 
     }
    
