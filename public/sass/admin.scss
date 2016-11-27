@@ -281,19 +281,19 @@ h1, h2, h3, h4, h5, h6 {
         overflow: hidden;
 
         .btn {
-                background-color: $primary-color;
+            background-color: $primary-color;
 
-                &:hover {
-                    background-color: $alternate-color;
-                }
+            &:hover {
+                background-color: $alternate-color;
             }
-            a.btn {
-                background-color: $primary-color;
+        }
+        a.btn {
+            background-color: $primary-color;
 
-                &:hover {
-                    background-color: $alternate-color;
-                }
+            &:hover {
+                background-color: $alternate-color;
             }
+        }
 
         .section-title {
             h3 {
