@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 use App\Category;
 class CategoriesController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('isAdmin')->except('index','show');
+    }
     public function index()
     {
     	return view('category.index')->with(['categories' => Category::all() ]);
     }
-    public function show(Category $catgory)
+    public function show(Category $category)
     {
     	return view('category.show')->with(['category' => $category ]);
     }
