@@ -17,9 +17,10 @@ class Post extends Model
 		'short_description',
 		'published',
 		'published_on',
+		'user_id',
     ];
-
-    protected $casts = ['published'=>'boolean'];
+    protected $dates = ['published_on','created_at','updated_at'];
+    protected $casts = ['published'=>'boolean',];
 
     public function getSlugOptions() : SlugOptions
     {
