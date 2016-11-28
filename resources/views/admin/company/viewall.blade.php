@@ -38,8 +38,8 @@
 
 							    <div class="card-reveal">
 							      	<span class="card-title grey-text text-darken-4">More Options<i class="material-icons right">close</i></span>
-							      	<a href="{{url('/company/'.$company->id.'/job/create')}}" class="btn">Create job</a>
-									<a href="{{url('/company/'.$company->id.'/training/create')}}" class="btn">Create training</a>
+							      	<a href="{{url('/company/'.$company->slug.'/job/create')}}" class="btn">Create job</a>
+									<a href="{{url('/company/'.$company->slug.'/training/create')}}" class="btn">Create training</a>
 							    </div>
 							</div>
 						</li>

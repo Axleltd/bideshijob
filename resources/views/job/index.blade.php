@@ -112,6 +112,7 @@
 
 					@endforeach
 				</ul>
+				{!! $jobs->links() !!}
 			</div>
 		</div>
 	</section>

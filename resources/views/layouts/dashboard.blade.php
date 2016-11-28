@@ -18,8 +18,7 @@
     
 </head>
 <body>
-    <div id="app" class="Dashboard row">
-        
+    <div id="app" class="Dashboard row">          
         <header class="header">
 
           <ul class="left-nav">
@@ -30,11 +29,12 @@
                   <p class="left">Notification</p>
                   <a href="#" class="right">View all</a>
                 </li>
-                @if(count($notifications)>0 && isset($notifications))
+
+                @if(count($notifications)>0 && isset($notifications))                
                   @foreach($notifications as $notification)
-          
-                    <li>
-                      <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                      
+                    <li>                        
+                      <a href="{{ url($notification->data['url'])}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
                     </li>
 
                   @endforeach
