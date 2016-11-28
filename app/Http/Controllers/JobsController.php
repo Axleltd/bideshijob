@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Job;
 use App\Company;
+use App\Profile;
 use Illuminate\Http\Request;
 use App\Notifications\JobFound;
 use App\Http\Requests\PostJobRequest;
@@ -12,6 +13,7 @@ class JobsController extends Controller
 {
     protected $job;
     protected $company;  
+    protected $profile;  
     /**
      * Display a listing of the resource.
      *
@@ -22,6 +24,7 @@ class JobsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
         $this->job = new Job;  
         $this->company = new Company;            
+        $this->profile = new Profile;            
     }
 
     public function index($companyId)
@@ -35,9 +38,12 @@ class JobsController extends Controller
     }
 
     public function showMyJob()
-    {
+    {   
+        $id = Auth::user()->id;
+        $profile = $this->profile->where('user_id',$id)->first(); 
          $jobs = $this->job->where('user_id',Auth::user()->id)->get();
-        return view('admin.job.viewall',compact('jobs'));   
+        return view('admin.job.viewall')->with(['jobs'=>$jobs,
+                        'profile'=>$profile]);   
     }
 
     /**
@@ -47,11 +53,14 @@ class JobsController extends Controller
      */
     public function create($companyId)
     {
-        //
-        $company = $this->company->findOrFail($companyId);
-        return view('job.create')->with([
-            'id' => $companyId
-            ]);
+        $id = Auth::user()->id;
+        $profile = $this->profile->where('user_id',$id)->first(); 
+        $company = $this->company->where(['id'=>$companyId,'user_id'=>Auth::user()->id])->first();    
+        if($company)
+           return view('job.create')->with(['id'=>$company->id,
+                        'company'=>$company,
+                        'profile'=>$profile]);
+        return abort('503');
     }
 
     /**
@@ -111,12 +120,13 @@ class JobsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($companyId,$id)
-    {
-        //
+    {        
+        $profile = $this->profile->where('user_id',Auth::user()->id)->first(); 
          $job = $this->job->where(['id'=>$id,'company_id'=>$companyId])->get()->first();          
 
          return view('job.edit')->with([
-            'job' => $job,            
+            'job' => $job, 
+            'profile'=>$profile           
             ]);
     }
 
