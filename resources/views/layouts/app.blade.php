@@ -88,7 +88,7 @@
             </div>
             <div class="s12 m4 col">
               <h5>Follow Us</h5>
-              <ul>
+              <ul class="social">
                 <li><a href="#"><i class="ti-facebook"></i></a></li>
                 <li><a href="#"><i class="ti-facebook"></i></a></li>
                 <li><a href="#"><i class="ti-facebook"></i></a></li>
