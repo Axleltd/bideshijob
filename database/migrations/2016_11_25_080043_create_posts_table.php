@@ -22,7 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('image')->nullable();
             $table->text('short_description');
             $table->boolean('published')->default(false);
-            $table->date('published_on')->nullable();
+            $table->date('published_on')->default(\Carbon\Carbon::now());
             $table->integer('user_id')->unsigned();
             $table->boolean('status')->default(false);
             $table->timestamps();

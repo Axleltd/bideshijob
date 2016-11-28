@@ -33,9 +33,8 @@
 							</div>
 							<span class="card-title">
 								<a href="">{{$training->title}}</a>
-							</span>
-
-						
+								<a href="{{url('/company/'.$training->company->id.'/training/'.$training->id)}}">{{$training->title}}</a>
+							</span>						
 					</li>
 			
 				@endforeach			
