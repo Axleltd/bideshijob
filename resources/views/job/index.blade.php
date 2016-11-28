@@ -78,33 +78,35 @@
 		        <ul class="lists row">
 
 					@foreach($jobs as $job)
-					<li class="wow fadeInUp">
-		              <div class="wrap row">
-		                <div class="img-wrap">
-		                  <img src="{{asset('image/'.$job->company->logo)}}" alt="">
-		                </div>
-		                <div class="text-wrap">
-		                  <h5>{{$job->title}}</h5>
-		                  <div class="row">
-		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>{{$job->country}}</div>
-		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Salary:{{$job->salary}}</div>
-		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Required Number:{{$job->quantity}}</div>
-		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>{{$job->facilities}}</div>
-		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Cost:{{$job->cost}}</div>
-		                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Duty Hour:{{$job->duty_hours}}</div>
-		                  </div>
-		                  <div class="row">
-		                    <p class="social">
-		                      Share on <a href="#"><i class="ti-facebook"></i></a> <a href="#"><i class="ti-twitter"></i></a> <a href="#"><i class="ti-googleplus"></i></a>
-		                    </p>
-		                  </div>
-		                </div>
-		                <div class="btn-wrap">
-		                  <button class="btn weaves-effect">Apply Now</button><br>
-		                  <a href="{{ url('company/'.$job->company_id.'/job/'.$job->id)}}">More info</a>
-		                </div>
-		              </div>
-		            </li>
+					@if($job->company)
+						<li class="wow fadeInUp">
+			              <div class="wrap row">
+			                <div class="img-wrap">
+			                  <img src="{{asset('image/'.$job->company->logo)}}" alt="">
+			                </div>
+			                <div class="text-wrap">
+			                  <h5>{{$job->title}}</h5>
+			                  <div class="row">
+			                    <div class="s6 m4 col"><i class="fa fa-globe"></i>{{$job->country}}</div>
+			                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Salary:{{$job->salary}}</div>
+			                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Required Number:{{$job->quantity}}</div>
+			                    <div class="s6 m4 col"><i class="fa fa-globe"></i>{{$job->facilities}}</div>
+			                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Cost:{{$job->cost}}</div>
+			                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Duty Hour:{{$job->duty_hours}}</div>
+			                  </div>
+			                  <div class="row">
+			                    <p class="social">
+			                      Share on <a href="#"><i class="ti-facebook"></i></a> <a href="#"><i class="ti-twitter"></i></a> <a href="#"><i class="ti-googleplus"></i></a>
+			                    </p>
+			                  </div>
+			                </div>
+			                <div class="btn-wrap">
+			                  <button class="btn weaves-effect">Apply Now</button><br>
+			                  <a href="{{ url('company/'.$job->company_id.'/job/'.$job->id)}}">More info</a>
+			                </div>
+			              </div>
+			            </li>
+			         @endif
 
 					@endforeach
 				</ul>
