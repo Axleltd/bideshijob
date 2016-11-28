@@ -26,10 +26,12 @@ class JobsController extends Controller
 
     public function index($companyId)
     {
-        $company = $this->company->with('job')->findOrFail($companyId);
+        $company = $this->company->with('job')->where(['id'=>$companyId,'status'=>1])->get();
+        
         return view('job.index',compact('company'))->with([
             'jobs' => $company->job
-            ]);
+            ]);        
+
     }
 
     public function showMyJob()
