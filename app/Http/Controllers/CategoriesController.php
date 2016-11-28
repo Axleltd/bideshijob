@@ -45,4 +45,18 @@ class CategoriesController extends Controller
     	}
     	return redirect()->back()->withInput($request->toArray());
     }
+
+    public function fileUpload(Request $request,$logoName)
+    {
+        $files=Input::file('logo');        
+        $destinationPath = 'image/category'; // upload path
+        $fileName = $files->getClientOriginalName();
+        $fileExtension = '.'.$files->getClientOriginalExtension();
+        if(!$logoName)        
+            $logoName = md5($fileName.microtime()).$fileExtension;
+        $files->move($destinationPath, $logoName);    
+
+        return $logoName;
+        // return $files->store('image');
+    }
 }

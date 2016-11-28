@@ -93,13 +93,17 @@
                 <i class="ti-menu"></i>
               </div>
             </div>
-            <ul class="navs">                                                        
+            <ul class="navs"> 
+                  @if(Shinobi::isRole('admin'))                                                       
                     <li><a href="{{url('/dashboard')}}">Dashboard</a></l
-                      >                                                                         
+                      >                        
+                  @else
+                    <li><a href="{{url('/profile')}}">Dashboard</a></li>
+                  @endif                                                 
               <li class="accordian">
                 <a href="/profile/company"><i class="fa fa-dashboard"></i>All Agencies</a>
                 <ul class="submenu">
-                  <li><a href="{{url('/company/create')}}">Add new Agency</a></li>
+                  <li><a href="{{url('/company/create')}}">Add new agency</a></li>
                   <li><a href="{{url('/profile/company')}}">View my agency</a></li>
                   @if(Shinobi::isRole('admin'))
                                         
@@ -112,7 +116,7 @@
               <li class="accordian">
                 <a href="/profile/job"><i class="fa fa-dashboard"></i> All jobs</a>
                 <ul class="submenu">
-                  <li><a href="#">Add NEW Jobs</a></li>
+                  <li><a href="{{url('/profile/company')}}">Add new job</a></li>
                   <li><a href="{{url('/profile/job')}}">View my jobs</a></li>
                   @if(Shinobi::isRole('admin'))
                                         
@@ -124,7 +128,7 @@
               <li class="accordian">
                 <a href="/profile/training"><i class="fa fa-dashboard"></i> All Trainings</a>
                 <ul class="submenu">
-                  <li><a href="#">Add NEW Agency</a></li>
+                  <li><a href="{{url('/profile/company')}}">Add new training</a></li>
                   <li><a href="{{url('/profile/training')}}">View my trainings</a></li>
                   @if(Shinobi::isRole('admin'))
                                         
