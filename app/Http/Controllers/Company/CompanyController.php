@@ -90,7 +90,7 @@ class CompanyController extends Controller
 
     public function show($id)
     {
-        $company = $this->company->where(['id'=>$id,'status'=>1])->get()->first();        
+        $company = $this->company->where(['slug'=>$id,'status'=>1])->get()->first();        
         if($company)
             return view('company.show',compact('company'));
         else
@@ -99,8 +99,11 @@ class CompanyController extends Controller
 
     public function edit($id)
     {
+
         $profile = $this->profile->where('user_id',Auth::user()->id)->first();
-        $company = $this->company->where(['id'=>$id,'user_id'=>Auth::user()->id])->get()->first();  
+        $company = $this->company->where(['slug'=>$id,'user_id'=>Auth::user()->id])->get()->first();  
+        
+
         if($company)
             return view('company.edit')->with([
                         'company'=>$company,

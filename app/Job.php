@@ -3,10 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Job extends Model
 {
-    //
+    use HasSlug;
     protected $table = 'jobs';
 	protected $fillable = [
 			'user_id',
@@ -39,4 +41,11 @@ class Job extends Model
 	{
 		return $this->belongsTo(Company::class,"company_id");
 	}
+
+	public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('title')
+            ->saveSlugsTo('slug');
+    }
 }
