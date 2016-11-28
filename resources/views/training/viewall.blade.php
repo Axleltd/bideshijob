@@ -1,13 +1,13 @@
 @extends('layouts.dashboard')
 
 @section('title')
-	Job
+	Training
 @stop
 
 @section('content')
 
 	<div class="section-title">
-		<h3>All jobs</h3>
+		<h3>All Trainings</h3>
 		<ul class="bread-crumb">
 			<li><a href="">Dashboard</a></li>/
 			<li><a href="">Blog</a></li>/
@@ -19,25 +19,23 @@
 	<div class="section-content">		
 		
 		<div class="row">
-			@if(!count($jobs)>0)
-				<h5>You have not created a job yet!</h5>
-				<a class="btn" href="{{url('/profile/company/')}}">Create A New Job</a>
+			@if(!count($trainings)>0)
+				<h5>You have not created a Training yet!</h5>
+				<a class="btn" href="{{url('/profile/company/')}}">Create A New Training</a>
 			@else
 			<ul>
-				@foreach($jobs as $job)
+				@foreach($trainings as $training)
 					
 					<li class="col s12 m4">
 						<div class="card">
 							<div class="card-image">
-								<img src="{{asset('image/'.$job->company->logo)}}" alt="">
+								<img src="{{asset('image/'.$training->company->logo)}}" alt="">
 							</div>
-							{{-- <div class="card-content"> --}}
-								<span class="card-title"><a href="{{url('/company/'.$job->company->slug.'/job/'.$job->slug)}}">{{$job->title}}</a></span>
+							<span class="card-title">
+								<a href="{{url('/company/'.$training->company->id.'/training/'.$training->id)}}">{{$training->title}}</a>
+							</span>
 
-								
-							{{-- </div> --}}
-								
-						</div>
+						
 					</li>
 			
 				@endforeach			

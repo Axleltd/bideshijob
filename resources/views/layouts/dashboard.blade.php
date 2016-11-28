@@ -62,7 +62,7 @@
                 <li class="img"><img src="#" alt=""></li>
                 <li><a href="/profile/user" class="name">{{Auth::user()->name}}</a></li>
                 @if(isset($profile))
-                  <li><a href="{{url('/profile/user'.$profile->id.'/edit')}}"><i class="fa fa-settings"></i>Settings</a></li>
+                  <li><a href="{{url('/profile/user/'.$profile->id.'/edit')}}"><i class="fa fa-settings"></i>Settings</a></li>
                   @else
                     <li><a href="{{url('/profile/user/create')}}"><i class="fa fa-settings"></i>Settings</a></li>
                 @endif

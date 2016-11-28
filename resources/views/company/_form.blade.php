@@ -14,24 +14,8 @@
 		    @endif		
 		</div>
 		<div class="col s12 m6">
-			{!! Form::label('description','Description:') !!}
-			{!! Form::textarea('description',old('description')) !!}
-			@if(count($errors->get('description')) > 0)
-		        <div class="alert alert-danger">
-		            <ul>
-		                @foreach($errors->get('description') as $error)
-		                    <li>{{ $error  }}</li>
-		                @endforeach
-		            </ul>
-		        </div>
-		    @endif		
-		</div>
-		<div class="form-group">
 
-		   		{!! Form::label('logo', 'Logo:', ['class' => 'control-label']) !!}
-		   		
-		</div>
-
+		   	{!! Form::label('logo', 'Logo:', ['class' => 'control-label']) !!}
 
 		    @if(isset($company->logo))
 		        <div class="col-xs-2 thumb">
@@ -52,8 +36,8 @@
 
 		        {!! Form::file('logo', array('onchange'=>'loadFile(event)','id'=>'image')) !!}
 		       </div>
-		      </div>
-		        @if(count($errors->get('logo')) > 0)
+		    </div>
+		    @if(count($errors->get('logo')) > 0)
 		        <div class="alert alert-danger">
 		            <ul>
 		                @foreach($errors->get('logo') as $error)
@@ -63,7 +47,21 @@
 		        </div>
 		    @endif		
 
-	</div>
+		</div>
+
+		<div class="col s12">
+			{!! Form::label('description','Description:') !!}
+			{!! Form::textarea('description',old('description')) !!}
+			@if(count($errors->get('description')) > 0)
+		        <div class="alert alert-danger">
+		            <ul>
+		                @foreach($errors->get('description') as $error)
+		                    <li>{{ $error  }}</li>
+		                @endforeach
+		            </ul>
+		        </div>
+		    @endif		
+		</div>
 	</div>
 </div>
 
@@ -81,3 +79,6 @@
     reader.readAsDataURL(event.target.files[0]);
   	};
  </script>
+
+
+

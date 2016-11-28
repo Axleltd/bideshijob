@@ -33,7 +33,6 @@
 							</div>
 							{{-- <div class="card-content"> --}}
 								<span class="card-title"><a href="{{url('/company/'.$job->company->slug.'/job/'.$job->slug)}}">{{$job->title}}</a></span>
-
 								
 							{{-- </div> --}}
 								

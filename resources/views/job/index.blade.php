@@ -104,7 +104,7 @@
 			                </div>
 			                <div class="btn-wrap">
 			                  <button class="btn weaves-effect">Apply Now</button><br>
-			                  <a href="{{ url('company/'.$job->company_id.'/job/'.$job->id)}}">More info</a>
+			                  <a href="{{ url('company/'.$job->company->slug.'/job/'.$job->slug)}}">More info</a>
 			                </div>
 			              </div>
 			            </li>

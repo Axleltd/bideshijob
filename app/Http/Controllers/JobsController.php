@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Job;
 use App\Company;
+use App\Profile;
 use Illuminate\Http\Request;
 use App\Notifications\JobFound;
 use App\Http\Requests\PostJobRequest;
@@ -12,6 +13,7 @@ class JobsController extends Controller
 {
     protected $job;
     protected $company;  
+    protected $profile;  
     /**
      * Display a listing of the resource.
      *
@@ -22,6 +24,7 @@ class JobsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
         $this->job = new Job;  
         $this->company = new Company;            
+        $this->profile = new Profile;            
     }
 
     public function index($companyId)
@@ -39,9 +42,12 @@ class JobsController extends Controller
     }
 
     public function showMyJob()
-    {
+    {   
+        $id = Auth::user()->id;
+        $profile = $this->profile->where('user_id',$id)->first(); 
          $jobs = $this->job->where('user_id',Auth::user()->id)->get();
-        return view('admin.job.viewall',compact('jobs'));   
+        return view('admin.job.viewall')->with(['jobs'=>$jobs,
+                        'profile'=>$profile]);   
     }
 
     /**
@@ -50,16 +56,19 @@ class JobsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create($companyId)
-    {
-        //
-        $company = $this->company->where('slug',$companyId)->first();
+    {      
+        $company = $this->company->where(['slug'=>$companyId,'user_id'=>Auth::user()->id])->first();    
         if(!$company)
         {
             abort(404);
         }
-        return view('job.create')->with([
-            'id' => $company->id
-            ]);
+
+        if($company)
+           return view('job.create')->with(['id'=>$company->id,
+                        'company'=>$company,
+                        ]);
+        return abort('503');
+
     }
 
     /**
@@ -120,16 +129,15 @@ class JobsController extends Controller
      */
     public function edit($companyId,$id)
     {
-        //
-        $company = $this->company->where('slug',$companyId)->first();
-        if(!$company)
+         $company = $this->company->where('slug',$companyId)->first();
+        if(!$company || $company->user_id !== Auth::user()->id)
         {
             abort(404);
         }
-         $job = $this->job->where(['slug'=>$id])->get()->first();          
-
+         $job = $this->job->where(['slug'=>$id])->get()->first();  
          return view('job.edit')->with([
-            'job' => $job,            
+            'job' => $job
+                 
             ]);
     }
 
