@@ -8,6 +8,7 @@ use App\Http\Requests\PostTrainingRequest;
 use App\Http\Requests\PutTrainingRequest;
 use App\Training;
 use App\Company;
+use App\Profile;
 use App\User;
 use App\Notifications\NotificationPost;
 use Illuminate\Notifications\Notifiable;
@@ -16,12 +17,14 @@ class TrainingController extends Controller
 {    
     protected $training;
     protected $company;  
+    protected $profile;  
        
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
         $this->training = new Training;  
         $this->company = new Company;            
+        $this->profile = new Profile;            
     }
     public function index($companyId)
     {           
@@ -31,15 +34,21 @@ class TrainingController extends Controller
 
     public function showMyTraining()
     {
+        $id = Auth::user()->id;
+        $profile = $this->profile->where('user_id',$id)->first(); 
         $trainings = $this->training->where('user_id',Auth::user()->id)->get();
-        return view('admin.training.viewall',compact('trainings'));
+        return view('admin.training.viewall')->with(['trainings'=>$trainings,
+                        'profile'=>$profile]);
     }
 
     public function create($companyId)
     {    
+        $id = Auth::user()->id;
+        $profile = $this->profile->where('user_id',$id)->first(); 
         $company = $this->company->where(['id'=>$companyId,'user_id'=>Auth::user()->id])->get()->first();    
         if($company)
-    	   return view('training.create',compact('company'));
+    	   return view('training.create')->with(['profile'=>$profile,
+                            'company'=>$company]);
         return abort('503');
     }
     public function store(PostTrainingRequest $request,$companyId)
@@ -72,8 +81,10 @@ class TrainingController extends Controller
 
     public function edit($companyId,$trainingId)
     {
+        $profile = $this->profile->where('user_id',$Auth::user()->id)->first(); 
         $training = $this->training->where(['id'=>$trainingId,'company_id'=>$companyId,'user_id'=>Auth::user()->id])->get()->first();          
-        return view('training.edit',compact('training'));
+        return view('training.edit')->with(['training'=>$training,
+                    'profile'=>$profile]);
     }
 
     public function update(PutTrainingRequest $request,$companyId,$trainingId)
