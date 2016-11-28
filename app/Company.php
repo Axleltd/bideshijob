@@ -14,7 +14,8 @@ class Company extends Model
     				'user_id',
     				'description',
     				'featured',    				
-                    'id',                    
+                    'id', 
+                    'status',                   
     				];
     protected $with = ['contacts','job'];
    	/**
