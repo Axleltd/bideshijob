@@ -17,16 +17,16 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	
 		//------------------------Category----------------------------
 	//----create and store
-	Route::get('blog/category/create','CategoriesController@create');
-	Route::post('blog/category','CategoriesController@store');
+	Route::get('category/create','CategoriesController@create');
+	Route::post('category','CategoriesController@store');
 	//edit--and--update
-	Route::get('blog/category/{category}/edit','CategoriesController@edit');
-	Route::put('blog/category/{category}','CategoriesController@update');
+	Route::get('category/{category}/edit','CategoriesController@edit');
+	Route::put('category/{category}','CategoriesController@update');
 	
-	Route::get('blog/categories','CategoriesController@index');
+	Route::get('help-center','CategoriesController@index');
 
-	Route::delete('blog/category/{category}','CategoriesController@destroy');
-	Route::get('blog/category/{category}','CategoriesController@show');
+	Route::delete('help-center/{category}','CategoriesController@destroy');
+	Route::get('help-center/{category}','CategoriesController@show');
 	//----------------End Category
 
 	//----------------Blog-----------------------

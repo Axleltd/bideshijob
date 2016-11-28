@@ -82,7 +82,9 @@
 						<li class="wow fadeInUp">
 			              <div class="wrap row">
 			                <div class="img-wrap">
+			                @if($job->company !== null)
 			                  <img src="{{asset('image/'.$job->company->logo)}}" alt="">
+			                @endif
 			                </div>
 			                <div class="text-wrap">
 			                  <h5>{{$job->title}}</h5>
