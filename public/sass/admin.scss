@@ -394,14 +394,16 @@ h1, h2, h3, h4, h5, h6 {
 
             form {
                 input {
-                   border: 1px solid #ccc;
+                   border: 1px solid #aaa;
                    font-size: 18px;
                    text-indent: 10px;
                    height: 35px; 
+                   border-radius: 5px;
                 }
                 textarea {
                     font-size: 18px;
                     height: 135px;
+                    border-radius: 5px;
                 }
                 button {
                     float: right;
