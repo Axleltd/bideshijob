@@ -22,6 +22,9 @@
 	<div class="row">	
 		<div class="container">
 			<h3>{{ $post->title }}</h3>
+			@if($post->category !== null && $post->category->count() > 0)
+			<h3>{{ $post->category->name }}</h3>
+			@endif
 			<h4>{{ $post->published_on}}</h4>
 			<p><small>{!! $post->short_description !!}</small></p>
 			<p>
