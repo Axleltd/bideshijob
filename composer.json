@@ -10,7 +10,8 @@
         "smarch/watchtower": "@dev",
         "cornford/googlmapper": "2.*",
         "spatie/laravel-sluggable": "^1.3",
-        "barryvdh/laravel-debugbar": "^2.3"
+        "barryvdh/laravel-debugbar": "^2.3",
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

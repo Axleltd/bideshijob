@@ -26,9 +26,16 @@
 			<ul>
 				@foreach($trainings as $training)
 					
-					<li>
-						<img src="{{asset('image/'.$training->company->logo)}}" alt="">
-						{{$training->title}}
+					<li class="col s12 m4">
+						<div class="card">
+							<div class="card-image">
+								<img src="{{asset('image/'.$training->company->logo)}}" alt="">
+							</div>
+							<span class="card-title">
+								<a href="{{url('/company/'.$training->company->id.'/training/'.$training->id)}}">{{$training->title}}</a>
+							</span>
+
+						
 					</li>
 			
 				@endforeach			

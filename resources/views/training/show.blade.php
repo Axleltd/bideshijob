@@ -6,8 +6,8 @@
              
             <div class="wrap row">
                 <div class="section-title row">                    
-                    <h3 class="left">{{ $training->title }}</h3>
-                    <p class="social right">
+                    <h3 class="col s6">{{ $training->title }}</h3>
+                    <p class="social col s6" style="text-align: center;">
                       <a href="#"><i class="ti-facebook"></i></a> <a href="#"><i class="ti-twitter"></i></a> <a href="#"><i class="ti-googleplus"></i></a>
                     </p>
                 </div>            

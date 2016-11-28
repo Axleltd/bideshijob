@@ -29,14 +29,7 @@ class JobAddForeignKey extends Migration
      */
     public function down()
     {
-         Schema::table('jobs', function($table) {
-            if($table->hasColumn('company_id')){
-               $table->dropForeign('company_id');
-               $table->dropColumn('company_id');
-                
-            }
-
-
+         Schema::table('jobs', function($table) {                            
             });
     }
 }

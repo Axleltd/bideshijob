@@ -287,6 +287,7 @@ h1, h2, h3, h4, h5, h6 {
                 background-color: $alternate-color;
             }
         }
+        
         a.btn {
             background-color: $primary-color;
 
@@ -345,8 +346,18 @@ h1, h2, h3, h4, h5, h6 {
 
             .card {
                 border: 1px solid #ccc;
+                margin-bottom: 30px;
                 .card-title {
                     padding: 15px;
+                    margin-bottom: 15px;
+                    display: block;
+                    a {
+                        color: $title-c;
+
+                        &:hover {
+                            color: $primary-color;
+                        }
+                    }
                 }
                 p {
                     margin: 0;
@@ -368,6 +379,15 @@ h1, h2, h3, h4, h5, h6 {
                 .card-reveal {
                     padding: 0;
                     overflow: hidden;
+
+                    .btn {
+                        margin: 5px 20px;
+                    }
+                }
+
+                .material-icons {
+                    margin-top: 10px;
+                    cursor: pointer;
                 }
             }
             //cards end
@@ -447,8 +467,6 @@ h1, h2, h3, h4, h5, h6 {
             }
         }
 
-        img {
-            max-width: 250px;
-        }
+       
     }
 }
