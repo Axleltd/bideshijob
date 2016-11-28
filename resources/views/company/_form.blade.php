@@ -16,9 +16,6 @@
 		<div class="col s12 m6">
 
 		   	{!! Form::label('logo', 'Logo:', ['class' => 'control-label']) !!}
-		   		
-		
-
 
 		    @if(isset($company->logo))
 		        <div class="col-xs-2 thumb">
