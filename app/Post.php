@@ -13,6 +13,7 @@ class Post extends Model
 		'title',
 		'slug',
 		'content',
+		'category_id',
 		'image',
 		'short_description',
 		'published',
@@ -22,6 +23,10 @@ class Post extends Model
     protected $dates = ['published_on','created_at','updated_at'];
     protected $casts = ['published'=>'boolean',];
 
+    public function category()
+    {
+    	return $this->belongsTo(\App\Category::class);
+    }
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()

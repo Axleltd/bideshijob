@@ -18,7 +18,12 @@ class Category extends Model
 
 	protected $casts = ['featured' => 'boolean','order' => 'integer'];
 
-	public function getSlugOptions() : SlugOptions
+	public function posts()
+    {
+        return $this->hasMany(\App\Post::class,'category_id');
+    }
+
+    public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
             ->generateSlugsFrom('name')
