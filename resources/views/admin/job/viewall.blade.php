@@ -26,9 +26,17 @@
 			<ul>
 				@foreach($jobs as $job)
 					
-					<li>
-						<img src="{{asset('image/'.$job->company->logo)}}" alt="">
-						{{$job->title}}
+					<li class="col s12 m4">
+						<div class="card">
+							<div class="card-image">
+								<img src="{{asset('image/'.$job->company->logo)}}" alt="">
+							</div>
+							{{-- <div class="card-content"> --}}
+								<span class="card-title"><a href="">{{$job->title}}</a></span>
+								
+							{{-- </div> --}}
+								
+						</div>
 					</li>
 			
 				@endforeach			
