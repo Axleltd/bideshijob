@@ -21,7 +21,7 @@
 		<div class="row">
 			@if(!count($jobs)>0)
 				<h5>You have not created a job yet!</h5>
-				<a class="btn" href="{{url('/profile/company/')}}">Create A job</a>
+				<a class="btn" href="{{url('/profile/company/')}}">Create A New Job</a>
 			@else
 			<ul>
 				@foreach($jobs as $job)

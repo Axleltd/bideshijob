@@ -19,7 +19,7 @@
 	<div class="company">
 		@if(!count($companies)>0)
 				<h5>You have not created a company yet!</h5>
-				<a class="btn" href="{{url('/company/create')}}">Create A Company</a>
+				<a class="btn" href="{{url('/company/create')}}">Create A New Company</a>
 		@else
 			<ul>
 				@foreach($companies as $company)

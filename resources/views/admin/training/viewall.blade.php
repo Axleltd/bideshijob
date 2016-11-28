@@ -6,11 +6,22 @@
 
 @section('content')
 
-	<div class="company">
+	<div class="section-title">
+		<h3>All Trainings</h3>
+		<ul class="bread-crumb">
+			<li><a href="">Dashboard</a></li>/
+			<li><a href="">Blog</a></li>/
+			<li><a href="#">Category</a></li>
+
+		</ul>
+	</div>
+
+	<div class="section-content">		
+		
 		<div class="row">
 			@if(!count($trainings)>0)
-			<h5>You have not created a training yet!</h5>
-			<a class="btn" href="#">Create A Training</a>
+				<h5>You have not created a Training yet!</h5>
+				<a class="btn" href="{{url('/profile/company/')}}">Create A New Training</a>
 			@else
 			<ul>
 				@foreach($trainings as $training)
