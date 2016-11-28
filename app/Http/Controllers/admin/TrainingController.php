@@ -28,10 +28,10 @@ class TrainingController extends Controller
     	 
     	if(!$featured)
     	{
-    		Session::flash('error', 'training is unsuccessfully featured');
+    		Session::flash('error', 'Training is unsuccessfully featured');
     		return redirect()->back();
     	}
-    	Session::flash('success', 'training is successfully activated');
+    	Session::flash('success', 'Training is successfully activated');
     	Auth::user()->notify(new BusinessNotification('Congratulation Your training '.$training->name.' is featured'));
     	return redirect('/dashboard/training');
 
@@ -43,11 +43,11 @@ class TrainingController extends Controller
     	$active = $this->training->where('id',$trainingId)->update(['featured'=>0]);
     	if(!$active)
     	{
-    		Session::flash('error', 'training is unsuccessfully suspended');
+    		Session::flash('error', 'Training is unsuccessfully unfeatured');
     		return redirect()->back();
     		
     	}
-    	Session::flash('success', 'training is successfully suspended');
+    	Session::flash('success', 'Training is successfully unfeatured');
     	Auth::user()->notify(new BusinessNotification('Sorry Your training '.$training->name.' is not featured'));
     	return redirect('/dashboard/training');    		
     }

@@ -45,11 +45,15 @@ class CompanyController extends Controller
     }
     public function store(PostCompanyRequest $request)
     {   
+        $status = 0;
+        if(\Caffeinated\Shinobi\Facades\Shinobi::isRole('admin'))
+            $status = 1;
         $logo = $this->fileUpload($request,null);        
         $company = $this->company->create([
-            'user_id'=>Auth::user()->id,
+            'user_id'=> Auth::user()->id,
             'name' => $request->name,
-            'description'=>$request->description,
+            'description' => $request->description,
+            'status' => $status,
             'logo' => $logo]);
         if($company)
         {
@@ -79,7 +83,7 @@ class CompanyController extends Controller
 
     public function show($id)
     {
-        $company = $this->company->where(['id'=>$id,'status'=>1])->get()->first();
+        $company = $this->company->where(['id'=>$id,'status'=>1])->get()->first();        
         if($company)
             return view('company.show',compact('company'));
         else
