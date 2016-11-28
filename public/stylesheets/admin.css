@@ -461,157 +461,173 @@ h1, h2, h3, h4, h5, h6 {
 .Dashboard .page-wrap .btn:hover {
   background-color: #44549b;
 }
-/* line 290, ../sass/admin.scss */
+/* line 291, ../sass/admin.scss */
 .Dashboard .page-wrap a.btn {
   background-color: #7f8ed1;
 }
-/* line 293, ../sass/admin.scss */
+/* line 294, ../sass/admin.scss */
 .Dashboard .page-wrap a.btn:hover {
   background-color: #44549b;
 }
-/* line 299, ../sass/admin.scss */
+/* line 300, ../sass/admin.scss */
 .Dashboard .page-wrap .section-title h3 {
   font-size: 32px;
   font-family: "roboto slab", sans-serif;
   color: #5a5a5a;
 }
-/* line 304, ../sass/admin.scss */
+/* line 305, ../sass/admin.scss */
 .Dashboard .page-wrap .section-title p {
   margin-bottom: 0;
 }
-/* line 309, ../sass/admin.scss */
+/* line 310, ../sass/admin.scss */
 .Dashboard .page-wrap .section-title ul.bread-crumb li {
   display: inline-block;
 }
-/* line 312, ../sass/admin.scss */
+/* line 313, ../sass/admin.scss */
 .Dashboard .page-wrap .section-title ul.bread-crumb li a {
   display: block;
   margin-right: 10px;
   padding-left: 10px;
   color: #5a5a5a;
 }
-/* line 318, ../sass/admin.scss */
+/* line 319, ../sass/admin.scss */
 .Dashboard .page-wrap .section-title ul.bread-crumb li a:hover {
   color: #7f8ed1;
 }
-/* line 325, ../sass/admin.scss */
+/* line 326, ../sass/admin.scss */
 .Dashboard .page-wrap .section-title ul.bread-crumb li:last-child a {
   color: #aaa;
 }
-/* line 333, ../sass/admin.scss */
+/* line 334, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content {
   border-top: 1px solid #ddd;
   margin-top: 35px;
   padding-top: 35px;
 }
-/* line 337, ../sass/admin.scss */
+/* line 338, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content h5 {
   font-size: 22px;
   font-family: "roboto slab", sans-serif;
   color: #5a5a5a;
   margin-top: 0;
 }
-/* line 346, ../sass/admin.scss */
+/* line 347, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card {
   border: 1px solid #ccc;
+  margin-bottom: 30px;
 }
-/* line 348, ../sass/admin.scss */
+/* line 350, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-title {
   padding: 15px;
+  margin-bottom: 15px;
+  display: block;
 }
-/* line 351, ../sass/admin.scss */
+/* line 354, ../sass/admin.scss */
+.Dashboard .page-wrap .section-content .card .card-title a {
+  color: #5a5a5a;
+}
+/* line 357, ../sass/admin.scss */
+.Dashboard .page-wrap .section-content .card .card-title a:hover {
+  color: #7f8ed1;
+}
+/* line 362, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card p {
   margin: 0;
   padding: 0 15px;
 }
-/* line 355, ../sass/admin.scss */
+/* line 366, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-action {
   margin-top: 20px;
 }
-/* line 358, ../sass/admin.scss */
+/* line 369, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-action a {
   color: #7f8ed1;
   margin-left: 20px;
 }
-/* line 362, ../sass/admin.scss */
+/* line 373, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-action a:hover {
   color: #44549b !important;
 }
-/* line 368, ../sass/admin.scss */
+/* line 379, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-reveal {
   padding: 0;
   overflow: hidden;
 }
-/* line 376, ../sass/admin.scss */
+/* line 383, ../sass/admin.scss */
+.Dashboard .page-wrap .section-content .card .card-reveal .btn {
+  margin: 5px 20px;
+}
+/* line 388, ../sass/admin.scss */
+.Dashboard .page-wrap .section-content .card .material-icons {
+  margin-top: 10px;
+  cursor: pointer;
+}
+/* line 396, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form input {
   border: 1px solid #ccc;
   font-size: 18px;
   text-indent: 10px;
   height: 35px;
 }
-/* line 382, ../sass/admin.scss */
+/* line 402, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form textarea {
   font-size: 18px;
   height: 135px;
 }
-/* line 386, ../sass/admin.scss */
+/* line 406, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form button {
   float: right;
   background-color: #7f8ed1;
 }
-/* line 390, ../sass/admin.scss */
+/* line 410, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form button:hover {
   background-color: #44549b;
 }
-/* line 394, ../sass/admin.scss */
+/* line 414, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .btn {
   float: left;
   background-color: #7f8ed1;
 }
-/* line 398, ../sass/admin.scss */
+/* line 418, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .btn:hover {
   background-color: #44549b;
 }
-/* line 404, ../sass/admin.scss */
+/* line 424, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .alert {
   color: red;
 }
-/* line 408, ../sass/admin.scss */
+/* line 428, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .controls {
   width: 275px;
   height: 150px;
   overflow: hidden;
   margin-bottom: 15px;
 }
-/* line 414, ../sass/admin.scss */
+/* line 434, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .controls img {
   width: 275px;
   min-height: 150px;
 }
-/* line 422, ../sass/admin.scss */
+/* line 442, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info p, .Dashboard .page-wrap .section-content .user p {
   font-size: 18px;
   font-family: "Open Sans", sans-serif;
   color: #5a5a5a;
 }
-/* line 427, ../sass/admin.scss */
+/* line 447, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info p a, .Dashboard .page-wrap .section-content .user p a {
   color: #8c8c8c !important;
 }
-/* line 430, ../sass/admin.scss */
+/* line 450, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info p a:hover, .Dashboard .page-wrap .section-content .user p a:hover {
   color: #5a5a5a !important;
 }
-/* line 437, ../sass/admin.scss */
+/* line 457, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info a, .Dashboard .page-wrap .section-content .user a {
   font-size: 18px;
   color: #8c8c8c !important;
 }
-/* line 441, ../sass/admin.scss */
+/* line 461, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info a:hover, .Dashboard .page-wrap .section-content .user a:hover {
   color: #5a5a5a !important;
-}
-/* line 450, ../sass/admin.scss */
-.Dashboard .page-wrap img {
-  max-width: 250px;
 }

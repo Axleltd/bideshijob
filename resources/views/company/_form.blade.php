@@ -27,7 +27,12 @@
 		    @endif		
 		</div>
 		<div class="form-group">
-		    {!! Form::label('logo', 'Logo:', ['class' => 'control-label']) !!}
+
+		   		{!! Form::label('logo', 'Logo:', ['class' => 'control-label']) !!}
+		   		
+		</div>
+
+
 		    @if(isset($company->logo))
 		        <div class="col-xs-2 thumb">
 		            <a class="logo" href="#">
@@ -41,7 +46,13 @@
 		        </div>
 		    @endif
 
+		    <div class="file-field input-field">
+		      <div class="btn">
+		        <span>Logo</span>
+
 		        {!! Form::file('logo', array('onchange'=>'loadFile(event)','id'=>'image')) !!}
+		       </div>
+		      </div>
 		        @if(count($errors->get('logo')) > 0)
 		        <div class="alert alert-danger">
 		            <ul>

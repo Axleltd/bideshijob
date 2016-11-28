@@ -10,22 +10,45 @@
 		</ul>
 	</div>
 
+				@include('admin._flash')
 	<div class="section-content">
 
-		<div class="row">
+		<ul class="row">
+		@foreach($trainings as $training)
+			<li class="col s12 m6">
+				<div class="card">
+					<div class="card-image">
+						<img src="{{asset('image/'.$training->company->logo)}}" alt="">
+					</div>
+					<span class="card-title">
+						<a href="{{url('company/'.$training->company_id.'/training/'.$training->id)}}">{{$training->title}}</a>
+					</span>
 
-			<div class="training">
-				@include('admin._flash')
-				@foreach($trainings as $training)
+					<div class="row">
+						<div class="col s12 m4">
+							<a href="{{ url('dashboard/training/featured/'.$training->id)}}" class="{{ ($training->featured == 1) ?'disabled': null }} btn"  style="font-size: 12px;">Featured</a>
+							
+						</div>
+						<div class="col s12 m4">
+							<a href="{{ url('dashboard/training/unfeatured/'.$training->id)}}" class="{{ ($training->featured == 0) ?'disabled': null }} btn"  style="font-size: 12px;">UnFeatured</a>
+							
+						</div>
+						<div class="col s12 m4">
+							<a href="{{ url('dashboard/training/delete/'.$training->id)}}" class="btn"  style="font-size: 12px;">Delete</a>
+							
+						</div>
+					</div>
+				</div>
+			</li>
+
 					
-					<a href="{{url('company/'.$training->company_id.'/training/'.$training->id)}}"><h3>{{$training->title}}</h3></a>
-					<img src="{{asset('image/'.$training->company->logo)}}" alt="">
-					<a href="{{ url('dashboard/training/featured/'.$training->id)}}" class="{{ ($training->featured == 1) ?'disabled': null }} btn">Featured</a>
-					<a href="{{ url('dashboard/training/unfeatured/'.$training->id)}}" class="{{ ($training->featured == 0) ?'disabled': null }} btn">UnFeatured</a>
-					<a href="{{ url('dashboard/training/delete/'.$training->id)}}" class="btn">Delete</a>
+					
+					
+					
+					
+					
 
 				@endforeach
-			</div>
 		</div>		
 	</div>
 
