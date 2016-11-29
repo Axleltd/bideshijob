@@ -7,7 +7,7 @@ use App\Message;
 
 class MessageController extends Controller
 {
-    	protected $message;
+  protected $message;
 
 	public function __construct()
 	{

@@ -6,14 +6,14 @@
 @section('content')
 
 
-<div class="page-inside">
+<div class="page-inside page-blog">
 
 
   <nav>
       <div class="nav-wrapper row">
           <div class="col s12">
             <a href="/" class="breadcrumb">@lang('site.home')</a>
-            <a href="#!" class="breadcrumb">Help Center</a>
+            <a href="#!" class="breadcrumb">@lang('site.blog')</a>
         
          </div>
       </div>
@@ -25,7 +25,7 @@
       	<div class="search">
               {!! Form::open([
                       'action' => '\App\Http\Controllers\SearchController@postSearch','method'=>'get']) !!}
-              @include('frontend._search')
+              <input type="text" name="title" placeholder="Post Name">
               <button type="submit"  class="search-btn"><i class="fa fa-search"></i></button>
               {!! Form::close() !!}		
       	</div>

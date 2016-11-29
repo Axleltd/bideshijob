@@ -16,6 +16,8 @@ return [
 	'english' => 'English',
 	'nepali' => 'Nepali',
 
+	'blog'  => 'Blog',
+
 	//footer
 	'city_address' => 'City Address',
 	'country' =>'Country'

@@ -52,19 +52,19 @@ Homepage
       </div>
 
       <div class="subscribe-box">
-        <h3 class="wow fadeIn">subscribe with us</h3>
-        <form action="">
-          <input type="text" placeholder="Full Name">
-          <input type="text" placeholder="email">
-          <input type="text" placeholder="Contact number">
+        <h3 class="wow fadeIn">Subscribe with us</h3>        
+        {!! Form::open(['action' => 'SubscriberController@store','files' => 'true','method'=>'post']) !!}
+          <input type="text" name="name" placeholder="Full Name">
+          <input type="email" name="email" placeholder="Email">
+          <input type="text" name="contact" placeholder="Contact number">
           <div class="file-field input-field">
             <div class="btn">
               <span>Upload CV</span>
-              <input type="file">
+              <input type="file" name="cv">
             </div>
           </div>
-          <button class="btn" >Subscribe</button>
-        </form>
+          <button type='submit' class="btn wow zoomIn" >Subscribe</button>
+        {!! Form::close() !!}
       </div>
     </div>
   </section>
