@@ -29,11 +29,12 @@ class JobsController extends Controller
 
     public function index($companyId)
     {
+        
         $company = $this->company->where(['slug'=>$companyId,'status'=>1])->first();
         if(!$company)
         {
             abort(404);
-        }
+        }        
         $job = $this->job->where('company_id',$company->id)->paginate(10);
         return view('job.index',compact('company'))->with([
             'jobs' => $job

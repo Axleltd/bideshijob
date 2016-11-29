@@ -15,7 +15,7 @@
 		</div>
 		<div class="col s12 m6">
 			{!! Form::label('training_description','Description:') !!}
-			{!! Form::textarea('training_description',old('training_description')) !!}
+			{!! Form::textarea('training_description',(isset($training->description)? $training->description:old('training_description'))) !!}
 			@if(count($errors->get('training_description')) > 0)
 		        <div class="alert alert-danger">
 		            <ul>

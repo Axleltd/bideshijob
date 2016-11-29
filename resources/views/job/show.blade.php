@@ -36,7 +36,7 @@
                                     <div class="text-wrap">                                    
                                         <h5><a href="#">{{$job->company->name}}</a></h5>
                                         <p>Address: {{$job->company->contacts->address}}</p>
-                                        <a href="{{url('/company/'.$job->company_id)}}" class="right">View more</a>
+                                        <a href="{{url('/company/'.$job->company->slug)}}" class="right">View more</a>
                                     </div>  
                                 </div>
                             @endif

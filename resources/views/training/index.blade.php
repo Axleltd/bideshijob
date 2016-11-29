@@ -26,8 +26,8 @@
         <div class="nav-wrapper row">
             <div class="col s12">
               <a href="/" class="breadcrumb">@lang('site.home')</a>
-              <a href="/company/{{$company->id}}" class="breadcrumb">@lang('site.agencies')</a>
-              <a href="/company/{{$company->id}}/training" class="breadcrumb">@lang('site.agencies')</a>
+              <a href="/company/{{$company->slug}}" class="breadcrumb">@lang('site.agencies')</a>
+              <a href="/company/{{$company->slug}}/training" class="breadcrumb">@lang('site.agencies')</a>
               
             </div>
           </div>
@@ -87,7 +87,7 @@
                   <p><i class="fa fa-globe"></i>{{$tr->country}}</p>
                   <p><i class="fa fa-time"></i>Duration</p>
                   <p>{{$tr->description}}</p>
-                  <a href="{{ url('company/'.$tr->company_id.'/training/'.$tr->id)}}" class="right">More info</a>
+                  <a href="{{ url('company/'.$tr->company->slug.'/training/'.$tr->slug)}}" class="right">More info</a>
                 </div>
               </div>
             </li>

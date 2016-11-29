@@ -72,7 +72,7 @@ Homepage
                 </div>
                 <div class="btn-wrap">
                   <button class="btn waves-effect">Apply Now</button><br>
-                  <a href="{{ url('company/'.$jo->company_id.'/job/'.$jo->id)}}">More info</a>
+                  <a href="{{ url('company/'.$jo->company->slug.'/job/'.$jo->slug)}}">More info</a>
                 </div>
               </div>
             </li>
@@ -103,7 +103,7 @@ Homepage
                   <p><i class="fa fa-globe"></i>{{$tr->company->contacts->address}}</p>
                   <p><i class="fa fa-time"></i>Duration</p>
                   <p>{{$tr->description}}</p>
-                  <a href="{{ url('company/'.$tr->company_id.'/training/'.$tr->id)}}" class="right">More info</a>
+                  <a href="{{ url('company/'.$tr->company->slug.'/training/'.$tr->slug)}}" class="right">More info</a>
                 </div>
               </div>
             </li>
@@ -150,7 +150,7 @@ Homepage
         <ul>
           @foreach($job as $jo)
             @if($jo->company)
-              <li><a href="{{ url('company/'.$jo->company_id.'/job/'.$jo->id)}}">{{$jo->title}}</a></li>          
+              <li><a href="{{ url('company/'.$jo->company->slug.'/job/'.$jo->slug)}}">{{$jo->title}}</a></li>          
             @endif
           @endforeach
         </ul>
@@ -164,7 +164,7 @@ Homepage
         <ul>
           @foreach($training as $tr)
             @if($tr->company)
-            <li><a href="{{ url('company/'.$tr->company_id.'/training/'.$tr->id)}}">{{$tr->title}}</a></li>            
+            <li><a href="{{ url('company/'.$tr->company->slug.'/training/'.$tr->slug)}}">{{$tr->title}}</a></li>            
             @endif
           @endforeach
         </ul>
@@ -177,7 +177,7 @@ Homepage
         </div>
         <ul>
           @foreach($company as $com)
-          <li><a href="{{ url('company/'.$com->id)}}">{{$com->name}}</a></li>          
+          <li><a href="{{ url('company/'.$com->slug)}}">{{$com->name}}</a></li>          
           @endforeach
         </ul>
       </div>

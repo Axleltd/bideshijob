@@ -32,7 +32,7 @@
 								<img src="{{asset('image/'.$training->company->logo)}}" alt="">
 							</div>
 							<span class="card-title">
-								<a href="{{url('/company/'.$training->company->id.'/training/'.$training->id)}}">{{$training->title}}</a>
+								<a href="{{url('/company/'.$training->company->slug.'/training/'.$training->slug)}}">{{$training->title}}</a>
 							</span>
 
 						
