@@ -18,6 +18,18 @@ Homepage
           <input type="text" class="title" name="title" placeholder="Job / Training">
           <input type="text" class="location" name="address" placeholder="country">
           <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
+          @push('script')
+        <script>
+          jQuery(document).ready(function($) {
+            $('.location').autocomplete({
+                data:{
+                  @include('company._countryList')
+              }
+            });
+            
+          });
+        </script>
+        @endpush
         </form>
       </div>
 

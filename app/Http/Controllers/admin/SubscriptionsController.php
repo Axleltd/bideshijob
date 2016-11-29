@@ -8,7 +8,7 @@ use App\Company;
 use Auth;
 use Session;
 use App\Notifications\BusinessNotification;
-class CategoriesController extends Controller
+class SubscriptionsController extends Controller
 {
 	protected $category;
 	public function __construct()

@@ -69,3 +69,15 @@
 		</div>	
 	</div>
 </div>
+@push('script')
+<script>
+	jQuery(document).ready(function($) {
+		$('#country').autocomplete({
+				data:{
+				  @include('company._countryList')
+			}
+		});
+		
+	});
+</script>
+@endpush

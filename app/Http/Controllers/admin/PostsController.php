@@ -8,7 +8,7 @@ use App\Company;
 use Auth;
 use Session;
 use App\Notifications\BusinessNotification;
-class CompanyController extends Controller
+class PostsController extends Controller
 {
 	protected $company;
 	public function __construct()
@@ -18,7 +18,7 @@ class CompanyController extends Controller
 	public function index()
 	{
 		$company = $this->company->orderBy('created_at','DESC')->get();
-		return view('admin.company.index')->with('company',$company);
+		return view('admin.post.index')->with('company',$company);
 	}
    
     public function active($companyId)
