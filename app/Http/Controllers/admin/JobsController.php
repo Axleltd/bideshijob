@@ -17,7 +17,7 @@ class JobsController extends Controller
 		$this->job = new Job;
 	}
 	public function index()
-	{
+	{        
 		$jobs = $this->job->orderBy('created_at','DESC')->get();
 		return view('admin.job.index')->with('jobs',$jobs);
 	}

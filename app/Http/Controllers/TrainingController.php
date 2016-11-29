@@ -43,11 +43,10 @@ class TrainingController extends Controller
 
     public function create($companyId)
     {    
-        $id = Auth::user()->id;
-        $profile = $this->profile->where('user_id',$id)->first(); 
-        $company = $this->company->where(['id'=>$companyId,'user_id'=>Auth::user()->id])->get()->first();    
+        $id = Auth::user()->id;        
+        $company = $this->company->where(['slug'=>$companyId,'user_id'=>Auth::user()->id])->get()->first();    
         if($company)
-    	   return view('training.create')->with(['profile'=>$profile,
+    	   return view('training.create')->with([
                             'company'=>$company]);
         return abort('503');
     }
@@ -75,21 +74,26 @@ class TrainingController extends Controller
 
     public function show($companyId,$trainingId)
     {
-        $training = $this->training->where(['id'=>$trainingId,'company_id'=>$companyId])->get()->first();
-        return view('training.show',compact('training'));
+        $training = $this->training->where(['slug'=>$trainingId])->get()->first();
+        $company = $this->company->where(['slug'=>$companyId,'status'=>1])->first();
+        if($company)
+            return view('training.show',compact('training'));
+        return abort(404);
     }
 
     public function edit($companyId,$trainingId)
-    {
-        $profile = $this->profile->where('user_id',$Auth::user()->id)->first(); 
-        $training = $this->training->where(['id'=>$trainingId,'company_id'=>$companyId,'user_id'=>Auth::user()->id])->get()->first();          
-        return view('training.edit')->with(['training'=>$training,
-                    'profile'=>$profile]);
+    {        
+        $training = $this->training->where(['slug'=>$trainingId,'user_id'=>Auth::user()->id])->get()->first(); 
+        if($training)
+            return view('training.edit')->with(['training'=>$training]);
+        return abort(404);
     }
 
     public function update(PutTrainingRequest $request,$companyId,$trainingId)
-    {          
-        $training = $this->training->where(['id'=>$trainingId,'company_id'=>$companyId])->update([
+    {  
+        
+        $training = $this->training->where(['slug'=>$trainingId,'user_id'=>Auth::user()->id])->first();
+        $training_update = $training->update([
             	'title' => $request->title,
 	            'categories'=>$request->categories,
                 'description'=>$request->training_description,
@@ -98,12 +102,11 @@ class TrainingController extends Controller
                 'from'=>$request->from,
                 'to'=>$request->to,
                 'country' => $request->country,
-            ]);        
-
-        if(!$training)
+            ]);                
+        if(!$training_update)
             return redirect('company/'.$companyId.'/training/'.$trainingId.'/edit/');
 
-        Auth::user()->notify(new NotificationPost($company->name.' updated training '.$training->title,'/company/'.$training->company_id.'/training/'.$training->id));
+        Auth::user()->notify(new NotificationPost($training->company->name.' updated training '.$training->title,'/company/'.$training->company_id.'/training/'.$training->id));
         return redirect('/profile/training');
         
     }

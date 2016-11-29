@@ -34,7 +34,17 @@
 								</div>
 									
 								
-									<span class="card-title"><a href="#">{{$company->name}}</a> <i class="material-icons activator right">more_vert</i></span>
+									<span class="card-title"><a href="{{url('/company/'.$company->slug)}}">{{$company->name}}</a> <i class="material-icons activator right">more_vert</i></span>
+									<div class="row">
+										<p>
+											Status: 
+											@if($company->status)
+												Active
+											@else
+												Inactive
+											@endif
+										</p>
+									</div>
 
 							    <div class="card-reveal">
 							      	<span class="card-title grey-text text-darken-4">More Options<i class="material-icons right">close</i></span>

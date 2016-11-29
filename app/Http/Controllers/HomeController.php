@@ -38,7 +38,7 @@ class HomeController extends Controller
 
         $job = $this->job->with(['company'=> function ($query) {
             $query->where('status',1);
-        }])->orderBy('created_at','DESC')->get();        
+        }])->where('featured',1)->orderBy('created_at','DESC')->get();        
         $company = $this->company->where('status',1)->get();   
         
         return view('frontend.index')->with([
