@@ -90,7 +90,10 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('profile/training','TrainingController@showMyTraining');
 	Route::get('profile/training/{id}','TrainingController@showMyTraining');
 	//job
-	Route::get('profile/job','JobsController@showMyJob');	
+	Route::get('profile/job','JobsController@showMyJob');
+
+	//apply form
+	Route::post('/application','ApplicationController@store');	
 
 	
 
@@ -136,7 +139,7 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	//jobs featured unfeatured
 	Route::get('/job/featured/{id}','admin\JobsController@featured');
 	Route::get('/job/unfeatured/{id}','admin\JobsController@unFeatured');
-	Route::delete('job/delete/{id}','admin\JobsController@destroy');	
+	Route::delete('job/delete/{id}','admin\JobsController@destroy');		
 
 
 	//Post
@@ -172,6 +175,11 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::resource('message',MessageController::class);
 	Route::resource('message/read/{id}','MessageController@markSeen');
 	Route::resource('message/unread/{id}','MessageController@markUnSeen');
+
+	//admin notifications
+	Route::get('/all-notification','admin\NotificationViewController@allNotification');
+	Route::get('/messages','admin\NotificationViewController@messages');
+	Route::get('/user-subscription','admin\NotificationViewController@userSubscription');
 
 	
 });

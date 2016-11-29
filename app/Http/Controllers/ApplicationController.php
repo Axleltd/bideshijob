@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostApplicationRequest;
 use App\Application;
+use Session;
+use Illuminate\Support\Facades\Input;
 
 class ApplicationController extends Controller
 {
@@ -21,17 +23,22 @@ class ApplicationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(PostApplicationRequest $request)
-    {
+    {        
         $file = $this->fileUpload($request);    
-        $application = $this->application->create([
-            'full_name'=> $request->full_name,
-            'email' => $request->email,
-            'contact' => $request->contact,            
-            'file' => $file]); 
-        if($application)
+        if($file)
         {
-            return redirect('/');
-        }   
+            $application = $this->application->create([
+                    'full_name'=> $request->full_name,
+                    'email' => $request->email,
+                    'contact' => $request->contact,            
+                    'file' => $file]); 
+            if($application)
+            {
+                Session::flash('success', 'Message sent');
+                return redirect('/');
+            }   
+        }
+         Session::flash('error', 'Message sending failed');                
         return redirect()->back();
     }
 
