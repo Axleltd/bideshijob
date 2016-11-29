@@ -283,11 +283,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 20%;
   padding-left: 60px;
   margin-top: 0;
-  -webkit-trasnition: all 0.5s linear;
-  -ms-trasnition: all 0.5s linear;
-  -moz-trasnition: all 0.5s linear;
-  -o-trasnition: all 0.5s linear;
-  trasnition: all 0.5s linear;
+  -webkit-trasnition: margin 0.5s linear;
+  -ms-trasnition: margin 0.5s linear;
+  -moz-trasnition: margin 0.5s linear;
+  -o-trasnition: margin 0.5s linear;
+  trasnition: margin 0.5s linear;
 }
 /* line 126, ../sass/admin.scss */
 .Dashboard header .left-nav li {

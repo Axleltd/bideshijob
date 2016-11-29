@@ -261,6 +261,7 @@ section.banner {
 			border-radius: 30px;
 			padding: 10px 20px;
 			margin-top: 40vh;
+			position: relative;
 
 			input {
 				width: 43%;
@@ -281,6 +282,9 @@ section.banner {
 				height: 35px;
 				color: $primary-color;
 				font-size: 22px;
+				position: absolute;
+				right: 15px;
+				top: 10px;
 			}
 		}
 

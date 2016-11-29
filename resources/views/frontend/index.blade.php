@@ -19,17 +19,17 @@ Homepage
           <input type="text" class="location" name="address" placeholder="country">
           <button class="search-btn" type="submit"><i class="fa fa-search"></i></button>
           @push('script')
-        <script>
-          jQuery(document).ready(function($) {
-            $('.location').autocomplete({
-                data:{
-                  @include('company._countryList')
-              }
-            });
-            
-          });
-        </script>
-        @endpush
+            <script>
+              jQuery(document).ready(function($) {
+                $('.location').autocomplete({
+                    data:{
+                      @include('company._countryList')
+                  }
+                });
+                
+              });
+            </script>
+          @endpush
         </form>
       </div>
 
@@ -37,15 +37,15 @@ Homepage
         <h3 class="wow fadeIn">subscribe with us</h3>
         <form action="">
           <input type="text" placeholder="Full Name">
-          <input type="text" data-wow-delay="0.2s" placeholder="email">
-          <input type="text" data-wow-delay="0.4s"  placeholder="Contact number">
+          <input type="text" placeholder="email">
+          <input type="text" placeholder="Contact number">
           <div class="file-field input-field">
-            <div class="btn wow zoomIn" data-wow-delay="0.6s" >
+            <div class="btn wow zoomIn">
               <span>Upload CV</span>
               <input type="file">
             </div>
           </div>
-          <button class="btn wow zoomIn" data-wow-delay="0.2s" >Subscribe</button>
+          <button class="btn wow zoomIn" >Subscribe</button>
         </form>
       </div>
     </div>

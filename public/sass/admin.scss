@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
             margin-left: 20%;
             padding-left: 60px;
             margin-top: 0;
-            @include vendor(trasnition, all 0.5s linear);
+            @include vendor(trasnition, margin 0.5s linear);
             // mt0
 
             li {
