@@ -3,38 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PostApplicationRequest;
+use App\Application;
 
 class ApplicationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    protected $application;
+    
+    public function __construct()
     {
-        //
+        $this->application = new Application;
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PostApplicationRequest $request)
     {
-        //
+        $file = $this->fileUpload($request);    
+        $application = $this->application->create([
+            'full_name'=> $request->full_name,
+            'email' => $request->email,
+            'contact' => $request->contact,            
+            'file' => $file]); 
+        if($application)
+        {
+            return redirect('/');
+        }   
+        return redirect()->back();
     }
 
     /**
@@ -80,5 +78,17 @@ class ApplicationController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function fileUpload(Request $request)
+    {
+        $files=Input::file('cv');        
+        $destinationPath = 'file'; // upload path
+        $fileName = $files->getClientOriginalName();
+        $fileExtension = '.'.$files->getClientOriginalExtension();        
+        $file = md5($fileName.microtime()).$fileExtension;
+        $files->move($destinationPath, $file);    
+
+        return $file;        
     }
 }
