@@ -40,17 +40,34 @@ Homepage
           <input type="text" placeholder="email">
           <input type="text" placeholder="Contact number">
           <div class="file-field input-field">
-            <div class="btn wow zoomIn">
+            <div class="btn">
               <span>Upload CV</span>
               <input type="file">
             </div>
           </div>
-          <button class="btn wow zoomIn" >Subscribe</button>
+          <button class="btn" >Subscribe</button>
         </form>
       </div>
     </div>
   </section>
 
+<div id="apply" class="modal">
+    <div class="modal-content">
+      <h3>Apply for JOB?TRAINING</h3>
+      <form action="">
+          <input type="text" placeholder="Full Name">
+          <input type="text" placeholder="email">
+          <input type="text" placeholder="Contact number">
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>Upload CV</span>
+              <input type="file">
+            </div>
+          </div>
+          <button class="btn" >Subscribe</button>
+        </form>
+    </div>
+  </div>
   <section class="jobs row">
     <div class="wrap">
       <div class="section-title">
@@ -83,7 +100,7 @@ Homepage
                   </div>
                 </div>
                 <div class="btn-wrap">
-                  <button class="btn waves-effect">Apply Now</button><br>
+                  <a class="btn waves-effect" href="#apply">Apply Now</a><br>
                   <a href="{{ url('company/'.$jo->company->slug.'/job/'.$jo->slug)}}">More info</a>
                 </div>
               </div>

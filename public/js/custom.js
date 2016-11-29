@@ -11,7 +11,7 @@ $(window).load(function() {
         maxSpeedX: 0.05,
         maxSpeedY: 0.05
     });
-
+ $('.modal').modal();
 
     // $('.page-head h1 span').textillate(
     //     { in: {
