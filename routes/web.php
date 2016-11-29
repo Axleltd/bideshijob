@@ -90,7 +90,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('profile/training','TrainingController@showMyTraining');
 	Route::get('profile/training/{id}','TrainingController@showMyTraining');
 	//job
-	Route::get('profile/job','JobsController@showMyJob');
+	Route::get('profile/job','JobsController@showMyJob');	
+
 	
 
 	Route::get('locale/{name}',function($name){
