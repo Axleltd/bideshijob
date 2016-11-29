@@ -44,42 +44,43 @@
 			</div>
 		</div>
 
-
-		<div class="section-content">
-			<h5>Edit website</h5>
-			<div class="row">
-				<div class="col s12 m6 l4">
-					<div class="card">
-						<div class="card-title">About US</div>
-						<p>Information of your organization</p>
-						<div class="card-action">
-							<a href="">Edit</a>|
-							<a href="">View</a>
-						</div>
-					</div> 
-				</div>
-				<div class="col s12 m6 l4">
-					<div class="card">
-						<div class="card-title">FAQ</div>
-						<p>Frequently Asked Question</p>
-						<div class="card-action">
-							<a href="">Edit</a>|
-							<a href="">View</a>
-						</div>
-					</div> 
-				</div>
-				<div class="col s12 m6 l4">
-					<div class="card">
-						<div class="card-title">Blog</div>
-						<p>Medical, immigration, insurance posts.</p>
-						<div class="card-action">
-							<a href="">Edit</a>|
-							<a href="">View</a>
-						</div>
-					</div> 
+		@if(Shinobi::isRole('admin'))
+			<div class="section-content">
+				<h5>Edit website</h5>
+				<div class="row">
+					<div class="col s12 m6 l4">
+						<div class="card">
+							<div class="card-title">About US</div>
+							<p>Information of your organization</p>
+							<div class="card-action">
+								<a href="">Edit</a>|
+								<a href="">View</a>
+							</div>
+						</div> 
+					</div>
+					<div class="col s12 m6 l4">
+						<div class="card">
+							<div class="card-title">FAQ</div>
+							<p>Frequently Asked Question</p>
+							<div class="card-action">
+								<a href="/dashboard/faq">Edit</a>|
+								<a href="/dashboard/faq">View</a>
+							</div>
+						</div> 
+					</div>
+					<div class="col s12 m6 l4">
+						<div class="card">
+							<div class="card-title">Blog</div>
+							<p>Medical, immigration, insurance posts.</p>
+							<div class="card-action">
+								<a href="">Edit</a>|
+								<a href="">View</a>
+							</div>
+						</div> 
+					</div>
 				</div>
 			</div>
-		</div>
+		@endif
 
 
 

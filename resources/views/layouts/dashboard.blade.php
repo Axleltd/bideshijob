@@ -52,37 +52,27 @@
                 @endif
               </ul>
             </li>
-        
-            <li class="hover-div">
+            @if(Shinobi::isRole('admin'))                
+            <li class="hover-div">              
               <i class="fa fa-envelope-o"></i>
               <ul class="submenu">
                 <li class="title row">
                   <p class="left">Messages</p>
                   <a href="#" class="right">View all</a>
                 </li>
-
-                @if(count($notifications)>0 && isset($notifications))                
-                  @foreach($notifications as $notification)
+                
+                  @foreach($messages as $message)
                       
                     <li>                        
-                      <a href="{{ url($notification->data['url'])}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                      <a href="#" class="{{($message->seen) ? 'read':'notread'}}">You Have Received Message From {{$message->name}}</a>
                     </li>
 
-                  @endforeach
-                @endif
-                @if(Shinobi::isRole('admin'))
-                  @if(count($allNotifications)>0 && isset($notifications))
-                    @foreach($allNotifications as $notification)
-            
-                      <li>
-                        <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
-                      </li>
-
-                    @endforeach
-                  @endif
-                @endif
+                  @endforeach                
+                  
+                
               </ul>
             </li>
+            @endif
         
         
             <li class="hover-div">
@@ -206,7 +196,7 @@
                   <a href="#"><i class="fa fa-pencil-square-o"></i>Edit site</a>
                   <ul class="submenu">
                     <li><a href="edit-about-us"><i class="fa fa-home"></i> About Us</a></li>
-                    <li><a href="edit-about-us"><i class="fa fa-home"></i> FAQ</a></li>
+                    <li><a href="/dashboard/faq"><i class="fa fa-home"></i> FAQ</a></li>
                     <li><a href="edit-medical"><i class="fa fa-home"></i> Medical</a></li>
                     <li><a href="edit-insurance"><i class="fa fa-home"></i> Insurance</a></li>
                     <li><a href="edit-immigration"><i class="fa fa-home"></i> Immigration</a></li>
