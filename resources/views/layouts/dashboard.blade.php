@@ -158,13 +158,13 @@
             </div>
             <ul class="navs"> 
                   @if(Shinobi::isRole('admin'))                                                       
-                    <li><a href="{{url('/dashboard')}}">Dashboard</a></l
+                    <li><a href="{{url('/dashboard')}}"><i class="fa fa-dashboard"></i>Dashboard</a></l
                       >                        
                   @else
-                    <li><a href="{{url('/profile')}}">Dashboard</a></li>
+                    <li><a href="{{url('/profile')}}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
                   @endif                                                 
               <li class="accordian">
-                <a href="/profile/company"><i class="fa fa-dashboard"></i>All Agencies</a>
+                <a href="/profile/company"><i class="fa fa-plane"></i>All Agencies</a>
                 <ul class="submenu">
                   <li><a href="{{url('/company/create')}}">Add new agency</a></li>
                   <li><a href="{{url('/profile/company')}}">View my agency</a></li>
@@ -177,7 +177,7 @@
                 </ul>
               </li>
               <li class="accordian">
-                <a href="/profile/job"><i class="fa fa-dashboard"></i> All jobs</a>
+                <a href="/profile/job"><i class="fa fa-suitcase"></i> All jobs</a>
                 <ul class="submenu">
                   <li><a href="{{url('/profile/company')}}">Add new job</a></li>
                   <li><a href="{{url('/profile/job')}}">View my jobs</a></li>
@@ -189,7 +189,7 @@
                 </ul>
               </li>
               <li class="accordian">
-                <a href="/profile/training"><i class="fa fa-dashboard"></i> All Trainings</a>
+                <a href="/profile/training"><i class="fa fa-graduation-cap"></i> All Trainings</a>
                 <ul class="submenu">
                   <li><a href="{{url('/profile/company')}}">Add new training</a></li>
                   <li><a href="{{url('/profile/training')}}">View my trainings</a></li>
@@ -201,10 +201,9 @@
                 </ul>
               </li>
               @if(Shinobi::isRole('admin'))
-                <li><a href="/subscriptions"><i class="fa fa-dashboard"></i> Subscriptions</a></li>
-                <li><a href="/watchtower/users"><i class="fa fa-dashboard"></i> All users</a></li>              
+                <li><a href="/watchtower/users"><i class="fa fa-group"></i> All users</a></li>              
                 <li class="accordian sites">
-                  <a href="#">Edit site</a>
+                  <a href="#"><i class="fa fa-pencil-square-o"></i>Edit site</a>
                   <ul class="submenu">
                     <li><a href="edit-about-us"><i class="fa fa-home"></i> About Us</a></li>
                     <li><a href="edit-about-us"><i class="fa fa-home"></i> FAQ</a></li>
