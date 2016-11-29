@@ -4,11 +4,10 @@
 
 
 	<div class="section-title">
-		<h3>All Trainings</h3>
+		<h3>All Jobs</h3>
 		<ul class="bread-crumb">
 			<li><a href="">Dashboard</a></li>/
-			<li><a href="">Blog</a></li>/
-			<li><a href="#">Category</a></li>
+			<li><a href="">All Jobs</a></li>/
 
 		</ul>
 	</div>
@@ -36,7 +35,7 @@
 							
 						</div>
 						<div class="col s12 m4">
-							<a href="{{ url('dashboard/job/delete/'.$job->id)}}" class="btn" style="font-size: 12px;">Delete</a>
+							<a href="{{ url('dashboard/job/delete/'.$job->id)}}" class="btn red accent-2" style="font-size: 12px; float: right;">Delete</a>
 							
 						</div>
 					</div>

@@ -34,7 +34,7 @@
 							
 						</div>
 						<div class="col s12 m4">
-							<a href="{{ url('dashboard/training/delete/'.$training->id)}}" class="btn"  style="font-size: 12px;">Delete</a>
+							<a href="{{ url('dashboard/training/delete/'.$training->id)}}" class="btn red accent-2"  style="font-size: 12px; float: right;">Delete</a>
 							
 						</div>
 					</div>
