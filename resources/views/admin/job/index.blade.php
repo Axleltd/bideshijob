@@ -6,8 +6,8 @@
 	<div class="section-title">
 		<h3>All Jobs</h3>
 		<ul class="bread-crumb">
-			<li><a href="">Dashboard</a></li>/
-			<li><a href="">All Jobs</a></li>/
+			<li><a href="/profile">Dashboard</a></li>/
+			<li><a href="#">All Jobs</a></li>/
 
 		</ul>
 	</div>

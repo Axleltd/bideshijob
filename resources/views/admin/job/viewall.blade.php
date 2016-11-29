@@ -9,9 +9,8 @@
 	<div class="section-title">
 		<h3>All jobs</h3>
 		<ul class="bread-crumb">
-			<li><a href="">Dashboard</a></li>/
-			<li><a href="">Blog</a></li>/
-			<li><a href="#">Category</a></li>
+			<li><a href="/profile">Dashboard</a></li>/
+			<li><a href="#">My Job</a></li>/			
 
 		</ul>
 	</div>
@@ -32,7 +31,7 @@
 								<img src="{{asset('image/'.$job->company->logo)}}" alt="">
 							</div>
 							{{-- <div class="card-content"> --}}
-								<span class="card-title"><a href="{{url('/company/'.$job->company->slug.'job/'.$job->slug)}}">{{$job->title}}</a></span>
+								<span class="card-title"><a href="{{url('/company/'.$job->company->slug.'/job/'.$job->slug)}}">{{$job->title}}</a></span>
 
 								
 							{{-- </div> --}}

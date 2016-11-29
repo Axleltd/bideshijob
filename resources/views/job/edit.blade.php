@@ -4,8 +4,8 @@
 	<div class="section-title">
 		<h3>Edit Job</h3>
 		<ul class="bread-crumb">
-			<li><a href="">Dashboard</a></li>/
-			<li><a href="">Company Name</a></li>/
+			<li><a href="/profile/company">Dashboard</a></li>/
+			<li><a href="/profile/company">{{$job->company->name}}</a></li>/
 			<li><a href="#">Edit Job</a></li>
 
 		</ul>

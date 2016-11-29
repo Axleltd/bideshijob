@@ -6,8 +6,8 @@
 	<div class="section-title">
 		<h3>Add a Job</h3>
 		<ul class="bread-crumb">
-			<li><a href="">Dashboard</a></li>/
-			<li><a href="">Company Name</a></li>/
+			<li><a href="/profile">Dashboard</a></li>/
+			<li><a href="/profile/company">{{$company->name}}</a></li>/
 			<li><a href="#">Create Job</a></li>
 
 		</ul>
