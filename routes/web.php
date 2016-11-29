@@ -67,9 +67,9 @@ Route::group(['middlewareGroups' => ['web']], function () {
 
 	Route::get('/logout','Auth\LoginController@logout');	
 
-	Route::resource('message',MessageController::class);
-	Route::get('message/read/{id}','MessageController@markSeen');
-	Route::get('message/unread/{id}','MessageController@markUnSeen');
+
+	Route::post('message','MessageController@store');
+
 	Route::get('jobs','SiteController@getJobs');
 	Route::get('about','SiteController@getAbout');
 
@@ -104,7 +104,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
 		return redirect()->back();
 	});
 
-	Route::get('subscribe/verify/{uuid}');
+	Route::get('subscribe/verify/{uuid}','SubscriberController@verify');
+	Route::post('/subscriber','SubscriberController@store');
 });
 
 Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::class], 'prefix' => 'dashboard', 'before' => 'auth'], function () {
@@ -150,6 +151,26 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/category/suspend/{id}','admin\CategoriesController@suspend');
 	Route::delete('/category/delete/{id}','admin\CategoriesController@destroy');
 	Route::get('/category/suspend/{id}','admin\PostsController@suspend');
+	
+	//Subscribers
+	Route::get('/subscriber','SubscriberController@index');
+	
+	
+	//Newsletter
+	Route::get('/newsletter','NewsletterController@index');
+	Route::post('/newsletter','NewsletterController@store');
+
+	Route::get('/newsletter/{id}','NewsletterController@show');
+
+	Route::get('/newsletter/publish/{id}','NewsletterController@publish');
+
+	Route::delete('/newsletter/delete/{id}','admin\CategoriesController@destroy');
+	Route::get('/newsletter/suspend/{id}','admin\PostsController@suspend');
+
+	//
+	Route::resource('message',MessageController::class);
+	Route::resource('message/read/{id}','MessageController@markSeen');
+	Route::resource('message/unread/{id}','MessageController@markUnSeen');
 
 	
 });

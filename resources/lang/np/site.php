@@ -16,6 +16,8 @@ return [
 	'register' => 'नयाँ सदस्य',
 	'english' => 'अङ्ग्रेजि',
 	'nepali' => 'नेपाली',
+
+	'blog'  => 'BaLaog',
 	
 	//footer
 	'city_address' =>'',
