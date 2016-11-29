@@ -13,6 +13,9 @@
           <div class="col s12">
             <a href="/" class="breadcrumb">@lang('site.home')</a>
             <a href="/blog/" class="breadcrumb">Blog</a>
+            @if($post->category !== null && $post->category->count() > 0)
+            	<a href="/help-center/{{$post->category->slug}}" class="breadcrumb">{{$post->category->name}}</a>
+            @endif
             <a href="#!" class="breadcrumb">{{$post->title}}</a>
         
          </div>

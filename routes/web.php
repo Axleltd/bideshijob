@@ -106,6 +106,8 @@ Route::group(['middlewareGroups' => ['web']], function () {
 		}
 		return redirect()->back();
 	});
+
+	Route::get('subscribe/verify/{uuid}');
 });
 
 Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::class], 'prefix' => 'dashboard', 'before' => 'auth'], function () {
@@ -114,6 +116,7 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/company','admin\CompanyController@index');
 	Route::get('/training','admin\TrainingController@index');
 	Route::get('/job','admin\JobsController@index');
+	Route::get('/subscriptions','admin\SubscriptionController@index');
 
 
 	//company active deactive

@@ -135,7 +135,7 @@
 	</script>
 @endpush
 <script>	
-  	var loadFile = function(event) {
+	var loadFile = function(event) {
     var reader = new FileReader();
     var fil=0;
 

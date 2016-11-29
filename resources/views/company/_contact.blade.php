@@ -35,7 +35,6 @@
 			{!! Form::label('twitter_link','Company Twitter:') !!}		
 			{!! Form::text('twitter_link',(isset($company->contacts->socialMedia->twitter)? $company->contacts->socialMedia->twitter:null)) !!}
 		</div>	
-
 		<div class="form-group col m6 s12 ">    
 		    {!! Form::label('address',"Address", ['class' => 'control-label']) !!}
 		    {!! Form::text('address',(isset($company->contacts->address)? $company->contacts->address:old('address')),['class' => 'form-control']) !!}
@@ -68,4 +67,17 @@
 	    {!! Form::hidden('latitude',1,['id'=>'latitude']) !!}
 	    {!! Form::hidden('longitude',1,['id'=>'longitude']) !!}
 	
+	</div>
+</div>
+@push('script')
+<script>
+	jQuery(document).ready(function($) {
+		$('#country').autocomplete({
+				data:{
+				  @include('company._countryList')
+			}
+		});
 		
+	});
+</script>
+@endpush
