@@ -115,11 +115,15 @@ class JobsController extends Controller
      */
     public function show($companyId,$id)
     {
-        //
-        $job = $this->job->with('company','contact')->where('slug',$id)->first();
-         return view('job.show')->with([
-            'job' => $job
-        ]);
+        $job = $this->job->where('slug',$id)               
+        ->whereHas('company', function ($query) use ($companyId) {
+            $query->where(['status'=>1,'slug'=>$companyId]);
+        })        
+        ->first();
+        if($job)
+            return view('job.show')->with([
+                'job' => $job]);
+        return abort(404);
     }
 
     /**
