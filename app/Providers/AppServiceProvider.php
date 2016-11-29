@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use App\Company;
 use App\Category;
 use App\Profile;
+use App\Message;
 use Auth;
 use Shinobi;
 class AppServiceProvider extends ServiceProvider
@@ -36,6 +37,12 @@ class AppServiceProvider extends ServiceProvider
                 return $view->with('notifications', Auth::user()->notifications);
             }
             return $view->with('notifications', Auth::user()->notifications);
+        });
+
+        view()->composer('layouts.dashboard',function(View $view){
+            if(Shinobi::isRole('admin')){
+                return $view->with('messages',Message::all());
+            }
         });
     }
 

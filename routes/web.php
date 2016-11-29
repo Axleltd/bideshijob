@@ -65,10 +65,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
         return redirect('/');
 	});			
 
-	Route::get('/logout','Auth\LoginController@logout');
-	
-
-	Route::resource('faq',FAQController::class);
+	Route::get('/logout','Auth\LoginController@logout');	
 
 	Route::resource('message',MessageController::class);
 	Route::get('message/read/{id}','MessageController@markSeen');
@@ -116,9 +113,13 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/company','admin\CompanyController@index');
 	Route::get('/training','admin\TrainingController@index');
 	Route::get('/job','admin\JobsController@index');
-	Route::get('/subscriptions','admin\SubscriptionController@index');
+	Route::get('/subscriptions','admin\SubscriptionsController@index');
 
-
+	//faq 
+	Route::resource('/faq',admin\FAQController::class);
+	//active suspend faq
+	Route::get('/faq/active/{id}','admin\FAQController@active');
+	Route::get('/faq/suspend/{id}','admin\FAQController@suspend');	
 	//company active deactive
 	Route::get('/company/active/{id}','admin\CompanyController@active');
 	Route::get('/company/suspend/{id}','admin\CompanyController@suspend');

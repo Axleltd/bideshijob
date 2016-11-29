@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Company;
+use App\Category;
 use Auth;
 use Session;
 use App\Notifications\BusinessNotification;
