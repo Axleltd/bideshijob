@@ -10,4 +10,11 @@ $(window).load(function() {
         dd.toggleClass('show');
     });
 
+    $('.nav-toggle').on('click', function(event) {
+    	event.preventDefault();
+    	$('.sidenav').toggleClass('show');
+    	$('.page-wrap').toggleClass('show');
+    	$('header').toggleClass('show');
+    });
+
 });

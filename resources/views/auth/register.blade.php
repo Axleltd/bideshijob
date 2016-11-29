@@ -71,8 +71,8 @@
                 </form>
             </div>            
             <div class="card-action">
-                <a class="" href="{{ url('/password/reset') }}">
-                    Forgot Your Password?
+                <a class="btn" href="{{ url('/login') }}">
+                    Login
                 </a>
             </div>  
         </div>

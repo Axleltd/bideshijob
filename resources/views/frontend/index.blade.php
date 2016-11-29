@@ -35,17 +35,17 @@ Homepage
 
       <div class="subscribe-box">
         <h3 class="wow fadeIn">subscribe with us</h3>
-        <form action="" class="wow fadeIn">
+        <form action="">
           <input type="text" placeholder="Full Name">
-          <input type="text" placeholder="email">
-          <input type="text" placeholder="Contact number">
+          <input type="text" data-wow-delay="0.2s" placeholder="email">
+          <input type="text" data-wow-delay="0.4s"  placeholder="Contact number">
           <div class="file-field input-field">
-            <div class="btn">
+            <div class="btn wow zoomIn" data-wow-delay="0.6s" >
               <span>Upload CV</span>
               <input type="file">
             </div>
           </div>
-          <button class="btn">Subscribe</button>
+          <button class="btn wow zoomIn" data-wow-delay="0.2s" >Subscribe</button>
         </form>
       </div>
     </div>
@@ -84,7 +84,7 @@ Homepage
                 </div>
                 <div class="btn-wrap">
                   <button class="btn waves-effect">Apply Now</button><br>
-                  <a href="{{ url('company/'.$jo->company_id.'/job/'.$jo->id)}}">More info</a>
+                  <a href="{{ url('company/'.$jo->company->slug.'/job/'.$jo->slug)}}">More info</a>
                 </div>
               </div>
             </li>
@@ -115,7 +115,7 @@ Homepage
                   <p><i class="fa fa-globe"></i>{{$tr->company->contacts->address}}</p>
                   <p><i class="fa fa-time"></i>Duration</p>
                   <p>{{$tr->description}}</p>
-                  <a href="{{ url('company/'.$tr->company_id.'/training/'.$tr->id)}}" class="right">More info</a>
+                  <a href="{{ url('company/'.$tr->company->slug.'/training/'.$tr->slug)}}" class="right">More info</a>
                 </div>
               </div>
             </li>
@@ -162,7 +162,7 @@ Homepage
         <ul>
           @foreach($job as $jo)
             @if($jo->company)
-              <li><a href="{{ url('company/'.$jo->company_id.'/job/'.$jo->id)}}">{{$jo->title}}</a></li>          
+              <li><a href="{{ url('company/'.$jo->company->slug.'/job/'.$jo->slug)}}">{{$jo->title}}</a></li>          
             @endif
           @endforeach
         </ul>
@@ -176,7 +176,7 @@ Homepage
         <ul>
           @foreach($training as $tr)
             @if($tr->company)
-            <li><a href="{{ url('company/'.$tr->company_id.'/training/'.$tr->id)}}">{{$tr->title}}</a></li>            
+            <li><a href="{{ url('company/'.$tr->company->slug.'/training/'.$tr->slug)}}">{{$tr->title}}</a></li>            
             @endif
           @endforeach
         </ul>
@@ -189,7 +189,7 @@ Homepage
         </div>
         <ul>
           @foreach($company as $com)
-          <li><a href="{{ url('company/'.$com->id)}}">{{$com->name}}</a></li>          
+          <li><a href="{{ url('company/'.$com->slug)}}">{{$com->name}}</a></li>          
           @endforeach
         </ul>
       </div>

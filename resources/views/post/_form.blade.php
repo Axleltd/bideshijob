@@ -103,8 +103,7 @@
 		 <!-- Switch -->
 		 <div class="input-field col s12 m6 ">
 		 	
-
-		      {!! Form::checkbox('published',old('published'),['id'=>'published']) !!}
+		      <input type="checkbox" name="published" id="published" @if(isset($post) && $post->published == 1)checked="checked" selected @endif>
 		 		<label for="published">Published</label>
 		    
 		 </div>

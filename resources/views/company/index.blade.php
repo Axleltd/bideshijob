@@ -45,7 +45,7 @@
                                             @endif
                                         </p>
                                        {{--  <p class="mb">{{ $com->description }}</p>                                       --}}      
-                                         <a href="{{ url('company/'.$com->id)}}" class="right">More Info</a>
+                                         <a href="{{ url('company/'.$com->slug)}}" class="right">More Info</a>
                                     </div>
                                 </div>
                             </li>

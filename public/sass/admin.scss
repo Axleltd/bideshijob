@@ -120,6 +120,7 @@ h1, h2, h3, h4, h5, h6 {
             margin-left: 20%;
             padding-left: 60px;
             margin-top: 0;
+            @include vendor(trasnition, all 0.5s linear);
             // mt0
 
             li {
@@ -136,6 +137,7 @@ h1, h2, h3, h4, h5, h6 {
                     position: absolute;
                     margin: 0;
                     display: none;
+                    z-index: 999999;
                     padding: 10px 0;
                     background: $main-color;
                     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
@@ -186,6 +188,25 @@ h1, h2, h3, h4, h5, h6 {
                 }
             }
         }
+
+        .hover-div {
+            i {
+                color: $title-c;
+                cursor: pointer;
+
+                &:hover {
+                    color: $primary-color;
+
+                }
+            }
+        }
+    }
+
+    header.show {
+        .left-nav {
+            margin-left: 0;
+            @include vendor(transition, all 0.5s linear);
+        }
     }
 
     .sidenav {
@@ -198,6 +219,9 @@ h1, h2, h3, h4, h5, h6 {
         background: $main-color;
         border-right: 1px solid #eee;
         box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.3);
+        transform: translateX(0);
+        @include vendor (transition, transform 0.5s linear);
+
 
         .logo-div {
             padding: 20px;
@@ -274,11 +298,17 @@ h1, h2, h3, h4, h5, h6 {
         }
     }
 
+    .sidenav.show {
+        transform: translateX(-100%);
+        @include vendor(transition, transform 0.5s linear);
+    }
+
     .page-wrap {
         width: 80%;
         float: right;
         padding: 0 3%;
         overflow: hidden;
+        @include vendor(transition, width 0.5s linear);
 
         .btn {
             background-color: $primary-color;
@@ -287,6 +317,7 @@ h1, h2, h3, h4, h5, h6 {
                 background-color: $alternate-color;
             }
         }
+        
         a.btn {
             background-color: $primary-color;
 
@@ -345,8 +376,18 @@ h1, h2, h3, h4, h5, h6 {
 
             .card {
                 border: 1px solid #ccc;
+                margin-bottom: 30px;
                 .card-title {
                     padding: 15px;
+                    margin-bottom: 15px;
+                    display: block;
+                    a {
+                        color: $title-c;
+
+                        &:hover {
+                            color: $primary-color;
+                        }
+                    }
                 }
                 p {
                     margin: 0;
@@ -368,20 +409,31 @@ h1, h2, h3, h4, h5, h6 {
                 .card-reveal {
                     padding: 0;
                     overflow: hidden;
+
+                    .btn {
+                        margin: 5px 20px;
+                    }
+                }
+
+                .material-icons {
+                    margin-top: 10px;
+                    cursor: pointer;
                 }
             }
             //cards end
 
             form {
                 input {
-                   border: 1px solid #ccc;
+                   border: 1px solid #aaa;
                    font-size: 18px;
                    text-indent: 10px;
                    height: 35px; 
+                   border-radius: 5px;
                 }
                 textarea {
                     font-size: 18px;
                     height: 135px;
+                    border-radius: 5px;
                 }
                 button {
                     float: right;
@@ -444,11 +496,18 @@ h1, h2, h3, h4, h5, h6 {
                     }
 
                 }
+
+                img {
+                    max-width: 250px;
+                }
             }
         }
 
-        img {
-            max-width: 250px;
-        }
+       
+    }
+
+    .page-wrap.show {
+        width: 100%;
+        @include vendor(transition, width 0.5s linear);
     }
 }

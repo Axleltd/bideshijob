@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Company extends Model
 {
+    use HasSlug;
 	protected $morphClass = 'Company';
     protected $table = 'companies';
     protected $fillable = [
@@ -46,5 +49,12 @@ class Company extends Model
     public function contacts()
     {
         return $this->morphOne('\App\Contact', 'contactable');
+    }
+
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('slug');
     }
 }

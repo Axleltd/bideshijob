@@ -10,8 +10,8 @@
              
            <div class="wrap row">
                 <div class="section-title row">                    
-                    <h3 class="left">{{ $job->title }}</h3>
-                    <p class="social right">
+                    <h3 class="col s6">{{ $job->title }}</h3>
+                    <p class="social col s6" style="text-align: center;">
                       <a href="#"><i class="ti-facebook"></i></a> <a href="#"><i class="ti-twitter"></i></a> <a href="#"><i class="ti-googleplus"></i></a>
                     </p>
                 </div>            
@@ -36,7 +36,7 @@
                                     <div class="text-wrap">                                    
                                         <h5><a href="#">{{$job->company->name}}</a></h5>
                                         <p>Address: {{$job->company->contacts->address}}</p>
-                                        <a href="{{url('/company/'.$job->company_id)}}" class="right">View more</a>
+                                        <a href="{{url('/company/'.$job->company->slug)}}" class="right">View more</a>
                                     </div>  
                                 </div>
                             @endif

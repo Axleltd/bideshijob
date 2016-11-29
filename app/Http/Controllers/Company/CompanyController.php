@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Company;
 use App\Contact;
 use App\User;
+use App\Profile;
 use App\SocialMedia;
 use App\Notifications\NotificationPost;
 use Auth;
@@ -18,13 +19,15 @@ class CompanyController extends Controller
 {    
     protected $company;
     protected $socialMedia;
-    protected $contact;
+    protected $contact;    
+    protected $profile;    
     public function __construct()
     {
         $this->middleware('auth', ['except' => ['index', 'show']]);
         $this->company = new Company;
         $this->socialMedia = new SocialMedia;
         $this->contact = new Contact;
+        $this->profile = new Profile;
     }
     public function index()
      {  
@@ -35,13 +38,17 @@ class CompanyController extends Controller
 
     public function showMyCompany()
     {
-        $companies = $this->company->where('user_id',Auth::user()->id)->get();
-        return view('admin.company.viewall',compact('companies'));
+        $id = Auth::user()->id;
+        $companies = $this->company->where('user_id',$id)->get();
+        $profile = $this->profile->where('user_id',$id)->first();
+        return view('admin.company.viewall')->with(['companies'=>$companies,
+                            'profile' => $profile]);
     }
 
     public function create()
-    {        
-    	return view('company.create');
+    {   
+        $profile = $this->profile->where('user_id',Auth::user()->id)->first();     
+    	return view('company.create',compact('profile'));
     }
     public function store(PostCompanyRequest $request)
     {   
@@ -83,7 +90,7 @@ class CompanyController extends Controller
 
     public function show($id)
     {
-        $company = $this->company->where(['id'=>$id,'status'=>1])->get()->first();        
+        $company = $this->company->where(['slug'=>$id,'status'=>1])->get()->first();        
         if($company)
             return view('company.show',compact('company'));
         else
@@ -92,9 +99,15 @@ class CompanyController extends Controller
 
     public function edit($id)
     {
-        $company = $this->company->where(['id'=>$id,'user_id'=>Auth::user()->id])->get()->first();  
+
+        $profile = $this->profile->where('user_id',Auth::user()->id)->first();
+        $company = $this->company->where(['slug'=>$id,'user_id'=>Auth::user()->id])->get()->first();  
+        
+
         if($company)
-            return view('company.edit',compact('company'));
+            return view('company.edit')->with([
+                        'company'=>$company,
+                        'profile'=>$profile]);
         else
             return abort('503');
     }

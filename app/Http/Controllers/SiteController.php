@@ -12,10 +12,10 @@ class SiteController extends Controller
 		$this->job = new Job;
 	}
     public function getJobs()
-    {
+    {        
     	$jobs = $this->job->with(['company'=> function ($query) {
             $query->where('status',1);
-        }])->get();        
+        }])->paginate(10);        
     	return view('job.index',compact('jobs'));
     }
     public function getAbout()

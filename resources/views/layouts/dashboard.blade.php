@@ -18,38 +18,101 @@
     
 </head>
 <body>
-    <div id="app" class="Dashboard row">
-        
+    <div id="app" class="Dashboard row">          
         <header class="header">
 
           <ul class="left-nav">
             <li class="hover-div">
-                <i class="fa fa-facebook"></i>
+              <i class="fa fa-bell-o"></i>
               <ul class="submenu">
                 <li class="title row">
                   <p class="left">Notification</p>
                   <a href="#" class="right">View all</a>
                 </li>
-                @if(count($notifications)>0 && isset($notifications))
+
+                @if(count($notifications)>0 && isset($notifications))                
                   @foreach($notifications as $notification)
-          
-                    <li>
-                      <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                      
+                    <li>                        
+                      <a href="{{ url($notification->data['url'])}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
                     </li>
 
                   @endforeach
                 @endif
-              @if(Shinobi::isRole('admin'))
-                @if(count($allNotifications)>0 && isset($notifications))
-                  @foreach($allNotifications as $notification)
-          
-                    <li>
-                      <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                @if(Shinobi::isRole('admin'))
+                  @if(count($allNotifications)>0 && isset($notifications))
+                    @foreach($allNotifications as $notification)
+            
+                      <li>
+                        <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                      </li>
+
+                    @endforeach
+                  @endif
+                @endif
+              </ul>
+            </li>
+        
+            <li class="hover-div">
+              <i class="fa fa-envelope-o"></i>
+              <ul class="submenu">
+                <li class="title row">
+                  <p class="left">Messages</p>
+                  <a href="#" class="right">View all</a>
+                </li>
+
+                @if(count($notifications)>0 && isset($notifications))                
+                  @foreach($notifications as $notification)
+                      
+                    <li>                        
+                      <a href="{{ url($notification->data['url'])}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
                     </li>
 
                   @endforeach
                 @endif
-              @endif
+                @if(Shinobi::isRole('admin'))
+                  @if(count($allNotifications)>0 && isset($notifications))
+                    @foreach($allNotifications as $notification)
+            
+                      <li>
+                        <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                      </li>
+
+                    @endforeach
+                  @endif
+                @endif
+              </ul>
+            </li>
+        
+        
+            <li class="hover-div">
+              <i class="fa fa-folder-open-o"></i>
+              <ul class="submenu">
+                <li class="title row">
+                  <p class="left">Applications</p>
+                  <a href="#" class="right">View all</a>
+                </li>
+
+                @if(count($notifications)>0 && isset($notifications))                
+                  @foreach($notifications as $notification)
+                      
+                    <li>                        
+                      <a href="{{ url($notification->data['url'])}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                    </li>
+
+                  @endforeach
+                @endif
+                @if(Shinobi::isRole('admin'))
+                  @if(count($allNotifications)>0 && isset($notifications))
+                    @foreach($allNotifications as $notification)
+            
+                      <li>
+                        <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                      </li>
+
+                    @endforeach
+                  @endif
+                @endif
               </ul>
             </li>
         
@@ -62,7 +125,7 @@
                 <li class="img"><img src="#" alt=""></li>
                 <li><a href="/profile/user" class="name">{{Auth::user()->name}}</a></li>
                 @if(isset($profile))
-                  <li><a href="{{url('/profile/user'.$profile->id.'/edit')}}"><i class="fa fa-settings"></i>Settings</a></li>
+                  <li><a href="{{url('/profile/user/'.$profile->id.'/edit')}}"><i class="fa fa-settings"></i>Settings</a></li>
                   @else
                     <li><a href="{{url('/profile/user/create')}}"><i class="fa fa-settings"></i>Settings</a></li>
                 @endif
@@ -93,13 +156,17 @@
                 <i class="ti-menu"></i>
               </div>
             </div>
-            <ul class="navs">                                                        
+            <ul class="navs"> 
+                  @if(Shinobi::isRole('admin'))                                                       
                     <li><a href="{{url('/dashboard')}}">Dashboard</a></l
-                      >                                                                         
+                      >                        
+                  @else
+                    <li><a href="{{url('/profile')}}">Dashboard</a></li>
+                  @endif                                                 
               <li class="accordian">
                 <a href="/profile/company"><i class="fa fa-dashboard"></i>All Agencies</a>
                 <ul class="submenu">
-                  <li><a href="{{url('/company/create')}}">Add new Agency</a></li>
+                  <li><a href="{{url('/company/create')}}">Add new agency</a></li>
                   <li><a href="{{url('/profile/company')}}">View my agency</a></li>
                   @if(Shinobi::isRole('admin'))
                                         
@@ -112,7 +179,7 @@
               <li class="accordian">
                 <a href="/profile/job"><i class="fa fa-dashboard"></i> All jobs</a>
                 <ul class="submenu">
-                  <li><a href="#">Add NEW Jobs</a></li>
+                  <li><a href="{{url('/profile/company')}}">Add new job</a></li>
                   <li><a href="{{url('/profile/job')}}">View my jobs</a></li>
                   @if(Shinobi::isRole('admin'))
                                         
@@ -124,7 +191,7 @@
               <li class="accordian">
                 <a href="/profile/training"><i class="fa fa-dashboard"></i> All Trainings</a>
                 <ul class="submenu">
-                  <li><a href="#">Add NEW Agency</a></li>
+                  <li><a href="{{url('/profile/company')}}">Add new training</a></li>
                   <li><a href="{{url('/profile/training')}}">View my trainings</a></li>
                   @if(Shinobi::isRole('admin'))
                                         
