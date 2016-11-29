@@ -8,6 +8,7 @@ use App\Company;
 use App\Category;
 use App\Profile;
 use App\Message;
+use App\Application;
 use Auth;
 use Shinobi;
 class AppServiceProvider extends ServiceProvider
@@ -34,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
             $view->with('profile',Profile::where('user_id',Auth::user()->id)->first());
             if(Shinobi::isRole('admin')){     
                 $view->with('allNotifications', \Illuminate\Notifications\DatabaseNotification::all());
+                $view->with('user_subscription',Application::all());
                 return $view->with('notifications', Auth::user()->notifications);
             }
             return $view->with('notifications', Auth::user()->notifications);

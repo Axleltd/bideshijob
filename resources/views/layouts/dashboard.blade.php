@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{asset('stylesheets/admin.css')}}">
     
 </head>
-<body>
+<body>  
     <div id="app" class="Dashboard row">          
         <header class="header">
 
@@ -58,7 +58,7 @@
               <ul class="submenu">
                 <li class="title row">
                   <p class="left">Messages</p>
-                  <a href="#" class="right">View all</a>
+                  <a href="/dashboard/messages" class="right">View all</a>
                 </li>
                 
                   @foreach($messages as $message)
@@ -80,29 +80,18 @@
               <ul class="submenu">
                 <li class="title row">
                   <p class="left">Applications</p>
-                  <a href="#" class="right">View all</a>
+                  <a href="/dashboard/user-subscription" class="right">View all</a>
                 </li>
 
-                @if(count($notifications)>0 && isset($notifications))                
-                  @foreach($notifications as $notification)
+                @if(count($user_subscription)>0 && isset($user_subscription))                
+                  @foreach($user_subscription as $notification)
                       
                     <li>                        
-                      <a href="{{ url($notification->data['url'])}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                      <a href="{{ url('/dashboard/user-subscription')}}" class="">Apply From {{$notification->full_name}}</a>
                     </li>
 
                   @endforeach
-                @endif
-                @if(Shinobi::isRole('admin'))
-                  @if(count($allNotifications)>0 && isset($notifications))
-                    @foreach($allNotifications as $notification)
-            
-                      <li>
-                        <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
-                      </li>
-
-                    @endforeach
-                  @endif
-                @endif
+                @endif                
               </ul>
             </li>
         
