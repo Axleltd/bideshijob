@@ -134,4 +134,21 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/job/featured/{id}','admin\JobsController@featured');
 	Route::get('/job/unfeatured/{id}','admin\JobsController@unFeatured');
 	Route::delete('job/delete/{id}','admin\JobsController@destroy');	
+
+
+	//Post
+	Route::get('/posts','admin\PostsController@index');
+	Route::get('/posts/active/{id}','admin\PostsController@active');
+	Route::get('/posts/suspend/{id}','admin\PostsController@suspend');
+	Route::delete('/posts/delete/{id}','admin\PostsController@destroy');
+	Route::get('/posts/suspend/{id}','admin\PostsController@suspend');
+
+	//Category
+	Route::get('/category','admin\CategoriesController@index');
+	Route::get('/category/active/{id}','admin\CategoriesController@active');
+	Route::get('/category/suspend/{id}','admin\CategoriesController@suspend');
+	Route::delete('/category/delete/{id}','admin\CategoriesController@destroy');
+	Route::get('/category/suspend/{id}','admin\PostsController@suspend');
+
+	
 });

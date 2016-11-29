@@ -4,66 +4,63 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Company;
+use App\Post;
 use Auth;
 use Session;
 use App\Notifications\BusinessNotification;
 class PostsController extends Controller
 {
-	protected $company;
+	protected $post;
 	public function __construct()
 	{
-		$this->company = new Company;
+		$this->post = new Post;
 	}
 	public function index()
 	{
-		$company = $this->company->orderBy('created_at','DESC')->get();
-		return view('admin.post.index')->with('company',$company);
+		$posts = $this->post->orderBy('created_at','DESC')->get();
+		return view('admin.post.index')->with('posts',$posts);
 	}
    
-    public function active($companyId)
+    public function active($id)
     {
-    	$company = $this->company->where('id',$companyId)->first();
-    	$active = $this->company->where('id',$companyId)->update(['status'=>1]);
+    	$company = $this->post->where('id',$id)->first();
+    	$active = $this->post->where('id',$id)->update(['status'=>1]);
     	 
     	if(!$active)
     	{
-    		Session::flash('error', 'Company is unsuccessfully activated');
+    		Session::flash('error', 'Post is unsuccessfully activated');
     		return redirect()->back();
     	}
-    	Session::flash('success', 'Company is successfully activated');
-    	Auth::user()->notify(new BusinessNotification('Congratulation Your Company '.$company->name.' is approved'));
-    	return redirect('/dashboard/company');
+    	Session::flash('success', 'Post is successfully activated');
+    /*	Auth::user()->notify(new BusinessNotification('Congratulation Your Company '.$company->name.' is approved'));*/
+    	return redirect('/dashboard/posts');
 
     }
 
-    public function suspend($companyId)
+    public function suspend($id)
     {
-		$company = $this->company->where('id',$companyId)->first();
-    	$active = $this->company->where('id',$companyId)->update(['status'=>0]);
+		$company = $this->post->where('id',$id)->first();
+    	$active = $this->post->where('id',$id)->update(['status'=>0]);
     	if(!$active)
     	{
-    		Session::flash('error', 'Company is unsuccessfully suspended');
+    		Session::flash('error', 'Post is unsuccessfully suspended');
     		return redirect()->back();
     		
     	}
-    	Session::flash('success', 'Company is successfully suspended');
-    	Auth::user()->notify(new BusinessNotification('Sorry Your Company '.$company->name.' is Suspended'));
-    	return redirect('/dashboard/company');    		
+    	Session::flash('success', 'Post is successfully suspended');
+    	/*Auth::user()->notify(new BusinessNotification('Sorry Your Company '.$company->name.' is Suspended'));*/
+    	return redirect('/dashboard/posts');    		
     }
 
     public function destroy($companyId)
     {
-    	$company = $this->company->where('id',$companyId)->first();
-    	$destroy = $this->company->destroy('id',$companyId);
+    	$destroy = $this->posts->where('id',$companyId)->first();
     	if(!$destroy)
     	{
     		Session::flash('error', 'Company is unsuccessfully deleted');
     		return redirect()->back();
-    		
     	}
     	Session::flash('success', 'Company is successfully deleted');
-    	Auth::user()->notify(new BusinessNotification('Your Company '.$company->name.' is deleted'));
-    	return redirect('dashboard/company');
+    	return redirect('dashboard/posts');
     }
 }
