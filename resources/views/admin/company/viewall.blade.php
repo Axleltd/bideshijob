@@ -8,10 +8,9 @@
 		
 	<div class="section-title">
 		<h3>All Company</h3>
-		<ul class="bread-crumb">
-			<li><a href="">Dashboard</a></li>/
-			<li><a href="">Blog</a></li>/
-			<li><a href="#">Category</a></li>
+		<ul class="bread-crumb">			
+			<li><a href="/profile">Dashboard</a></li>/
+			<li><a href="#">My Company</a></li>/			
 
 		</ul>
 	</div>

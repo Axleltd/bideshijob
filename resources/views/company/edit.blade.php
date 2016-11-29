@@ -5,8 +5,8 @@
 	<div class="section-title">
 		<h3>Edit Agency</h3>
 		<ul class="bread-crumb">
-			<li><a href="">Dashboard</a></li>/
-			<li><a href="">Company Name</a></li>/
+			<li><a href="/profile">Dashboard</a></li>/
+			<li><a href="{{url('/profile/company')}}">{{$company->name}}</a></li>/
 			<li><a href="#">Edit Agency</a></li>
 
 		</ul>

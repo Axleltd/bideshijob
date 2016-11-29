@@ -7,8 +7,8 @@
 			<h3 class="left">Profile</h3>
 		</div>
 		<ul class="bread-crumb">
-			<li><a href="">Dashboard</a></li>/
-			<li><a href="">Profile</a></li>/
+			<li><a href="/profile">Dashboard</a></li>/
+			<li><a href="#">All Company</a></li>/
 		</ul>
 	</div>
 

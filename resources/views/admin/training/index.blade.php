@@ -5,8 +5,8 @@
 			<h3 class="left">Training</h3>			
 		</div>
 		<ul class="bread-crumb">
-			<li><a href="">Dashboard</a></li>/
-			<li><a href="">Training</a></li>/
+			<li><a href="/profile">Dashboard</a></li>/
+			<li><a href="#">All Training</a></li>/
 		</ul>
 	</div>
 
