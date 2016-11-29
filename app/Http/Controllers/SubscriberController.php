@@ -19,8 +19,14 @@ class SubscriberController extends Controller
 
     public function store(Request $request)
     {
-		dd($request->toArray());
-    	$subscriber = $this->subscriber->create([]);
+		if($request->cv)
+			$file = $this->fileUpload($request);
+    	$subscriber = $this->subscriber->create([
+    		'name' => $request->name,
+    		'email' => $request->email,
+    		'contact' => $request->email,
+    		'file' => $file,
+    		]);
     	return view('admin.subscriber.index')->with('subscribers',$subscriber);
     }
 
@@ -33,5 +39,17 @@ class SubscriberController extends Controller
 			session('success','Your subscription has been successfully verified')
 		}
 		return view('subscription.verified');
+    }
+
+
+	protected function fileUpload(Request $request)
+    {
+        $files=Input::file('cv');        
+        $destinationPath = 'subscriber'; // upload path
+        $fileName = $files->getClientOriginalName();
+        $fileExtension = '.'.$files->getClientOriginalExtension();
+        $files->move($destinationPath, $logoName);    
+        return md5($fileName.microtime()).$fileExtension;
+        // return $files->store('image');
     }
 }
