@@ -38,8 +38,8 @@ class AboutUsController extends Controller
     public function store(PostAboutUsRequest $request)
     {
     	$image = $this->fileUpload($request,null);  
-    	$about - $this->about->create(['content'=>$request->content,'image'=>$image])      
-    	if($about)
+      
+    	if($this->about->create(['content'=>$request->content,'image'=>$image]))
     	{
     		Session::flash('success','About us content created');
     		return redirect()->to('/dashboard/about');
