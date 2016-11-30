@@ -19,7 +19,7 @@
 		<div class="row">
 			 {!! Form::open([
 		                'action' => '\App\Http\Controllers\admin\AboutUsController@store',
-		                 'method'=>'post']) !!}
+		                 'method'=>'post','files' => true]) !!}
 				@include('admin.about._form')
 				
 				<button type="submit" class="waves-effect waves-light btn">Continue</button>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostAboutUsRequest;
 use App\Http\Requests\PutAboutUsRequest;
+use Illuminate\Support\Facades\Input;
 use App\About;
 use Session;
 class AboutUsController extends Controller
@@ -37,9 +38,10 @@ class AboutUsController extends Controller
 
     public function store(PostAboutUsRequest $request)
     {
+    	$textToStore = nl2br(htmlentities($request->content, ENT_QUOTES, 'UTF-8'));    	
     	$image = $this->fileUpload($request,null);  
       
-    	if($this->about->create(['content'=>$request->content,'image'=>$image]))
+    	if($this->about->create(['content'=>$textToStore,'image'=>$image]))
     	{
     		Session::flash('success','About us content created');
     		return redirect()->to('/dashboard/about');
@@ -57,12 +59,13 @@ class AboutUsController extends Controller
 
     public function update(PutAboutUsRequest $request)
     {
+    	$textToStore = nl2br(htmlentities($request->content, ENT_QUOTES, 'UTF-8'));    	
 
     	$about = $this->about->first();
-    	$logoName = $about->logo;
-    	if($request->logo)
+    	$logoName = $about->image;
+    	if($request->image)
             $logoName = $this->fileUpload($request,$logoName);  
-         $about = $about->update(['content'=>$request->content,'image'=>$logoName]);          
+         $about = $about->update(['content'=>$textToStore,'image'=>$logoName]);          
     	if($about)
     	{
     		Session::flash('success','About us content updated');

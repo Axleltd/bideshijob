@@ -19,7 +19,7 @@ class SiteController extends Controller
     	return view('job.index',compact('jobs'));
     }
     public function getAbout()
-    {
-    	return view('site.about');
+    {        
+    	return view('site.about')->with('about',\App\About::first());
     }
 }
