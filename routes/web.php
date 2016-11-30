@@ -185,6 +185,5 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::resource('message/unread/{id}','MessageController@markUnSeen');	
 
 
-
 	
 });
