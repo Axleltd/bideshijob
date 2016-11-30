@@ -18,7 +18,7 @@
 	<div class="section-content">
 
 		<div class="row">
-
+			@include('admin._flash')
 			@if(!count($companies)>0)
 					<h5>You have not created a company yet!</h5>
 					<a class="btn" href="{{url('/company/create')}}">Create A Company</a>

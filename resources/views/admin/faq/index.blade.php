@@ -15,6 +15,7 @@ FAQ
 			<li><a href="#">All FAQ</a></li>/
 		</ul>
 	</div>	
+	@include('admin._flash')
 	@foreach($faq as $faq)
 			<div class="col s12 m12">	
 				<p>Question:{{$faq->question}}</p>

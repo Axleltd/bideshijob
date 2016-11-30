@@ -5,6 +5,7 @@
 @stop
 
 @section('content')
+  @include('admin._flash')
 	<div class="col s12 m12">
 		 @if($job->contact !==null && $job->contact->count() > 0)
        <p> {{ $job->contact->address }} </p>

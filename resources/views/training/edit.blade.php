@@ -14,7 +14,7 @@
 
 	<div class="section-content">
 		<h5>Training Details</h5>
-
+		@include('admin._flash')
 		<div class="row">
 			 {!! Form::model($training, ['action'=>['\App\Http\Controllers\TrainingController@update',$training->company->slug,$training->slug],'method'=>'PUT']) !!}
 				@include('training._form')		

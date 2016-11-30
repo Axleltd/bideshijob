@@ -17,6 +17,7 @@
 		<h5>Job Details</h5>
 
 		<div class="row">
+			@include('admin._flash')
 			 {!! Form::open([
 		        'action' => ['\App\Http\Controllers\JobsController@store',$id],
 		        'method'=>'post','files' => true]) !!}

@@ -15,6 +15,7 @@
 		<h5>Job Details</h5>
 
 		<div class="row">
+			@include('admin._flash')
 			 {!! Form::model($job,[
 		        'action' => ['\App\Http\Controllers\JobsController@update',$job->company_id,$job->id],
 		        'method'=>'put','files' => true]) !!}

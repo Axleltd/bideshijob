@@ -7,6 +7,7 @@
 @section('content')
 	
 	<div class="alluser">
+		@include('admin._flash')
 		<ul>
 			@foreach($users as $user)
 					

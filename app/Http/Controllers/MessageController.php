@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Message;
+use Session;
 
 class MessageController extends Controller
 {
@@ -25,14 +26,16 @@ class MessageController extends Controller
 	public function store(Request $request)
 	{
 		$message = $this->message->create([
-			'name' => $request->name,
+			   'name' => $request->name,
 	        'email' => $request->email,
 	        'messages' => $request->message,
         ]);
         if($message)
         {
+          Session::flash('success','Message sent');
         	return redirect('contact');
         }
+        Session::flash('error','Message failed');
     	return redirect()->back()->withInput($request->toArray());
 	}
 	public function show($id)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Profile;
 use Auth;
+use Session;
 use App\Http\Requests\PostProfileRequest;
 use App\Http\Requests\PutProfileRequest;
 use Illuminate\Support\Facades\Input;
@@ -50,8 +51,10 @@ class ProfileController extends Controller
             'user_id'=>Auth::user()->id]);            
         if($profile)
         {
+            Session::flash('success','Profile created');
             return redirect('/profile/user');
         }
+        Session::flash('error','Profile creating failed');
         return redirect()->back();
 
     }
@@ -77,8 +80,10 @@ class ProfileController extends Controller
             ]);            
         if($profile)
         {
+            Session::flash('success','Profile updated');
             return redirect('/profile/user');
         }
+        Session::flash('error','Profile updating failed');
         return redirect()->back();   
     }
 

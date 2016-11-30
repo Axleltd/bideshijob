@@ -18,6 +18,7 @@
 	<div class="section-content">		
 		
 		<div class="row">
+			@include('admin._flash')
 			@if(!count($trainings)>0)
 				<h5>You have not created a Training yet!</h5>
 				<a class="btn" href="{{url('/profile/company/')}}">Create A New Training</a>

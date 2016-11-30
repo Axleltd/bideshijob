@@ -19,6 +19,7 @@
 	<div class="section-content">		
 		
 		<div class="row">
+			@include('admin._flash')
 			@if(!count($jobs)>0)
 				<h5>You have not created a job yet!</h5>
 				<a class="btn" href="{{url('/profile/company/')}}">Create A New Job</a>

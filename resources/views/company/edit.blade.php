@@ -14,7 +14,7 @@
 
 	<div class="section-content">
 		<h5>Agency Details</h5>
-
+		@include('admin._flash')
 		<div class="row">
 			 {!! Form::model($company, ['action'=>['\App\Http\Controllers\Company\CompanyController@update',$company->id],'method'=>'PUT','files' => true]) !!}
 				@include('company._form')

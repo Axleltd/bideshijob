@@ -21,6 +21,7 @@
 		<h5>Contact Details</h5>
 
 		<div class="row">
+			@include('admin._flash')
 			{!! Form::open([
 				'action'=>['Jobs\ContactController@store',$slug],
 				'method' => 'post'

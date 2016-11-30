@@ -14,7 +14,7 @@
 
 	<div class="section-content">
 		<h5>Agency Details</h5>
-
+		@include('admin._flash')
 		<div class="row">
 			 {!! Form::open([
 		                'action' => '\App\Http\Controllers\Company\CompanyController@store',

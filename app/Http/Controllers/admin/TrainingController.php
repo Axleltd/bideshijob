@@ -28,10 +28,10 @@ class TrainingController extends Controller
     	 
     	if(!$featured)
     	{
-    		Session::flash('error', 'Training is unsuccessfully featured');
+    		Session::flash('error', 'Training featuring failed');
     		return redirect()->back();
     	}
-    	Session::flash('success', 'Training is successfully activated');
+    	Session::flash('success', 'Training featured');
     	Auth::user()->notify(new BusinessNotification('Congratulation Your training '.$training->name.' is featured'));
     	return redirect('/dashboard/training');
 
@@ -43,27 +43,27 @@ class TrainingController extends Controller
     	$active = $this->training->where('id',$trainingId)->update(['featured'=>0]);
     	if(!$active)
     	{
-    		Session::flash('error', 'Training is unsuccessfully unfeatured');
+    		Session::flash('error', 'Training unfeaturing failed');
     		return redirect()->back();
     		
     	}
-    	Session::flash('success', 'Training is successfully unfeatured');
+    	Session::flash('success', 'Training unfeatured');
     	Auth::user()->notify(new BusinessNotification('Sorry Your training '.$training->name.' is not featured'));
     	return redirect('/dashboard/training');    		
     }
     
 
     public function destroy($trainingId)
-    {
+    {        
     	$training = $this->training->where('id',$trainingId)->first();
     	$destroy = $this->training->destroy('id',$trainingId);
     	if(!$destroy)
     	{
-    		Session::flash('error', 'training is unsuccessfully deleted');
+    		Session::flash('error', 'Training deleting failed');
     		return redirect()->back();
     		
     	}
-    	Session::flash('success', 'training is successfully deleted');
+    	Session::flash('success', 'Training deleted');
     	Auth::user()->notify(new BusinessNotification('Your training '.$training->name.' is deleted'));
     	return redirect('dashboard/training');
     }

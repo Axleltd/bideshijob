@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Faq;
+use Session;
 
 class FAQController extends Controller
 {
@@ -34,8 +35,10 @@ class FAQController extends Controller
         ]);
         if($faq)
         {
+        	Session::flash('success','Faq created');
         	return redirect('dashboard/faq');
         }
+        Session::flash('error','Faq creating failed');
     	return redirect()->back()->withInput($request->toArray());
 	}
 
@@ -61,14 +64,20 @@ class FAQController extends Controller
 		]);
 		if($faq)
         {
+        	Session::flash('success','Faq updated');
         	return redirect('dashboard/faq');
         }
+        Session::flash('error','Faq updating failed');
     	return redirect()->back()->withInput($request->toArray());
 	}
 
 	public function destroy($id){
 		if($this->faq->destroy('id',$id))
+		{
+			Session::flash('success','Faq deleted');
 			return redirect('dashboard/faq');
+		}
+		Session::flash('error','Faq deleting failed');
 		return redirect()->back();
 	}
 
@@ -76,7 +85,11 @@ class FAQController extends Controller
 	{
 		$faq = $this->faq->findOrFail($id);
 		if($faq->update(['status'=>1]))
+		{
+			Session::flash('success','Faq acivated');
 			return redirect('dashboard/faq');
+		}
+		Session::flash('success','Faq acivating failed');
 		return redirect()->back();
 	}
 
@@ -84,7 +97,11 @@ class FAQController extends Controller
 	{
 		$faq = $this->faq->findOrFail($id);
 		if($faq->update(['status'=>0]))
+		{
+			Session::flash('success','Faq suspended');
 			return redirect('dashboard/faq');
+		}
+		Session::flash('error','Faq suspending failed');
 		return redirect()->back();
 	}
 

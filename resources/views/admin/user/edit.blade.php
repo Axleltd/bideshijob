@@ -7,6 +7,7 @@
 @section('content')
 	<div class="section-title">
 		<div class="row">
+			@include('admin._flash')
 			<h3 class="left">Profile</h3>
 			<div class="right">
 				@if(!(count($profile)>0))

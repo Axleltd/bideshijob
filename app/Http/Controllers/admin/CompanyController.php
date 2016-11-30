@@ -28,10 +28,10 @@ class CompanyController extends Controller
     	 
     	if(!$active)
     	{
-    		Session::flash('error', 'Company is unsuccessfully activated');
+    		Session::flash('error', 'Company activating failed');
     		return redirect()->back();
     	}
-    	Session::flash('success', 'Company is successfully activated');
+    	Session::flash('success', 'Company activated');
     	Auth::user()->notify(new BusinessNotification('Congratulation Your Company '.$company->name.' is approved'));
     	return redirect('/dashboard/company');
 
@@ -43,11 +43,11 @@ class CompanyController extends Controller
     	$active = $this->company->where('id',$companyId)->update(['status'=>0]);
     	if(!$active)
     	{
-    		Session::flash('error', 'Company is unsuccessfully suspended');
+    		Session::flash('error', 'Company suspending failed');
     		return redirect()->back();
     		
     	}
-    	Session::flash('success', 'Company is successfully suspended');
+    	Session::flash('success', 'Company suspended');
     	Auth::user()->notify(new BusinessNotification('Sorry Your Company '.$company->name.' is Suspended'));
     	return redirect('/dashboard/company');    		
     }
@@ -58,11 +58,11 @@ class CompanyController extends Controller
     	$destroy = $this->company->destroy('id',$companyId);
     	if(!$destroy)
     	{
-    		Session::flash('error', 'Company is unsuccessfully deleted');
+    		Session::flash('error', 'Company deleting failed');
     		return redirect()->back();
     		
     	}
-    	Session::flash('success', 'Company is successfully deleted');
+    	Session::flash('success', 'Company deleted');
     	Auth::user()->notify(new BusinessNotification('Your Company '.$company->name.' is deleted'));
     	return redirect('dashboard/company');
     }
