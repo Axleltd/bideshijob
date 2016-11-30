@@ -16,6 +16,7 @@
 		<h5>FAQ Details</h5>
 
 		<div class="row">
+			@include('admin._flash')
 			 {!! Form::open([
 		        'action' => ['\App\Http\Controllers\admin\FAQController@store'],
 		        'method'=>'post','files' => true]) !!}

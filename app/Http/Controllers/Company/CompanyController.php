@@ -11,6 +11,7 @@ use App\Profile;
 use App\SocialMedia;
 use App\Notifications\NotificationPost;
 use Auth;
+use Session;
 use App\Http\Requests\PostCompanyRequest;
 use App\Http\Requests\PutCompanyRequest;
 use Illuminate\Support\Facades\Input;
@@ -81,11 +82,12 @@ class CompanyController extends Controller
                     'twitter' => $request->twitter_link]);                
              
             }
+            Session::flash('success','Company created');
             Auth::user()->notify(new NotificationPost('company '.$company->name.' is created.','/company/'.$company->id));
             return redirect('/profile');
         }
-        else
-            return redirect()->back()->withInput($request->toArray());
+        Session::flash('error','Company creating failed');
+        return redirect()->back()->withInput($request->toArray());
     }
 
     public function show($id)
@@ -138,22 +140,23 @@ class CompanyController extends Controller
                 ];                
             $contact = $this->contact->where('contactable_id',$id)->get()->first();            
             if($contact->update($data))
-            {
+            {                
                 $media = $this->socialMedia->where('contact_id',$contact->id)->update([                    
                     'facebook' => $request->facebook_link,
                     'twitter' => $request->twitter_link]);                                
             }
+            Session::flash('success','Company updated');
             Auth::user()->notify(new NotificationPost('Company '.$request->name.' is updated.','/company/'.$company->id));
             return redirect('/profile');         
         }
-        else
-            return redirect()->back()->withInput($request->toArray());
+        Session::flash('error','Company updating failed');
+        return redirect()->back()->withInput($request->toArray());
         
     }
 
     public function destroy($id)
     {
-        $company = $this->company->where(['id'=>$id,'user_id'=>Auth::user()->id]);
+        //$company = $this->company->where(['id'=>$id,'user_id'=>Auth::user()->id]);
 
     }
 

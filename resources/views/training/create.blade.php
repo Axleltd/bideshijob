@@ -15,9 +15,9 @@
 
 	<div class="section-content">
 		<h5>Training Details</h5>
-
+		@include('admin._flash')
 		<div class="row">
-
+			
 			{!! Form::model($company, ['action'=>['\App\Http\Controllers\TrainingController@store',$company->id],'method'=>'POST']) !!}
 				@include('training._form')
 				<button type="submit" class="waves-effect waves-light btn">Continue</button>

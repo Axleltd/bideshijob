@@ -14,6 +14,7 @@
 		<h5>FAQ Details</h5>
 
 		<div class="row">
+			@include('admin._flash')
 			 {!! Form::model($faq,[
 		        'action' => ['\App\Http\Controllers\admin\FAQController@update',$faq->id],
 		        'method'=>'put']) !!}

@@ -28,10 +28,10 @@ class JobsController extends Controller
     	 
     	if(!$featured)
     	{
-    		Session::flash('error', 'job is unsuccessfully featured');
+    		Session::flash('error', 'job featuring failed');
     		return redirect()->back();
     	}
-    	Session::flash('success', 'job is successfully activated');
+    	Session::flash('success', 'job featured');
     	Auth::user()->notify(new BusinessNotification('Congratulation Your job '.$job->name.' is featured'));
     	return redirect('/dashboard/job');
 
@@ -43,11 +43,11 @@ class JobsController extends Controller
     	$active = $this->job->where('id',$jobId)->update(['featured'=>0]);
     	if(!$active)
     	{
-    		Session::flash('error', 'job is unsuccessfully suspended');
+    		Session::flash('error', 'job unfeaturing failed');
     		return redirect()->back();
     		
     	}
-    	Session::flash('success', 'job is successfully suspended');
+    	Session::flash('success', 'job unfeatured');
     	Auth::user()->notify(new BusinessNotification('Sorry Your job '.$job->name.' is not featured'));
     	return redirect('/dashboard/job');    		
     }
@@ -59,11 +59,11 @@ class JobsController extends Controller
     	$destroy = $this->job->destroy('id',$jobId);
     	if(!$destroy)
     	{
-    		Session::flash('error', 'job is unsuccessfully deleted');
+    		Session::flash('error', 'job deleting failed');
     		return redirect()->back();
     		
     	}
-    	Session::flash('success', 'job is successfully deleted');
+    	Session::flash('success', 'job deleted');
     	Auth::user()->notify(new BusinessNotification('Your job '.$job->name.' is deleted'));
     	return redirect('dashboard/job');
     }

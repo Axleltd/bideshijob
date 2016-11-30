@@ -17,7 +17,7 @@
 	</div>
 
 	<div class="section-content">		
-		
+		@include('admin._flash')
 		<div class="row">
 			@if(!count($trainings)>0)
 				<h5>You have not created a Training yet!</h5>

@@ -7,7 +7,7 @@
 @section('content')
 
 
-	<div class="section-title">
+	<div class="section-title">		
 		<div class="row">
 			<h3 class="left">Profile</h3>
 			<div class="right">
@@ -27,7 +27,7 @@
 	<div class="section-content">
 
 		<div class="row">
-	
+			@include('admin._flash')
 			<div class="user col s12 m6">
 				@if(count($profile)>0)
 					@if($profile->logo)

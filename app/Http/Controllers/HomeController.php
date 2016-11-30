@@ -31,7 +31,7 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {        
+    {           
         $training = $this->training->with(['company'=> function ($query) {
             $query->where('status',1);
         }])->orderBy('created_at','DESC')->get();  

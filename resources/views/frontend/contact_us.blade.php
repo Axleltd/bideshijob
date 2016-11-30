@@ -15,7 +15,7 @@ Contact-Us
 
 	</div>
 	<section class="page-content contact_us">
-
+		@include('admin._flash')
 		<div class="wrap row">
 			<div class="col s12 m6 form">
 

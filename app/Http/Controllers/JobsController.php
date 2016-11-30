@@ -102,8 +102,10 @@ class JobsController extends Controller
             Auth::user()->notify(new JobFound($this->job->findOrFail($job->id)));
             if($job)
             {
+                Session::flash('success','Job created');
                 return redirect('/profile/job');
             }
+            Session::flash('error','Job creating failed');
             return redirect()->back()->withInput($request->toArray());
     }
 
@@ -177,8 +179,10 @@ class JobsController extends Controller
             ]); 
         if($update)
         {
+            Session::flash('success','Job updated');
             return redirect()->to('/profile/job');
         }
+        Session::flash('error','Job updating failed');
         return redirect()->back()->withInput($request->toArray());
     }
 
@@ -194,8 +198,10 @@ class JobsController extends Controller
         $job = $this->job->findOrFail($id);
         if($job->delete())
         {
-            return redirect()->back();
+            Session::flash('success','Job deleted');
+            return redirect()->to('/profile/job');
         }
+        Session::flash('error','Job deleting failed');
         return redirect()->back();
     }
 }

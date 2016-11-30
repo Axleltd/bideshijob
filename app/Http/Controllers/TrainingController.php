@@ -12,6 +12,7 @@ use App\Profile;
 use App\User;
 use App\Notifications\NotificationPost;
 use Illuminate\Notifications\Notifiable;
+use Session;
 
 class TrainingController extends Controller
 {    
@@ -66,8 +67,12 @@ class TrainingController extends Controller
             'user_id'=>Auth::user()->id,
             ]);                  
         if(!$training)
+        {
+            Session::flash('error','Training creating failed');
             return redirect('company/'.$companyId.'/training/create');
+        }
 
+        Session::flash('success','Training created');
         Auth::user()->notify(new NotificationPost($company->name.' created training '.$training->title,'/company/'.$training->company_id.'/training/'.$training->id));
         return redirect('/profile/training');
     }
@@ -85,7 +90,9 @@ class TrainingController extends Controller
     {        
         $training = $this->training->where(['slug'=>$trainingId,'user_id'=>Auth::user()->id])->get()->first(); 
         if($training)
+        {
             return view('training.edit')->with(['training'=>$training]);
+        }
         return abort(404);
     }
 
@@ -104,8 +111,11 @@ class TrainingController extends Controller
                 'country' => $request->country,
             ]);                
         if(!$training_update)
+        {
+            Session::flash('error','Training updating failed');
             return redirect('company/'.$companyId.'/training/'.$trainingId.'/edit/');
-
+        }
+        Session::flash('success','Training updated');
         Auth::user()->notify(new NotificationPost($training->company->name.' updated training '.$training->title,'/company/'.$training->company_id.'/training/'.$training->id));
         return redirect('/profile/training');
         

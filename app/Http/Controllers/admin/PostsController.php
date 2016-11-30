@@ -28,10 +28,10 @@ class PostsController extends Controller
     	 
     	if(!$active)
     	{
-    		Session::flash('error', 'Post is unsuccessfully activated');
+    		Session::flash('error', 'Post activating failed');
     		return redirect()->back();
     	}
-    	Session::flash('success', 'Post is successfully activated');
+    	Session::flash('success', 'Post activated');
     /*	Auth::user()->notify(new BusinessNotification('Congratulation Your Company '.$company->name.' is approved'));*/
     	return redirect('/dashboard/posts');
 
@@ -43,11 +43,11 @@ class PostsController extends Controller
     	$active = $this->post->where('id',$id)->update(['status'=>0]);
     	if(!$active)
     	{
-    		Session::flash('error', 'Post is unsuccessfully suspended');
+    		Session::flash('error', 'Post suspending failed');
     		return redirect()->back();
     		
     	}
-    	Session::flash('success', 'Post is successfully suspended');
+    	Session::flash('success', 'Post suspended');
     	/*Auth::user()->notify(new BusinessNotification('Sorry Your Company '.$company->name.' is Suspended'));*/
     	return redirect('/dashboard/posts');    		
     }
@@ -57,10 +57,10 @@ class PostsController extends Controller
     	$destroy = $this->posts->where('id',$companyId)->first();
     	if(!$destroy)
     	{
-    		Session::flash('error', 'Company is unsuccessfully deleted');
+    		Session::flash('error', 'Post deleting failed');
     		return redirect()->back();
     	}
-    	Session::flash('success', 'Company is successfully deleted');
+    	Session::flash('success', 'Post deleted');
     	return redirect('dashboard/posts');
     }
 }

@@ -15,6 +15,7 @@
 	<div class="section-content">		
 		
 		<ul class="row">
+			@include('admin._flash')
 			@foreach($jobs as $job)
 			<li class="col s12 m6">
 				<div class="card">

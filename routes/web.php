@@ -120,6 +120,11 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/job','admin\JobsController@index');
 	Route::get('/subscriptions','admin\SubscriptionsController@index');
 
+	//admin notifications
+	Route::get('/all-notification','admin\NotificationViewController@allNotification');
+	Route::get('/messages','admin\NotificationViewController@messages');
+	Route::get('/user-subscription','admin\NotificationViewController@userSubscription');
+	
 	//faq 
 	Route::resource('/faq',admin\FAQController::class);
 	//active suspend faq
@@ -134,7 +139,7 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	//training featured unfeatured
 	Route::get('/training/featured/{id}','admin\TrainingController@featured');
 	Route::get('/training/unfeatured/{id}','admin\TrainingController@unFeatured');
-	Route::delete('training/delete/{id}','admin\TrainingController@destroy');	
+	Route::delete('/training/delete/{id}','admin\TrainingController@destroy');	
 
 	//jobs featured unfeatured
 	Route::get('/job/featured/{id}','admin\JobsController@featured');
@@ -174,12 +179,7 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	//
 	Route::resource('message',MessageController::class);
 	Route::resource('message/read/{id}','MessageController@markSeen');
-	Route::resource('message/unread/{id}','MessageController@markUnSeen');
-
-	//admin notifications
-	Route::get('/all-notification','admin\NotificationViewController@allNotification');
-	Route::get('/messages','admin\NotificationViewController@messages');
-	Route::get('/user-subscription','admin\NotificationViewController@userSubscription');
+	Route::resource('message/unread/{id}','MessageController@markUnSeen');	
 
 	
 });

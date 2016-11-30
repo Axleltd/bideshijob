@@ -10,10 +10,11 @@
 		</ul>
 	</div>
 
-				@include('admin._flash')
+	@include('admin._flash')
 	<div class="section-content">
 
 		<ul class="row">
+		@include('admin._flash')
 		@foreach($trainings as $training)
 			<li class="col s12 m6">
 				<div class="card">
@@ -33,8 +34,11 @@
 							<a href="{{ url('dashboard/training/unfeatured/'.$training->id)}}" class="{{ ($training->featured == 0) ?'disabled': null }} btn"  style="font-size: 12px;">UnFeatured</a>
 							
 						</div>
-						<div class="col s12 m4">
-							<a href="{{ url('dashboard/training/delete/'.$training->id)}}" class="btn red accent-2"  style="font-size: 12px; float: right;">Delete</a>
+						<div class="col s12 m4">							
+							{!! Form::model($training,[
+						                'action' => ['\App\Http\Controllers\admin\TrainingController@destroy',$training->id],'method'=>'delete']) !!}				
+								<button type="submit" class="waves-effect waves-light red acent-2 btn">Delete</button>
+						    {!! Form::close() !!}							
 							
 						</div>
 					</div>

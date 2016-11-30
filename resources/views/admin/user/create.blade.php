@@ -5,7 +5,7 @@
 @stop
 
 @section('content')
-	
+	@include('admin._flash')
 	<div class="form">
 		{!! Form::open([
                 'action' => '\App\Http\Controllers\ProfileController@store',
