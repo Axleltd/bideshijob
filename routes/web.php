@@ -176,10 +176,14 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::delete('/newsletter/delete/{id}','admin\CategoriesController@destroy');
 	Route::get('/newsletter/suspend/{id}','admin\PostsController@suspend');
 
+	//about us page
+	Route::resource('about',admin\AboutUsController::class);	
+	
 	//
 	Route::resource('message',MessageController::class);
 	Route::resource('message/read/{id}','MessageController@markSeen');
 	Route::resource('message/unread/{id}','MessageController@markUnSeen');	
+
 
 	
 });
