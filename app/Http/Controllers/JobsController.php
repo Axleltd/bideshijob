@@ -5,6 +5,7 @@ use Auth;
 use App\Job;
 use App\Company;
 use App\Profile;
+use Session;
 use Illuminate\Http\Request;
 use App\Notifications\JobFound;
 use App\Http\Requests\PostJobRequest;

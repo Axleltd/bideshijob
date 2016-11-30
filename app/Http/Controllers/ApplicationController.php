@@ -16,6 +16,7 @@ class ApplicationController extends Controller
     {
         $this->application = new Application;
     }
+    
     /**
      * Store a newly created resource in storage.
      *

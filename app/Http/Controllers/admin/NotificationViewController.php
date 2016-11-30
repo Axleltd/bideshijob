@@ -18,13 +18,13 @@ class NotificationViewController extends Controller
 
     public function messages()
     {
-    	$message = Message::all();
-    	return view('admin.notification.message',compact('message'));	
+    	$messages = Message::orderBy('created_at','DESC')->paginate(10);
+    	return view('admin.notification.message',compact('messages'));	
     }
 
     public function userSubscription()
     {
-    	$application = Application::all();
-    	return view('admin.notification.user_subscription');	
+    	$applications = Application::orderBy('created_at','DESC')->paginate(10);
+    	return view('admin.notification.user_subscription',compact('applications'));	
     }
 }
