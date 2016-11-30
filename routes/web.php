@@ -177,7 +177,7 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	Route::get('/newsletter/suspend/{id}','admin\PostsController@suspend');
 
 	//about us page
-	Route::resource('about',admin\AboutUsController::class);
+	Route::resource('about',admin\AboutUsController::class);	
 	
 	//
 	Route::resource('message',MessageController::class);

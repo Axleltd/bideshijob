@@ -184,7 +184,7 @@
                 <li class="accordian sites">
                   <a href="#"><i class="fa fa-pencil-square-o"></i>Edit site</a>
                   <ul class="submenu">
-                    <li><a href="edit-about-us"><i class="fa fa-home"></i> About Us</a></li>
+                    <li><a href="/dashboard/about"><i class="fa fa-home"></i> About Us</a></li>
                     <li><a href="/dashboard/faq"><i class="fa fa-home"></i> FAQ</a></li>
                     <li><a href="edit-medical"><i class="fa fa-home"></i> Medical</a></li>
                     <li><a href="edit-insurance"><i class="fa fa-home"></i> Insurance</a></li>

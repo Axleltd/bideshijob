@@ -17,10 +17,14 @@
 		<div class="row">
 		@include('admin._flash')
 		<ul>
-			<li><a href="" class="btn">Edit</a></li>
-			<li><a href="">Delete</a></li>
+			@if($about)			
+			<li><a href="/dashboard/about/edit" class="btn">Edit</a></li>
+			{!! Form::model($about,[
+		                'action' => ['\App\Http\Controllers\admin\AboutUsController@destroy',$about->id],'method'=>'delete']) !!}				
+				<button type="submit" class="waves-effect waves-light btn">Delete</button>
+		    {!! Form::close() !!}
 			<li>{{$about->content}}</li>
-
+			@endif
 		</ul>
 
 	</div>
