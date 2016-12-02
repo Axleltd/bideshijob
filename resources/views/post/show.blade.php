@@ -25,9 +25,14 @@
 	<div class="row">	
 		<div class="container">
 			<h3>{{ $post->title }}</h3>
+			@if($post->image)
+				<img src="{{asset('image/blog/'.$post->image)}}" alt="" width="300" height="300">
+				@else
+				<img src="{{asset('image/no-image.png')}}" alt="" width="300" height="300">
+			@endif
 			@if($post->category !== null && $post->category->count() > 0)
 			<h3>{{ $post->category->name }}</h3>
-			@endif
+			@endif			
 			<h4>{{ $post->published_on}}</h4>
 			<p><small>{!! $post->short_description !!}</small></p>
 			<p>

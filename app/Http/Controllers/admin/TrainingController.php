@@ -8,6 +8,7 @@ use App\Training;
 use Session;
 use Auth;
 use App\Notifications\BusinessNotification;
+use App\Notifications\NotificationPost;
 
 class TrainingController extends Controller
 {
@@ -32,7 +33,7 @@ class TrainingController extends Controller
     		return redirect()->back();
     	}
     	Session::flash('success', 'Training featured');
-    	Auth::user()->notify(new BusinessNotification('Congratulation Your training '.$training->name.' is featured'));
+    	$training->user->notify(new BusinessNotification('Congratulation Your training '.$training->name.' is featured','training','user'));
     	return redirect('/dashboard/training');
 
     }
@@ -48,7 +49,7 @@ class TrainingController extends Controller
     		
     	}
     	Session::flash('success', 'Training unfeatured');
-    	Auth::user()->notify(new BusinessNotification('Sorry Your training '.$training->name.' is not featured'));
+    	$training->user->notify(new BusinessNotification('Sorry Your training '.$training->name.' is not featured','training','user'));
     	return redirect('/dashboard/training');    		
     }
     
@@ -63,8 +64,8 @@ class TrainingController extends Controller
     		return redirect()->back();
     		
     	}
-    	Session::flash('success', 'Training deleted');
-    	Auth::user()->notify(new BusinessNotification('Your training '.$training->name.' is deleted'));
+    	Session::flash('success', 'Training deleted');        
+    	$training->user->notify(new BusinessNotification('Your training '.$training->name.' is deleted','training','user'));
     	return redirect('dashboard/training');
     }
 }

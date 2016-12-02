@@ -52,10 +52,11 @@ class PostsController extends Controller
     	return redirect('/dashboard/posts');    		
     }
 
-    public function destroy($companyId)
+    public function destroy($id)
     {
-    	$destroy = $this->posts->where('id',$companyId)->first();
-    	if(!$destroy)
+    	$destroy = $this->post->destroy('id',$id);
+
+    	if(!$destory)
     	{
     		Session::flash('error', 'Post deleting failed');
     		return redirect()->back();

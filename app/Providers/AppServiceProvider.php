@@ -38,7 +38,8 @@ class AppServiceProvider extends ServiceProvider
                 $view->with('user_subscription',Application::all());
                 return $view->with('notifications', Auth::user()->notifications);
             }
-            return $view->with('notifications', Auth::user()->notifications);
+             return $view->with('notifications', Auth::user()->notifications);
+
         });
 
         view()->composer('layouts.dashboard',function(View $view){

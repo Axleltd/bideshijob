@@ -8,6 +8,7 @@ use App\Company;
 use Auth;
 use Session;
 use App\Notifications\BusinessNotification;
+use App\Notifications\NotificationPost;
 class CompanyController extends Controller
 {
 	protected $company;
@@ -32,7 +33,7 @@ class CompanyController extends Controller
     		return redirect()->back();
     	}
     	Session::flash('success', 'Company activated');
-    	Auth::user()->notify(new BusinessNotification('Congratulation Your Company '.$company->name.' is approved'));
+    	$company->user->notify(new BusinessNotification('Congratulation Your Company '.$company->name.' is approved','company','user'));
     	return redirect('/dashboard/company');
 
     }
@@ -48,7 +49,7 @@ class CompanyController extends Controller
     		
     	}
     	Session::flash('success', 'Company suspended');
-    	Auth::user()->notify(new BusinessNotification('Sorry Your Company '.$company->name.' is Suspended'));
+    	$company->user->notify(new BusinessNotification('Sorry Your Company '.$company->name.' is Suspended','company','user'));
     	return redirect('/dashboard/company');    		
     }
 
@@ -63,7 +64,8 @@ class CompanyController extends Controller
     		
     	}
     	Session::flash('success', 'Company deleted');
-    	Auth::user()->notify(new BusinessNotification('Your Company '.$company->name.' is deleted'));
+        Auth::user()->notify(new NotificationPost('company '.$company->name.' is deleted.','company','admin'));
+    	$company->user->notify(new BusinessNotification('Your Company '.$company->name.' is deleted','company','user'));
     	return redirect('dashboard/company');
     }
 }

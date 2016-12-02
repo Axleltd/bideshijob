@@ -8,6 +8,7 @@ use App\Job;
 use Session;
 use Auth;
 use App\Notifications\BusinessNotification;
+use App\Notifications\NotificationPost;
 
 class JobsController extends Controller
 {
@@ -32,7 +33,7 @@ class JobsController extends Controller
     		return redirect()->back();
     	}
     	Session::flash('success', 'job featured');
-    	Auth::user()->notify(new BusinessNotification('Congratulation Your job '.$job->name.' is featured'));
+    	$job->user->notify(new BusinessNotification('Congratulation Your job '.$job->name.' is featured','job','user'));
     	return redirect('/dashboard/job');
 
     }
@@ -48,7 +49,7 @@ class JobsController extends Controller
     		
     	}
     	Session::flash('success', 'job unfeatured');
-    	Auth::user()->notify(new BusinessNotification('Sorry Your job '.$job->name.' is not featured'));
+    	$job->user->notify(new BusinessNotification('Sorry Your job '.$job->name.' is not featured','job','user'));
     	return redirect('/dashboard/job');    		
     }
     
@@ -63,8 +64,8 @@ class JobsController extends Controller
     		return redirect()->back();
     		
     	}
-    	Session::flash('success', 'job deleted');
-    	Auth::user()->notify(new BusinessNotification('Your job '.$job->name.' is deleted'));
+    	Session::flash('success', 'job deleted');        
+    	$job->user->notify(new BusinessNotification('Your job '.$job->name.' is deleted','job','user'));
     	return redirect('dashboard/job');
     }
 }

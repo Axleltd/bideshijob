@@ -11,7 +11,7 @@ class NotificationPost extends Notification implements ShouldQueue
 {
     use Queueable;
 
-    protected $message,$url;
+    protected $message,$name,$for;
 
     /**
      * Create a new notification instance.
@@ -22,10 +22,11 @@ class NotificationPost extends Notification implements ShouldQueue
     // {
     //     $this->notify = $notify;
     // }
-    public function __construct($message,$url)
+    public function __construct($message,$name,$for)
     {
         $this->message = $message;
-        $this->url = $url;
+        $this->name = $name;
+        $this->for = $for;
     }
 
     /**
@@ -58,7 +59,8 @@ class NotificationPost extends Notification implements ShouldQueue
     {
         return [
         'message'=>$this->message,
-        'url'=>$this->url];
+        'name'=>$this->name,
+        'for'=>$this->for];
     } 
 
 }

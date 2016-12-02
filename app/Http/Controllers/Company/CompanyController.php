@@ -83,7 +83,7 @@ class CompanyController extends Controller
              
             }
             Session::flash('success','Company created');
-            Auth::user()->notify(new NotificationPost('company '.$company->name.' is created.','/company/'.$company->id));
+            Auth::user()->notify(new NotificationPost('company '.$company->name.' is created.','company','admin'));
             return redirect('/profile');
         }
         Session::flash('error','Company creating failed');
@@ -146,7 +146,7 @@ class CompanyController extends Controller
                     'twitter' => $request->twitter_link]);                                
             }
             Session::flash('success','Company updated');
-            Auth::user()->notify(new NotificationPost('Company '.$request->name.' is updated.','/company/'.$company->id));
+            Auth::user()->notify(new NotificationPost('Company '.$request->name.' is updated.','company','admin'));
             return redirect('/profile');         
         }
         Session::flash('error','Company updating failed');

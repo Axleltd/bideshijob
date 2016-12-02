@@ -41,12 +41,12 @@
 		        </div>
 		    @endif		
 		</div>
-		<div class="input-field">
-		    @if(isset($post->image))
+		<div class="input-field">			
+		    @if(!empty($post->image))
 		        <div class="col-xs-2 thumb">
 		            <a class="image" href="#">
-		                <img class="img-responsive" src="{{asset('image/'.$post->image)}}"
-		                     alt="{{$post->title}}" id="output">
+		                <img class="img-responsive" src="{{asset('image/blog/'.$post->image)}}"
+		                     alt="{{$post->title}}" id="output" width="300" height="300">
 		            </a>
 		        </div>
 		    @else
