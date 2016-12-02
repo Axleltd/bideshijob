@@ -181,8 +181,8 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	
 	//
 	Route::resource('message',MessageController::class);
-	Route::resource('message/read/{id}','MessageController@markSeen');
-	Route::resource('message/unread/{id}','MessageController@markUnSeen');	
+	Route::post('message/read/{id}','MessageController@markSeen');
+	Route::post('message/unread/{id}','MessageController@markUnSeen');	
 
 
 	

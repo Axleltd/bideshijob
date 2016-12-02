@@ -17,7 +17,7 @@
 
 		   	{!! Form::label('logo', 'Logo:', ['class' => 'control-label']) !!}
 
-		    @if(isset($company->logo))
+		    @if(!empty($company->logo))
 		        <div class="col-xs-2 thumb">
 		            <a class="logo" href="#">
 		                <img class="img-responsive" src="{{asset('image/'.$company->logo)}}"

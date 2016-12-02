@@ -17,7 +17,7 @@ class PostsController extends Controller
 		$this->middleware('isAdmin')->except('index','show');
 	}
 	public function show(Post $post)
-	{
+	{		
 		return view('post.show')->with([
 			'post' => $post
 			]);
@@ -26,7 +26,7 @@ class PostsController extends Controller
 	public function index()
 	{
 		return view('post.index')->with([
-			'posts' => Post::where('published',1)->orderBy('published_on','DESC')->paginate(5)
+			'posts' => Post::where(['published'=>1,'status'=>1])->orderBy('published_on','DESC')->paginate(5)
 			]);
 	}
 
@@ -53,7 +53,7 @@ class PostsController extends Controller
 			'user_id' => Auth::user()->id,
 			]))
 		{
-			return redirect('/blog');
+			return redirect('/dashboard/posts');
 		}
 		return redirect()->back();
 	}
@@ -79,7 +79,7 @@ class PostsController extends Controller
 			]);
 		if($update)
 		{
-			return redirect('blog');
+			return redirect('/dashboard/posts');
 		}
 		return redirect()->back()->withInput($request->toArray());
 	}

@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{asset('stylesheets/admin.css')}}">
     
 </head>
-<body>  
+<body>        
     <div id="app" class="Dashboard row">          
         <header class="header">
 
@@ -27,22 +27,21 @@
               <ul class="submenu">
                 <li class="title row">
                   <p class="left">Notification</p>
-                  <a href="#" class="right">View all</a>
+                  <a href="/dashboard/all-notification" class="right">View all</a>
                 </li>
-
+                
                 @if(count($notifications)>0 && isset($notifications))                
-                  @foreach($notifications as $notification)
-                      
-                    <li>                        
-                      <a href="{{ url($notification->data['url'])}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                  @foreach($notifications as $notification)                  
+                      @if(($notification->data['for'] == 'user'))
+                    <li>                                              
+                      <a href="/dashboard/{{$notification->data['name']}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
                     </li>
-
+                    @endif
                   @endforeach
                 @endif
-                @if(Shinobi::isRole('admin'))
+               @if(Shinobi::isRole('admin'))
                   @if(count($allNotifications)>0 && isset($notifications))
-                    @foreach($allNotifications as $notification)
-            
+                    @foreach($allNotifications as $notification)                      
                       <li>
                         <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
                       </li>
@@ -74,7 +73,7 @@
             </li>
             @endif
         
-        
+          @if(Shinobi::isRole('admin'))                
             <li class="hover-div">
               <i class="fa fa-folder-open-o"></i>
               <ul class="submenu">
@@ -84,16 +83,17 @@
                 </li>
 
                 @if(count($user_subscription)>0 && isset($user_subscription))                
-                  @foreach($user_subscription as $notification)
+                  @foreach($user_subscription as $user)
                       
                     <li>                        
-                      <a href="{{ url('/dashboard/user-subscription')}}" class="">Apply From {{$notification->full_name}}</a>
+                      <a href="{{ url('/dashboard/user-subscription')}}" class="">Apply From {{$user->full_name}}</a>
                     </li>
 
                   @endforeach
                 @endif                
               </ul>
             </li>
+          @endif
         
           </ul>
 
@@ -185,10 +185,8 @@
                   <a href="#"><i class="fa fa-pencil-square-o"></i>Edit site</a>
                   <ul class="submenu">
                     <li><a href="/dashboard/about"><i class="fa fa-home"></i> About Us</a></li>
-                    <li><a href="/dashboard/faq"><i class="fa fa-home"></i> FAQ</a></li>
-                    <li><a href="edit-medical"><i class="fa fa-home"></i> Medical</a></li>
-                    <li><a href="edit-insurance"><i class="fa fa-home"></i> Insurance</a></li>
-                    <li><a href="edit-immigration"><i class="fa fa-home"></i> Immigration</a></li>
+                    <li><a href="/dashboard/faq"><i class="fa fa-home"></i> FAQ</a></li>                    
+                    <li><a href="/dashboard/posts"><i class="fa fa-home"></i> Blog</a></li>
                   </ul>
                 </li>
               @endif

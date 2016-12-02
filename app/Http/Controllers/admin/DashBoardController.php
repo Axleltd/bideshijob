@@ -31,7 +31,7 @@ class DashBoardController extends Controller
         $job = Job::where('user_id',$id)->get();        
         $training = $this->training->where('user_id',$id)->get();
         $profile = $this->profile->where('user_id',$id)->first();
-        $notifications = DatabaseNotification::orderBy('created_at','DESC')->get();            
+        $notifications = DatabaseNotification::orderBy('created_at','DESC')->get();          
     	return view('admin.index')->with([
     		'companies'=>$companies,
             'job_count'=>count($job),

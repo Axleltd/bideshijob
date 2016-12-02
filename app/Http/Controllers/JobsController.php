@@ -9,6 +9,7 @@ use Session;
 use Illuminate\Http\Request;
 use App\Notifications\JobFound;
 use App\Http\Requests\PostJobRequest;
+use App\Notifications\NotificationPost;
 
 class JobsController extends Controller
 {
@@ -100,9 +101,10 @@ class JobsController extends Controller
             'requirement' => $request->requirement,
             'country' => $request->country,
             ]);
-            Auth::user()->notify(new JobFound($this->job->findOrFail($job->id)));
+            
             if($job)
             {
+                Auth::user()->notify(new NotificationPost($job->company->name.' created job '.$job->title,'job','admin'));
                 Session::flash('success','Job created');
                 return redirect('/profile/job');
             }
@@ -180,6 +182,7 @@ class JobsController extends Controller
             ]); 
         if($update)
         {
+            Auth::user()->notify(new NotificationPost($job->company->name.' updated job '.$job->title,'job','admin'));
             Session::flash('success','Job updated');
             return redirect()->to('/profile/job');
         }
@@ -195,14 +198,15 @@ class JobsController extends Controller
      */
     public function destroy($companyId,$id)
     {
-        $this->company->findOrFail($companyId);
-        $job = $this->job->findOrFail($id);
-        if($job->delete())
-        {
-            Session::flash('success','Job deleted');
-            return redirect()->to('/profile/job');
-        }
-        Session::flash('error','Job deleting failed');
-        return redirect()->back();
+        // $this->company->findOrFail($companyId);
+        // $job = $this->job->findOrFail($id);
+        // if($job->delete())
+        // {
+        //     Auth::user()->notify(new NotificationPost($job->company->name.' deleted job '.$job->title,'/company/'.$job->company->slug.'/job/'.$job->slug));
+        //     Session::flash('success','Job deleted');
+        //     return redirect()->to('/profile/job');
+        // }
+        // Session::flash('error','Job deleting failed');
+        // return redirect()->back();
     }
 }

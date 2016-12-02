@@ -73,7 +73,7 @@ class TrainingController extends Controller
         }
 
         Session::flash('success','Training created');
-        Auth::user()->notify(new NotificationPost($company->name.' created training '.$training->title,'/company/'.$training->company_id.'/training/'.$training->id));
+        Auth::user()->notify(new NotificationPost($company->name.' created training '.$training->title,'training','admin'));
         return redirect('/profile/training');
     }
 
@@ -116,7 +116,7 @@ class TrainingController extends Controller
             return redirect('company/'.$companyId.'/training/'.$trainingId.'/edit/');
         }
         Session::flash('success','Training updated');
-        Auth::user()->notify(new NotificationPost($training->company->name.' updated training '.$training->title,'/company/'.$training->company_id.'/training/'.$training->id));
+        Auth::user()->notify(new NotificationPost($training->company->name.' updated training '.$training->title,'training','admin'));
         return redirect('/profile/training');
         
     }

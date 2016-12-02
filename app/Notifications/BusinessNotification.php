@@ -11,14 +11,18 @@ class BusinessNotification extends Notification
 {
     use Queueable;
     protected $msg;
+    protected $name;
+    protected $for;
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct($msg)
+    public function __construct($msg,$name,$for)
     {
         $this->msg = $msg;
+        $this->name = $name;
+        $this->for = $for;
     }
 
     /**
@@ -29,7 +33,7 @@ class BusinessNotification extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail','database'];
     }
 
     /**
@@ -54,9 +58,10 @@ class BusinessNotification extends Notification
      * @return array
      */
     public function toArray($notifiable)
-    {
-        return [
-            //
-        ];
+    {        
+            return [
+            'message'=>$this->msg,
+            'name'=>$this->name,
+            'for'=>$this->for];        
     }
 }

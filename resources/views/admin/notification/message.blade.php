@@ -21,7 +21,7 @@
 			</tr>
 
           @endforeach
-          {{--{!! $applications->link() !!}--}}
+          {!! $messages->links() !!}
         </tbody>
       </table>	
 </div>
