@@ -7,6 +7,7 @@ $(window).load(function() {
     $('.hover-div i.fa').on('click', function(event) {
         event.preventDefault();
         var dd = $(this).parent('.hover-div').find('.submenu');
+        $('.hover-div').find('.submenu').removeClass('show');
         dd.toggleClass('show');
     });
 

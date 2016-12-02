@@ -23,8 +23,8 @@
 
           <ul class="left-nav">
             <li class="hover-div">
-              <a href="#" class="dropdown-button" data-activities="noti"></a><i class="fa fa-bell-o"></i>
-              <ul class="submenu dropdown-content" id="noti">
+              <i class="fa fa-bell-o"></i>
+              <ul class="submenu">
                 <li class="title row">
                   <p class="left">Notification</p>
                   <a href="/dashboard/all-notification" class="right">View all</a>
