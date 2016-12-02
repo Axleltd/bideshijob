@@ -41,11 +41,12 @@
                 @endif
                @if(Shinobi::isRole('admin'))
                   @if(count($allNotifications)>0 && isset($notifications))
-                    @foreach($allNotifications as $notification)                      
+                    @foreach($allNotifications as $notification)
+                      @if($notification->data['for'] == 'admin')                      
                       <li>
                         <a href="{{ url('dashboard/company')}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
                       </li>
-
+                      @endif
                     @endforeach
                   @endif
                 @endif
