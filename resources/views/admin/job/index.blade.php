@@ -35,11 +35,12 @@
 							<a href="{{ url('dashboard/job/unfeatured/'.$job->id)}}" class="{{ ($job->featured == 0) ?'disabled': null }} btn" style="font-size: 12px;">UnFeatured</a>
 							
 						</div>
-						<div class="col s12 m4">
-							<a href="{{ url('dashboard/job/delete/'.$job->id)}}" class="btn red accent-2" style="font-size: 12px; float: right;">Delete</a>
-							
+						<div class="col s12 m4">							
+							{!! Form::model($job,[
+						                'action' => ['\App\Http\Controllers\admin\JobsController@destroy',$job->id],'method'=>'delete']) !!}				
+								<button type="submit" class="waves-effect waves-light red acent-2 btn">Delete</button>
+						    {!! Form::close() !!}							
 						</div>
-					</div>
 				</div>
 			</li>
 

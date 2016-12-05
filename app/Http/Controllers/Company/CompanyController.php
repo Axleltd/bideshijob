@@ -10,6 +10,7 @@ use App\User;
 use App\Profile;
 use App\SocialMedia;
 use App\Notifications\NotificationPost;
+use App\Notifications\BusinessNotification;
 use Auth;
 use Session;
 use App\Http\Requests\PostCompanyRequest;
@@ -156,7 +157,21 @@ class CompanyController extends Controller
 
     public function destroy($id)
     {
-        //$company = $this->company->where(['id'=>$id,'user_id'=>Auth::user()->id]);
+        $company = $this->company->where(['id'=>$id,'user_id'=>Auth::user()->id])->first();
+        if($company){
+            $destroy = $this->company->destroy('id',$id);
+            if(!$destroy)
+            {
+                Session::flash('error', 'Company deleting failed');
+                return redirect()->back();
+                
+            }
+            Session::flash('success', 'Company deleted');
+            Auth::user()->notify(new NotificationPost('company '.$company->name.' is deleted.','company','admin'));
+            $company->user->notify(new BusinessNotification('Your Company '.$company->name.' is deleted','company','user'));
+            return redirect('profile/company');
+        }
+        return abort(404);
 
     }
 

@@ -95,6 +95,11 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	//apply form
 	Route::post('/application','ApplicationController@store');	
 
+	//delete 
+	Route::delete('/profile/training/delete/{id}','TrainingController@destroy');	
+	Route::delete('/profile/company/delete/{id}','company\CompanyController@destroy');	
+	Route::delete('/profile/job/delete/{id}','JobsController@destroy');	
+
 	
 
 	Route::get('locale/{name}',function($name){
@@ -144,7 +149,7 @@ Route::group(['middleware' => ['web', \App\Http\Middleware\AuthenticateAdmin::cl
 	//jobs featured unfeatured
 	Route::get('/job/featured/{id}','admin\JobsController@featured');
 	Route::get('/job/unfeatured/{id}','admin\JobsController@unFeatured');
-	Route::delete('job/delete/{id}','admin\JobsController@destroy');		
+	Route::delete('/job/delete/{id}','admin\JobsController@destroy');		
 
 
 	//Post

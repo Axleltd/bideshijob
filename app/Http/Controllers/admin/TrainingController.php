@@ -56,7 +56,7 @@ class TrainingController extends Controller
 
     public function destroy($trainingId)
     {        
-    	$training = $this->training->where('id',$trainingId)->first();
+    	$training = $this->training->where('id',$trainingId)->first();        
     	$destroy = $this->training->destroy('id',$trainingId);
     	if(!$destroy)
     	{

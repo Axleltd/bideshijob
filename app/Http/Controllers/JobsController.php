@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Notifications\JobFound;
 use App\Http\Requests\PostJobRequest;
 use App\Notifications\NotificationPost;
+use App\Notifications\BusinessNotification;
 
 class JobsController extends Controller
 {
@@ -196,17 +197,22 @@ class JobsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($companyId,$id)
+    public function destroy($id)
     {
-        // $this->company->findOrFail($companyId);
-        // $job = $this->job->findOrFail($id);
-        // if($job->delete())
-        // {
-        //     Auth::user()->notify(new NotificationPost($job->company->name.' deleted job '.$job->title,'/company/'.$job->company->slug.'/job/'.$job->slug));
-        //     Session::flash('success','Job deleted');
-        //     return redirect()->to('/profile/job');
-        // }
-        // Session::flash('error','Job deleting failed');
-        // return redirect()->back();
+        $job = $this->job->where(['id'=>$id,'user_id'=>Auth::user()->id])->first();         
+         if($job){                        
+             $destroy = $this->job->destroy('id',$id);
+            if(!$destroy)
+            {
+                Session::flash('error', 'Job deleting failed');
+                return redirect()->back();
+                
+            }
+            Session::flash('success', 'Job deleted');        
+            $job->user->notify(new BusinessNotification('Your job '.$job->name.' is deleted','job','user'));
+            Auth::user()->notify(new NotificationPost($job->company->name.' deleted job '.$job->title,'job','admin'));
+            return redirect('profile/job');
+        }
+        return abort(404);
     }
 }

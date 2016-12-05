@@ -12,6 +12,7 @@ use App\Profile;
 use App\User;
 use App\Notifications\NotificationPost;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\BusinessNotification;
 use Session;
 
 class TrainingController extends Controller
@@ -123,7 +124,22 @@ class TrainingController extends Controller
 
     public function destroy($id)
     {
-        // $training = $this->training->destroy(['id'=>$id,'user_id'=>Auth::user()->id]);
+
+         $training = $this->training->where(['id'=>$id,'user_id'=>Auth::user()->id])->first();         
+         if($training){                        
+             $destroy = $this->training->destroy('id',$id);
+            if(!$destroy)
+            {
+                Session::flash('error', 'Training deleting failed');
+                return redirect()->back();
+                
+            }
+            Session::flash('success', 'Training deleted');        
+            $training->user->notify(new BusinessNotification('Your training '.$training->name.' is deleted','training','user'));
+            Auth::user()->notify(new NotificationPost($training->company->name.' deleted training '.$training->title,'training','admin'));
+            return redirect('profile/training');
+        }
+        return abort(404);
 
     }
    

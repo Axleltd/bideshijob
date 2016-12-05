@@ -31,11 +31,17 @@
 							<div class="card-image">
 								<img src="{{asset('image/'.$job->company->logo)}}" alt="">
 							</div>
-							{{-- <div class="card-content"> --}}
+							
 								<span class="card-title"><a href="{{url('/company/'.$job->company->slug.'/job/'.$job->slug)}}">{{$job->title}}</a></span>
-
 								
-							{{-- </div> --}}
+								<div class="col s12 m4">							
+									{!! Form::model($job,[
+								                'action' => ['\App\Http\Controllers\JobsController@destroy',$job->id],'method'=>'delete']) !!}				
+										<button type="submit" class="waves-effect waves-light red acent-2 btn">Delete</button>
+								    {!! Form::close() !!}							
+								</div>
+								
+							
 								
 						</div>
 					</li>
