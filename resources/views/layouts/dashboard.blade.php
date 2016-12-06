@@ -17,14 +17,18 @@
     <link rel="stylesheet" href="{{asset('stylesheets/admin.css')}}">
     
 </head>
-<body>        
+<body>   
+  
     <div id="app" class="Dashboard row">          
         <header class="header">
 
           <ul class="left-nav">
 
             <li class="hover-div">
-              <i class="fa fa-bell-o"><span class="badges">5</span></i>
+              @if(count($notifications)>0 && isset($notifications))                
+              <i class="fa fa-bell-o">
+                @if($countUserUnRead>0)<span class="badges">{{$countUserUnRead}}</span>@endif
+              </i>
 
 
               <ul class="submenu">
@@ -33,20 +37,22 @@
                   <a href="/profile/notification" class="right">View all</a>
                 </li>
                 
-                @if(count($notifications)>0 && isset($notifications))                
+                
                   @foreach($notifications as $notification)                  
                       @if(($notification->data['for'] == 'user'))
-                    <li>                                              
-                      <a href="/dashboard/{{$notification->data['name']}}" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>
+                    <li>     
+                      <a href="/profile/notification/{{$notification->id}}/read" class="{{ ($notification->read_at) ?'read': 'notread' }}">{{$notification->data['message']}}</a>                                                               
                     </li>
                     @endif
-                  @endforeach
-                @endif               
+                  @endforeach                              
               </ul>
+              @endif 
             </li>
              @if(Shinobi::isRole('admin'))
             <li class="hover-div">
-              <i class="fa fa-bell-o"></i>
+              <i class="fa fa-bell-o">                
+                @if($adminCountUnRead>0)<span class="badges">{{$adminCountUnRead}}</span>@endif
+              </i>
               <ul class="submenu">
                 <li class="title row">
                   <p class="left">Notification</p>
@@ -68,7 +74,9 @@
               </ul>
             </li>                                      
             <li class="hover-div">              
-              <i class="fa fa-envelope-o"><span class="badges">5</span></i>
+              <i class="fa fa-envelope-o">
+                @if($messageCount>0)<span class="badges">{{$messageCount}}</span>@endif
+              </i>
               <ul class="submenu">
                 <li class="title row">
                   <p class="left">Messages</p>
@@ -88,7 +96,9 @@
             </li>            
                                 
             <li class="hover-div">
-              <i class="fa fa-folder-open-o"><span class="badges">5</span></i>
+              <i class="fa fa-folder-open-o">
+                @if($countUserSubscription>0)<span class="badges">{{$countUserSubscription}}</span>@endif
+              </i>
               <ul class="submenu">
                 <li class="title row">
                   <p class="left">Applications</p>

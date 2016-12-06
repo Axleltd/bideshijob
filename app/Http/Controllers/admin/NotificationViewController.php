@@ -12,7 +12,8 @@ class NotificationViewController extends Controller
 {
     public function allNotification()
     {
-    	$notifications = DatabaseNotification::where('data','LIKE','%admin%')->orderBy('created_at','DESC')->paginate(10);   
+    	$notifications = DatabaseNotification::where('data','LIKE','%admin%')->orderBy('created_at','DESC')->paginate(10);  
+        $notifications->markAsRead(); 
                     
     	return view('admin.notification.allNotification',compact('notifications'));
     }
