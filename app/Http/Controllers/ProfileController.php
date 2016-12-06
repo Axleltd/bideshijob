@@ -90,8 +90,18 @@ class ProfileController extends Controller
 
     public function notification()
     {        
-        $notifications = DatabaseNotification::where('data','LIKE','%user%')->where('notifiable_id',Auth::user()->id)->orderBy('created_at','DESC')->paginate(10);           
+        $notifications = DatabaseNotification::where('data','LIKE','%user%')->where('notifiable_id',Auth::user()->id)->orderBy('created_at','DESC')->paginate(10);    
+        
+        if(count($notifications)>0)    
+            $notifications->markAsRead();
         return view('admin.notification.notification',compact('notifications'));
+    }
+
+    public function singleNotification($id)
+    {        
+        $notification = DatabaseNotification::findOrFail($id);
+        $notification->markAsRead();
+        return redirect('/profile/'.$notification->data['name']);
     }
 
      public function fileUpload(Request $request,$logoName)

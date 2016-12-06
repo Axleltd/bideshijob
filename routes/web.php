@@ -101,6 +101,9 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::delete('/profile/company/delete/{id}','company\CompanyController@destroy');	
 	Route::delete('/profile/job/delete/{id}','JobsController@destroy');	
 
+	//user notification
+	Route::get('/profile/notification/{id}/read','ProfileController@singleNotification');		
+
 	
 
 	Route::get('locale/{name}',function($name){
