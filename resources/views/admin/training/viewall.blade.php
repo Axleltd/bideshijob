@@ -34,12 +34,13 @@
 							<span class="card-title">
 								<a href="{{url('/company/'.$training->company->slug.'/training/'.$training->slug)}}">{{$training->title}}</a>
 							</span>
+							<a href="{{url('/company/'.$training->company->slug.'/training/'.$training->slug.'/edit')}}" class="btn">Edit</a>
 
 							<div class="col s12 m4">							
-							{!! Form::model($training,[
-						                'action' => ['\App\Http\Controllers\TrainingController@destroy',$training->id],'method'=>'delete']) !!}				
-								<button type="submit" class="waves-effect waves-light red acent-2 btn">Delete</button>
-						    {!! Form::close() !!}	
+								{!! Form::model($training,[
+							                'action' => ['\App\Http\Controllers\TrainingController@destroy',$training->id],'method'=>'delete']) !!}				
+									<button type="submit" class="waves-effect waves-light red acent-2 btn">Delete</button>
+							    {!! Form::close() !!}	
 						    </div>						
 
 						

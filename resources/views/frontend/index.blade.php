@@ -70,6 +70,7 @@ Homepage
     </div>
   </div>
   <section class="jobs row">
+    @include('admin._flash')
     <div class="wrap">
       <div class="section-title">
         <h3 class="wow fadeIn">Featured Jobs</h3>

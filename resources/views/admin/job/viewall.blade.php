@@ -33,7 +33,7 @@
 							</div>
 							
 								<span class="card-title"><a href="{{url('/company/'.$job->company->slug.'/job/'.$job->slug)}}">{{$job->title}}</a></span>
-								
+								<a href="{{url('/company/'.$job->company->slug.'/job/'.$job->slug.'/edit')}}" class="btn">Edit</a>
 								<div class="col s12 m4">							
 									{!! Form::model($job,[
 								                'action' => ['\App\Http\Controllers\JobsController@destroy',$job->id],'method'=>'delete']) !!}				

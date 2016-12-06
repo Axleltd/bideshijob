@@ -85,6 +85,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('/profile','admin\UserController@index');
 	//user dashboard	
 	Route::resource('profile/user',ProfileController::class);
+	Route::get('/profile/notification','ProfileController@notification');
 
 	//training
 	Route::get('profile/training','TrainingController@showMyTraining');
