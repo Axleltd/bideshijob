@@ -16,9 +16,10 @@ $(window).load(function() {
     	$('.sidenav').toggleClass('show');
     	$('.page-wrap').toggleClass('show');
     	$('header').toggleClass('show');
+
     });
 
+    $('#country').attr('autocomplete', 'off');
 
-    
 
 });

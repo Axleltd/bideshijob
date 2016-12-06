@@ -13,7 +13,7 @@
 		        </div>
 		    @endif		
 		</div>
-		<div class="col s12 m6">
+		<div class="col s12 m6 logo">
 
 		   	{!! Form::label('logo', 'Logo:', ['class' => 'control-label']) !!}
 

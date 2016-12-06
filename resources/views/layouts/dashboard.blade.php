@@ -23,7 +23,7 @@
 
           <ul class="left-nav">
             <li class="hover-div">
-              <i class="fa fa-bell-o"></i>
+              <i class="fa fa-bell-o"><span class="badges">5</span></i>
               <ul class="submenu">
                 <li class="title row">
                   <p class="left">Notification</p>
@@ -54,7 +54,7 @@
             </li>
             @if(Shinobi::isRole('admin'))                
             <li class="hover-div">              
-              <i class="fa fa-envelope-o"></i>
+              <i class="fa fa-envelope-o"><span class="badges">5</span></i>
               <ul class="submenu">
                 <li class="title row">
                   <p class="left">Messages</p>
@@ -76,7 +76,7 @@
         
           @if(Shinobi::isRole('admin'))                
             <li class="hover-div">
-              <i class="fa fa-folder-open-o"></i>
+              <i class="fa fa-folder-open-o"><span class="badges">5</span></i>
               <ul class="submenu">
                 <li class="title row">
                   <p class="left">Applications</p>
