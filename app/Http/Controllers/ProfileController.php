@@ -9,6 +9,7 @@ use Session;
 use App\Http\Requests\PostProfileRequest;
 use App\Http\Requests\PutProfileRequest;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Notifications\DatabaseNotification;
 
 class ProfileController extends Controller
 {
@@ -85,6 +86,12 @@ class ProfileController extends Controller
         }
         Session::flash('error','Profile updating failed');
         return redirect()->back();   
+    }
+
+    public function notification()
+    {        
+        $notifications = DatabaseNotification::where('data','LIKE','%user%')->where('notifiable_id',Auth::user()->id)->orderBy('created_at','DESC')->paginate(10);           
+        return view('admin.notification.notification',compact('notifications'));
     }
 
      public function fileUpload(Request $request,$logoName)

@@ -148,7 +148,7 @@ class CompanyController extends Controller
             }
             Session::flash('success','Company updated');
             Auth::user()->notify(new NotificationPost('Company '.$request->name.' is updated.','company','admin'));
-            return redirect('/profile');         
+            return redirect('/profile/company');         
         }
         Session::flash('error','Company updating failed');
         return redirect()->back()->withInput($request->toArray());

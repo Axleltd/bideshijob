@@ -49,6 +49,7 @@
 							      	<span class="card-title grey-text text-darken-4">More Options<i class="material-icons right">close</i></span>
 							      	<a href="{{url('/company/'.$company->slug.'/job/create')}}" class="btn">Create job</a>
 									<a href="{{url('/company/'.$company->slug.'/training/create')}}" class="btn">Create training</a>
+									<a href="{{url('/company/'.$company->slug.'/edit')}}" class="btn">Edit</a>
 									<div class="col s12 m4">							
 										{!! Form::model($company,[
 									                'action' => ['\App\Http\Controllers\company\CompanyController@destroy',$company->id],'method'=>'delete']) !!}				

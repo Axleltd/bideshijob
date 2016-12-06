@@ -29,8 +29,8 @@ class PostTrainingRequest extends FormRequest
             'fees' => 'required|integer',
             'quantity' =>'required|integer',            
             'training_description' =>'required|max:255|min:10',            
-            'from' =>'required',            
-            'to' =>'required',  
+            'from' =>'required|date',            
+            'to' =>'required|date',  
             'country' =>'required|string'          
         ];
     }

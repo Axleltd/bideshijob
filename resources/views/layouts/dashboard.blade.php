@@ -22,12 +22,13 @@
         <header class="header">
 
           <ul class="left-nav">
-            <li class="hover-div">
+            
+             <li class="hover-div">
               <i class="fa fa-bell-o"></i>
               <ul class="submenu">
                 <li class="title row">
                   <p class="left">Notification</p>
-                  <a href="/dashboard/all-notification" class="right">View all</a>
+                  <a href="/profile/notification" class="right">View all</a>
                 </li>
                 
                 @if(count($notifications)>0 && isset($notifications))                
@@ -38,8 +39,20 @@
                     </li>
                     @endif
                   @endforeach
-                @endif
-               @if(Shinobi::isRole('admin'))
+                @endif               
+              </ul>
+            </li>
+             @if(Shinobi::isRole('admin'))
+            <li class="hover-div">
+              <i class="fa fa-bell-o"></i>
+              <ul class="submenu">
+                <li class="title row">
+                  <p class="left">Notification</p>
+                  <a href="/dashboard/all-notification" class="right">View all</a>
+                </li>
+                
+                
+              
                   @if(count($allNotifications)>0 && isset($notifications))
                     @foreach($allNotifications as $notification)
                       @if($notification->data['for'] == 'admin')                      
@@ -49,10 +62,9 @@
                       @endif
                     @endforeach
                   @endif
-                @endif
+                
               </ul>
-            </li>
-            @if(Shinobi::isRole('admin'))                
+            </li>                                      
             <li class="hover-div">              
               <i class="fa fa-envelope-o"></i>
               <ul class="submenu">
@@ -71,10 +83,8 @@
                   
                 
               </ul>
-            </li>
-            @endif
-        
-          @if(Shinobi::isRole('admin'))                
+            </li>            
+                                
             <li class="hover-div">
               <i class="fa fa-folder-open-o"></i>
               <ul class="submenu">
@@ -181,7 +191,7 @@
                 </ul>
               </li>
               @if(Shinobi::isRole('admin'))
-                <li><a href="/watchtower/users"><i class="fa fa-group"></i> All users</a></li>              
+                <li><a href="/watchtower/user"><i class="fa fa-group"></i> All users</a></li>              
                 <li class="accordian sites">
                   <a href="#"><i class="fa fa-pencil-square-o"></i>Edit site</a>
                   <ul class="submenu">

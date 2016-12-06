@@ -5,7 +5,8 @@
     <h1>Create New User</h1>
     <hr/>
 
-    {!! Form::open( ['route' => 'watchtower.user.store', 'class' => 'form-horizontal']) !!}
+    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    {{ csrf_field() }}
     
     <div class="form-group {{ $errors->has('name') ? 'has-error' : ''}}">
         {!! Form::label('name', 'Name: ', ['class' => 'col-sm-3 control-label']) !!}
