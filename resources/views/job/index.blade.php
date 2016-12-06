@@ -75,6 +75,7 @@
 
 
 		    <div class="section-content">
+		    	@include('admin._flash')
 		        <ul class="lists row">
 
 					@foreach($jobs as $job)
@@ -103,11 +104,30 @@
 			                  </div>
 			                </div>
 			                <div class="btn-wrap">
-			                  <button class="btn weaves-effect">Apply Now</button><br>
+			                  <a class="btn waves-effect" href="#{{$job->id}}">Apply Now</a><br>
 			                  <a href="{{ url('company/'.$job->company->slug.'/job/'.$job->slug)}}">More info</a>
 			                </div>
 			              </div>
 			            </li>
+			            <div id="{{$job->id}}" class="modal">
+			                <div class="modal-content">
+			                  <h3>Apply for {{$job->title}}</h3>
+			                  {!! Form::open([
+			                    'action' => '\App\Http\Controllers\ApplicationController@store',
+			                     'method'=>'post','files' => true]) !!}
+			                      <input type="text" name="full_name" placeholder="Full Name">
+			                      <input type="text"  name="email" placeholder="email">
+			                      <input type="text" name="contact" placeholder="Contact number">
+			                      <div class="file-field input-field">
+			                        <div class="btn">
+			                          <span>Upload CV</span>
+			                          <input type="file" name="cv">
+			                        </div>
+			                      </div>
+			                      <button type="submit" class="btn" >Apply</button>
+			                    {!! Form::close() !!}
+			                </div>
+			            </div>
 			         @endif
 
 					@endforeach

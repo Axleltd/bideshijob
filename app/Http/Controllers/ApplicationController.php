@@ -36,7 +36,7 @@ class ApplicationController extends Controller
             if($application)
             {
                 Session::flash('success', 'Message sent');
-                return redirect('/');
+                return redirect()->back();
             }   
         }
          Session::flash('error', 'Message sending failed');                

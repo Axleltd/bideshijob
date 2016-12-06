@@ -83,25 +83,25 @@ class JobsController extends Controller
      */
     public function store(PostJobRequest $request, $companyId)
     {
-        //
+        
          $job = $this->company->with('job')->findOrFail($companyId)->job()
-         ->create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'company_id' => $companyId,
-            'user_id' => Auth::user()->id,
-            'categories' => $request->categories,
-            'about_job' => $request->about_job,
-            'facilities' => $request->facilities,
-            'duties'  => $request->duties,
-            'salary'  => $request->salary,
-            'cost' => $request->cost,
-            'overtime'  => $request->overtime,
-            'quantity' => $request->quantity,
-            'duty_hours' => $request->duty_hours,            
-            'requirement' => $request->requirement,
-            'country' => $request->country,
-            ]);
+            ->create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'company_id' => $companyId,
+                'user_id' => Auth::user()->id,
+                'categories' => $request->categories,
+                'about_job' => $request->about_job,
+                'facilities' => $request->facilities,
+                'duties'  => $request->duties,
+                'salary'  => $request->salary,
+                'cost' => $request->cost,
+                'overtime'  => $request->overtime,
+                'quantity' => $request->quantity,
+                'duty_hours' => $request->duty_hours,            
+                'requirement' => $request->requirement,
+                'country' => $request->country,
+                ]);
             
             if($job)
             {
