@@ -11,7 +11,14 @@ $(window).load(function() {
         maxSpeedX: 0.05,
         maxSpeedY: 0.05
     });
- $('.modal').modal();
+
+    $('ul.lang').one('click', function(event) {
+        event.preventDefault();
+        $(this).addClass('show');
+
+    });
+    
+    $('.modal').modal();
 
     // $('.page-head h1 span').textillate(
     //     { in: {

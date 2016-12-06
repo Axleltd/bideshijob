@@ -243,6 +243,7 @@ header.header {
 	ul.top-nav {
 		position: absolute;
 		right: $side-gutter;
+		padding-right: 40px;	
 		li {
 			display: inline-block;
 
@@ -257,7 +258,52 @@ header.header {
 					text-decoration: underline;
 				}
 			}
+
+			&.lang-wrap {
+				position: absolute;
+				z-index: 999999;
+				top: 0;
+				right: -15px;
+				ul.lang {
+					height: 25px;
+					overflow: hidden;
+					margin-left: 15px;
+					padding: 0 10px;
+					padding-top: 15px;
+					position: relative;
+					width: 40px;
+					@include vendor(transition, height 0.2s linear);
+					li {
+						display: block;
+						padding-top: 20px;
+						a {
+							padding: 0;
+							height: 15px;
+
+							img {
+								height: 15px;
+							}
+						}
+					}
+					li.active {
+						position: absolute;
+						top: 0;
+						margin-top: 10px;
+						padding-top: 0;  
+					}
+				}
+				ul.lang.show {
+					height: 60px;
+					width: 50px;
+					background: #fff;
+					padding-bottom: 10px;
+					box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+					border: 1px solid #ddd;
+				}
+			}
+
 		}
+
 	}
 	ul.nav {
 		position: absolute;
@@ -329,8 +375,11 @@ section.banner {
 				border-bottom: none;
 				border-right: 1px solid $primary-color;
 				text-indent: 15px;
-				color: $primary-color;
+				color: $alternate-color;
 				font-size: 18px;
+			}
+			@include placeholder {
+				color: $alternate-color;
 			}
 			button {
 				width: 10%;
@@ -338,7 +387,7 @@ section.banner {
 				background: #fff;
 				border: none;
 				height: 35px;
-				color: $primary-color;
+				color: $alternate-color;
 				font-size: 22px;
 				position: absolute;
 				right: 15px;
@@ -368,7 +417,7 @@ section.banner {
 					background: #fff;
 					height: 35px;
 					border-bottom: none;
-					color: $primary-color;
+					color: $alternate-color;
 					font-size: 18px;
 					border-radius: 15px;
 					border: 2px solid $primary-color;
@@ -386,6 +435,9 @@ section.banner {
 					input {
 						width: 100%;
 					}
+				}
+				@include placeholder {
+					color: $alternate-color;
 				}
 				.btn {
 					width: 43%;
@@ -710,7 +762,8 @@ section.all-lists {
 		overflow: hidden;
 
 		img {
-			max-width: 100%;
+			width: 100%;
+			min-height: 100%
 		}
 	}
 	.section-content {
@@ -750,6 +803,24 @@ section.all-lists {
 			}
 			.right {
 				right: 0;
+			}
+		}
+	}
+
+	.page-company {
+		.desc {
+			padding-left: 15px;
+		}
+
+		section {
+			.wrap {
+				padding-top: 0;
+				min-height: auto;
+			}
+
+			.section-title {
+			    border-top: 1px solid #ccc;
+			    padding: 50px 0;
 			}
 		}
 	}
@@ -844,6 +915,46 @@ footer.footer {
 		}
 	}
 
+	ul.contacts {
+		li {
+			padding-left: 30px;
+			position: relative;
+			margin-bottom: 10px;
+
+			i {
+				position: absolute;
+				left: 0;
+				top: 28%;
+			}
+
+			p {
+				margin: 0;
+			}
+		}
+	}
+
+	ul.social {
+		margin-top: 50px;
+		li {
+			display: inline-block;
+			margin-right: 20px;
+
+			i {
+				padding: 5px;
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				font-size: 22px;
+				@include vendor(transition, all 0.2s linear);
+
+				&:hover {
+					background: #fff;
+					color: $primary-color;
+					box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+					@include vendor(transition, all 0.2s linear);
+				}
+			}
+		}
+	}
 
 }
 

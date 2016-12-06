@@ -35,7 +35,7 @@ Homepage
       </div>
 
       <div class="subscribe-box">
-        <h3 class="wow fadeIn">Subscribe with us</h3>        
+        <h3 class="">Subscribe with us</h3>        
         {!! Form::open(['action' => 'SubscriberController@store','files' => 'true','method'=>'post']) !!}
           <input type="text" name="name" placeholder="Full Name">
           <input type="email" name="email" placeholder="Email">
@@ -46,7 +46,7 @@ Homepage
               <input type="file" name="cv">
             </div>
           </div>
-          <button type='submit' class="btn wow zoomIn" >Subscribe</button>
+          <button type='submit' class="btn" >Subscribe</button>
         {!! Form::close() !!}
       </div>
     </div>

@@ -40,8 +40,12 @@
               <li><a href="/register">@lang('site.register')</a></li>
 
             @endif
-              <li><a href="locale/en">@lang('site.english')</a></li>
-              <li><a href="locale/np">@lang('site.nepali')</a></li>
+            <li class="lang-wrap">
+               <ul class="lang">              
+                <li class="@if(app()->getLocale() == 'en' ) active @endif"><a href="/locale/en"><img src="{{asset('images/en.png')}}" alt=""></a></li>
+                <li class="@if(app()->getLocale() == 'np' )active @endif"><a href="/locale/np"><img src="{{asset('images/np.png')}}" alt=""></a></li>
+              </ul>
+            </li>
             {{-- <li><a href="/login">login</a></li> --}}
           </ul>
           <ul class="nav">
@@ -73,8 +77,8 @@
                   <a href="mailto:info@bideshikaam.com">info@bideshikaam.com</a>
                 </li>
                 <li>
-                  <i class="ti-phone"></i>
-                  <a href="tel:984651325">984651325</a>
+                  <i class="ti-mobile"></i>
+                  <a href="tel:984651325">984651325</a>,
                   <a href="tel:984651325">984651325</a>
                 </li>
               </ul>
