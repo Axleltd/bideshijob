@@ -34,12 +34,12 @@ class HomeController extends Controller
     {           
         $training = $this->training->with(['company'=> function ($query) {
             $query->where('status',1);
-        }])->orderBy('created_at','DESC')->get();  
+        }])->orderBy('created_at','DESC')->take(3)->get();  
 
         $job = $this->job->with(['company'=> function ($query) {
             $query->where('status',1);
-        }])->where('featured',1)->orderBy('created_at','DESC')->get();        
-        $company = $this->company->where('status',1)->get();   
+        }])->where('featured',1)->orderBy('created_at','DESC')->take(3)->get();        
+        $company = $this->company->where('status',1)->orderBy('created_at','DESC')->take(5)->get();   
         
         return view('frontend.index')->with([
             'training'=>$training,

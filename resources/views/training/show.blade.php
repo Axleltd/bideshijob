@@ -59,11 +59,27 @@
 
                     </div>
                     <div class="row btn-row">
-                        <button class="btn waves-effect">Apply Now</button>
+                        <a class="btn waves-effect" href="#{{$training->id}}">Apply Now</a><br>
                     </div>
 
 
                     <hr>
+                    <div id="{{$training->id}}" class="modal">
+                      <div class="modal-content">
+                        <h3>Apply for {{$training->title}}</h3>
+                        {!! Form::open([
+                          'action' => ['\App\Http\Controllers\ApplicationController@store',$training->id],
+                           'method'=>'post','files' => true]) !!}
+                            <input type="text" name="full_name" placeholder="Full Name">
+                            <input type="text"  name="email" placeholder="email">
+                            <input type="text" name="contact" placeholder="Contact number">
+                            <input type="hidden" value = "training" name="apply" hidden>
+                          <div class="file-field input-field">                              
+                            </div>
+                            <button type="submit" class="btn" >Apply</button>
+                          {!! Form::close() !!}
+                      </div>
+                  </div>
                                   
                 </div>
 
