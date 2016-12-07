@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostApplicationRequest;
 use App\Application;
+use App\Training;
+use App\Job;
 use Session;
 use Illuminate\Support\Facades\Input;
 
 class ApplicationController extends Controller
 {
     protected $application;
+    protected $class;
     
     public function __construct()
     {
@@ -23,16 +26,20 @@ class ApplicationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostApplicationRequest $request)
-    {        
-        $file = $this->fileUpload($request);    
-        if($file)
-        {
-            $application = $this->application->create([
+    public function store(PostApplicationRequest $request,$id)
+    {            
+        $file = ''; 
+        $this->checkClass($request);
+        if($request->apply == 'job')
+            $file = $this->fileUpload($request);    
+        if($file || $request->apply == 'training')
+        {            
+                $application =$this->class->findOrfail($id)->application()->create([
                     'full_name'=> $request->full_name,
                     'email' => $request->email,
                     'contact' => $request->contact,            
                     'file' => $file]); 
+
             if($application)
             {
                 Session::flash('success', 'Message sent');
@@ -86,6 +93,17 @@ class ApplicationController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    protected function checkClass($request)
+    {
+        if($request->apply == 'job'){
+            return $this->class = new Job;
+        } else if ( $request->apply == 'training')
+        {
+            return $this->class = new Training;
+        }
+        return die('no');
     }
 
     public function fileUpload(Request $request)

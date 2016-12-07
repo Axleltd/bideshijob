@@ -18,8 +18,9 @@ class CreateApplicationsTable extends Migration
             $table->string('full_name');
             $table->string('email');
             $table->string('contact');
-            $table->string('file');
-            $table->timestamps('read_at')->nullable();
+            $table->morphs('applicable');
+            $table->string('file')->nullable();
+            $table->date('read_at')->nullable();
             $table->timestamps();
         });
     }

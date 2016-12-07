@@ -11,6 +11,7 @@ use App\Message;
 use App\Application;
 use Auth;
 use Shinobi;
+use Illuminate\Database\Eloquent\Relations\Relation;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -50,6 +51,17 @@ class AppServiceProvider extends ServiceProvider
                 return $view->with(['messages'=>Message::orderBy('created_at','DESC')->get(),'messageCount'=>count(Message::where('seen',0)->get())]);
             }
         });
+
+
+
+
+        Relation::morphMap([
+            'User' => App\User::class,
+            'Job' => App\Job::class,
+            'Training' => App\Training::class,
+            'Company' => App\Company::class,
+            'Application' => App\Application::class,
+        ]);
     }
 
     /**

@@ -113,11 +113,12 @@
 			                <div class="modal-content">
 			                  <h3>Apply for {{$job->title}}</h3>
 			                  {!! Form::open([
-			                    'action' => '\App\Http\Controllers\ApplicationController@store',
+			                    'action' => ['\App\Http\Controllers\ApplicationController@store',$job->id],
 			                     'method'=>'post','files' => true]) !!}
 			                      <input type="text" name="full_name" placeholder="Full Name">
 			                      <input type="text"  name="email" placeholder="email">
 			                      <input type="text" name="contact" placeholder="Contact number">
+			                      <input type="text" value = "job" name="apply" hidden>
 			                      <div class="file-field input-field">
 			                        <div class="btn">
 			                          <span>Upload CV</span>

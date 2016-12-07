@@ -87,10 +87,29 @@
                   <p><i class="fa fa-globe"></i>{{$tr->country}}</p>
                   <p><i class="fa fa-time"></i>Duration</p>
                   <p>{{$tr->description}}</p>
+                  <a class="btn waves-effect" href="#{{$tr->id}}">Apply Now</a><br>
                   <a href="{{ url('company/'.$tr->company->slug.'/training/'.$tr->slug)}}" class="right">More info</a>
                 </div>
               </div>
             </li>
+            
+            <div id="{{$tr->id}}" class="modal">
+                      <div class="modal-content">
+                        <h3>Apply for {{$tr->title}}</h3>
+                        {!! Form::open([
+                          'action' => ['\App\Http\Controllers\ApplicationController@store',$tr->id],
+                           'method'=>'post','files' => true]) !!}
+                            <input type="text" name="full_name" placeholder="Full Name">
+                            <input type="text"  name="email" placeholder="email">
+                            <input type="text" name="contact" placeholder="Contact number">
+                            <input type="hidden" value = "training" name="apply" hidden>
+                          <div class="file-field input-field">                              
+                            </div>
+                            <button type="submit" class="btn" >Apply</button>
+                          {!! Form::close() !!}
+                      </div>
+                  </div>
+
             @endif
             <?php $d =$d+0.3;?>
           @endforeach

@@ -29,7 +29,9 @@
                                 </div>
                                 <div class="text-wrap">
                                     <h5><a href="#">{{$training->company->name}}</a></h5>
-                                    <p>Address: {{$training->company->contacts->address}}</p>
+                                    @if($training->company->contacts !== null)
+                                        <p>Address: {{$training->company->contacts->address}}</p>
+                                    @endif
                                     <a href="{{ url('/company/'.$training->company->slug)}}" class="right">View more</a>
                                 </div>  
                             </div>

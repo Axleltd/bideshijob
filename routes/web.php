@@ -94,7 +94,7 @@ Route::group(['middlewareGroups' => ['web']], function () {
 	Route::get('profile/job','JobsController@showMyJob');
 
 	//apply form
-	Route::post('/application','ApplicationController@store');	
+	Route::post('/application/{id}','ApplicationController@store');	
 
 	//delete 
 	Route::delete('/profile/training/delete/{id}','TrainingController@destroy');	
