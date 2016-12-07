@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Notifications\JobFound;
 use App\Http\Requests\PostJobRequest;
 use App\Notifications\NotificationPost;
+use Illuminate\Support\Facades\Input;
 use App\Notifications\BusinessNotification;
 
 class JobsController extends Controller
@@ -83,7 +84,7 @@ class JobsController extends Controller
      */
     public function store(PostJobRequest $request, $companyId)
     {
-        
+        $logo = $this->fileUpload($request,null);        
          $job = $this->company->with('job')->findOrFail($companyId)->job()
             ->create([
                 'title' => $request->title,
@@ -95,6 +96,7 @@ class JobsController extends Controller
                 'facilities' => $request->facilities,
                 'duties'  => $request->duties,
                 'salary'  => $request->salary,
+                'image' =>$logo,
                 'cost' => $request->cost,
                 'overtime'  => $request->overtime,
                 'quantity' => $request->quantity,
@@ -163,6 +165,9 @@ class JobsController extends Controller
     {
         $this->company->findOrFail($companyId);
         $job= $this->job->findOrFail($id);
+        $logoName = $job->image;        
+        if($request->image)
+            $logoName = $this->fileUpload($request,$logoName);            
         $update = $job->update([            
              'title' => $request->title,
             'description' => $request->description,
@@ -214,5 +219,19 @@ class JobsController extends Controller
             return redirect('profile/job');
         }
         return abort(404);
+    }
+
+    public function fileUpload(Request $request,$logoName)
+    {
+        $files=Input::file('image');        
+        $destinationPath = 'image/job'; // upload path
+        $fileName = $files->getClientOriginalName();
+        $fileExtension = '.'.$files->getClientOriginalExtension();
+        if(!$logoName)        
+            $logoName = md5($fileName.microtime()).$fileExtension;
+        $files->move($destinationPath, $logoName);    
+
+        return $logoName;
+        // return $files->store('image');
     }
 }

@@ -111,12 +111,14 @@
             </li>            
                                 
             <li class="hover-div">
+
               <a class='dropdown-button' href='#' data-activates='apply' data-beloworigin="true">  
                 <i class="fa fa-folder-open-o">
                    @if($countUserUnReadSubscription>0)<span class="badges">{{$countUserUnReadSubscription}}</span>@endif
                 </i>
               </a>
               <ul id="apply" class="dropdown-content submenu">
+
 
                 <li class="title row">
                   <p class="left">Applications</p>

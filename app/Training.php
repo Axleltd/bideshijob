@@ -21,6 +21,7 @@ class Training extends Model
         'to',
         'country',
         'user_id',
+        'image'
     ];
 
     public function company()

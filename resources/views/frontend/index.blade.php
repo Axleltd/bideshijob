@@ -83,7 +83,7 @@ Homepage
             <li class="wow fadeInUp">
               <div class="wrap row">
                 <div class="img-wrap">
-                  <img src="{{asset('image/'.$jo->company->logo)}}" alt="">
+                  <img src="{{asset('image/job/'.$jo->image)}}" alt="">
                 </div>
                 <div class="text-wrap">
                   <h5>{{$jo->title}}</h5>
@@ -147,7 +147,7 @@ Homepage
             <li class="s12 m6 l4 col wow fadeInUp" data-wow-delay='{{$d}}s'>
               <div class="wrap">
                 <div class="img-wrap">
-                  <img src="{{asset('image/'.$tr->company->logo)}}" alt="">
+                  <img src="{{asset('image/training/'.$tr->image)}}" alt="">
                 </div>
                 <div class="text-wrap">
                   <h5>{{$tr->title}}</h5>

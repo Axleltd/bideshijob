@@ -84,7 +84,7 @@
 			              <div class="wrap row">
 			                <div class="img-wrap">
 			                @if($job->company !== null)
-			                  <img src="{{asset('image/'.$job->company->logo)}}" alt="">
+			                  <img src="{{asset('image/job/'.$job->image)}}" alt="">
 			                @endif
 			                </div>
 			                <div class="text-wrap">

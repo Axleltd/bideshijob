@@ -19,7 +19,7 @@
 			<li class="col s12 m6">
 				<div class="card">
 					<div class="card-image">
-						<img src="{{asset('image/'.$training->company->logo)}}" alt="">
+						<img src="{{asset('image/training/'.$training->image)}}" alt="">
 					</div>
 					<span class="card-title">
 						<a href="{{url('company/'.$training->company_id.'/training/'.$training->id)}}">{{$training->title}}</a>
