@@ -17,8 +17,7 @@
     <link rel="stylesheet" href="{{asset('stylesheets/admin.css')}}">
     
 </head>
-<body>   
-  
+<body>     
     <div id="app" class="Dashboard row">          
         <header class="header">
 
@@ -102,7 +101,7 @@
                   @foreach($messages as $message)
                       
                     <li>                        
-                      <a href="#" class="{{($message->seen) ? 'read':'notread'}}">You Have Received Message From {{$message->name}}</a>
+                      <a href="/dashboard/messages" class="{{($message->seen) ? 'read':'notread'}}">You Have Received Message From {{$message->name}}</a>
                     </li>
 
                   @endforeach                
@@ -114,10 +113,11 @@
             <li class="hover-div">
               <a class='dropdown-button' href='#' data-activates='apply' data-beloworigin="true">  
                 <i class="fa fa-folder-open-o">
-                  @if($countUserSubscription>0)<span class="badges">{{$countUserSubscription}}</span>@endif
+                   @if($countUserUnReadSubscription>0)<span class="badges">{{$countUserUnReadSubscription}}</span>@endif
                 </i>
               </a>
               <ul id="apply" class="dropdown-content submenu">
+
                 <li class="title row">
                   <p class="left">Applications</p>
                   <a href="/dashboard/user-subscription" class="right">View all</a>
