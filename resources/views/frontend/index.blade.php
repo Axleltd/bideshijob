@@ -10,7 +10,7 @@ Homepage
 <div class="page-wrap">
   <section class="banner">
     <div class="bg-div">
-      <div class="particle-div"></div>
+      <div class="particles-div"></div>
     </div>
     <div class="content-div">
       <div class="search-box wow fadeIn">

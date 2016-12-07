@@ -253,12 +253,19 @@ a.h5 {
 
 
 header.header {
-	background: #fff;
-	position: relative;
+	background: $t;
+	position: absolute;
 	height: 14vh;
 	min-height: 90px;
 	padding: 0 $side-gutter;
+	z-index: 9999;
 	box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+
+	.wrap {
+		height: 14vh;
+		position: relative;
+		width: 100vw;
+	}
 	.logo-div {
 		padding: 7px 0;
 		float: left;
@@ -363,20 +370,24 @@ header.header {
 
 section.banner {
 	width: 100vw;
-	min-height: 86vh;
+	height: 100vh;
 	position: relative;
 
 	.bg-div {
-		height: 86vh;
+		height: 100vh;
 		position: absolute;
 		width: 100vw;
-		background: url('../images/banner.png') no-repeat;
+		background: url('../images/banner-bg.png') no-repeat;
 		background-size: 100% 100%;
 		z-index: 99;
 
-		.particle-div {
+		.particles-div {
+			background: url('../images/people.png') no-repeat;
+			background-size: 80% 100%;
 			position: absolute;
-			height: 86vh;
+			height: 60vh;
+			background-position: center bottom;
+			bottom: 0;
 			width: 100vw;z-index: 9999;
 			// background: rgba(0, 0, 0, 0.5);
 		}
@@ -386,8 +397,9 @@ section.banner {
 		position: absolute;
 		width: 100vw;
 		height: 86vh;
-		background: rgba(0, 0, 0, 0.7);
-		z-index: 99999;
+		bottom: 0;
+		background: rgba(0, 0, 0, 0.5);
+		z-index: 999;
 		overflow-y: scroll;
 
 		.search-box {
@@ -703,11 +715,12 @@ section.all-lists {
 }
 
 .page-inside {
+	padding-top: 14vh;
 
 	nav {
 		background-color: $t !important;
 		position: absolute;
-		// top: 40???vh;
+		box-shadow: none;
 
 		a {
 			font-size: 14px;
