@@ -33,6 +33,24 @@
                             <p>Training Time: {{$training->from}}-{{$training->to}}</p>
                             <p>Fees: {{$training->fees}}</p>    
                             <p>Categories: {{$training->categories}}</p>                            
+
+
+                        </div>
+                        <div class="s12 m4 col">
+                            <div class="company-wrap row">
+                                <div class="img-wrap">
+                                    <img src="{{asset('image/'.$training->company->logo)}}" alt="">
+                                </div>
+                                <div class="text-wrap">
+                                    <h5><a href="#">{{$training->company->name}}</a></h5>
+                                    @if($training->company->contacts !== null)
+                                        <p>Address: {{$training->company->contacts->address}}</p>
+                                    @endif
+                                    <a href="{{ url('/company/'.$training->company->slug)}}" class="right">View more</a>
+                                </div>  
+                            </div>
+
+
                         </div>
                     </div>
                     <div class="row description">

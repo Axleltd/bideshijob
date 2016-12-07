@@ -31,3 +31,37 @@ $factory->define(App\Post::class, function (Faker\Generator $faker) {
         'user_id' => 1
     ];
 });
+$factory->define(App\Company::class, function (Faker\Generator $faker) {
+    return [
+        'user_id' => 1,
+        'name' => $faker->name,
+        'slug' => $faker->slug,
+        'logo' => 'no-image.png',
+        'description' => $faker->text,
+        'status' => 1,
+        'featured' => 0,
+    ];
+});
+$factory->define(App\Job::class, function (Faker\Generator $faker) {
+    return [
+
+    "user_id" => 1,
+    "company_id" => 1,
+    "slug" => $faker->slug,
+    "title" => $faker->title,
+    "categories" => 1,
+    "about_job" => $faker->text,
+    "description" => $faker->text,
+    "facilities" => $faker->title,
+    "country" => $faker->country,
+    "duties" => $faker->text,
+    "salary" => $faker->year,
+    "cost" => $faker->year,
+    "overtime" => $faker->year,
+    "quantity" => $faker->year,
+    "duty_hours" => $faker->year,
+    "featured" => 0,
+    "requirement" => $faker->text,
+       
+    ];
+});

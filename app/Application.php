@@ -13,4 +13,8 @@ class Application extends Model
 			'file',
 			'contact',			
 			];
+	public function applicable()
+	{
+		return $this->morphsTo();
+	}
 }

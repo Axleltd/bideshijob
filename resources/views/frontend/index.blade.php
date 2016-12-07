@@ -112,11 +112,12 @@ Homepage
                 <div class="modal-content">
                   <h3>Apply for {{$jo->title}}</h3>
                   {!! Form::open([
-                    'action' => '\App\Http\Controllers\ApplicationController@store',
+                    'action' => ['\App\Http\Controllers\ApplicationController@store', $jo->id],
                      'method'=>'post','files' => true]) !!}
                       <input type="text" name="full_name" placeholder="Full Name">
                       <input type="text"  name="email" placeholder="email">
                       <input type="text" name="contact" placeholder="Contact number">
+                      <input type="hidden" name="apply" value="job">
                       <div class="file-field input-field">
                         <div class="btn">
                           <span>Upload CV</span>
@@ -151,9 +152,11 @@ Homepage
                 </div>
                 <div class="text-wrap">
                   <h5>{{$tr->title}}</h5>
-                  <p><i class="fa fa-globe"></i>{{$tr->company->contacts->address}}</p>
+                  @if($tr->company->contacts)
+                    <p><i class="fa fa-globe"></i>{{$tr->company->contacts->address}}</p>
+                  @endif
                   <p><i class="fa fa-time"></i>Duration</p>
-                  <p>{{$tr->description}}</p>
+                  <p>{{$tr->description}}</p>                  
                   <a href="{{ url('company/'.$tr->company->slug.'/training/'.$tr->slug)}}" class="right">More info</a>
                 </div>
               </div>

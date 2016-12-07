@@ -23,6 +23,7 @@ class Training extends Model
         'user_id',
         'image'
     ];
+    protected $with = ['company'];
 
     public function company()
     {      	
@@ -34,7 +35,11 @@ class Training extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
-    }   
+    } 
+    public function application()
+    {
+        return $this->morphMany(Application::class, "applicable");
+    }
 
     public function user()
     {

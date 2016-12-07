@@ -42,6 +42,11 @@ class Job extends Model
 	{
 		return $this->belongsTo(Company::class,"company_id");
 	}
+	
+	public function application()
+	{
+		return $this->morphMany(Application::class, "applicable");
+	}
 
 	public function getSlugOptions() : SlugOptions
     {
