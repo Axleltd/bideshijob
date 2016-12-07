@@ -21,7 +21,8 @@
     <div id="app">
         
         <header class="header">
-          <div class="logo-div">
+          <div class="wrap">
+            <div class="logo-div">
             <a href="/"><img src="{{asset('images/logo.png')}}" alt=""></a>
             <div class="nav-toggle">
               <i class="ti-menu"></i>
@@ -46,7 +47,6 @@
                 <li class="@if(app()->getLocale() == 'np' )active @endif"><a href="/locale/np"><img src="{{asset('images/np.png')}}" alt=""></a></li>
               </ul>
             </li>
-            {{-- <li><a href="/login">login</a></li> --}}
           </ul>
           <ul class="nav">
 
@@ -58,6 +58,7 @@
             <li class="{{Request::url()==url('/faq') ? 'active' : null}}"><a href="/faq">@lang('site.faq')</a></li>
             <li class="{{Request::url()==url('/contact') ? 'active' : null}}"><a href="/contact">@lang('site.contact')</a></li>
           </ul>
+          </div>
         </header>
         <div class="page-wrap">
             
