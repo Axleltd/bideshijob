@@ -129,7 +129,15 @@
                   @foreach($user_subscription as $user)
                       
                     <li>                        
-                      <a href="{{ url('/dashboard/user-subscription')}}" class="">Apply From {{$user->full_name}}</a>
+                      <a href="{{ url('/dashboard/user-subscription')}}" class="">Apply
+                          @if($user->applicable_type =='App\\Job') 
+                              For Job
+                          @elseif($user->applicable_type =='App\\Training')
+                            For Training  
+                          @endif
+                          From {{$user->full_name}}
+                          
+                      </a>
                     </li>
 
                   @endforeach
