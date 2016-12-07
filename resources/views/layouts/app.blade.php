@@ -49,13 +49,13 @@
             {{-- <li><a href="/login">login</a></li> --}}
           </ul>
           <ul class="nav">
-            <li><a href="/">@lang('site.home')</a></li>
-            <li><a href="/about">@lang('site.about')</a></li>
-            <li><a href="/jobs">@lang('site.jobs')</a></li>
-            <li><a href="/training">@lang('site.training')</a></li>
-            <li><a href="/company">@lang('site.agencies')</a></li>
-            <li><a href="/faq">@lang('site.faq')</a></li>
-            <li><a href="/contact">@lang('site.contact')</a></li>
+            <li><a href="/">@lang('site.home')</a></li>            
+            <li class="{{Request::url()==url('/about') ? 'active' : null}}"><a href="/about">@lang('site.about')</a></li>
+            <li class="{{Request::url()==url('/jobs') ? 'active' : null}}"><a href="/jobs">@lang('site.jobs')</a></li>
+            <li class="{{Request::url()==url('/training') ? 'active' : null}}"><a href="/training">@lang('site.training')</a></li>
+            <li class="{{Request::url()==url('/company') ? 'active' : null}}"><a href="/company">@lang('site.agencies')</a></li>
+            <li class="{{Request::url()==url('/faq') ? 'active' : null}}"><a href="/faq">@lang('site.faq')</a></li>
+            <li class="{{Request::url()==url('/contact') ? 'active' : null}}"><a href="/contact">@lang('site.contact')</a></li>
           </ul>
         </header>
         <div class="page-wrap">
