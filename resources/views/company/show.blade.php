@@ -2,6 +2,17 @@
 
 @section('content')
     <div class="page-inside page-single">
+        <div class="banner">
+            <div class="wrap">
+                <h3>{{ $company->name }}</h3>
+
+                <ul class="social">
+                  <li><a href="https://facebook/itachi9841"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="https://twitter/itachi9841"><i class="fa fa-twitter"></i></a></li>
+                </ul>
+          </div>
+
+        </div>
         <section class="row  page-company">
              
             <div class="wrap row">
@@ -12,17 +23,17 @@
                     </div>
                 </div>
                 <div class="col s12 m6 desc">
-                    <div class="section-title row">                    
+                    {{-- <div class="section-title row">                    
                         <h3>{{ $company->name }}</h3>      
-                    </div>
+                    </div> --}}
                     <div class="row">
-                      <div class="col s12 m6">
+                      <div class="col s12">
                         <p><i class="fa fa-map"></i> Address: company address</p>
                       </div>
-                      <div class="col s12 m6">
+                      <div class="col s12">
                         <p><i class="fa fa-envelope"></i> Email: company address</p>
                       </div>
-                      <div class="col s12 m6">
+                      <div class="col s12">
                         <p><i class="fa fa-phone"></i> Contact number: 984652165</p>
                       </div>
                     </div>
