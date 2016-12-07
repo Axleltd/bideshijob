@@ -244,10 +244,10 @@ h1, h2, h3, h4, h5, h6 {
   position: absolute;
   z-index: 99999;
   margin: 0;
-  display: none;
   padding: 10px;
   right: 3%;
-  width: 14%;
+  left: auto !important;
+  width: 14% !important;
   background: #fff;
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
   -webkit-transition: all 0.5 linear;
@@ -330,9 +330,9 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid #ccc;
   position: absolute;
   margin: 0;
-  display: none;
   z-index: 999999;
   padding: 10px 0;
+  width: 25% !important;
   background: #fff;
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
   -webkit-transition: all 0.5 linear;
@@ -387,16 +387,25 @@ h1, h2, h3, h4, h5, h6 {
   color: #44549b;
   background: transparent;
 }
-/* line 219, ../sass/admin.scss */
+/* line 220, ../sass/admin.scss */
 .Dashboard header .hover-div i {
   color: #5a5a5a;
   cursor: pointer;
 }
-/* line 223, ../sass/admin.scss */
+/* line 224, ../sass/admin.scss */
 .Dashboard header .hover-div i:hover {
   color: #7f8ed1;
 }
-/* line 232, ../sass/admin.scss */
+/* line 230, ../sass/admin.scss */
+.Dashboard header .dropdown-content {
+  top: 40px !important;
+}
+/* line 234, ../sass/admin.scss */
+.Dashboard header .dropdown-button.active i {
+  color: #7f8ed1;
+  font-weight: bold;
+}
+/* line 242, ../sass/admin.scss */
 .Dashboard header.show .left-nav {
   margin-left: 0;
   -webkit-transition: all 0.5s linear;
@@ -405,7 +414,7 @@ h1, h2, h3, h4, h5, h6 {
   -o-transition: all 0.5s linear;
   transition: all 0.5s linear;
 }
-/* line 238, ../sass/admin.scss */
+/* line 248, ../sass/admin.scss */
 .Dashboard .sidenav {
   width: 20%;
   float: left;
@@ -422,42 +431,42 @@ h1, h2, h3, h4, h5, h6 {
   -o-transition: transform 0.5s linear;
   transition: transform 0.5s linear;
 }
-/* line 252, ../sass/admin.scss */
+/* line 262, ../sass/admin.scss */
 .Dashboard .sidenav .logo-div {
   padding: 20px;
   padding-left: 40px;
   position: relative;
 }
-/* line 257, ../sass/admin.scss */
+/* line 267, ../sass/admin.scss */
 .Dashboard .sidenav .logo-div a {
   overflow: hidden;
 }
-/* line 260, ../sass/admin.scss */
+/* line 270, ../sass/admin.scss */
 .Dashboard .sidenav .logo-div a img {
   width: 200px;
 }
-/* line 265, ../sass/admin.scss */
+/* line 275, ../sass/admin.scss */
 .Dashboard .sidenav .logo-div .nav-toggle {
   position: absolute;
   right: -40px;
   top: 8px;
 }
-/* line 270, ../sass/admin.scss */
+/* line 280, ../sass/admin.scss */
 .Dashboard .sidenav .logo-div .nav-toggle i {
   font-size: 22px;
   padding-top: 10px;
   color: #5a5a5a;
   cursor: pointer;
 }
-/* line 279, ../sass/admin.scss */
+/* line 289, ../sass/admin.scss */
 .Dashboard .sidenav ul.navs {
   padding: 5px;
 }
-/* line 281, ../sass/admin.scss */
+/* line 291, ../sass/admin.scss */
 .Dashboard .sidenav ul.navs li {
   overflow: hidden;
 }
-/* line 283, ../sass/admin.scss */
+/* line 293, ../sass/admin.scss */
 .Dashboard .sidenav ul.navs li a {
   display: block;
   padding: 5px 30px;
@@ -470,16 +479,16 @@ h1, h2, h3, h4, h5, h6 {
   -o-transition: all 0.5s linear;
   transition: all 0.5s linear;
 }
-/* line 291, ../sass/admin.scss */
+/* line 301, ../sass/admin.scss */
 .Dashboard .sidenav ul.navs li a:hover {
   background: #5a5a5a;
   color: #fff;
 }
-/* line 296, ../sass/admin.scss */
+/* line 306, ../sass/admin.scss */
 .Dashboard .sidenav ul.navs li a i {
   margin-right: 10px;
 }
-/* line 301, ../sass/admin.scss */
+/* line 311, ../sass/admin.scss */
 .Dashboard .sidenav ul.navs li ul.submenu {
   margin-left: 40px;
   border-left: 1px solid #ccc;
@@ -490,19 +499,19 @@ h1, h2, h3, h4, h5, h6 {
   -o-transition: height 0.5s linear;
   transition: height 0.5s linear;
 }
-/* line 305, ../sass/admin.scss */
+/* line 315, ../sass/admin.scss */
 .Dashboard .sidenav ul.navs li ul.submenu a {
   padding: 5px 10px;
 }
-/* line 312, ../sass/admin.scss */
+/* line 322, ../sass/admin.scss */
 .Dashboard .sidenav ul.navs li:hover ul.submenu {
   height: 105px;
 }
-/* line 318, ../sass/admin.scss */
+/* line 328, ../sass/admin.scss */
 .Dashboard .sidenav ul.navs li.sites:hover ul.submenu {
   height: 175px;
 }
-/* line 327, ../sass/admin.scss */
+/* line 337, ../sass/admin.scss */
 .Dashboard .sidenav.show {
   transform: translateX(-100%);
   -webkit-transition: transform 0.5s linear;
@@ -511,7 +520,7 @@ h1, h2, h3, h4, h5, h6 {
   -o-transition: transform 0.5s linear;
   transition: transform 0.5s linear;
 }
-/* line 332, ../sass/admin.scss */
+/* line 342, ../sass/admin.scss */
 .Dashboard .page-wrap {
   width: 80%;
   float: right;
@@ -523,116 +532,116 @@ h1, h2, h3, h4, h5, h6 {
   -o-transition: width 0.5s linear;
   transition: width 0.5s linear;
 }
-/* line 339, ../sass/admin.scss */
+/* line 349, ../sass/admin.scss */
 .Dashboard .page-wrap .btn {
   background-color: #7f8ed1;
 }
-/* line 342, ../sass/admin.scss */
+/* line 352, ../sass/admin.scss */
 .Dashboard .page-wrap .btn:hover {
   background-color: #44549b;
 }
-/* line 347, ../sass/admin.scss */
+/* line 357, ../sass/admin.scss */
 .Dashboard .page-wrap a.btn {
   background-color: #7f8ed1;
 }
-/* line 350, ../sass/admin.scss */
+/* line 360, ../sass/admin.scss */
 .Dashboard .page-wrap a.btn:hover {
   background-color: #44549b;
 }
-/* line 356, ../sass/admin.scss */
+/* line 366, ../sass/admin.scss */
 .Dashboard .page-wrap .section-title h3 {
   font-size: 32px;
   font-family: "roboto slab", sans-serif;
   color: #5a5a5a;
 }
-/* line 361, ../sass/admin.scss */
+/* line 371, ../sass/admin.scss */
 .Dashboard .page-wrap .section-title p {
   margin-bottom: 0;
 }
-/* line 366, ../sass/admin.scss */
+/* line 376, ../sass/admin.scss */
 .Dashboard .page-wrap .section-title ul.bread-crumb li {
   display: inline-block;
 }
-/* line 369, ../sass/admin.scss */
+/* line 379, ../sass/admin.scss */
 .Dashboard .page-wrap .section-title ul.bread-crumb li a {
   display: block;
   margin-right: 10px;
   padding-left: 10px;
   color: #5a5a5a;
 }
-/* line 375, ../sass/admin.scss */
+/* line 385, ../sass/admin.scss */
 .Dashboard .page-wrap .section-title ul.bread-crumb li a:hover {
   color: #7f8ed1;
 }
-/* line 382, ../sass/admin.scss */
+/* line 392, ../sass/admin.scss */
 .Dashboard .page-wrap .section-title ul.bread-crumb li:last-child a {
   color: #aaa;
 }
-/* line 390, ../sass/admin.scss */
+/* line 400, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content {
   border-top: 1px solid #ddd;
   margin-top: 35px;
   padding-top: 35px;
 }
-/* line 394, ../sass/admin.scss */
+/* line 404, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content h5 {
   font-size: 22px;
   font-family: "roboto slab", sans-serif;
   color: #5a5a5a;
   margin-top: 0;
 }
-/* line 403, ../sass/admin.scss */
+/* line 413, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card {
   border: 1px solid #ccc;
   margin-bottom: 30px;
 }
-/* line 406, ../sass/admin.scss */
+/* line 416, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-title {
   padding: 15px;
   margin-bottom: 15px;
   display: block;
 }
-/* line 410, ../sass/admin.scss */
+/* line 420, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-title a {
   color: #5a5a5a;
 }
-/* line 413, ../sass/admin.scss */
+/* line 423, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-title a:hover {
   color: #7f8ed1;
 }
-/* line 418, ../sass/admin.scss */
+/* line 428, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card p {
   margin: 0;
   padding: 0 15px;
 }
-/* line 422, ../sass/admin.scss */
+/* line 432, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-action {
   margin-top: 20px;
 }
-/* line 425, ../sass/admin.scss */
+/* line 435, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-action a {
   color: #7f8ed1;
   margin-left: 20px;
 }
-/* line 429, ../sass/admin.scss */
+/* line 439, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-action a:hover {
   color: #44549b !important;
 }
-/* line 435, ../sass/admin.scss */
+/* line 445, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-reveal {
   padding: 0;
   overflow: hidden;
 }
-/* line 439, ../sass/admin.scss */
+/* line 449, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-reveal .btn {
   margin: 5px 20px;
 }
-/* line 444, ../sass/admin.scss */
+/* line 454, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .material-icons {
   margin-top: 10px;
   cursor: pointer;
 }
-/* line 452, ../sass/admin.scss */
+/* line 462, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form input {
   border: 1px solid #aaa;
   font-size: 18px;
@@ -640,84 +649,84 @@ h1, h2, h3, h4, h5, h6 {
   height: 35px;
   border-radius: 5px;
 }
-/* line 459, ../sass/admin.scss */
+/* line 469, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form textarea {
   font-size: 18px;
   height: 135px;
   border-radius: 5px;
 }
-/* line 464, ../sass/admin.scss */
+/* line 474, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form button {
   float: right;
   background-color: #7f8ed1;
 }
-/* line 468, ../sass/admin.scss */
+/* line 478, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form button:hover {
   background-color: #44549b;
 }
-/* line 472, ../sass/admin.scss */
+/* line 482, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .btn {
   float: left;
   background-color: #7f8ed1;
 }
-/* line 476, ../sass/admin.scss */
+/* line 486, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .btn:hover {
   background-color: #44549b;
 }
-/* line 482, ../sass/admin.scss */
+/* line 492, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .alert {
   color: red;
 }
-/* line 486, ../sass/admin.scss */
+/* line 496, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .controls {
   width: 275px;
   height: 150px;
   overflow: hidden;
   margin-bottom: 15px;
 }
-/* line 492, ../sass/admin.scss */
+/* line 502, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .controls img {
   width: 275px;
   height: 150px;
 }
-/* line 497, ../sass/admin.scss */
+/* line 507, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .logo {
   position: relative;
 }
-/* line 500, ../sass/admin.scss */
+/* line 510, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .logo .file-field {
   position: absolute;
   top: 35%;
   left: 20%;
 }
-/* line 509, ../sass/admin.scss */
+/* line 519, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info p, .Dashboard .page-wrap .section-content .user p {
   font-size: 18px;
   font-family: "Open Sans", sans-serif;
   color: #5a5a5a;
 }
-/* line 514, ../sass/admin.scss */
+/* line 524, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info p a, .Dashboard .page-wrap .section-content .user p a {
   color: #8c8c8c !important;
 }
-/* line 517, ../sass/admin.scss */
+/* line 527, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info p a:hover, .Dashboard .page-wrap .section-content .user p a:hover {
   color: #5a5a5a !important;
 }
-/* line 524, ../sass/admin.scss */
+/* line 534, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info a, .Dashboard .page-wrap .section-content .user a {
   font-size: 18px;
   color: #8c8c8c !important;
 }
-/* line 528, ../sass/admin.scss */
+/* line 538, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info a:hover, .Dashboard .page-wrap .section-content .user a:hover {
   color: #5a5a5a !important;
 }
-/* line 535, ../sass/admin.scss */
+/* line 545, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info img, .Dashboard .page-wrap .section-content .user img {
   max-width: 250px;
 }
-/* line 544, ../sass/admin.scss */
+/* line 554, ../sass/admin.scss */
 .Dashboard .page-wrap.show {
   width: 100%;
   -webkit-transition: width 0.5s linear;

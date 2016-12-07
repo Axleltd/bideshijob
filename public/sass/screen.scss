@@ -121,6 +121,40 @@ a.h5 {
 	}
 }
 
+.page-404 {
+
+	.center-div {
+		// position: absolute;
+		width: 600px;
+		margin: 25vh auto 0;
+		text-align: center;
+
+		h1 {
+			color: $primary-color;
+			font-family: $title-font;
+		}
+
+		.row {
+			margin-top: 50px;
+
+			a {
+				font-size: 18px;
+				
+			}
+		}
+
+		a {
+			color: $primary-color;
+
+			&:hover {
+				color: $alternate-color;
+				text-decoration: underline;
+			}
+		}
+
+	}
+}
+
 .login-page {
 	position: relative;
 	min-height: 86vh;
@@ -129,7 +163,7 @@ a.h5 {
 		position: absolute;
 		left: 0;
 		right: 0;
-		width: 150px;
+		width: 260px;
 		margin: auto;
 	}
 
@@ -685,7 +719,7 @@ section.all-lists {
 		background: url('../images/banner.png');
 
 		.wrap {
-			padding-top: 15vh;
+			padding-top: 13vh;
 			background: rgba(0, 0, 0, 0.8);
 			height: 100%;
 		}
@@ -728,6 +762,26 @@ section.all-lists {
 		h3 {
 			text-align: center;
 			color: #fff;
+		}
+
+		ul.social {
+			text-align: center;
+			margin-top: 35px;
+
+			li {
+				display: inline-block;
+				a {
+					color: #fff;
+					font-size: 22px;
+					display: block;
+					width: 50px;
+					margin: 0 5px;
+
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
 		}
 	}
 
@@ -879,6 +933,12 @@ a.btn {
 		}
 	}
 
+}
+
+.page-faq {
+	.faqs {
+		padding: 100px 0;
+	}
 }
 
 

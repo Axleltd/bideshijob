@@ -49,6 +49,7 @@
             {{-- <li><a href="/login">login</a></li> --}}
           </ul>
           <ul class="nav">
+
             <li><a href="/">@lang('site.home')</a></li>            
             <li class="{{Request::url()==url('/about') ? 'active' : null}}"><a href="/about">@lang('site.about')</a></li>
             <li class="{{Request::url()==url('/jobs') ? 'active' : null}}"><a href="/jobs">@lang('site.jobs')</a></li>
@@ -86,9 +87,8 @@
             <div class="s12 m4 col">
               <h5>Help & support</h5>
               <li><a href="/faq">FAQ</a></li>
-              <li><a href="/faq">FAQ</a></li>
-              <li><a href="/faq">FAQ</a></li>
-              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/faq">Help and support</a></li>
+              <li><a href="/faq">terms and conditions</a></li>
             </div>
             <div class="s12 m4 col">
               <h5>Follow Us</h5>
