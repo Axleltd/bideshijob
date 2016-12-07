@@ -23,15 +23,26 @@
         <header class="header">
 
           <ul class="left-nav">
+           {{-- <a class='dropdown-button btn' href='#' data-activates='dropdown1' data-beloworigin="true">Drop Me!</a>
+
+            <ul id='dropdown1' class='dropdown-content'>
+              <li><a href="#!">one</a></li>
+              <li><a href="#!">two</a></li>
+              <li class="divider"></li>
+              <li><a href="#!">three</a></li>
+            </ul> --}}
+        
 
             <li class="hover-div">
               @if(count($notifications)>0 && isset($notifications))                
-              <i class="fa fa-bell-o">
-                @if($countUserUnRead>0)<span class="badges">{{$countUserUnRead}}</span>@endif
-              </i>
+              <a class='dropdown-button' href='#' data-activates='noti' data-beloworigin="true">
+                <i class="fa fa-bell-o" > @if($countUserUnRead>0)<span class="badges">{{$countUserUnRead}}</span>@endif</i>                
+              
+              </a>
+               
 
 
-              <ul class="submenu">
+              <ul id='noti' class="dropdown-content submenu">
                 <li class="title row">
                   <p class="left">Notification</p>
                   <a href="/profile/notification" class="right">View all</a>
@@ -48,12 +59,15 @@
               </ul>
               @endif 
             </li>
+
              @if(Shinobi::isRole('admin'))
             <li class="hover-div">
-              <i class="fa fa-bell-o">                
-                @if($adminCountUnRead>0)<span class="badges">{{$adminCountUnRead}}</span>@endif
-              </i>
-              <ul class="submenu">
+              <a class='dropdown-button' href='#' data-activates='admin-noti' data-beloworigin="true">
+                  <i class="fa fa-bell-o">                
+                    @if($adminCountUnRead>0)<span class="badges">{{$adminCountUnRead}}</span>@endif
+                  </i>
+              </a>
+              <ul id='admin-noti' class="dropdown-content submenu">
                 <li class="title row">
                   <p class="left">Notification</p>
                   <a href="/dashboard/all-notification" class="right">View all</a>
@@ -73,11 +87,13 @@
                 
               </ul>
             </li>                                      
-            <li class="hover-div">              
-              <i class="fa fa-envelope-o">
-                @if($messageCount>0)<span class="badges">{{$messageCount}}</span>@endif
-              </i>
-              <ul class="submenu">
+            <li class="hover-div">       
+               <a class='dropdown-button' href='#' data-activates='mess' data-beloworigin="true">    
+                  <i class="fa fa-envelope-o">
+                    @if($messageCount>0)<span class="badges">{{$messageCount}}</span>@endif
+                  </i>
+                </a>
+              <ul id='mess' class="dropdown-content submenu">
                 <li class="title row">
                   <p class="left">Messages</p>
                   <a href="/dashboard/messages" class="right">View all</a>
@@ -96,10 +112,12 @@
             </li>            
                                 
             <li class="hover-div">
-              <i class="fa fa-folder-open-o">
-                @if($countUserSubscription>0)<span class="badges">{{$countUserSubscription}}</span>@endif
-              </i>
-              <ul class="submenu">
+              <a class='dropdown-button' href='#' data-activates='apply' data-beloworigin="true">  
+                <i class="fa fa-folder-open-o">
+                  @if($countUserSubscription>0)<span class="badges">{{$countUserSubscription}}</span>@endif
+                </i>
+              </a>
+              <ul id="apply" class="dropdown-content submenu">
                 <li class="title row">
                   <p class="left">Applications</p>
                   <a href="/dashboard/user-subscription" class="right">View all</a>
@@ -122,8 +140,10 @@
 
           <div class="right-nav">
             <div class="hover-div">
-              <i class="fa fa-user"></i>
-              <ul class="user-info submenu">
+              <a class='dropdown-button' href='#' data-activates='use' data-beloworigin="true">  
+                <i class="fa fa-user"></i>
+              </a>
+              <ul id="use" class="dropdown-content user-info">
                 <li class="img"><img src="#" alt=""></li>
                 <li><a href="/profile/user" class="name">{{Auth::user()->name}}</a></li>
                 @if(isset($profile))

@@ -86,10 +86,10 @@ h1, h2, h3, h4, h5, h6 {
                 position: absolute;
                 z-index: 99999;
                 margin: 0;
-                display: none;
                 padding: 10px;
                 right: 3%;
-                width: 14%;
+                left: auto !important;
+                width: 14% !important;
                 background: $main-color;
                 box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
                  @include vendor(transition, all 0.5 linear);
@@ -162,9 +162,9 @@ h1, h2, h3, h4, h5, h6 {
                     border: 1px solid #ccc;
                     position: absolute;
                     margin: 0;
-                    display: none;
                     z-index: 999999;
                     padding: 10px 0;
+                    width: 25% !important;
                     background: $main-color;
                     box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.5);
                     @include vendor(transition, all 0.5 linear);
@@ -215,6 +215,7 @@ h1, h2, h3, h4, h5, h6 {
             }
         }
 
+
         .hover-div {
             i {
                 color: $title-c;
@@ -224,6 +225,15 @@ h1, h2, h3, h4, h5, h6 {
                     color: $primary-color;
 
                 }
+            }
+        }
+        .dropdown-content {
+            top: 40px !important;
+        }
+        .dropdown-button.active {
+            i {
+                color: $primary-color;
+                font-weight: bold;
             }
         }
     }
