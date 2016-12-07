@@ -49,7 +49,7 @@
             {{-- <li><a href="/login">login</a></li> --}}
           </ul>
           <ul class="nav">
-            <li><a href="/">@lang('site.home')</a></li>
+            <li><a href="/">@lang('site.home') <div class="underline"></div></a></li>
             <li><a href="/about">@lang('site.about')</a></li>
             <li><a href="/jobs">@lang('site.jobs')</a></li>
             <li><a href="/training">@lang('site.training')</a></li>
