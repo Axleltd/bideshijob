@@ -37,17 +37,17 @@ class AppServiceProvider extends ServiceProvider
                 $view->with(['allNotifications'=> \Illuminate\Notifications\DatabaseNotification::where('data','LIKE','%admin%')->get(),
                                         'adminCountUnRead' => count(\Illuminate\Notifications\DatabaseNotification::where('data','LIKE','%admin%')->where('read_at',Null)->get())]);
                 $view->with(['user_subscription'=>Application::orderBy('created_at','DESC')->get(),
-                                'countUserSubscription'=>count(Application::all())]);
+                                'countUserUnReadSubscription'=>count(Application::where('read_at',null)->get())]);
                 return $view->with(['notifications'=> Auth::user()->notifications,
-                                    'countUserUnRead'=>count(Auth::user()->notifications->where('read_at',null)->where('data','LIKE','%user%'))]);
+                                    'countUserUnRead'=>count(\Illuminate\Notifications\DatabaseNotification::where('data','LIKE','%user%')->where(['read_at'=>null,'notifiable_id'=>Auth::user()->id])->get())]);
             }
-             return $view->with(['notifications'=> Auth::user()->notifications,'countUserUnRead'=>count(\Illuminate\Notifications\DatabaseNotification::where('data','LIKE','%user%')->where('read_at',Null)->get())]);
+             return $view->with(['notifications'=> Auth::user()->notifications,'countUserUnRead'=>count(\Illuminate\Notifications\DatabaseNotification::where('data','LIKE','%user%')->where(['read_at'=>null,'notifiable_id'=>Auth::user()->id])->get())]);
 
         });
 
         view()->composer('layouts.dashboard',function(View $view){
             if(Shinobi::isRole('admin')){
-                return $view->with(['messages'=>Message::all(),'messageCount'=>count(Message::all())]);
+                return $view->with(['messages'=>Message::orderBy('created_at','DESC')->get(),'messageCount'=>count(Message::where('seen',0)->get())]);
             }
         });
     }

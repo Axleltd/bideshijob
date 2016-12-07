@@ -19,6 +19,7 @@ class CreateApplicationsTable extends Migration
             $table->string('email');
             $table->string('contact');
             $table->string('file');
+            $table->timestamps('read_at')->nullable();
             $table->timestamps();
         });
     }
