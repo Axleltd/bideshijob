@@ -853,6 +853,10 @@ section.all-lists {
 		p {
 			font-size: 17px;
 			font-weight: bold;
+
+			i{
+				margin-right: 25px;
+			}
 		}
 		.company-wrap {
 			width: 70%;
@@ -897,6 +901,9 @@ section.all-lists {
 	.page-company {
 		.desc {
 			padding-left: 15px;
+			i {
+				margin-right: 5px;
+			}
 		}
 
 		section {
