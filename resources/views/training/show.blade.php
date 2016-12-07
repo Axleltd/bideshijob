@@ -4,7 +4,7 @@
     <div class="page-inside page-single">
         <div class="banner">
             <div class="wrap">
-                <h3>{{ $job->title }}</h3>
+                <h3>{{ $training->title }}</h3>
 
                 <ul class="social">
                   <li><a href="https://facebook/itachi9841"><i class="fa fa-facebook"></i></a></li>
@@ -20,7 +20,9 @@
                 <div class="section-content">
                     <div class="row">
                         <div class="s12 m6 col"> 
-                            <img src="{{asset('image/training/'.$training->image)}}" alt="">                           
+                           <div class="img-wrap">
+                                <img src="{{asset('image/training/'.$training->image)}}" alt="">   
+                           </div>                        
                             
 
                         </div>
