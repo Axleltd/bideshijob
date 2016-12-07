@@ -36,7 +36,8 @@ class PutJobRequest extends FormRequest
                 'quantity' =>'required|integer',
                 'duty_hours' =>'required|string',                
                 'requirement' =>'required|string',
-                'country' =>'required|string'
+                'country' =>'required|string',
+                'image' =>'mimes:jpg,png,jpeg'
         ];        
     }
 }

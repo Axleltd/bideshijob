@@ -27,6 +27,7 @@ class Job extends Model
 			'featured',
 			'requirement',
 			'country',
+			'image'
 		];
 
 	public function contact()

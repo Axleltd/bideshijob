@@ -18,6 +18,7 @@ class CreateJobs extends Migration
         $table->string('slug')->unique();
         $table->string('title');
         $table->string('categories');
+        $table->string('image')->nullable();
         $table->string('about_job');
         $table->string('description');        
         $table->string('facilities');        

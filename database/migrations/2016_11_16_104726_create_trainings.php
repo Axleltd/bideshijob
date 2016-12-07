@@ -20,6 +20,7 @@ class CreateTrainings extends Migration
             $table->string('slug')->unique();
             $table->text('description');
             $table->string('categories');            
+            $table->string('image')->nullable();
             $table->string('country');            
             $table->date('from');            
             $table->date('to');

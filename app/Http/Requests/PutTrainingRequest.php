@@ -31,7 +31,8 @@ class PutTrainingRequest extends FormRequest
             'training_description' =>'required|max:255|min:10',            
             'from' =>'required',            
             'to' =>'required',  
-            'country' =>'required|string'                    
+            'country' =>'required|string',
+            'image' =>'mimes:jpg,png,jpeg'                    
         ];
     }
 }

@@ -18,7 +18,7 @@
 		@include('admin._flash')
 		<div class="row">
 			
-			{!! Form::model($company, ['action'=>['\App\Http\Controllers\TrainingController@store',$company->id],'method'=>'POST']) !!}
+			{!! Form::model($company, ['action'=>['\App\Http\Controllers\TrainingController@store',$company->id],'method'=>'POST','files' => true]) !!}
 				@include('training._form')
 				<button type="submit" class="waves-effect waves-light btn">Continue</button>
 			{!! Form::close() !!}

@@ -29,7 +29,14 @@
 					<li class="col s12 m4">
 						<div class="card">
 							<div class="card-image">
-								<img src="{{asset('image/'.$job->company->logo)}}" alt="">
+								@if($job->image)
+									<img src="{{asset('image/job/'.$job->image)}}" alt=""
+									>
+								@else
+									<img src="{{asset('image/no-image.png')}}" alt=""
+									>
+								@endif
+
 							</div>
 							
 								<span class="card-title"><a href="{{url('/company/'.$job->company->slug.'/job/'.$job->slug)}}">{{$job->title}}</a></span>

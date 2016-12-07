@@ -18,6 +18,7 @@
                 <div class="section-content">
                     <div class="row">
                         <div class="s12 m8 col">
+                            <img src="{{asset('image/job/'.$job->image)}}" alt="">
                             <p>Salary: {{$job->salary}}</p>                
                             <p>Country: {{$job->country}}</p>                
                             <p>Quantity: {{$job->quantity}}</p>                
@@ -31,7 +32,7 @@
                             @if($job->featured)
                                 <div class="company-wrap row">
                                     <div class="img-wrap">
-                                        <img src="" alt="">
+                                        <img src="{{asset('image/'.$job->company->logo)}}" alt="">
                                     </div>
                                     <div class="text-wrap">                                    
                                         <h5><a href="#">{{$job->company->name}}</a></h5>

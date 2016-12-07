@@ -29,7 +29,11 @@
 					<li class="col s12 m4">
 						<div class="card">
 							<div class="card-image">
-								<img src="{{asset('image/'.$training->company->logo)}}" alt="">
+								@if($training->image)
+									<img src="{{asset('image/training/'.$training->image)}}" alt="">
+								@else
+									<img src="{{asset('image/no-image.png')}}" alt="">
+								@endif
 							</div>
 							<span class="card-title">
 								<a href="{{url('/company/'.$training->company->slug.'/training/'.$training->slug)}}">{{$training->title}}</a>

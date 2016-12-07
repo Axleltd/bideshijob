@@ -13,6 +13,41 @@
 		        </div>
 		    @endif		
 		</div>
+		<div class="col s12 m6 logo">
+
+		   	{!! Form::label('image', 'Image:', ['class' => 'control-label']) !!}
+
+		    @if(!empty($training->image))
+		        <div class="col-xs-2 thumb">
+		            <a class="logo" href="#">
+		                <img class="img-responsive" src="{{asset('image/training/'.$training->image)}}"
+		                     alt="{{$training->title}}" id="output">
+		            </a>
+		        </div>
+		    @else
+		        <div class="controls">
+		        	<img src="{{asset('image/no-image.png')}}" alt="" id="output" width="300" height="300">
+		        </div>
+		    @endif
+
+		    <div class="file-field input-field">
+		      <div class="btn">
+		        <span>Image</span>
+
+		        {!! Form::file('image', array('onchange'=>'loadFile(event)','id'=>'image')) !!}
+		       </div>
+		    </div>
+		    @if(count($errors->get('image')) > 0)
+		        <div class="alert alert-danger">
+		            <ul>
+		                @foreach($errors->get('image') as $error)
+		                    <li>{{ $error  }}</li>
+		                @endforeach
+		            </ul>
+		        </div>
+		    @endif		
+
+		</div>
 		<div class="col s12 m6">
 			{!! Form::label('training_description','Description:') !!}
 			{!! Form::textarea('training_description',(isset($training->description)? $training->description:old('training_description'))) !!}
@@ -106,3 +141,19 @@
 		    @endif		
 		</div>			 			 
 </div>
+
+
+<script>	
+  	var loadFile = function(event) {
+    var reader = new FileReader();
+    var fil=0;
+
+    reader.onload = function(){
+    	    		
+    		var output = document.getElementById('output');
+    		 output.src = reader.result;
+
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  	};
+ </script>

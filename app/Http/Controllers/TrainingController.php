@@ -12,6 +12,7 @@ use App\Profile;
 use App\User;
 use App\Notifications\NotificationPost;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Input;
 use App\Notifications\BusinessNotification;
 use Session;
 
@@ -55,6 +56,7 @@ class TrainingController extends Controller
     public function store(PostTrainingRequest $request,$companyId)
     {    
             $company = $this->company->where('id',$companyId)->first();
+            $logo = $this->fileUpload($request,null);        
             $training = $this->training->create([
             'title' => $request->title,
             'categories'=>$request->categories,
@@ -62,7 +64,8 @@ class TrainingController extends Controller
             'fees'=>$request->fees,
             'from'=>$request->from,
             'to'=>$request->to,
-            'quantity'=>$request->quantity,            
+            'quantity'=>$request->quantity, 
+            'image'=>$logo,           
             'company_id' => $companyId,
             'country' => $request->country,
             'user_id'=>Auth::user()->id,
@@ -101,12 +104,17 @@ class TrainingController extends Controller
     {  
         
         $training = $this->training->where(['slug'=>$trainingId,'user_id'=>Auth::user()->id])->first();
+        $logoName = $training->image;
+        
+        if($request->image)
+            $logoName = $this->fileUpload($request,$logoName);            
         $training_update = $training->update([
             	'title' => $request->title,
 	            'categories'=>$request->categories,
                 'description'=>$request->training_description,
 	            'fees'=>$request->fees,
 	            'quantity'=>$request->quantity,
+                'image'=>$logoName,
                 'from'=>$request->from,
                 'to'=>$request->to,
                 'country' => $request->country,
@@ -140,7 +148,20 @@ class TrainingController extends Controller
             return redirect('profile/training');
         }
         return abort(404);
+    }
 
+    public function fileUpload(Request $request,$logoName)
+    {
+        $files=Input::file('image');        
+        $destinationPath = 'image/training'; // upload path
+        $fileName = $files->getClientOriginalName();
+        $fileExtension = '.'.$files->getClientOriginalExtension();
+        if(!$logoName)        
+            $logoName = md5($fileName.microtime()).$fileExtension;
+        $files->move($destinationPath, $logoName);    
+
+        return $logoName;
+        // return $files->store('image');
     }
    
 }

@@ -36,7 +36,8 @@ class PostJobRequest extends FormRequest
                 'quantity' =>'required|integer',
                 'duty_hours' =>'required|string',                
                 'requirement' =>'required|string',
-                'country' =>'required|string'
+                'country' =>'required|string',
+                'image' => 'required|mimes:jpg,png,jpeg'
         ];
     }
 }

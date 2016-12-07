@@ -13,7 +13,8 @@
                 </div>            
                 <div class="section-content">
                     <div class="row">
-                        <div class="s12 m8 col">                            
+                        <div class="s12 m8 col"> 
+                            <img src="{{asset('image/training/'.$training->image)}}" alt="">                           
                             <p>Country: {{$training->country}}</p>                
                             <p>Quantity: {{$training->quantity}}</p>                                                                        
                             <p>Training Time: {{$training->from}}-{{$training->to}}</p>
@@ -24,7 +25,7 @@
                         <div class="s12 m4 col">
                             <div class="company-wrap row">
                                 <div class="img-wrap">
-                                    <img src="" alt="">
+                                    <img src="{{asset('image/'.$training->company->logo)}}" alt="">
                                 </div>
                                 <div class="text-wrap">
                                     <h5><a href="#">{{$training->company->name}}</a></h5>
