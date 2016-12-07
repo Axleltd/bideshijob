@@ -11,7 +11,7 @@ class ContactController extends Controller
 
     public function create($slug)
     {
-        $job = Job::with('contact')->findOrFail($slug);
+        $job = Job::with('contact')->where('slug',$slug)->first();
         if($job->contact !==null && $job->contact->count() > 0)
         {
             return redirect('jobs/'.$slug.'/contact/'.$job->contact->id.'/edit'); 
@@ -25,7 +25,7 @@ class ContactController extends Controller
     	$job = Job::with(['contact'=>function($query){
             return $query->with('socialMedia');
 
-        }])->findOrFail($slug);
+        }])->where('slug',$slug)->first();
 
         return view('contact.index',compact('job','slug','id'));
 
@@ -34,7 +34,7 @@ class ContactController extends Controller
     public function store(Request $request, $slug)
     {
         #Creating the contact for the job[This sets away the hassle]
-    	$job = Job::findOrFail($slug)->contact()->create([
+    	$job = Job::where('slug',$slug)->first()->contact()->create([
     		## Insert contact data-here
                 'email' => $request->email,
                 'address' => $request->address,
@@ -69,7 +69,7 @@ class ContactController extends Controller
         $job = Job::with([
             'contact'=>function($query) use ($id){
                 return $query->findOrFail($id);
-            }])->findOrFail($slug);
+            }])->where('slug',$slug)->first();
 
         return view('contact.edit',compact('job','slug','id'));
     }
@@ -78,14 +78,14 @@ class ContactController extends Controller
     	
     	$job = Job::with(['contact'=>function($query) use ($id){
             return $query->findOrFail($id);
-        }])->findOrFail($slug);
+        }])->where('slug',$slug)->first();
     	return view('contact.edit',compact('job','slug','id'));
     }
 
     public function update(Request $request,$slug,$id)
     {
         ##Updating the contact
-    	$job = Job::findOrFail($slug)->contact()->update([
+    	$job = Job::where('slug',$slug)->first()->contact()->update([
     			'email' => $request->email,
                 'address' => $request->address,
                 'website_link' => $request->website_link,
@@ -93,7 +93,8 @@ class ContactController extends Controller
         ##FEtching the contact 
         $contact = Job::with(['contact'=>function($query) use ($id){
             return $query->with('socialMedia');
-            }])->findOrFail($slug)
+            }])->where('slug',$slug)
+                ->first()
                 ->contact;
         #Checking if the contact has Social Media if not create or update if it has
             if($contact->socialMedia == null ||$contact->socialMedia->count() < 1 )

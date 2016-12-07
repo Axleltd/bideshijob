@@ -764,25 +764,7 @@ section.all-lists {
 			color: #fff;
 		}
 
-		ul.social {
-			text-align: center;
-			margin-top: 35px;
-
-			li {
-				display: inline-block;
-				a {
-					color: #fff;
-					font-size: 22px;
-					display: block;
-					width: 50px;
-					margin: 0 5px;
-
-					&:hover {
-						color: $primary-color;
-					}
-				}
-			}
-		}
+		
 	}
 
 	p {
@@ -803,6 +785,36 @@ section.all-lists {
 .page-single {
 	padding-bottom: 50px;
 
+	.banner {
+		height: 20vh;
+
+		.wrap {
+			padding-top: 3vh;
+		}
+
+		ul.social {
+			text-align: left;
+			margin-top: -15px;
+			margin-left: 7%;
+
+
+			li {
+				display: inline-block;
+				a {
+					color: #fff;
+					font-size: 22px;
+					display: block;
+					width: 50px;
+					margin: 0 5px;
+
+					&:hover {
+						color: $primary-color;
+					}
+				}
+			}
+		}
+	} 
+
 	.section-title {
 		padding: 15px 0 0;
 
@@ -820,7 +832,28 @@ section.all-lists {
 			min-height: 100%
 		}
 	}
+	.description{
+		width: 80%;
+		margin: 0 auto;
+		p{font-weight: normal;}
+	}
+	.btn-row {
+		height: 90px;
+
+		.btn {
+
+		    margin: 0 auto;
+		    position: absolute;
+		    bottom: 35px;
+		    left: 50%;
+		    transform: translateX(-50%);
+		}
+	}
 	.section-content {
+		p {
+			font-size: 17px;
+			font-weight: bold;
+		}
 		.company-wrap {
 			width: 70%;
 			border: 1px solid #aaa;
