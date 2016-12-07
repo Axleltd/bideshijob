@@ -86,9 +86,8 @@
             <div class="s12 m4 col">
               <h5>Help & support</h5>
               <li><a href="/faq">FAQ</a></li>
-              <li><a href="/faq">FAQ</a></li>
-              <li><a href="/faq">FAQ</a></li>
-              <li><a href="/faq">FAQ</a></li>
+              <li><a href="/faq">Help and support</a></li>
+              <li><a href="/faq">terms and conditions</a></li>
             </div>
             <div class="s12 m4 col">
               <h5>Follow Us</h5>

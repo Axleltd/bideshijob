@@ -1077,22 +1077,27 @@ a.btn:hover {
   color: #7f8ed1;
 }
 
-/* line 888, ../sass/screen.scss */
+/* line 885, ../sass/screen.scss */
+.page-faq .faqs {
+  padding: 100px 0;
+}
+
+/* line 894, ../sass/screen.scss */
 footer.footer {
   background: #7f8ed1;
   color: #fff;
   padding-top: 50px;
   margin-top: 50px;
 }
-/* line 894, ../sass/screen.scss */
+/* line 900, ../sass/screen.scss */
 footer.footer a {
   color: #fff;
 }
-/* line 898, ../sass/screen.scss */
+/* line 904, ../sass/screen.scss */
 footer.footer h5 {
   font-family: "roboto slab", sans-serif;
 }
-/* line 902, ../sass/screen.scss */
+/* line 908, ../sass/screen.scss */
 footer.footer p.cp {
   width: 100%;
   text-align: center;
@@ -1100,41 +1105,41 @@ footer.footer p.cp {
   padding: 5px;
   margin-bottom: 0;
 }
-/* line 910, ../sass/screen.scss */
+/* line 916, ../sass/screen.scss */
 footer.footer .socail {
   display: inline-block;
 }
-/* line 912, ../sass/screen.scss */
+/* line 918, ../sass/screen.scss */
 footer.footer .socail a {
   font-size: 18px;
   padding: 5px;
 }
-/* line 919, ../sass/screen.scss */
+/* line 925, ../sass/screen.scss */
 footer.footer ul.contacts li {
   padding-left: 30px;
   position: relative;
   margin-bottom: 10px;
 }
-/* line 924, ../sass/screen.scss */
+/* line 930, ../sass/screen.scss */
 footer.footer ul.contacts li i {
   position: absolute;
   left: 0;
   top: 28%;
 }
-/* line 930, ../sass/screen.scss */
+/* line 936, ../sass/screen.scss */
 footer.footer ul.contacts li p {
   margin: 0;
 }
-/* line 936, ../sass/screen.scss */
+/* line 942, ../sass/screen.scss */
 footer.footer ul.social {
   margin-top: 50px;
 }
-/* line 938, ../sass/screen.scss */
+/* line 944, ../sass/screen.scss */
 footer.footer ul.social li {
   display: inline-block;
   margin-right: 20px;
 }
-/* line 942, ../sass/screen.scss */
+/* line 948, ../sass/screen.scss */
 footer.footer ul.social li i {
   padding: 5px;
   border: 1px solid #ccc;
@@ -1146,7 +1151,7 @@ footer.footer ul.social li i {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-/* line 949, ../sass/screen.scss */
+/* line 955, ../sass/screen.scss */
 footer.footer ul.social li i:hover {
   background: #fff;
   color: #7f8ed1;
