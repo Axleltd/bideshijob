@@ -19,6 +19,14 @@
 </head>
 <body>
     <div id="app">
+      <div class="loader">
+        <div class="loading">
+          <div class="wrap">
+            <img src="{{asset('images/text-logo.png')}}" class="text" alt="">
+            <img src="{{asset('images/plane.png')}}" class="plane" alt="">
+          </div>
+        </div>
+      </div>
         
         <header class="header">
           <div class="wrap">

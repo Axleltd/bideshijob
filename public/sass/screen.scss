@@ -126,7 +126,7 @@ a.h5 {
 	.center-div {
 		// position: absolute;
 		width: 600px;
-		margin: 25vh auto 0;
+		margin: 35vh auto 0;
 		text-align: center;
 
 		h1 {
@@ -154,10 +154,50 @@ a.h5 {
 
 	}
 }
+.loader {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	z-index: 999999999999;
+	background: #fff;
 
+	.loading {
+		position: absolute;
+		width: 300px;
+		height: 80px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		@include vendor(transition, all 0.5s ease-in);
+
+		.wrap {
+			// position: relative;
+
+			img {
+				width: 200px;
+			}
+
+			img.plane {
+				position: absolute;
+				width: 155px;
+			    right: 15px;
+			    top: -18px;
+			    opacity: 1;
+			    @include vendor(transition, all 0.5s ease-in);
+			}
+			img.plane.fly {
+			    right: -115px;
+			    opacity: 0;
+			}
+			
+		}
+	}
+}
 .login-page {
-	position: relative;
 	min-height: 86vh;
+	header {
+		top: 0;
+	}
 
 	.logo-div {
 		position: absolute;
@@ -172,7 +212,7 @@ a.h5 {
 		left: 0;
 		right: 0;
 		width: 30%;
-		margin: 50px auto 0;
+		margin: 25vh auto 0;
 
 		.card {
 			border: 1px solid #ddd;
@@ -784,7 +824,20 @@ section.all-lists {
 		font-size: 17px;
 	}
 }
+.modal-overlay {
 
+    position: fixed;
+    z-index: 999;
+    top: -100px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 125%;
+    width: 100%;
+    background: #000;
+    display: none;
+    will-change: opacity;
+}
 
 .page-about {
 	padding-bottom: 50px;

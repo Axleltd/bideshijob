@@ -342,6 +342,8 @@ h1, h2, h3, h4, h5, h6 {
     .page-wrap {
         width: 80%;
         float: right;
+        position: absolute;
+        right: 0;
         padding: 0 3%;
         overflow: hidden;
         @include vendor(transition, width 0.5s linear);

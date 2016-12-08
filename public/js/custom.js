@@ -3,6 +3,7 @@ $(window).load(function() {
     wow = new WOW();
     wow.init();
 
+
     // $('.particle-div').particleground({
     //     dotColor: '#fff',
     //     lineColor: 'transparent',
@@ -20,6 +21,13 @@ $(window).load(function() {
     
     $('.modal').modal();
 
+    setTimeout(function(){ 
+        $('.loader').fadeOut('slow');
+    },1000);
+
+    $('.loading img').addClass('fly');
+    var widTH = $('.loading img').css('opacity');
+    console.log(widTH);
     // $('.page-head h1 span').textillate(
     //     { in: {
     //         effect: 'flipInX',
@@ -31,3 +39,6 @@ $(window).load(function() {
 
 
 });
+
+
+

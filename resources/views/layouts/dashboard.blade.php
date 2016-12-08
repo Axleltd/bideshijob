@@ -239,8 +239,7 @@
                   <li><a href="{{url('/profile/training')}}">View my trainings</a></li>
                   @if(Shinobi::isRole('admin'))
                                         
-                    <li><a href="{{url('/dashboard/training')}}">View all trainings</a></l
-                      >                    
+                    <li><a href="{{url('/dashboard/training')}}">View all trainings</a></li>                    
                   @endif                  
                 </ul>
               </li>

@@ -11,9 +11,11 @@
 	<div id="app" class="login-page">
     
     <header class="header">
-      <div class="logo-div">
+      <div class="wrap">
+      	<div class="logo-div">
 			<a href="/" class="center"><img src="{{asset('images/logo.png')}}" alt="" class="brand-logo" style="height:65px"></a>
 		</div>
+      </div>
 	</header>	
 	<div class="">
 		@yield('content')	
