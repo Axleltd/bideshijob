@@ -146,16 +146,28 @@
             </li>
           @endif
         
-          </ul>
-
+          </ul>          
           <div class="right-nav">
             <div class="hover-div">
               <a class='dropdown-button' href='#' data-activates='use' data-beloworigin="true">  
                 <i class="fa fa-user"></i>
               </a>
               <ul id="use" class="dropdown-content user-info">
-                <li class="img"><img src="#" alt=""></li>
-                <li><a href="/profile/user" class="name">{{Auth::user()->name}}</a></li>
+                <li class="img">
+                  @if((Auth::user()->profile) && (Auth::user()->profile->logo))
+                    <img src="{{asset('image/profile/'.Auth::user()->profile->logo)}}" alt="">
+                  @else
+                    <img src="{{asset('image/no-image.png')}}" alt="">
+                  @endif
+                </li>
+                <li><a href="/profile/user" class="name">
+                  @if(Auth::user()->profile)
+                    {{Auth::user()->profile->first_name}}
+                  @else
+                    {{Auth::user()->name}}
+                  @endif
+                </a>
+              </li>
                 @if(isset($profile))
                   <li><a href="{{url('/profile/user/'.$profile->id.'/edit')}}"><i class="fa fa-settings"></i>Settings</a></li>
                   @else

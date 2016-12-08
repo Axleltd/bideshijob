@@ -19,8 +19,8 @@
 			</div>
 		</div>
 		<ul class="bread-crumb">
-			<li><a href="">Dashboard</a></li>/
-			<li><a href="">Profile</a></li>/
+			<li><a href="/profile">Dashboard</a></li>/
+			<li><a href="#">Profile</a></li>/
 		</ul>
 	</div>
 
