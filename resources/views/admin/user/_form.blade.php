@@ -2,7 +2,7 @@
 	<div class="user col s12 m5">
 		<div class="form-group row">
 		    {!! Form::label('logo', 'Logo:', ['class' => 'control-label']) !!}
-		    @if(isset($profile->logo))
+		    @if(!empty($profile->logo))
 		        <div class="col-xs-2 thumb">
 		            <a class="logo" href="#">
 		                <img class="img-responsive" src="{{asset('image/profile/'.$profile->logo)}}"
