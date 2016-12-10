@@ -36,7 +36,7 @@
 
 
                         </div>
-                        <div class="s12 m4 col">
+                       {{--  <div class="s12 m4 col">
                             <div class="company-wrap row">
                                 <div class="img-wrap">
                                     <img src="{{asset('image/'.$training->company->logo)}}" alt="">
@@ -51,7 +51,7 @@
                             </div>
 
 
-                        </div>
+                        </div> --}}
                     </div>
                     <div class="row description">
                         <p>Description: {{$training->description}}</p>
