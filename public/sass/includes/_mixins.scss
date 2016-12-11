@@ -1,4 +1,3 @@
-///////////		RESPONSIVE MIXINS	//////////////
 @mixin mobile {
 	@media screen and (max-width:640px) {
 		@content;
@@ -25,6 +24,27 @@
 		@content;
 	}
 }
+@mixin mobile-portrait {
+	@media screen and (max-device-width : 640px) and (orientation : portrait) {
+		@content;
+	}
+}
+@mixin mobile-landscape {
+	@media screen and (max-device-width : 768px) and (orientation : landscape) {
+		@content;
+	}
+}
+@mixin tab-portrait {
+	@media only screen 	and (max-device-width : 768px) and (orientation : portrait) {
+		@content;
+	}
+}
+@mixin tab-landscape {
+	@media only screen and (max-device-width : 1024px) and (orientation : landscape) {
+		@content;
+	}
+}
+
 
 @mixin vendor($name, $argument) {
   -webkit-#{$name}: #{$argument};
@@ -102,5 +122,14 @@ li {list-style: none;}
 ul.inline {
 	li {
 		display: inline-block;
+	}
+}
+
+@include mobile {
+	h3 {
+		font-size: 26px;
+	}
+	h4 {
+		font-size: 22px;
 	}
 }

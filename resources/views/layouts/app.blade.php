@@ -36,36 +36,41 @@
               <i class="ti-menu"></i>
             </div>
           </div>
-          <ul class="top-nav">
-            @if(Auth::check())
-              @if(Shinobi::isRole('admin'))
-                <li><a href="/dashboard">@lang('site.dashboard')</a></li>
+          <div class="navs">
+            <div class="navs-wrap">
+              
+            <ul class="top-nav">
+              @if(Auth::check())
+                @if(Shinobi::isRole('admin'))
+                  <li><a href="/dashboard">@lang('site.dashboard')</a></li>
+                @else
+                  <li><a href="/profile">@lang('site.dashboard')</a></li>
+                @endif
+                <li><a href="/logout">@lang('site.logout')</a></li>
               @else
-                <li><a href="/profile">@lang('site.dashboard')</a></li>
+                <li><a href="/login">@lang('site.login')</a></li>
+                <li><a href="/register">@lang('site.register')</a></li>
+
               @endif
-              <li><a href="/logout">@lang('site.logout')</a></li>
-            @else
-              <li><a href="/login">@lang('site.login')</a></li>
-              <li><a href="/register">@lang('site.register')</a></li>
+              <li class="lang-wrap">
+                 <ul class="lang">              
+                  <li class="@if(app()->getLocale() == 'en' ) active @endif"><a href="/locale/en"><img src="{{asset('images/en.png')}}" alt=""></a></li>
+                  <li class="@if(app()->getLocale() == 'np' )active @endif"><a href="/locale/np"><img src="{{asset('images/np.png')}}" alt=""></a></li>
+                </ul>
+              </li>
+            </ul>
+            <ul class="nav">
 
-            @endif
-            <li class="lang-wrap">
-               <ul class="lang">              
-                <li class="@if(app()->getLocale() == 'en' ) active @endif"><a href="/locale/en"><img src="{{asset('images/en.png')}}" alt=""></a></li>
-                <li class="@if(app()->getLocale() == 'np' )active @endif"><a href="/locale/np"><img src="{{asset('images/np.png')}}" alt=""></a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="nav">
-
-            <li><a href="/">@lang('site.home')</a></li>            
-            <li class="{{Request::url()==url('/about') ? 'active' : null}}"><a href="/about">@lang('site.about')</a></li>
-            <li class="{{Request::url()==url('/jobs') ? 'active' : null}}"><a href="/jobs">@lang('site.jobs')</a></li>
-            <li class="{{Request::url()==url('/training') ? 'active' : null}}"><a href="/training">@lang('site.training')</a></li>
-            <li class="{{Request::url()==url('/company') ? 'active' : null}}"><a href="/company">@lang('site.agencies')</a></li>
-            <li class="{{Request::url()==url('/faq') ? 'active' : null}}"><a href="/faq">@lang('site.faq')</a></li>
-            <li class="{{Request::url()==url('/contact') ? 'active' : null}}"><a href="/contact">@lang('site.contact')</a></li>
-          </ul>
+              <li><a href="/">@lang('site.home')</a></li>            
+              <li class="{{Request::url()==url('/about') ? 'active' : null}}"><a href="/about">@lang('site.about')</a></li>
+              <li class="{{Request::url()==url('/jobs') ? 'active' : null}}"><a href="/jobs">@lang('site.jobs')</a></li>
+              <li class="{{Request::url()==url('/training') ? 'active' : null}}"><a href="/training">@lang('site.training')</a></li>
+              <li class="{{Request::url()==url('/company') ? 'active' : null}}"><a href="/company">@lang('site.agencies')</a></li>
+              <li class="{{Request::url()==url('/faq') ? 'active' : null}}"><a href="/faq">@lang('site.faq')</a></li>
+              <li class="{{Request::url()==url('/contact') ? 'active' : null}}"><a href="/contact">@lang('site.contact')</a></li>
+            </ul>
+            </div>
+          </div>
           </div>
         </header>
         <div class="page-wrap">

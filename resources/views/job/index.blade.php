@@ -90,12 +90,12 @@
 			                <div class="text-wrap">
 			                  <h5>{{$job->title}}</h5>
 			                  <div class="row">
-			                    <div class="s6 m4 col"><i class="fa fa-globe"></i>{{$job->country}}</div>
-			                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Salary:{{$job->salary}}</div>
-			                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Required Number:{{$job->quantity}}</div>
-			                    <div class="s6 m4 col"><i class="fa fa-globe"></i>{{$job->facilities}}</div>
-			                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Cost:{{$job->cost}}</div>
-			                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Duty Hour:{{$job->duty_hours}}</div>
+			                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>{{$job->country}}</div>
+			                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>Salary:{{$job->salary}}</div>
+			                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>Required Number:{{$job->quantity}}</div>
+			                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>{{$job->facilities}}</div>
+			                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>Cost:{{$job->cost}}</div>
+			                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>Duty Hour:{{$job->duty_hours}}</div>
 			                  </div>
 			                  <div class="row">
 			                    <p class="social">
@@ -104,7 +104,7 @@
 			                  </div>
 			                </div>
 			                <div class="btn-wrap">
-			                  <a class="btn waves-effect" href="#{{$job->id}}">Apply Now</a><br>
+			                  <a class="btn waves-effect" href="#{{$job->id}}">Apply Now</a>
 			                  <a href="{{ url('company/'.$job->company->slug.'/job/'.$job->slug)}}">More info</a>
 			                </div>
 			              </div>

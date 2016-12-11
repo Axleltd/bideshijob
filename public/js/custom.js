@@ -3,6 +3,14 @@ $(window).load(function() {
     wow = new WOW();
     wow.init();
 
+    $('.nav-toggle').on('click', function() {
+        $('div.navs').toggleClass('show');
+    });
+
+    $(window).on('scroll', function(){
+        $('div.navs').removeClass('show');
+    });
+
 
     // $('.particle-div').particleground({
     //     dotColor: '#fff',

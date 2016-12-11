@@ -88,12 +88,12 @@ Homepage
                 <div class="text-wrap">
                   <h5>{{$jo->title}}</h5>
                   <div class="row">
-                    <div class="s6 m4 col"><i class="fa fa-globe"></i>{{$jo->company->contacts->country}}</div>
-                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Salary:{{$jo->salary}}</div>
-                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Required Number:{{$jo->quantity}}</div>
-                    <div class="s6 m4 col"><i class="fa fa-globe"></i>{{$jo->facilities}}</div>
-                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Cost:{{$jo->cost}}</div>
-                    <div class="s6 m4 col"><i class="fa fa-globe"></i>Duty Hour:{{$jo->duty_hours}}</div>
+                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>{{$jo->company->contacts->country}}</div>
+                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>Salary:{{$jo->salary}}</div>
+                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>Required Number:{{$jo->quantity}}</div>
+                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>{{$jo->facilities}}</div>
+                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>Cost:{{$jo->cost}}</div>
+                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>Duty Hour:{{$jo->duty_hours}}</div>
                   </div>
                   <div class="row">
                     <p class="social">
@@ -102,7 +102,7 @@ Homepage
                   </div>
                 </div>
                 <div class="btn-wrap">
-                  <a class="btn waves-effect" href="#{{$jo->id}}">Apply Now</a><br>
+                  <a class="btn waves-effect" href="#{{$jo->id}}">Apply Now</a>
                   <a href="{{ url('company/'.$jo->company->slug.'/job/'.$jo->slug)}}">More info</a>
                 </div>
               </div>

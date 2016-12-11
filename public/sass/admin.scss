@@ -415,6 +415,12 @@ h1, h2, h3, h4, h5, h6 {
             .card {
                 border: 1px solid #ccc;
                 margin-bottom: 30px;
+
+                .card-image {
+                    max-height: 175px;
+                    overflow: hidden;
+                }
+
                 .card-title {
                     padding: 15px;
                     margin-bottom: 15px;

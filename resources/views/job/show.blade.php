@@ -39,7 +39,7 @@
                             <p>Duty Hours: {{$job->duty_hours}}</p>
                             <p>Requirements: {{$job->requirement}}</p>
                             @if($job->featured)
-                                <div class="company-wrap row">
+                                {{-- <div class="company-wrap row">
                                     <div class="img-wrap">
                                         <img src="{{asset('image/'.$job->company->logo)}}" alt="">
                                     </div>
@@ -47,7 +47,7 @@
                                         <h5><a href="#">{{$job->company->name}}</a></h5>
                                         <p>Address: {{$job->company->contacts->address}}</p>
                                         <a href="{{url('/company/'.$job->company->slug)}}" class="right">View more</a>
-                                    </div>  
+                                    </div>  --}} 
                                 </div>
                             @endif
                         </div>

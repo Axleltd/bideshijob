@@ -1,43 +1,54 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700,300);
-/* line 81, ../sass/includes/_mixins.scss */
+/* line 101, ../sass/includes/_mixins.scss */
 div.container, section.container {
   width: 100vw !important;
   max-width: 100vw !important;
   margin: 0;
 }
 
-/* line 86, ../sass/includes/_mixins.scss */
+/* line 106, ../sass/includes/_mixins.scss */
 section.wide {
   width: 100vw !important;
   margin: 25px 0;
 }
 
-/* line 90, ../sass/includes/_mixins.scss */
+/* line 110, ../sass/includes/_mixins.scss */
 .center {
   text-align: center;
 }
 
-/* line 93, ../sass/includes/_mixins.scss */
+/* line 113, ../sass/includes/_mixins.scss */
 .v-container {
   display: table;
 }
 
-/* line 96, ../sass/includes/_mixins.scss */
+/* line 116, ../sass/includes/_mixins.scss */
 .v-container .vac {
   display: table-cell;
   vertical-align: middle;
 }
 
-/* line 101, ../sass/includes/_mixins.scss */
+/* line 121, ../sass/includes/_mixins.scss */
 li {
   list-style: none;
 }
 
-/* line 103, ../sass/includes/_mixins.scss */
+/* line 123, ../sass/includes/_mixins.scss */
 ul.inline li {
   display: inline-block;
 }
 
+@media screen and (max-width: 640px) {
+  /* line 129, ../sass/includes/_mixins.scss */
+  h3 {
+    font-size: 26px;
+  }
+
+  /* line 132, ../sass/includes/_mixins.scss */
+  h4 {
+    font-size: 22px;
+  }
+}
 @-webkit-keyframes uil-ring-anim {
   0% {
     -ms-transform: rotate(0deg);
@@ -597,53 +608,58 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid #ccc;
   margin-bottom: 30px;
 }
-/* line 418, ../sass/admin.scss */
+/* line 419, ../sass/admin.scss */
+.Dashboard .page-wrap .section-content .card .card-image {
+  max-height: 175px;
+  overflow: hidden;
+}
+/* line 424, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-title {
   padding: 15px;
   margin-bottom: 15px;
   display: block;
 }
-/* line 422, ../sass/admin.scss */
+/* line 428, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-title a {
   color: #5a5a5a;
 }
-/* line 425, ../sass/admin.scss */
+/* line 431, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-title a:hover {
   color: #7f8ed1;
 }
-/* line 430, ../sass/admin.scss */
+/* line 436, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card p {
   margin: 0;
   padding: 0 15px;
 }
-/* line 434, ../sass/admin.scss */
+/* line 440, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-action {
   margin-top: 20px;
 }
-/* line 437, ../sass/admin.scss */
+/* line 443, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-action a {
   color: #7f8ed1;
   margin-left: 20px;
 }
-/* line 441, ../sass/admin.scss */
+/* line 447, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-action a:hover {
   color: #44549b !important;
 }
-/* line 447, ../sass/admin.scss */
+/* line 453, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-reveal {
   padding: 0;
   overflow: hidden;
 }
-/* line 451, ../sass/admin.scss */
+/* line 457, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .card-reveal .btn {
   margin: 5px 20px;
 }
-/* line 456, ../sass/admin.scss */
+/* line 462, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .card .material-icons {
   margin-top: 10px;
   cursor: pointer;
 }
-/* line 464, ../sass/admin.scss */
+/* line 470, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form input {
   border: 1px solid #aaa;
   font-size: 18px;
@@ -651,84 +667,84 @@ h1, h2, h3, h4, h5, h6 {
   height: 35px;
   border-radius: 5px;
 }
-/* line 471, ../sass/admin.scss */
+/* line 477, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form textarea {
   font-size: 18px;
   height: 135px;
   border-radius: 5px;
 }
-/* line 476, ../sass/admin.scss */
+/* line 482, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form button {
   float: right;
   background-color: #7f8ed1;
 }
-/* line 480, ../sass/admin.scss */
+/* line 486, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form button:hover {
   background-color: #44549b;
 }
-/* line 484, ../sass/admin.scss */
+/* line 490, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .btn {
   float: left;
   background-color: #7f8ed1;
 }
-/* line 488, ../sass/admin.scss */
+/* line 494, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .btn:hover {
   background-color: #44549b;
 }
-/* line 494, ../sass/admin.scss */
+/* line 500, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .alert {
   color: red;
 }
-/* line 498, ../sass/admin.scss */
+/* line 504, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .controls {
   width: 275px;
   height: 150px;
   overflow: hidden;
   margin-bottom: 15px;
 }
-/* line 504, ../sass/admin.scss */
+/* line 510, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .controls img {
   width: 275px;
   height: 150px;
 }
-/* line 509, ../sass/admin.scss */
+/* line 515, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .logo {
   position: relative;
 }
-/* line 512, ../sass/admin.scss */
+/* line 518, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content form .logo .file-field {
   position: absolute;
   top: 35%;
   left: 20%;
 }
-/* line 521, ../sass/admin.scss */
+/* line 527, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info p, .Dashboard .page-wrap .section-content .user p {
   font-size: 18px;
   font-family: "Open Sans", sans-serif;
   color: #5a5a5a;
 }
-/* line 526, ../sass/admin.scss */
+/* line 532, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info p a, .Dashboard .page-wrap .section-content .user p a {
   color: #8c8c8c !important;
 }
-/* line 529, ../sass/admin.scss */
+/* line 535, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info p a:hover, .Dashboard .page-wrap .section-content .user p a:hover {
   color: #5a5a5a !important;
 }
-/* line 536, ../sass/admin.scss */
+/* line 542, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info a, .Dashboard .page-wrap .section-content .user a {
   font-size: 18px;
   color: #8c8c8c !important;
 }
-/* line 540, ../sass/admin.scss */
+/* line 546, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info a:hover, .Dashboard .page-wrap .section-content .user a:hover {
   color: #5a5a5a !important;
 }
-/* line 547, ../sass/admin.scss */
+/* line 553, ../sass/admin.scss */
 .Dashboard .page-wrap .section-content .info img, .Dashboard .page-wrap .section-content .user img {
   max-width: 250px;
 }
-/* line 556, ../sass/admin.scss */
+/* line 562, ../sass/admin.scss */
 .Dashboard .page-wrap.show {
   width: 100%;
   -webkit-transition: width 0.5s linear;
