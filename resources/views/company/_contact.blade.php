@@ -47,7 +47,10 @@
 		            </ul>
 		        </div>
 		    @endif
-		    <div id="map" style="height:300px !important; width:100%;"></div>
+		    <div id="map" style="height:300px !important; width:100%;">
+		    	{{-- map --}}
+		    	@include('frontend._contactMap')
+		    </div>
 		</div>		
 
 	    <div class="form-group col m6 s12">

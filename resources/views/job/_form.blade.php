@@ -207,11 +207,10 @@
 		</div> 
 		<div class="col s12 m6">
 			{!! Form::label('country','Country :') !!}	
-			{!! Form::textarea('country',old('country')) !!}
+			{!! Form::text('country',old('country')) !!}
 			@if(count($errors->get('country')) > 0)
 			        <div class="error">
 			            <ul>
-
 			                @foreach($errors->get('country') as $error)
 			                    <li>{{ $error  }}</li>
 			                @endforeach
