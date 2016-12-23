@@ -28,7 +28,7 @@ class PostTrainingRequest extends FormRequest
             'categories' => 'required|max:255|min:2',          
             'fees' => 'required|integer',
             'quantity' =>'required|integer',            
-            'training_description' =>'required|max:255|min:10',            
+            'training_description' =>'required',            
             'from' =>'required|date',            
             'to' =>'required|date',  
             'country' =>'required|string',

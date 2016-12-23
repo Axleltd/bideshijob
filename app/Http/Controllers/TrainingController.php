@@ -56,11 +56,12 @@ class TrainingController extends Controller
     public function store(PostTrainingRequest $request,$companyId)
     {    
             $company = $this->company->where('id',$companyId)->first();
+            $description = nl2br(htmlentities($request->training_description, ENT_QUOTES, 'UTF-8'));     
             $logo = $this->fileUpload($request,null);        
             $training = $this->training->create([
             'title' => $request->title,
             'categories'=>$request->categories,
-            'description'=>$request->training_description,
+            'description'=>$description,
             'fees'=>$request->fees,
             'from'=>$request->from,
             'to'=>$request->to,
@@ -105,13 +106,13 @@ class TrainingController extends Controller
         
         $training = $this->training->where(['slug'=>$trainingId,'user_id'=>Auth::user()->id])->first();
         $logoName = $training->image;
-        
+        $description = nl2br(htmlentities($request->training_description, ENT_QUOTES, 'UTF-8'));             
         if($request->image)
             $logoName = $this->fileUpload($request,$logoName);            
         $training_update = $training->update([
             	'title' => $request->title,
 	            'categories'=>$request->categories,
-                'description'=>$request->training_description,
+                'description'=>$description,
 	            'fees'=>$request->fees,
 	            'quantity'=>$request->quantity,
                 'image'=>$logoName,

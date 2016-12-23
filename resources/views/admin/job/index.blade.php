@@ -1,4 +1,7 @@
 @extends('layouts.dashboard')
+@section('title')
+    Job
+@stop
 @section('content')
 		@include('admin._flash')
 
@@ -23,7 +26,7 @@
 						<img src="{{asset('image/job/'.$job->image)}}" alt="">
 					</div>
 					<span class="card-title">
-						<a href="{{url('company/'.$job->company_id.'/job/'.$job->id)}}">{{$job->title}}</a>
+						<a href="{{url('company/'.$job->company->slug.'/job/'.$job->slug)}}">{{$job->title}}</a>
 					</span>
 
 					<div class="row">

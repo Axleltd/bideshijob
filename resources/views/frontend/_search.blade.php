@@ -14,7 +14,7 @@
 </div>
  --}}
 
-<input type="text" class="title" name="title" placeholder="Job / Training">
+<input type="text" class="title" name="title" placeholder="search">
  <input type="text" class="location" name="country" placeholder="country">
  @push('script')
 <script>

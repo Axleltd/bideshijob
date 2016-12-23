@@ -28,7 +28,7 @@ class PutTrainingRequest extends FormRequest
             'categories' => 'required|max:255|min:10',          
             'fees' => 'required|integer',
             'quantity' =>'required', 
-            'training_description' =>'required|max:255|min:10',            
+            'training_description' =>'required',            
             'from' =>'required',            
             'to' =>'required',  
             'country' =>'required|string',

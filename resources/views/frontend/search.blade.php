@@ -17,6 +17,9 @@
       	</div>
 		<div class="section-title">
 	        <h3 class="wow fadeIn">Search Results</h3>
+		        @if(count($job) < 1  && count($training) < 1 )
+							<p>Sorry no result found</p>
+				@endif
 	    </div>
 	<section class="jobs row">	    
 		<div class="section-content">

@@ -24,7 +24,7 @@
         
         <div class="wrap row">
           <div class="section-title">
-            <h3 class="wow fadeIn">All Agencies</h3>
+            <h3 class="wow fadeIn">All Agencies</h3>            
           </div>
           
             <div class="section-content">
@@ -37,7 +37,7 @@
                                        <img src="{{asset('image/'.$com->logo)}}" alt="" width="300" height="300">
                                     </div>
                                     <div class="text-wrap">
-                                        <a class="float-left h5">{{ $com->name }}</a>
+                                        <a href="{{ url('company/'.$com->slug)}}" class="float-left h5">{{ $com->name }}</a>
                                         
                                         <p class="address">
                                             @if($com->contacts)

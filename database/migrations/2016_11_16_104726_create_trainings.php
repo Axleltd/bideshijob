@@ -18,7 +18,7 @@ class CreateTrainings extends Migration
             $table->integer('user_id')->unsigned();       
             $table->string('title');
             $table->string('slug')->unique();
-            $table->text('description');
+            $table->longtext('description');
             $table->string('categories');            
             $table->string('image')->nullable();
             $table->string('country');            

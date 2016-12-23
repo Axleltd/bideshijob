@@ -54,14 +54,15 @@ class CompanyController extends Controller
     }
     public function store(PostCompanyRequest $request)
     {   
-        $status = 0;
+        $status = 0;        
         if(\Caffeinated\Shinobi\Facades\Shinobi::isRole('admin'))
             $status = 1;
         $logo = $this->fileUpload($request,null);        
+        $description = nl2br(htmlentities($request->description, ENT_QUOTES, 'UTF-8'));     
         $company = $this->company->create([
             'user_id'=> Auth::user()->id,
             'name' => $request->name,
-            'description' => $request->description,
+            'description' => $description,
             'status' => $status,
             'logo' => $logo]);
         if($company)
@@ -119,13 +120,13 @@ class CompanyController extends Controller
     {
         $company = $this->company->where('id',$id)->first();
         $logoName = $company->logo;
-        
+        $description = nl2br(htmlentities($request->description, ENT_QUOTES, 'UTF-8'));     
         if($request->logo)
             $logoName = $this->fileUpload($request,$logoName);            
                 
         $company = $company->update([            
             'name' => $request->name,
-            'description'=>$request->description,
+            'description'=>$description,
             'logo' => $logoName
             ]);                                            
         

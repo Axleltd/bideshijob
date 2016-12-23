@@ -25,7 +25,7 @@ class PostCompanyRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255|min:2',
-            'description' => 'required|max:255|min:10',          
+            'description' => 'required',          
             'email' => 'required|email',
             'address' =>'required',  
             'country' =>'required',  

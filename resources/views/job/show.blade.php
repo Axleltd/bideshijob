@@ -54,7 +54,7 @@
                     </div>
                     
                     <div class="row description">
-                        <p>Description: {{$job->description}}</p>
+                        <p>Description: {!!$job->description!!}</p>
 
 
                     </div>

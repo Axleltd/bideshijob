@@ -18,7 +18,7 @@ class CreateCompanies extends Migration
         $table->string('name');
         $table->string('slug')->unique();
         $table->string('logo')->nullable();
-        $table->text('description');     
+        $table->longtext('description');     
         $table->boolean('status')->default(false);     
         $table->boolean('featured')->default(false);
         
