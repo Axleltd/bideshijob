@@ -19,18 +19,18 @@ class CreateJobs extends Migration
         $table->string('title');
         $table->string('categories');
         $table->string('image')->nullable();
-        $table->string('about_job');
-        $table->string('description');        
-        $table->string('facilities');        
+        $table->longtext('about_job')->nullable();
+        $table->longtext('description')->nullable();        
+        $table->longtext('facilities');        
         $table->string('country');        
-        $table->string('duties');        
-        $table->float('salary');
-        $table->float('cost');
-        $table->float('overtime');
+        $table->longtext('duties')->nullable();        
+        $table->string('salary');
+        $table->string('cost')->nullable();
+        $table->string('overtime');
         $table->integer('quantity')->unsigned();
-        $table->integer('duty_hours')->unsigned();
+        $table->integer('duty_hours')->unsigned()->default(0);
         $table->boolean('featured')->unsigned()->default(false);
-        $table->text('requirement');
+        $table->longtext('requirement')->nullable();
         $table->timestamps();                        
         });       
     }

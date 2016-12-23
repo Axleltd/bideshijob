@@ -53,11 +53,12 @@ class SearchController extends Controller
     	$company = 'search';
     	$jobs = Job::where('title','LIKE','%'.$request->title.'%')
 	    ->whereHas('company', function ($query) use ($request) {
-	        $query->where('status',1)
-	        		->whereHas('contacts', function ($query) use ($request) {
-			        $query->where('country', 'like', '%'.$request->country.'%');
-			    });
+	        $query->where('status',1);
+	      //   		->whereHas('contacts', function ($query) use ($request) {
+			    //     $query->where('country', 'like', '%'.$request->country.'%');
+			    // });
 	    })
+	    ->where('country', 'like', '%'.$request->country.'%')
 	    ->orderBy('created_at','DESC')
 	    ->paginate(20);	    	    
 	    if($jobs)

@@ -54,7 +54,7 @@
                         </div> --}}
                     </div>
                     <div class="row description">
-                        <p>Description: {{$training->description}}</p>
+                        <p>Description: {!!$training->description!!}</p>
 
 
                     </div>

@@ -123,7 +123,7 @@
 		</div>     
 		<div class="col s12 m6">
 			{!! Form::label('salary','Salary :') !!}	
-			{!! Form::number('salary',old('salary')) !!}
+			{!! Form::text('salary',old('salary')) !!}
 			@if(count($errors->get('salary')) > 0)
 			        <div class="error">
 			            <ul>
@@ -137,7 +137,7 @@
 		</div>
 		<div class="col s12 m6">
 			{!! Form::label('cost','cost :') !!}	
-			{!! Form::number('cost',old('cost')) !!}
+			{!! Form::text('cost',old('cost')) !!}
 			@if(count($errors->get('cost')) > 0)
 			        <div class="error">
 			            <ul>
@@ -151,7 +151,7 @@
 		</div>
 		<div class="col s12 m6">
 			{!! Form::label('overtime','overtime :') !!}	
-			{!! Form::number('overtime',old('overtime')) !!}
+			{!! Form::text('overtime',old('overtime')) !!}
 			@if(count($errors->get('overtime')) > 0)
 			        <div class="error">
 			            <ul>

@@ -83,25 +83,34 @@ class JobsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(PostJobRequest $request, $companyId)
-    {
-        $logo = $this->fileUpload($request,null);        
+    {       
+        $logo ='';
+        $duty_hours = 0;
+        if($request->duty_hours != '')
+            $duty_hours = $request->duty_hours;
+        $description = nl2br(htmlentities($request->description, ENT_QUOTES, 'UTF-8'));     
+        $about_job = nl2br(htmlentities($request->about_job, ENT_QUOTES, 'UTF-8'));     
+        $duties = nl2br(htmlentities($request->duties, ENT_QUOTES, 'UTF-8'));     
+        $requirement = nl2br(htmlentities($request->requirement, ENT_QUOTES, 'UTF-8'));             
+        if($request->logo)
+            $logo = $this->fileUpload($request,null);            
          $job = $this->company->with('job')->findOrFail($companyId)->job()
             ->create([
                 'title' => $request->title,
-                'description' => $request->description,
+                'description' => $description,
                 'company_id' => $companyId,
                 'user_id' => Auth::user()->id,
                 'categories' => $request->categories,
-                'about_job' => $request->about_job,
+                'about_job' => $about_job,
                 'facilities' => $request->facilities,
-                'duties'  => $request->duties,
+                'duties'  => $duties,
                 'salary'  => $request->salary,
                 'image' =>$logo,
                 'cost' => $request->cost,
                 'overtime'  => $request->overtime,
                 'quantity' => $request->quantity,
-                'duty_hours' => $request->duty_hours,            
-                'requirement' => $request->requirement,
+                'duty_hours' => $duty_hours,            
+                'requirement' => $requirement,
                 'country' => $request->country,
                 ]);
             
@@ -143,7 +152,7 @@ class JobsController extends Controller
     public function edit($companyId,$id)
     {
          $company = $this->company->where('slug',$companyId)->first();
-        if(!$company || $company->user_id !== Auth::user()->id)
+        if(!$company || $company->user_id != Auth::user()->id)
         {
             abort(404);
         }
@@ -163,27 +172,32 @@ class JobsController extends Controller
      */
     public function update(PostJobRequest $request,$companyId, $id)
     {
-        $this->company->findOrFail($companyId);
+        $this->company->findOrFail($companyId);        
         $job= $this->job->findOrFail($id);
-        $logoName = $job->image;        
+        $logoName = $job->image;          
+        $description = nl2br(htmlentities($request->description, ENT_QUOTES, 'UTF-8'));     
+        $about_job = nl2br(htmlentities($request->about_job, ENT_QUOTES, 'UTF-8'));     
+        $duties = nl2br(htmlentities($request->duties, ENT_QUOTES, 'UTF-8'));     
+        $requirement = nl2br(htmlentities($request->requirement, ENT_QUOTES, 'UTF-8'));                     
         if($request->image)
             $logoName = $this->fileUpload($request,$logoName);            
         $update = $job->update([            
              'title' => $request->title,
-            'description' => $request->description,
+            'description' => $description,
             'company_id' => $companyId,
             'user_id' => Auth::user()->id,
             'categories' => $request->categories,
-            'about_job' => $request->about_job,
+            'about_job' => $about_job,
             'facilities' => $request->facilities,
-            'duties'  => $request->duties,
+            'duties'  => $duties,
             'salary'  => $request->salary,
             'cost' => $request->cost,
             'overtime'  => $request->overtime,
             'quantity' => $request->quantity,
             'duty_hours' => $request->duty_hours,            
-            'requirement' => $request->requirement,
+            'requirement' => $requirement,
             'country' => $request->country,
+            'image' => $logoName
             
             ]); 
         if($update)
@@ -227,8 +241,9 @@ class JobsController extends Controller
         $destinationPath = 'image/job'; // upload path
         $fileName = $files->getClientOriginalName();
         $fileExtension = '.'.$files->getClientOriginalExtension();
-        if(!$logoName)        
+        if(!$logoName || $logoName==''){                    
             $logoName = md5($fileName.microtime()).$fileExtension;
+        }
         $files->move($destinationPath, $logoName);    
 
         return $logoName;

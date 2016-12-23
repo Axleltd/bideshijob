@@ -67,6 +67,9 @@
         <div class="section-title">
           
         <h3>Search Results</h3>
+          @if(count($training) < 1)
+            <p>Sorry no result found</p>
+          @endif
         </div>
       @endif
 
@@ -83,7 +86,7 @@
                   <img src="{{asset('image/training/'.$tr->image)}}" alt="">
                 </div>
                 <div class="text-wrap">
-                  <h5>{{$tr->title}}</h5>
+                  <h5><a href="{{ url('company/'.$tr->company->slug.'/training/'.$tr->slug)}}">{{$tr->title}}</a></h5>
                   <p><i class="fa fa-globe"></i>{{$tr->country}}</p>
                   <p><i class="fa fa-time"></i>Duration</p>
                   <p>{{$tr->description}}</p>

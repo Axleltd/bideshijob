@@ -41,7 +41,7 @@
 
                     <div class="row description">
                                     
-                      <p>{{ $company->description }}</p>
+                      <p>{!! $company->description !!}</p>
                     </div>                                    
                     {{-- <ul class="social">
                         @if($company->contacts && $company->contacts->socialMedia)

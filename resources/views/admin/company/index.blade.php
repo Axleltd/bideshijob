@@ -1,4 +1,7 @@
 @extends('layouts.dashboard')
+@section('title')
+    Company
+@stop
 @section('content')
 
 

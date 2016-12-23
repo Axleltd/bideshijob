@@ -22,7 +22,7 @@
 						<img src="{{asset('image/training/'.$training->image)}}" alt="">
 					</div>
 					<span class="card-title">
-						<a href="{{url('company/'.$training->company_id.'/training/'.$training->id)}}">{{$training->title}}</a>
+						<a href="{{url('company/'.$training->company->slug.'/training/'.$training->slug)}}">{{$training->title}}</a>
 					</span>
 
 					<div class="row">

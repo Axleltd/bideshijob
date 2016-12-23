@@ -86,7 +86,7 @@ Homepage
                   <img src="{{asset('image/job/'.$jo->image)}}" alt="">
                 </div>
                 <div class="text-wrap">
-                  <h5>{{$jo->title}}</h5>
+                  <h5><a href="{{ url('company/'.$jo->company->slug.'/job/'.$jo->slug)}}">{{$jo->title}}</a></h5>
                   <div class="row">
                     <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>{{$jo->company->contacts->country}}</div>
                     <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>Salary:{{$jo->salary}}</div>
@@ -151,7 +151,7 @@ Homepage
                   <img src="{{asset('image/training/'.$tr->image)}}" alt="">
                 </div>
                 <div class="text-wrap">
-                  <h5>{{$tr->title}}</h5>
+                  <h5><a href="{{ url('company/'.$tr->company->slug.'/training/'.$tr->slug)}}">{{$tr->title}}</a></h5>
                   @if($tr->company->contacts)
                     <p><i class="fa fa-globe"></i>{{$tr->company->contacts->address}}</p>
                   @endif

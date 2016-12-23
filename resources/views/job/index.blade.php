@@ -68,6 +68,9 @@
 				<div class="section-title">
 					
 				<h3>Search Results</h3>
+					@if(count($jobs) < 1)
+						<p>Sorry no result found</p>
+					@endif
 				</div>
 			@endif
 
@@ -88,7 +91,7 @@
 			                @endif
 			                </div>
 			                <div class="text-wrap">
-			                  <h5>{{$job->title}}</h5>
+			                  <h5><a href="{{ url('company/'.$job->company->slug.'/job/'.$job->slug)}}">{{$job->title}}</a></h5>
 			                  <div class="row">
 			                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>{{$job->country}}</div>
 			                    <div class="s12 m6 l4 col"><i class="fa fa-globe"></i>Salary:{{$job->salary}}</div>
